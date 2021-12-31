@@ -2,19 +2,17 @@
 
 class DRG {
 
-    
-
-private $DiagnosticRelatedGroup = '';
-private $DRGAssignedDateTime = '';
-private $DRGApprovalIndicator = '';
-private $DRGGrouperReviewCode = '';
-private $OutlierType = '';
-private $OutlierDays = '';
-private $OutlierCost = '';
-private $DRGPayor = '';
-private $OutlierReimbursement = '';
-private $ConfidentialIndicator = '';
-private $DRGTransferType = '';
+    private $DiagnosticRelatedGroup = '';
+    private $DRGAssignedDateTime = '';
+    private $DRGApprovalIndicator = '';
+    private $DRGGrouperReviewCode = '';
+    private $OutlierType = '';
+    private $OutlierDays = '';
+    private $OutlierCost = '';
+    private $DRGPayor = '';
+    private $OutlierReimbursement = '';
+    private $ConfidentialIndicator = '';
+    private $DRGTransferType = '';
 
     /**
      * @return string

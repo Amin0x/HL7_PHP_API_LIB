@@ -2,7 +2,6 @@
 
 class TQ1{
 
-
     private $SetID_TQ1 = '';
     private $Quantity = '';
     private $RepeatPattern = '';
