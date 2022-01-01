@@ -1,6 +1,6 @@
 <?php
 
-class MessagePID {
+class PID {
 
 
     private $SetID = '1';

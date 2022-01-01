@@ -1,5 +1,5 @@
 <?php
-class MessageNK1 {
+class NK1 {
     
 private $SetID_NK1 = '';
 private $Name = '';

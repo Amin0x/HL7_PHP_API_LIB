@@ -1,6 +1,6 @@
 <?php
 
-class MessagePD1 {    
+class PD1 {    
 
     private $LivingDependency = '';
     private $LivingArrangement = '';
