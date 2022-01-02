@@ -1,5 +1,7 @@
 <?php
 
+require_once('../config/config.php');
+
 class MSH {
     private $FieldSeparator = '|';
     private $EncodingCharacters  = '^~\&';
@@ -29,20 +31,20 @@ class MSH {
      * @param string $VersionID
      * @param string $CharacterSet
      */
-    public function __construct(string $FieldSeparator, string $EncodingCharacters, string $SendingApplication, string $SendingFacility, string $ReceivingApplication, string $ReceivingFacility, string $DateTimeofMessage, string $MessageType, string $MessageControlID, string $ProcessingID, string $VersionID, string $CharacterSet)
+    public function __construct()
     {
-        $this->FieldSeparator = $FieldSeparator;
-        $this->EncodingCharacters = $EncodingCharacters;
-        $this->SendingApplication = $SendingApplication;
-        $this->SendingFacility = $SendingFacility;
-        $this->ReceivingApplication = $ReceivingApplication;
-        $this->ReceivingFacility = $ReceivingFacility;
-        $this->DateTimeofMessage = $DateTimeofMessage;
-        $this->MessageType = $MessageType;
-        $this->MessageControlID = $MessageControlID;
-        $this->ProcessingID = $ProcessingID;
-        $this->VersionID = $VersionID;
-        $this->CharacterSet = $CharacterSet;
+        $this->FieldSeparator = '|';
+        $this->EncodingCharacters = '^~\&';
+        $this->SendingApplication = $config['source_application'];
+        $this->SendingFacility = $config['SendingFacility'];
+        $this->ReceivingApplication = 'NABIDH';
+        $this->ReceivingFacility = 'DHA';
+        $this->DateTimeofMessage = '';
+        $this->MessageType = '';
+        $this->MessageControlID = '';
+        $this->ProcessingID = '';
+        $this->VersionID = '2.5';
+        $this->CharacterSet = 'UTF-8';
     }
 
 

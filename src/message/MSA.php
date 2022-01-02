@@ -1,6 +1,6 @@
 <?php
 
-class MSAck {
+class MSA {
     
     private $AcknowledgmentCode = '';
     private $MessageControlID = '';

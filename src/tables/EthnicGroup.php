@@ -1,0 +1,56 @@
+<?php
+
+class EthnicGroup {
+    public const Whitepeople = 'WHI';
+    public const AfricanAmericans = 'AFR';
+    public const Jewishpeople = 'JEW';
+    public const Americans = 'AME';
+    public const AlaskaNatives = 'ALA';
+    public const Romanipeople = 'RMP';
+    public const AmericanIndiangroup = 'AMI';
+    public const Irishpeople = 'IRP';
+    public const NativeHawaiians = 'NAT';
+    public const IrishTravellers = 'IRI';
+    public const BritishBangladeshi = 'BRI';
+    public const HanChinese = 'HAN';
+    public const Turkicpeoples = 'TUR';
+    public const Mexicans = 'MEX';
+    public const Asianpeople = 'ASI';
+    public const Uyghurs = 'UYG';
+    public const PuertoRicans = 'PUE';
+    public const Kurds = 'KUR';
+    public const IndigenousPeoplesAmericas = 'IPA';
+    public const Bangladeshi = 'BAN';
+    public const Koreans = 'KOR';
+    public const Berbers = 'BER';
+    public const Pashtun = 'PAS';
+    public const Circassians = 'CIR';
+    public const Pamiris = 'PAM';
+    public const AssyrianPeople = 'ASS';
+    public const Armenians = 'ARM';
+    public const BalochPeople = 'BAL';
+    public const Palestinians = 'PAL';
+    public const Mongols = '';
+    public const IndoAryanPeoples = 'MON';
+    public const Hazaras = 'IND';
+    public const Uzbeks = 'HAZ';
+    public const Albanians = 'UZB';
+    public const Arabs = 'ALB';
+    public const Sindhis = 'ARA';
+    public const HmongPeople = 'SIN';
+    public const Kazakhs = 'HMO';
+    public const DravidianPeoples = 'KAZ';
+    public const TibetanPeople = 'DRA';
+    public const AmisPeople = 'TIB';
+    public const Lezgins = 'AMS';
+    public const Fijians = 'LEZ';
+    public const Tatars = 'FIJ';
+    public const Buryats = 'TAT';
+    public const Yazidis = 'BUR';
+    public const Mestizo = 'YAZ';
+    public const LebanesePeople = 'MES';
+    public const Tajiks = 'LEB';
+    public const YaoPeople = 'YAO';
+    public const Romanians = 'ROM';
+    public const Unknown = 'UNK';
+}
