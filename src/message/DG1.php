@@ -1,30 +1,29 @@
 <?php
+namespace nabidh;
 
 class DG1 {
 
-    
-
-private $SetID_DG1 = '';
-private $DiagnosisCodingMethod = '';
-private $DiagnosisCodeDG1 = '';
-private $DiagnosisDescription = '';
-private $DiagnosisDateTime = '';
-private $DiagnosisType = '';
-private $MajorDiagnosticCategory = '';
-private $DiagnosticRelatedGroup = '';
-private $DRGApprovalIndicator = '';
-private $DRGGrouperReviewCode = '';
-private $OutlierType = '';
-private $OutlierDays = '';
-private $OutlierCost = '';
-private $GrouperVersionAndType = '';
-private $DiagnosisPriority = '';
-private $DiagnosingClinician = '';
-private $DiagnosisClassification = '';
-private $ConfidentialIndicator = '';
-private $AttestationDateTime = '';
-private $DiagnosisIdentifier = '';
-private $DiagnosisActionCode = '';
+    private $SetID_DG1 = '';
+    private $DiagnosisCodingMethod = '';
+    private $DiagnosisCodeDG1 = '';
+    private $DiagnosisDescription = '';
+    private $DiagnosisDateTime = '';
+    private $DiagnosisType = '';
+    private $MajorDiagnosticCategory = '';
+    private $DiagnosticRelatedGroup = '';
+    private $DRGApprovalIndicator = '';
+    private $DRGGrouperReviewCode = '';
+    private $OutlierType = '';
+    private $OutlierDays = '';
+    private $OutlierCost = '';
+    private $GrouperVersionAndType = '';
+    private $DiagnosisPriority = '';
+    private $DiagnosingClinician = '';
+    private $DiagnosisClassification = '';
+    private $ConfidentialIndicator = '';
+    private $AttestationDateTime = '';
+    private $DiagnosisIdentifier = '';
+    private $DiagnosisActionCode = '';
 
     /**
      * @return string

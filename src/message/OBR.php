@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class OBR {
+class OBR implements Segment {
     
 
 private $SetID_OBR = '';

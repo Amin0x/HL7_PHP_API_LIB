@@ -1,7 +1,7 @@
 <?php
 namespace nabidh;
 
-class AbnormalFlags
+class Component
 {
 
 }

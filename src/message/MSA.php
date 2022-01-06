@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class MSA {
+class MSA implements Segment {
     
     private $AcknowledgmentCode = '';
     private $MessageControlID = '';

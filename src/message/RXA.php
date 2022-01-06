@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class RXA {
+class RXA implements Segment {
     
 
     private $QuantityTiming = '';
@@ -9,7 +10,7 @@ class RXA {
     private $GiveAmountMaximum = '';
     private $GiveUnits = '';
     private $GiveDosageForm = '';
-    private $Provider’sAdministrationInstructions = '';
+    private $ProviderAdministrationInstructions = '';
     private $DeliverToInstructions = '';
     private $SubstitutionStatus = '';
     private $DispenseAmount = '';

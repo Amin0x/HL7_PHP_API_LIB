@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class NPU {    
+class NPU implements Segment {
 
     private $BedLocation = '';
     private $BedStatus = '';

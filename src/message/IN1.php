@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class IN1 {
+class IN1 implements Segment {
     
 
 private $SetID_IN1 = '';

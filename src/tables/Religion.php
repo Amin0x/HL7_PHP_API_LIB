@@ -1,4 +1,5 @@
 <?php
+namespace nabidh;
 
 class Religion{
     public const BuddhistMahayana = 'BMA';

@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class SPM {    
+class SPM implements Segment {
 
     private $SetID_SPM = '';
     private $SpecimenID = '';

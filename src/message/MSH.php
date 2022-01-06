@@ -1,47 +1,43 @@
 <?php
 
-require_once('../config/config.php');
+namespace nabidh;
+require_once './../config/config.php';
 
-class MSH {
-    private $FieldSeparator = '|';
-    private $EncodingCharacters  = '^~\&';
-    private $SendingApplication = '';
-    private $SendingFacility = ''; //EMR to send the NABIDH provided code in this field.
-    private $ReceivingApplication = 'NABIDH';
-    private $ReceivingFacility = 'DHA';
-    private $DateTimeofMessage  = '';
-    private $MessageType = '';
-    private $MessageControlID  = ''; //This should be unique id and this will be used to identify duplicate messages.
-    private $ProcessingID  = ''; //‘P’: Production, ‘T’: Testing, ‘D’: Development
-    private $VersionID  = '2.5';
-    private $CharacterSet = '';
+class MSH implements Segment
+{
+    private string $FieldSeparator;  // Field Separator ‘|’
+    private string $EncodingCharacters;
+    private string $SendingApplication; //Source application
+    private string $SendingFacility; //EMR to send the NABIDH provided code in this field.
+    private string $ReceivingApplication;
+    private string $ReceivingFacility;
+    private string $DateTimeOfMessage;
+    private string $MessageType;
+    private string $MessageControlID; //This should be unique id and this will be used to identify duplicate messages.
+    private string $ProcessingID; //‘P’: Production, ‘T’: Testing, ‘D’: Development
+    private string $VersionID;
+    private string $CharacterSet;
 
     /**
      * MSH constructor.
-     * @param string $FieldSeparator
-     * @param string $EncodingCharacters
+     * @param string $MessageType
      * @param string $SendingApplication
      * @param string $SendingFacility
-     * @param string $ReceivingApplication
-     * @param string $ReceivingFacility
-     * @param string $DateTimeofMessage
-     * @param string $MessageType
-     * @param string $MessageControlID
-     * @param string $ProcessingID
-     * @param string $VersionID
-     * @param string $CharacterSet
+     * @param null $DateTimeofMessage
+     * @param null $MessageControlID
+     * @param null $ProcessingID
      */
     public function __construct()
     {
         $this->FieldSeparator = '|';
         $this->EncodingCharacters = '^~\&';
-        $this->SendingApplication = $config['source_application'];
-        $this->SendingFacility = $config['SendingFacility'];
+        $this->SendingApplication = '';
+        $this->SendingFacility = '';
         $this->ReceivingApplication = 'NABIDH';
         $this->ReceivingFacility = 'DHA';
-        $this->DateTimeofMessage = '';
+        $this->DateTimeOfMessage = date('c');
         $this->MessageType = '';
-        $this->MessageControlID = '';
+        $this->MessageControlID = time();
         $this->ProcessingID = '';
         $this->VersionID = '2.5';
         $this->CharacterSet = 'UTF-8';
@@ -198,27 +194,65 @@ class MSH {
         return $this->SendingApplication;
     }
 
-    public function setSendingApplication($sendinApp){
+    /**
+     * Source application name
+     * @param $sendinApp
+     */
+    public function setSendingApplication($sendinApp)
+    {
         $this->SendingApplication = $sendinApp;
     }
 
-    public function getSendingFacility($SendingFacility)
+    /**
+     * @return mixed
+     */
+    public function getSendingFacility()
+    {
+        return $this->SendingFacility;
+    }
+
+    /**
+     * @param mixed $SendingFacility
+     */
+    public function setSendingFacility($SendingFacility): void
     {
         $this->SendingFacility = $SendingFacility;
     }
 
-    public function setSendingFacility()
+    /**
+     * @return string
+     */
+    public function getDateTimeofMessage(): string
     {
-        # code...
+        return $this->DateTimeOfMessage;
     }
 
-    public function getDateTimeofMessage()
+    /**
+     * @param string $DateTimeofMessage
+     */
+    public function setDateTimeofMessage(string $DateTimeofMessage): void
     {
-        # code...
+        $this->DateTimeOfMessage = $DateTimeofMessage;
     }
 
-    public function setDateTimeofMessage()
+    public function toString(): string
     {
-        # code...
+
+        $fields = 'MSH'.'|'
+            .$this->EncodingCharacters . '|'
+            .$this->SendingApplication . '|'
+            .$this->SendingFacility . '|'
+            .$this->ReceivingApplication . '|'
+            .$this->ReceivingFacility . '|'
+            .$this->DateTimeOfMessage . '|'
+            .$this->MessageType . '|'
+            .$this->MessageControlID . '|'
+            .$this->ProcessingID . '|'
+            .$this->VersionID . '|'
+            .$this->CharacterSet . '|'
+            /*.'\r'*/;
+
+        return $fields;
     }
+
 }

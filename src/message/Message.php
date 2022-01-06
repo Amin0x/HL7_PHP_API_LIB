@@ -1,4 +1,5 @@
 <?php
+namespace nabidh;
 
 class Message {
     private $header = null;
@@ -13,11 +14,21 @@ class Message {
         if(!in_array($class, $all))
             return;
 
-        if($class === "MSH"){
+        if($class === "MSH")
+        {
             $this->header = $segment;
             return;
         }
-       
+
+        if (in_array($class, ['PDI', 'EVN', 'MSH']))
+        {
+           foreach ($this->segments as $seg){
+                if($class === strtoupper(get_class($seg))){
+                    return;
+                }
+           }
+        }
+
         $this->segments[] = $segment;
     }
 

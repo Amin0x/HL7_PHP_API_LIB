@@ -1,5 +1,7 @@
 <?php
+namespace nabidh;
 
+use http\Exception\InvalidArgumentException;
 
 class Nabidh {
     
@@ -32,13 +34,38 @@ class Nabidh {
    
     //end ADT 
 
-    //ADT^A01 Base Structure - A01
-    //Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
+
+    /**
+     * ADT^A01 Base Structure - A01
+     *
+     * Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
+     *
+     * @param $patientIdentification  PID
+     * @param null $patientVisit PV1 array
+     * @param null $PR1
+     * @param null $insurance
+     */
     public function AdmitPatientNotification($patientIdentification, $patientVisit = null, $PR1 = null, $insurance = null)
     {
         # code...
     }
     //ADT^A01 Base Structure - A04
+    //Register a patient
+    public function registerPatient(Patient $patient, PatientVisit $patientVisit)
+    {
+        if (empty($patient) || empty($patientVisit)){
+            throw new InvalidArgumentException();
+        }
+
+
+    }
+
+    public function registerPatientQ(RegisterPatientFactory $registerPatientQuery)
+    {
+        if (empty($query)){
+            throw new InvalidArgumentException();
+        }
+    }
     //ADT^A01 Base Structure - A08
     //ADT^A01 Base Structure - A13
     //ADT^A02 Base Structure - A02

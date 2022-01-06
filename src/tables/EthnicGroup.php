@@ -1,4 +1,5 @@
 <?php
+namespace nabidh;
 
 class EthnicGroup {
     public const Whitepeople = 'WHI';

@@ -1,7 +1,7 @@
 <?php
+namespace nabidh;
 
-class OBX {
-    
+class OBX implements Segment {
 
     private $SetID_OBX = '';
     private $ValueType = '';

@@ -1,6 +1,7 @@
-<?php 
+<?php
+namespace nabidh;
 
-class ORC {
+class ORC implements Segment {
     
 
     private $OrderControl = '';

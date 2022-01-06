@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class MRG {
+class MRG implements Segment {
 
 private $PriorPatientIdentifierList = '';
 private $PriorAlternatePatientID = '';

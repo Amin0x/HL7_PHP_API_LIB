@@ -1,5 +1,6 @@
 <?php
+namespace nabidh;
 
-class RXE {
+class RXE implements Segment {
     
 }

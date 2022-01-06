@@ -1,7 +1,7 @@
-<?php 
+<?php
+namespace nabidh;
 
-
-class PR1 {
+class PR1 implements Segment {
 
     
 

@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class NTE {
+class NTE implements Segment {
 
     
 

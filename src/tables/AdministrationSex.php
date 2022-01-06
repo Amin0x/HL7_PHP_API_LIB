@@ -1,4 +1,5 @@
 <?php
+namespace nabidh;
 
 class AdministrationSex {
     public const Ambiguous = 'A';

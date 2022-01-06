@@ -1,5 +1,7 @@
 <?php
-class NK1 {
+namespace nabidh;
+
+class NK1 implements Segment {
     
 private $SetID_NK1 = '';
 private $Name = '';

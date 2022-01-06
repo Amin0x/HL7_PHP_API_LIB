@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class AL1 {
+class AL1 implements Segment {
     
 
     private $SetID_AL1 = '';
@@ -29,20 +30,11 @@ class AL1 {
         $this->IdentificationDate = $IdentificationDate;
     }
 
-    public function __toString()
+    public function toString()
     {
         // TODO: Implement __toString() method.
     }
 
-    public function __serialize(): array
-    {
-        // TODO: Implement __serialize() method.
-    }
-
-    public function __unserialize(array $data): void
-    {
-        // TODO: Implement __unserialize() method.
-    }
 
     /**
      * @return string

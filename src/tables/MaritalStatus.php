@@ -1,5 +1,5 @@
 <?php
-
+namespace nabidh;
 
 class MaritalStatus {
     public const Separated  = 'A';

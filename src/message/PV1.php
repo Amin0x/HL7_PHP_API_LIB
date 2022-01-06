@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class PV1 {
+class PV1 implements Segment {
     
 
     private $SetID_PV1 = '';
@@ -68,17 +69,9 @@ class PV1 {
      * @param string $ReferringDoctor
      * @param string $ConsultingDoctor
      */
-    public function __construct(string $SetID_PV1, string $PatientClass, string $AssignedPatientLocation, string $AdmissionType, string $PreadmitNumber, string $PriorPatientLocation, string $AttendingDoctor, string $ReferringDoctor, string $ConsultingDoctor)
+    public function __construct()
     {
-        $this->SetID_PV1 = $SetID_PV1;
-        $this->PatientClass = $PatientClass;
-        $this->AssignedPatientLocation = $AssignedPatientLocation;
-        $this->AdmissionType = $AdmissionType;
-        $this->PreadmitNumber = $PreadmitNumber;
-        $this->PriorPatientLocation = $PriorPatientLocation;
-        $this->AttendingDoctor = $AttendingDoctor;
-        $this->ReferringDoctor = $ReferringDoctor;
-        $this->ConsultingDoctor = $ConsultingDoctor;
+
     }
 
     /**
@@ -122,6 +115,13 @@ class PV1 {
     }
 
     /**
+     * Only the PointofCare, Room, and Bed fields are
+     * PV1.3.1 PointOfCare is used (optional) but optional
+     * PV1.3.2 Room is used (optional)
+     * PV1.3.3 Bed is used (optional)
+     * PV1.3.4 Facility is used (mandatory) and it should be Sheryan Facility Id 7 digits
+     * PV1.3.9 LocationDescription is used (mandatory) and it should be the exact same name as in Sheryan
+     *
      * @param string $AssignedPatientLocation
      */
     public function setAssignedPatientLocation(string $AssignedPatientLocation): void
@@ -138,6 +138,7 @@ class PV1 {
     }
 
     /**
+     * Allowed values are A, C, E, L, N, R, U, O Please refer to table NAB007.
      * @param string $AdmissionType
      */
     public function setAdmissionType(string $AdmissionType): void
@@ -186,6 +187,7 @@ class PV1 {
     }
 
     /**
+     * For Example, 8 Digits SheryanID^Family/LastName^First/GivenName^MiddleName^^ Dr.^^^SHERYAN
      * @param string $AttendingDoctor
      */
     public function setAttendingDoctor(string $AttendingDoctor): void
@@ -234,6 +236,7 @@ class PV1 {
     }
 
     /**
+     * Please provide the code as per table NAB008.
      * @param string $HospitalService
      */
     public function setHospitalService(string $HospitalService): void
@@ -378,6 +381,9 @@ class PV1 {
     }
 
     /**
+     * Only PV1.19.1 is used, please provide single value id number of the encounter.
+     * The encounter number should not be more than 50 chars.
+     *
      * @param string $VisitNumber
      */
     public function setVisitNumber(string $VisitNumber): void
@@ -778,6 +784,7 @@ class PV1 {
     }
 
     /**
+     * If no value, system will used date/time of message transmission.
      * @param string $AdmitDateTime
      */
     public function setAdmitDateTime(string $AdmitDateTime): void
@@ -911,6 +918,63 @@ class PV1 {
     public function setOtherHealthcareProvider(string $OtherHealthcareProvider): void
     {
         $this->OtherHealthcareProvider = $OtherHealthcareProvider;
+    }
+
+    public function toString()
+    {
+        $out = 'PV1' . '|'
+            .$this->SetID_PV1 . '|'
+            .$this->PatientClass . '|'
+            .$this->AssignedPatientLocation . '|'
+            .$this->AdmissionType . '|'
+            .$this->PreadmitNumber . '|'
+            .$this->PriorPatientLocation . '|'
+            .$this->AttendingDoctor . '|'
+            .$this->ReferringDoctor . '|'
+            .$this->ConsultingDoctor . '|'
+            .$this->HospitalService . '|'
+            .$this->TemporaryLocation . '|'
+            .$this->PreadmitTestIndicator . '|'
+            .$this->ReAdmissionIndicator . '|'
+            .$this->AdmitSource . '|'
+            .$this->AmbulatoryStatus . '|'
+            .$this->VIPIndicator . '|'
+            .$this->AdmittingDoctor . '|'
+            .$this->PatientType . '|'
+            .$this->VisitNumber . '|'
+            .$this->FinancialClass . '|'
+            .$this->ChargePriceIndicator . '|'
+            .$this->CourtesyCode . '|'
+            .$this->CreditRating . '|'
+            .$this->ContractCode . '|'
+            .$this->ContractEffectiveDate . '|'
+            .$this->ContractAmount . '|'
+            .$this->ContractPeriod . '|'
+            .$this->InterestCode . '|'
+            .$this->TransfertoBadDebtCode . '|'
+            .$this->TransfertoBadDebtDate . '|'
+            .$this->BadDebtAgencyCode . '|'
+            .$this->BadDebtTransferAmount . '|'
+            .$this->BadDebtRecoveryAmount . '|'
+            .$this->DeleteAccountIndicator . '|'
+            .$this->DeleteAccountDate . '|'
+            .$this->DischargeDisposition . '|'
+            .$this->DischargedtoLocation . '|'
+            .$this->DietType . '|'
+            .$this->ServicingFacility . '|'
+            .$this->BedStatus . '|'
+            .$this->AccountStatus . '|'
+            .$this->PendingLocation . '|'
+            .$this->PriorTemporaryLocation . '|'
+            .$this->AdmitDateTime . '|'
+            .$this->DischargeDateTime . '|'
+            .$this->CurrentPatientBalance . '|'
+            .$this->TotalCharges . '|'
+            .$this->TotalAdjustments . '|'
+            .$this->TotalPayments . '|'
+            .$this->AlternateVisitID . '|'
+            .$this->VisitIndicator . '|'
+            .$this->OtherHealthcareProvider . '|';
     }
 
 

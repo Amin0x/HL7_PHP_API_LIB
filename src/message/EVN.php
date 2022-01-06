@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class EVN {
+class EVN implements Segment {
 
     private $EventTypeCode = '';
     private $RecordedDateTime = '';
@@ -67,9 +68,12 @@ class EVN {
         $this->EventFacility = $EventFacility;
     }
 
-    public function __toString()
+    public function toString()
     {
-        // TODO: Implement __toString() method.
+        $out = 'EVN' . '|'
+            .$this->EventTypeCode . '|'
+            .$this->RecordedDateTime . '|'
+            .$this->EventFacility . '|';
     }
 
 

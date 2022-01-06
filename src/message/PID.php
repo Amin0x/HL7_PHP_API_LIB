@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class PID {
+class PID implements Segment {
 
 
     private $SetID = '1';
@@ -44,33 +45,10 @@ class PID {
 
     /**
      * MessagePID constructor.
-     * @param string $SetID
-     * @param string $PatientIdentifierList
-     * @param string $AlternatePatientID
-     * @param string $PatientName
-     * @param string $MotherMaidenName
-     * @param string $DateTimeofBirth
-     * @param string $AdministrativeSex
-     * @param string $PatientAlias
-     * @param string $Race
-     * @param string $PatientAddress
-     * @param string $CountyCode
-     * @param string $PhoneNumberHome
      */
-    public function __construct(string $SetID, string $PatientIdentifierList, string $AlternatePatientID, string $PatientName, string $MotherMaidenName, string $DateTimeofBirth, string $AdministrativeSex, string $PatientAlias, string $Race, string $PatientAddress, string $CountyCode, string $PhoneNumberHome)
+    public function __construct()
     {
-        $this->SetID = $SetID;
-        $this->PatientIdentifierList = $PatientIdentifierList;
-        $this->AlternatePatientID = $AlternatePatientID;
-        $this->PatientName = $PatientName;
-        $this->MotherMaidenName = $MotherMaidenName;
-        $this->DateTimeofBirth = $DateTimeofBirth;
-        $this->AdministrativeSex = $AdministrativeSex;
-        $this->PatientAlias = $PatientAlias;
-        $this->Race = $Race;
-        $this->PatientAddress = $PatientAddress;
-        $this->CountyCode = $CountyCode;
-        $this->PhoneNumberHome = $PhoneNumberHome;
+
     }
 
     /**
@@ -98,6 +76,16 @@ class PID {
     }
 
     /**
+     * Refer to Implementation Guidance Section
+     * This field supports multiple repeats. The acceptable Patient Identifiers are:
+     * Primary MRN Number (Source Application Patient Identifier) - This must the first repeat for the field.
+     * Expected Format: Primary_MRN^^^FACILITYCODE^MRN
+     * Secondary MRN Number (used for search purposes)
+     * Expected Format: Secondary_MRN^^^OTHER^SMR Passport Number
+     * Expected Format: Passport_Number^^^GOVERNMENT^PPN GCC Number
+     * Expected Format: GCC_Number^^^LOCAL^GCC
+     * Example: If Patient has MRN = 123456 & Passport Number = 9998888 then PID-3 field
+     * should be shared as: 123456^^^FACILITYCODE^MRN~9998888^^^GOVERNMENT^PPN
      * @param string $PatientIdentifierList
      */
     public function setPatientIdentifierList(string $PatientIdentifierList): void
@@ -130,11 +118,18 @@ class PID {
     }
 
     /**
-     * @param string $PatientName
+     * @param string $firstName
+     * @param string $lastName
+     * @param string $middleName
+     * @param bool $arabic
      */
-    public function setPatientName(string $PatientName): void
+    public function setPatientName(string $firstName, string $lastName, string $middleName, bool $arabic = false): void
     {
-        $this->PatientName = $PatientName;
+        if( !$arabic ){
+            $this->PatientName = "$lastName^$firstName^$middleName^^^^D^^^^^^^Profession";
+        } else {
+            $this->PatientName = "LastName^FirstName^MiddleName^^^^D^^^^^^^Profession~$firstName^$middleName^$lastName^^^^D";
+        }
     }
 
     /**
@@ -148,12 +143,16 @@ class PID {
     /**
      * @param string $MotherMaidenName
      */
-    public function setMotherMaidenName(string $MotherMaidenName): void
+    public function setMotherMaidenName(string $lastName, string $firstName, string $middleName): void
     {
-        $this->MotherMaidenName = $MotherMaidenName;
+        $this->MotherMaidenName = "$lastName^$firstName^$middleName^^^^D";
     }
 
     /**
+     * It should be in format YYYYMMDD,
+     * EMR don’t need to send the time only date should be sent.
+     * In case of Emergency where DOB is not provided at the
+     * time of encounter creation, EMR to send empty DOB field
      * @return string
      */
     public function getDateTimeofBirth(): string
@@ -162,6 +161,10 @@ class PID {
     }
 
     /**
+     * It should be in format YYYYMMDD,
+     * EMR don’t need to send the time only date should be sent.
+     * In case of Emergency where DOB is not provided at the
+     * time of encounter creation, EMR to send empty DOB field
      * @param string $DateTimeofBirth
      */
     public function setDateTimeofBirth(string $DateTimeofBirth): void
@@ -178,6 +181,8 @@ class PID {
     }
 
     /**
+     * Valid values are M, F, or U. Any other value will be rejected.
+     * Please see table NAB001. For example: M
      * @param string $AdministrativeSex
      */
     public function setAdministrativeSex(string $AdministrativeSex): void
@@ -210,6 +215,7 @@ class PID {
     }
 
     /**
+     * This should be in this format 2028-9^Asian^NAB004 Please refer to coding table NAB004.
      * @param string $Race
      */
     public function setRace(string $Race): void
@@ -226,6 +232,14 @@ class PID {
     }
 
     /**
+     * Patient address should be in proper format,      *
+     * PID.11.3 City should not be empty     *
+     * PID.11.4 State should not be empty and should be a valid code from NAB047
+     * PID.11.5 Zip code should have Makani No (if available)
+     * PID.11.6 Country should be valid code from NAB039
+     * PID.11.7 Address Type Code should be valid value from HL7190 table list “BA, BDL, BR, C, F, H, L, M, O, P”.
+     *
+     * If address not captured by the EMR then send default value as  ^^Dubai^Dubai^^784^H
      * @param string $PatientAddress
      */
     public function setPatientAddress(string $PatientAddress): void
@@ -681,9 +695,49 @@ class PID {
         $this->TribalCitizenship = $TribalCitizenship;
     }
 
-    public function __toString()
+    public function toString(): string
     {
-        // TODO: Implement __toString() method.
+        $out = 'PID' . '|'
+        .$this->SetID .'|'
+        .$this->PatientIdentifierList . '|'
+        .$this->AlternatePatientID     . '|'
+        .$this->PatientName . '|'
+        .$this->MotherMaidenName . '|'
+        .$this->DateTimeofBirth . '|'
+        .$this->AdministrativeSex . '|'
+        .$this->PatientAlias . '|'
+        .$this->Race . '|'
+        .$this->PatientAddress . '|'
+        .$this->CountyCode . '|'
+        .$this->PhoneNumberHome . '|'
+        .$this->PhoneNumberBusiness . '|'
+        .$this->PrimaryLanguage . '|'
+        .$this->MaritalStatus . '|'
+        .$this->Religion . '|'
+        .$this->PatientAccountNumber . '|'
+        .$this->SSN_NumberPatient . '|'
+        .$this->DriverLicenseNumberPatient . '|'
+        .$this->MotherIdentifier . '|'
+        .$this->EthnicGroup . '|'
+        .$this->BirthPlace . '|'
+        .$this->MultipleBirthIndicator . '|'
+        .$this->BirthOrder . '|'
+        .$this->Citizenship . '|'
+        .$this->VeteransMilitaryStatus . '|'
+        .$this->Nationality . '|'
+        .$this->PatientDeathDateTime . '|'
+        .$this->PatientDeathIndicator . '|'
+        .$this->IdentityUnknownIndicator . '|'
+        .$this->IdentityReliabilityCode . '|'
+        .$this->LastUpdateDateTime . '|'
+        .$this->LastUpdateFacility . '|'
+        .$this->SpeciesCode . '|'
+        .$this->BreedCode . '|'
+        .$this->Strain . '|'
+        .$this->ProductionClassCode . '|'
+        .$this->TribalCitizenship . '|';
+
+        return $out;
     }
 
 

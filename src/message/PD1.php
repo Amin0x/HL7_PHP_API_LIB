@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class PD1 {    
+class PD1 implements Segment {
 
     private $LivingDependency = '';
     private $LivingArrangement = '';

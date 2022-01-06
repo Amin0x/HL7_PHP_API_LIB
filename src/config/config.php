@@ -1,4 +1,5 @@
 <?php
+namespace nabidh;
 
 $config = [
 

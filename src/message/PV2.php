@@ -1,6 +1,7 @@
 <?php
+namespace nabidh;
 
-class PV2 {    
+class PV2 implements Segment {
 
     private $PriorPendingLocation = '';
     private $AccommodationCode = '';

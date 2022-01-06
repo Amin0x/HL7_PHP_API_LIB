@@ -1,6 +1,6 @@
 <?php
-
-class TQ1{
+namespace nabidh;
+class TQ1 implements Segment {
 
     private $SetID_TQ1 = '';
     private $Quantity = '';
