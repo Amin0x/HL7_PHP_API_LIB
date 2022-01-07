@@ -57,7 +57,37 @@ class Nabidh {
             throw new InvalidArgumentException();
         }
 
+        $msg = new Message();
 
+        $msh = new MSH();
+        $msh->setVersionID('2.5');
+        $msh->setSendingFacility('');
+        $msh->setSendingApplication('');
+        $msg->setHeader($msh);
+
+        $pid = new PID();
+        $pid->setNationality($patient->nationality);
+        $pid->setLastUpdateDateTime(date('r'));
+        $pid->setDateTimeofBirth('');
+        $pid->setPatientName([$patient->first_name, $patient->mid_name, $patient->last_name]);
+        $pid->setPatientIdentifierList("$patient->id^^^FACILITYCODE^MRN");
+        $pid->setAdministrativeSex($patient->administrative_sex);
+        $pid->setPatientAddress([]);
+        $msg->addSegment($pid);
+
+        $evn = new EVN('A04','','');
+        $msg->addSegment($evn);
+
+        $pv1 = new PV1();
+        $pv1->setAdmitDateTime($patientVisit->admit_date_time);
+        $pv1->setVisitNumber('');
+        $pv1->setHospitalService('');
+        $pv1->setPatientClass('');
+        $pv1->setAssignedPatientLocation('');
+        $pv1->setAdmissionType('');
+        $pv1->setAttendingDoctor('');
+
+        $msg->addSegment($pv1);
     }
 
     public function registerPatientQ(RegisterPatientFactory $registerPatientQuery)
@@ -80,7 +110,7 @@ class Nabidh {
     //ADT^A09 Base Structure - A11
     //ADT^A12 Base Structure - A12
     //ADT^A21 Base Structure - A23
-    public function deletePatientRecord(Type $var = null)
+    public function deletePatientRecord($var = null)
     {
         # code...
     }

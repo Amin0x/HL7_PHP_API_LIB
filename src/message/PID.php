@@ -123,12 +123,12 @@ class PID implements Segment {
      * @param string $middleName
      * @param bool $arabic
      */
-    public function setPatientName(string $firstName, string $lastName, string $middleName, bool $arabic = false): void
+    public function setPatientName($name, bool $arabic = false): void
     {
         if( !$arabic ){
-            $this->PatientName = "$lastName^$firstName^$middleName^^^^D^^^^^^^Profession";
+            $this->PatientName = "$name[0]^$name[1]^$name[2]^^^^D^^^^^^^Profession";
         } else {
-            $this->PatientName = "LastName^FirstName^MiddleName^^^^D^^^^^^^Profession~$firstName^$middleName^$lastName^^^^D";
+            $this->PatientName = "LastName^FirstName^MiddleName^^^^D^^^^^^^Profession~$name[0]^$name[1]^$name[2]^^^^D";
         }
     }
 
@@ -240,9 +240,9 @@ class PID implements Segment {
      * PID.11.7 Address Type Code should be valid value from HL7190 table list “BA, BDL, BR, C, F, H, L, M, O, P”.
      *
      * If address not captured by the EMR then send default value as  ^^Dubai^Dubai^^784^H
-     * @param string $PatientAddress
+     * @param array $PatientAddress
      */
-    public function setPatientAddress(string $PatientAddress): void
+    public function setPatientAddress(array $PatientAddress): void
     {
         $this->PatientAddress = $PatientAddress;
     }

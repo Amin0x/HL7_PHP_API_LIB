@@ -11,4 +11,5 @@ class PatientVisit
     public $assigned_patient_location;
     public $visit_number;
     public $hospital_service;
+    public $admit_date_time;
 }

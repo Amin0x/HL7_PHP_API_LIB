@@ -17,14 +17,14 @@ class RegisterPatientFactory
         $this->msh->setMessageType('ADT^A04');
         $this->msh->setMessageControlID(time());
         $this->msh->setDateTimeofMessage(date('YmdH:i:s'));
-        $this->msh->setSendingApplication();
+        $this->msh->setSendingApplication('');
         $this->msh->setSendingFacility('');
-        $this->msh->setProcessingID();
+        $this->msh->setProcessingID('');
 
         $this->evn = new EVN('A04',date('r'),'');
         $this->evn->setEventTypeCode('A04');
         $this->evn->setRecordedDateTime(date('c'));
-        $this->evn->getEventFacility();
+        $this->evn->setEventFacility('');
         $this->pid = new PID();
         $this->pv1 = new PV1();
     }
