@@ -47,6 +47,30 @@ class Nabidh {
         $this->send($msg);
     }
 
+    /**
+     * ADT^A01 Base Structure - A01
+     *
+     * Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
+     *
+     * @param PID $pid
+     * @param EVN $evn
+     * @param PV1 $pv1
+     * @param PD1|null $pd1
+     * @param array  $rol array of ROL
+     * @param array $nk1 array of NK1
+     * @param PV1 $pv2
+     * @param array $db1
+     * @param array $obx
+     * @param array $al1
+     * @param array $dg1
+     * @param array $drg
+     * @param array $procedures array of ADT_PROCEDURES
+     * @param array $gt1 array of GT1
+     * @param array $insurance array of ADT_INSURANCE
+     * @param null $acc
+     * @param null $ub1
+     * @param null $ub2
+     */
     public function AdmitPatientNotificationEx(PID $pid, EVN $evn, PV1 $pv1, PD1 $pd1 = null, $rol = [],
                                                $nk1 = [], $pv2 = null, $db1 = [], $obx = [], $al1 = [], $dg1 = [],
                                                $drg = [], $procedures = [], $gt1 = [], $insurance = [], $acc = null, $ub1 = null, $ub2 = null)
@@ -377,15 +401,27 @@ class Nabidh {
     //VXU^V04 Base Structure – V04
     private function send(Message $msg)
     {
-
+        $str = $msg->toString();
+        $ch = curl_init('https://example.com/ADT');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, []);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $str);
+        curl_setopt($ch, , );
     }
 
-    private function creatMessageHeader()
+    private function creatMessageHeader($type)
     {
         $msh = new MSH();
+        $msh->setMessageType($type);
         $msh->setVersionID('2.5');
         $msh->setSendingFacility('');
         $msh->setSendingApplication('');
+        $msh->setMessageControlID(time());
+        $msh->setProcessingID('');
+        $msh->setReceivingFacility('DHA');
+        $msh->setReceivingApplication('NABIDH');
+        $msh->setEncodingCharacters('^~\&');
+        $msh->setDateTimeofMessage(date('r'));
 
         return $msh;
     }

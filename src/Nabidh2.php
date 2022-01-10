@@ -63,12 +63,12 @@ class Nabidh2
 
     }
 
-    public function addSegment(Segment $segment)
+    public function addSegment(Message $message, Segment $segment)
     {
 
     }
 
-    public function addGroup($message, $group)
+    public function addGroup(Message $message, $group)
     {
 
     }
