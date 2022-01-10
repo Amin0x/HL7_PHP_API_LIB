@@ -2,7 +2,6 @@
 namespace nabidh;
 
 class AL1 implements Segment {
-    
 
     private $SetID_AL1 = '';
     private $AllergenTypeCode = '';
@@ -10,30 +9,6 @@ class AL1 implements Segment {
     private $AllergySeverityCode = '';
     private $AllergyReactionCode = '';
     private $IdentificationDate = '';
-
-    /**
-     * AL1 constructor.
-     * @param string $SetID_AL1
-     * @param string $AllergenTypeCode
-     * @param string $AllergenCodeMnemonicDescription
-     * @param string $AllergySeverityCode
-     * @param string $AllergyReactionCode
-     * @param string $IdentificationDate
-     */
-    public function __construct(string $SetID_AL1, string $AllergenTypeCode, string $AllergenCodeMnemonicDescription, string $AllergySeverityCode, string $AllergyReactionCode, string $IdentificationDate)
-    {
-        $this->SetID_AL1 = $SetID_AL1;
-        $this->AllergenTypeCode = $AllergenTypeCode;
-        $this->AllergenCodeMnemonicDescription = $AllergenCodeMnemonicDescription;
-        $this->AllergySeverityCode = $AllergySeverityCode;
-        $this->AllergyReactionCode = $AllergyReactionCode;
-        $this->IdentificationDate = $IdentificationDate;
-    }
-
-    public function toString()
-    {
-        // TODO: Implement __toString() method.
-    }
 
 
     /**
@@ -132,5 +107,16 @@ class AL1 implements Segment {
         $this->IdentificationDate = $IdentificationDate;
     }
 
+    public function toString(){
+        $fields = 'AL1|'
+        .$this->SetID_AL1 . '|'
+        .$this->AllergenTypeCode . '|'
+        .$this->AllergenCodeMnemonicDescription . '|'
+        .$this->AllergySeverityCode . '|'
+        .$this->AllergyReactionCode . '|'
+        .$this->IdentificationDate . '|';
+
+        return $fields;
+    }
 
 }

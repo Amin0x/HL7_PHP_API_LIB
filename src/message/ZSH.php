@@ -1,6 +1,7 @@
 <?php
 namespace nabidh;
-class ZSH implements Segment {
+class ZSH implements Segment
+{
     
     private $SetID_ZSH = '';
     private $SocialHabit = '';

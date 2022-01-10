@@ -438,9 +438,36 @@ class OBX implements Segment {
         $this->PerformingOrganizationMedicalDirector = $PerformingOrganizationMedicalDirector;
     }
 
-    public function __toString()
+    public function toString()
     {
-        // TODO: Implement __toString() method.
+        $fields = 'OBX|'
+        .$this->SetID_OBX . '|'
+        .$this->ValueType . '|'
+        .$this->ObservationIdentifier . '|'
+        .$this->ObservationSubID . '|'
+        .$this->ObservationValue . '|'
+        .$this->Units . '|'
+        .$this->ReferencesRange . '|'
+        .$this->AbnormalFlags . '|'
+        .$this->Probability . '|'
+        .$this->NatureofAbnormalTest . '|'
+        .$this->ObservationResultStatus . '|'
+        .$this->EffectiveDateofReferenceRangeValues . '|'
+        .$this->UserDefinedAccessChecks . '|'
+        .$this->DateTimeoftheObservation . '|'
+        .$this->ProducerReference . '|'
+        .$this->ResponsibleObserver . '|'
+        .$this->ObservationMethod . '|'
+        .$this->EquipmentInstanceIdentifier . '|'
+        .$this->DateTimeoftheAnalysis . '|'
+        .$this->Reservedforharmonizationwithv2_6a . '|'
+        .$this->Reservedforharmonizationwithv2_6b . '|'
+        .$this->Reservedforharmonizationwithv2_6c . '|'
+        .$this->PerformingOrganizationName . '|'
+        .$this->PerformingOrganizationAddress . '|'
+        .$this->PerformingOrganizationMedicalDirector . '\r';
+
+        return $fields;
     }
 
 

@@ -73,7 +73,7 @@ class EVN implements Segment {
         $out = 'EVN' . '|'
             .$this->EventTypeCode . '|'
             .$this->RecordedDateTime . '|'
-            .$this->EventFacility . '|';
+            .$this->EventFacility . '|\r';
     }
 
 

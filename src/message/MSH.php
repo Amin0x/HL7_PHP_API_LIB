@@ -188,7 +188,9 @@ class MSH implements Segment
         $this->CharacterSet = $CharacterSet;
     }
 
-
+    /**
+     * @return string
+     */
     public function getSendingApplication()
     {
         return $this->SendingApplication;
@@ -237,7 +239,6 @@ class MSH implements Segment
 
     public function toString(): string
     {
-
         $fields = 'MSH'.'|'
             .$this->EncodingCharacters . '|'
             .$this->SendingApplication . '|'

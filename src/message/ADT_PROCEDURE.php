@@ -4,8 +4,9 @@
 namespace nabidh;
 
 
-class ADT_PROCEDURE
+class ADT_PROCEDURE extends Group
 {
+    private static int $index = 0;
     private PR1 $pr1;
     private array $rol;
 
@@ -14,10 +15,11 @@ class ADT_PROCEDURE
      * @param PR1 $pr1
      * @param array $rol
      */
-    public function __construct(PR1 $pr1, array $rol = [])
+    public function __construct(PR1 $pr1)
     {
+        self::$index += 1;
         $this->pr1 = $pr1;
-        $this->rol = $rol;
+        $this->pr1->setSetIDPR1(self::$index);
     }
 
     /**
@@ -34,6 +36,7 @@ class ADT_PROCEDURE
     public function setPr1(PR1 $pr1): void
     {
         $this->pr1 = $pr1;
+        $this->pr1->setSetIDPR1(self::$index);
     }
 
     /**
@@ -47,9 +50,14 @@ class ADT_PROCEDURE
     /**
      * @param array $rol
      */
-    public function setRol(array $rol): void
+    public function addRol($rol): void
     {
-        $this->rol = $rol;
+        $this->rol[] = $rol;
+        $this->rol[count($this->rol) - 1]->setID(self::$index);
+    }
+
+    public function getArray(){
+        return array_merge([$this->pr1], $this->rol);
     }
 
     public function toString(){

@@ -3,7 +3,6 @@ namespace nabidh;
 
 class PID implements Segment {
 
-
     private $SetID = '1';
     private $PatientIdentifierList = '';
     private $AlternatePatientID     = '';
@@ -64,7 +63,7 @@ class PID implements Segment {
      */
     public function setSetID(string $SetID): void
     {
-        $this->SetID = $SetID;
+        $this->SetID = '1';
     }
 
     /**
@@ -735,7 +734,7 @@ class PID implements Segment {
         .$this->BreedCode . '|'
         .$this->Strain . '|'
         .$this->ProductionClassCode . '|'
-        .$this->TribalCitizenship . '|';
+        .$this->TribalCitizenship . '\r';
 
         return $out;
     }

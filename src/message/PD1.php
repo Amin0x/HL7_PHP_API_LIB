@@ -361,9 +361,31 @@ class PD1 implements Segment {
         $this->MilitaryStatus = $MilitaryStatus;
     }
 
-    public function __toString()
+    public function toString()
     {
-        // TODO: Implement __toString() method.
+        $fields = 'PD1|'
+        .$this->LivingDependency . '|'
+        .$this->LivingArrangement . '|'
+        .$this->PatientPrimaryFacility . '|'
+        .$this->PatientPrimaryCareProviderNameIDNo . '|'
+        .$this->StudentIndicator . '|'
+        .$this->Handicap . '|'
+        .$this->LivingWillCode . '|'
+        .$this->OrganDonorCode . '|'
+        .$this->SeparateBill . '|'
+        .$this->DuplicatePatient . '|'
+        .$this->PublicityCode . '|'
+        .$this->ProtectionIndicator . '|'
+        .$this->ProtectionIndicatorEffectiveDate . '|'
+        .$this->PlaceofWorship . '|'
+        .$this->AdvanceDirectiveCodeImmunizationRegistryStatus . '|'
+        .$this->ImmunizationRegistryStatusEffectiveDate . '|'
+        .$this->PublicityCodeEffectiveDate . '|'
+        .$this->MilitaryBranch . '|'
+        .$this->MilitaryRankGrade . '|'
+        .$this->MilitaryStatus . '\r';
+
+        return $fields;
     }
 
 

@@ -3,34 +3,13 @@ namespace nabidh;
 
 class MRG implements Segment {
 
-private $PriorPatientIdentifierList = '';
-private $PriorAlternatePatientID = '';
-private $PriorPatientAccountNumber = '';
-private $PriorPatientID = '';
-private $PriorVisitNumber = '';
-private $PriorAlternateVisitID = '';
-private $PriorPatientName = '';
-
-    /**
-     * MRG constructor.
-     * @param string $PriorPatientIdentifierList
-     * @param string $PriorAlternatePatientID
-     * @param string $PriorPatientAccountNumber
-     * @param string $PriorPatientID
-     * @param string $PriorVisitNumber
-     * @param string $PriorAlternateVisitID
-     * @param string $PriorPatientName
-     */
-    public function __construct(string $PriorPatientIdentifierList, string $PriorAlternatePatientID, string $PriorPatientAccountNumber, string $PriorPatientID, string $PriorVisitNumber, string $PriorAlternateVisitID, string $PriorPatientName)
-    {
-        $this->PriorPatientIdentifierList = $PriorPatientIdentifierList;
-        $this->PriorAlternatePatientID = $PriorAlternatePatientID;
-        $this->PriorPatientAccountNumber = $PriorPatientAccountNumber;
-        $this->PriorPatientID = $PriorPatientID;
-        $this->PriorVisitNumber = $PriorVisitNumber;
-        $this->PriorAlternateVisitID = $PriorAlternateVisitID;
-        $this->PriorPatientName = $PriorPatientName;
-    }
+    private $PriorPatientIdentifierList = '';
+    private $PriorAlternatePatientID = '';
+    private $PriorPatientAccountNumber = '';
+    private $PriorPatientID = '';
+    private $PriorVisitNumber = '';
+    private $PriorAlternateVisitID = '';
+    private $PriorPatientName = '';
 
     /**
      * @return string
@@ -144,9 +123,16 @@ private $PriorPatientName = '';
         $this->PriorPatientName = $PriorPatientName;
     }
 
-    public function __toString()
+    public function toString()
     {
-        // TODO: Implement __toString() method.
+        $fields = 'MRG' . '|'
+        .$this->PriorPatientIdentifierList . '|'
+        .$this->PriorAlternatePatientID . '|'
+        .$this->PriorPatientAccountNumber . '|'
+        .$this->PriorPatientID . '|'
+        .$this->PriorVisitNumber . '|'
+        .$this->PriorAlternateVisitID . '|'
+        .$this->PriorPatientName . '|';
     }
 
 

@@ -191,19 +191,20 @@ class DRG {
         $this->DRGTransferType = $DRGTransferType;
     }
 
-    public function __toString()
+    public function toString()
     {
-        // TODO: Implement __toString() method.
-    }
-
-    public function __serialize(): array
-    {
-        // TODO: Implement __serialize() method.
-    }
-
-    public function __unserialize(array $data): void
-    {
-        // TODO: Implement __unserialize() method.
+        $fields = 'DRG' . '|'
+        .$this->DiagnosticRelatedGroup . '|'
+        .$this->DRGAssignedDateTime . '|'
+        .$this->DRGApprovalIndicator . '|'
+        .$this->DRGGrouperReviewCode . '|'
+        .$this->OutlierType . '|'
+        .$this->OutlierDays . '|'
+        .$this->OutlierCost . '|'
+        .$this->DRGPayor . '|'
+        .$this->OutlierReimbursement . '|'
+        .$this->ConfidentialIndicator . '|'
+        .$this->DRGTransferType . '|';
     }
 
 }

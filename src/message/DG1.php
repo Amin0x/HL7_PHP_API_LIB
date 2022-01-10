@@ -361,19 +361,32 @@ class DG1 {
         $this->DiagnosisActionCode = $DiagnosisActionCode;
     }
 
-    public function __toString()
+    public function toString()
     {
-        // TODO: Implement __toString() method.
-    }
+        $fields = 'DG1' . '|'
+        .$this->SetID_DG1 . '|'
+        .$this->DiagnosisCodingMethod . '|'
+        .$this->DiagnosisCodeDG1 . '|'
+        .$this->DiagnosisDescription . '|'
+        .$this->DiagnosisDateTime . '|'
+        .$this->DiagnosisType . '|'
+        .$this->MajorDiagnosticCategory . '|'
+        .$this->DiagnosticRelatedGroup . '|'
+        .$this->DRGApprovalIndicator . '|'
+        .$this->DRGGrouperReviewCode . '|'
+        .$this->OutlierType . '|'
+        .$this->OutlierDays . '|'
+        .$this->OutlierCost . '|'
+        .$this->GrouperVersionAndType . '|'
+        .$this->DiagnosisPriority . '|'
+        .$this->DiagnosingClinician . '|'
+        .$this->DiagnosisClassification . '|'
+        .$this->ConfidentialIndicator . '|'
+        .$this->AttestationDateTime . '|'
+        .$this->DiagnosisIdentifier . '|'
+        .$this->DiagnosisActionCode . '\r';
 
-    public function __serialize(): array
-    {
-        // TODO: Implement __serialize() method.
-    }
-
-    public function __unserialize(array $data): void
-    {
-        // TODO: Implement __unserialize() method.
+        return $fields;
     }
 
 }

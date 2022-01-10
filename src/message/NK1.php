@@ -3,62 +3,45 @@ namespace nabidh;
 
 class NK1 implements Segment {
     
-private $SetID_NK1 = '';
-private $Name = '';
-private $Relationship = '';
-private $Address = '';
-private $PhoneNumber = '';
-private $BusinessPhoneNumber = '';
-private $ContactRole = '';
-private $StartDate = '';
-private $EndDate = '';
-private $NextofKinAssociatedPartiesJobTitle = '';
-private $NextofKinAssociatedPartiesJobCodeClass = '';
-private $NextofKinAssociatedPartiesEmployeeNumber = '';
-private $OrganizationName_NK1 = '';
-private $MaritalStatus = '';
-private $AdministrativeSex = '';
-private $DateTimeofBirth = '';
-private $LivingDependency = '';
-private $AmbulatoryStatus = '';
-private $Citizenship = '';
-private $PrimaryLanguage = '';
-private $LivingArrangement = '';
-private $PublicityCode = '';
-private $ProtectionIndicator = '';
-private $StudentIndicator = '';
-private $Religion = '';
-private $MotherMaidenName = '';
-private $Nationality = '';
-private $EthnicGroup = '';
-private $ContactReason = '';
-private $ContactPersonName = '';
-private $ContactPersonTelephoneNumber = '';
-private $ContactPersonAddress = '';
-private $NextofKinAssociatedPartyIdentifiers = '';
-private $JobStatus = '';
-private $Race = '';
-private $Handicap = '';
-private $ContactPersonSocialSecurityNumber = '';
-private $NextofKinBirthPlace = '';
-private $VIPIndicator = '';
-
-    /**
-     * MessageNK1 constructor.
-     * @param string $SetID_NK1
-     * @param string $Name
-     * @param string $Relationship
-     * @param string $Address
-     * @param string $PhoneNumber
-     */
-    public function __construct(string $SetID_NK1, string $Name, string $Relationship, string $Address, string $PhoneNumber)
-    {
-        $this->SetID_NK1 = $SetID_NK1;
-        $this->Name = $Name;
-        $this->Relationship = $Relationship;
-        $this->Address = $Address;
-        $this->PhoneNumber = $PhoneNumber;
-    }
+    private $SetID_NK1 = '';
+    private $Name = '';
+    private $Relationship = '';
+    private $Address = '';
+    private $PhoneNumber = '';
+    private $BusinessPhoneNumber = '';
+    private $ContactRole = '';
+    private $StartDate = '';
+    private $EndDate = '';
+    private $NextofKinAssociatedPartiesJobTitle = '';
+    private $NextofKinAssociatedPartiesJobCodeClass = '';
+    private $NextofKinAssociatedPartiesEmployeeNumber = '';
+    private $OrganizationName_NK1 = '';
+    private $MaritalStatus = '';
+    private $AdministrativeSex = '';
+    private $DateTimeofBirth = '';
+    private $LivingDependency = '';
+    private $AmbulatoryStatus = '';
+    private $Citizenship = '';
+    private $PrimaryLanguage = '';
+    private $LivingArrangement = '';
+    private $PublicityCode = '';
+    private $ProtectionIndicator = '';
+    private $StudentIndicator = '';
+    private $Religion = '';
+    private $MotherMaidenName = '';
+    private $Nationality = '';
+    private $EthnicGroup = '';
+    private $ContactReason = '';
+    private $ContactPersonName = '';
+    private $ContactPersonTelephoneNumber = '';
+    private $ContactPersonAddress = '';
+    private $NextofKinAssociatedPartyIdentifiers = '';
+    private $JobStatus = '';
+    private $Race = '';
+    private $Handicap = '';
+    private $ContactPersonSocialSecurityNumber = '';
+    private $NextofKinBirthPlace = '';
+    private $VIPIndicator = '';
 
     /**
      * @return string

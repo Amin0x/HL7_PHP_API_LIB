@@ -4,9 +4,9 @@
 namespace nabidh;
 
 
-class ADT_INSURANCE
+class ADT_INSURANCE extends Group
 {
-    private int $index = 1;
+    private static int $index = 1;
     private  IN1 $in1;
     private array $in2 = [];
     private array $in3 = [];
@@ -25,9 +25,11 @@ class ADT_INSURANCE
         if (isset($in2) && !empty($in2)) {
             $this->in2 = $in2;
         }
+
         if (isset($in3) && !empty($in3)) {
             $this->in3 = $in3;
         }
+
         if (isset($rol) && !empty($rol)) {
             $this->rol = $rol;
         }
@@ -111,6 +113,13 @@ class ADT_INSURANCE
     public function setIndex(int $index): void
     {
         $this->index = $index;
+    }
+
+    /**
+     * @return array|IN1[]
+     */
+    public function getArray(){
+        return array_merge([$this->in1], $this->in2, $this->in3, $this->rol);
     }
 
     public function toString(){

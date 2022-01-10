@@ -2,61 +2,60 @@
 namespace nabidh;
 
 class IN1 implements Segment {
-    
 
-private $SetID_IN1 = '';
-private $HealthPlanID = '';
-private $InsuranceCompanyID = '';
-private $InsuranceCompanyName = '';
-private $InsuranceCompanyAddress = '';
-private $InsuranceCoContactPerson = '';
-private $InsuranceCoPhoneNumber = '';
-private $GroupNumber = '';
-private $GroupName = '';
-private $InsuredGroupEmpID = '';
-private $InsuredGroupEmpName = '';
-private $PlanEffectiveDate = '';
-private $PlanExpirationDate = '';
-private $AuthorizationInformation = '';
-private $PlanType = '';
-private $NameOfInsured = '';
-private $InsuredRelationshipToPatient = '';
-private $InsuredDateOfBirth = '';
-private $InsuredAddress = '';
-private $AssignmentOfBenefits = '';
-private $CoordinationOfBenefits = '';
-private $CoordOfBenPriority = '';
-private $NoticeOfAdmissionFlag = '';
-private $NoticeOfAdmissionDate = '';
-private $ReportOfEligibilityFlag = '';
-private $ReportOfEligibilityDate = '';
-private $ReleaseInformationCode = '';
-private $PreAdmitCert_PAC = '';
-private $VerificationDateTime = '';
-private $VerificationBy = '';
-private $TypeOfAgreementCode = '';
-private $BillingStatus = '';
-private $LifetimeReserveDays = '';
-private $DelayBefore_L_R_Day = '';
-private $CompanyPlanCode = '';
-private $PolicyNumber = '';
-private $PolicyDeductible = '';
-private $PolicyLimitAmount = '';
-private $PolicyLimitDays = '';
-private $RoomRateSemiPrivate = '';
-private $RoomRatePrivate = '';
-private $InsuredEmploymentStatus = '';
-private $InsuredAdministrativeSex = '';
-private $InsuredEmployerAddress = '';
-private $VerificationStatus = '';
-private $PriorInsurancePlanID = '';
-private $CoverageType = '';
-private $Handicap = '';
-private $InsuredIDNumber = '';
-private $SignatureCode = '';
-private $SignatureCodeDate = '';
-private $InsuredBirthPlace = '';
-private $VIPIndicator = '';
+    private $SetID_IN1 = '';
+    private $HealthPlanID = '';
+    private $InsuranceCompanyID = '';
+    private $InsuranceCompanyName = '';
+    private $InsuranceCompanyAddress = '';
+    private $InsuranceCoContactPerson = '';
+    private $InsuranceCoPhoneNumber = '';
+    private $GroupNumber = '';
+    private $GroupName = '';
+    private $InsuredGroupEmpID = '';
+    private $InsuredGroupEmpName = '';
+    private $PlanEffectiveDate = '';
+    private $PlanExpirationDate = '';
+    private $AuthorizationInformation = '';
+    private $PlanType = '';
+    private $NameOfInsured = '';
+    private $InsuredRelationshipToPatient = '';
+    private $InsuredDateOfBirth = '';
+    private $InsuredAddress = '';
+    private $AssignmentOfBenefits = '';
+    private $CoordinationOfBenefits = '';
+    private $CoordOfBenPriority = '';
+    private $NoticeOfAdmissionFlag = '';
+    private $NoticeOfAdmissionDate = '';
+    private $ReportOfEligibilityFlag = '';
+    private $ReportOfEligibilityDate = '';
+    private $ReleaseInformationCode = '';
+    private $PreAdmitCert_PAC = '';
+    private $VerificationDateTime = '';
+    private $VerificationBy = '';
+    private $TypeOfAgreementCode = '';
+    private $BillingStatus = '';
+    private $LifetimeReserveDays = '';
+    private $DelayBefore_L_R_Day = '';
+    private $CompanyPlanCode = '';
+    private $PolicyNumber = '';
+    private $PolicyDeductible = '';
+    private $PolicyLimitAmount = '';
+    private $PolicyLimitDays = '';
+    private $RoomRateSemiPrivate = '';
+    private $RoomRatePrivate = '';
+    private $InsuredEmploymentStatus = '';
+    private $InsuredAdministrativeSex = '';
+    private $InsuredEmployerAddress = '';
+    private $VerificationStatus = '';
+    private $PriorInsurancePlanID = '';
+    private $CoverageType = '';
+    private $Handicap = '';
+    private $InsuredIDNumber = '';
+    private $SignatureCode = '';
+    private $SignatureCodeDate = '';
+    private $InsuredBirthPlace = '';
+    private $VIPIndicator = '';
 
     /**
      * IN1 constructor.
@@ -915,9 +914,64 @@ private $VIPIndicator = '';
         $this->VIPIndicator = $VIPIndicator;
     }
 
-    public function __toString()
+    public function toString()
     {
-        // TODO: Implement __toString() method.
+        $fields = 'IN1'.'|'
+        .$this->SetID_IN1 . '|'
+        .$this->HealthPlanID . '|'
+        .$this->InsuranceCompanyID . '|'
+        .$this->InsuranceCompanyName . '|'
+        .$this->InsuranceCompanyAddress . '|'
+        .$this->InsuranceCoContactPerson . '|'
+        .$this->InsuranceCoPhoneNumber . '|'
+        .$this->GroupNumber . '|'
+        .$this->GroupName . '|'
+        .$this->InsuredGroupEmpID . '|'
+        .$this->InsuredGroupEmpName . '|'
+        .$this->PlanEffectiveDate . '|'
+        .$this->PlanExpirationDate . '|'
+        .$this->AuthorizationInformation . '|'
+        .$this->PlanType . '|'
+        .$this->NameOfInsured . '|'
+        .$this->InsuredRelationshipToPatient . '|'
+        .$this->InsuredDateOfBirth . '|'
+        .$this->InsuredAddress . '|'
+        .$this->AssignmentOfBenefits . '|'
+        .$this->CoordinationOfBenefits . '|'
+        .$this->CoordOfBenPriority . '|'
+        .$this->NoticeOfAdmissionFlag . '|'
+        .$this->NoticeOfAdmissionDate . '|'
+        .$this->ReportOfEligibilityFlag . '|'
+        .$this->ReportOfEligibilityDate . '|'
+        .$this->ReleaseInformationCode . '|'
+        .$this->PreAdmitCert_PAC . '|'
+        .$this->VerificationDateTime . '|'
+        .$this->VerificationBy . '|'
+        .$this->TypeOfAgreementCode . '|'
+        .$this->BillingStatus . '|'
+        .$this->LifetimeReserveDays . '|'
+        .$this->DelayBefore_L_R_Day . '|'
+        .$this->CompanyPlanCode . '|'
+        .$this->PolicyNumber . '|'
+        .$this->PolicyDeductible . '|'
+        .$this->PolicyLimitAmount . '|'
+        .$this->PolicyLimitDays . '|'
+        .$this->RoomRateSemiPrivate . '|'
+        .$this->RoomRatePrivate . '|'
+        .$this->InsuredEmploymentStatus . '|'
+        .$this->InsuredAdministrativeSex . '|'
+        .$this->InsuredEmployerAddress . '|'
+        .$this->VerificationStatus . '|'
+        .$this->PriorInsurancePlanID . '|'
+        .$this->CoverageType . '|'
+        .$this->Handicap . '|'
+        .$this->InsuredIDNumber . '|'
+        .$this->SignatureCode . '|'
+        .$this->SignatureCodeDate . '|'
+        .$this->InsuredBirthPlace . '|'
+        .$this->VIPIndicator . '\r';
+
+        return $fields;
     }
 
 
