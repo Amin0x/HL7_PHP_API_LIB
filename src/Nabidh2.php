@@ -8,12 +8,54 @@ require_once 'config/config.php';
 
 class Nabidh2
 {
+    public function createRegisterPatientMessage()
+    {
+        return $this->createMessage('ADT^A04');
+    }
+
+    public function createPatientVisitMessage()
+    {
+        return $this->createMessage('ADT^A10');
+    }
+
+    public function createCanclePatientVisitMessage()
+    {
+        return $this->createMessage('');
+    }
+
+    public function createPatientTransferMessage()
+    {
+        return $this->createMessage('ADT^A02');
+    }
+
+    public function createChangeOutpatientToInpatientMessage()
+    {
+        return $this->createMessage('ADT^A06');
+    }
+    
+    public function createChangeInpatientToOutpatientMessage()
+    {
+        return $this->createMessage('ADT^A07');
+    }
+
+    public function createMergePatientIdMessage()
+    {
+        return $this->createMessage('ADT^A39');
+    }
+
+    public function createPharmacyTreatmentOrderMessage()
+    {
+        return $this->createMessage('ORM^O01');
+    }
+
+    public function createObservationMessage()
+    {
+        return $this->createMessage('ORU^R01');
+    }
+
     public function createMessage(string $msgType)
     {
-
-        if(empty($msgType) || !in_array($msgType, [
-            'A01', 'A02', 'A03', 'A04'
-            ])){
+        if(empty($msgType)){
             return false;
         }
 
@@ -28,6 +70,13 @@ class Nabidh2
         $message->addSegment($msh);
 
         return $message;
+    }
+
+    public function insertRegisterPatientMessageSegments(Message $message, PID $pid, EVN $evn, PV1 $pv1)
+    {
+        if ($message->getHeader()->getField(9) == 'ADT^A10'){
+
+        }
     }
 
     public function addPatientIdSegment(Message $message, PID $pid)
