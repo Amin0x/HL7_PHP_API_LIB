@@ -32,7 +32,7 @@ class Nabidh2
     {
         return $this->createMessage('ADT^A06');
     }
-    
+
     public function createChangeInpatientToOutpatientMessage()
     {
         return $this->createMessage('ADT^A07');
@@ -74,9 +74,11 @@ class Nabidh2
 
     public function insertRegisterPatientMessageSegments(Message $message, PID $pid, EVN $evn, PV1 $pv1)
     {
-        if ($message->getHeader()->getField(9) == 'ADT^A10'){
-
+        if ($message->getHeader()->getMessageType() != 'ADT^A10'){
+            return false;
         }
+
+        return true;
     }
 
     public function addPatientIdSegment(Message $message, PID $pid)
@@ -89,7 +91,6 @@ class Nabidh2
 
         return true;
     }
-
 
     public function addPatientId(Message $message, Patient $patient)
     {
@@ -106,7 +107,6 @@ class Nabidh2
         return true;
     }
 
-
     public function addEvent(Message $message, EVN $evn)
     {
 
@@ -114,11 +114,28 @@ class Nabidh2
 
     public function addSegment(Message $message, Segment $segment)
     {
+        if (strtoupper(get_class($segment)) == MSH::class){
+            $message->setHeader($segment);
+            return;
+        }
 
+        $message->addSegment($segment);
     }
 
     public function addGroup(Message $message, $group)
     {
+        if (strtoupper(get_class($group)) == ADT_INSURANCE::class){
+            foreach ($group->getArray() as $item) {
+                $message->addSegment($item);
+            }
 
+            return;
+        }
+
+        if (strtoupper(get_class($group)) == ADT_PROCEDURE::class){
+            foreach ($group->getArray() as $item) {
+                $message->addSegment($item);
+            }
+        }
     }
 }
