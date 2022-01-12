@@ -1,5 +1,5 @@
 <?php
-namespace nabidh;
+namespace amin0x\nabidh;
 
 class Patient {
     public $first_name;

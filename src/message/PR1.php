@@ -1,5 +1,5 @@
 <?php
-namespace nabidh;
+namespace amin0x\nabidh;
 
 class PR1 implements Segment {
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace nabidh;
+namespace amin0x\nabidh;
 
 
 class ADT_INSURANCE extends Group

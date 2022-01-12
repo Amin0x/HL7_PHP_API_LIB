@@ -5,7 +5,7 @@ MSH (message header) segment class
 Usage:
 
 ```php
-use nabidh\MSH;$seg = new MSH();
+use amin0x\nabidh\MSH;$seg = new MSH();
 
 $seg->setField(9, "ADT^A24");
 echo $seg->getField(1);

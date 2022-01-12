@@ -1,7 +1,7 @@
 <?php
-namespace nabidh;
+namespace amin0x\nabidh;
 
-$config = [
+return [
 
     'api_key' => '',
     'nabidh_code' => '',
@@ -12,8 +12,8 @@ $config = [
 
     'sending_application' => '',
     'sending_facility' => '',
-    'version_id' => '',
+    'version_id' => '2.5',
     'processing_id' => '',
-    'receiving_application' => '',
-    'receiving_facility' => ''
+    'receiving_application' => 'NABIDH',
+    'receiving_facility' => 'DHA'
 ];

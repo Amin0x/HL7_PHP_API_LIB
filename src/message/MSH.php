@@ -1,7 +1,7 @@
 <?php
 
-namespace nabidh;
-require_once './../config/config.php';
+namespace amin0x\nabidh;
+
 
 class MSH implements Segment
 {

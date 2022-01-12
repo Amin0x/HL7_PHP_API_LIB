@@ -1,5 +1,5 @@
 <?php
-namespace nabidh;
+namespace amin0x\nabidh;
 class TQ1 implements Segment {
 
     private $SetID_TQ1 = '';

@@ -1,9 +1,18 @@
 {
-    "name": "garo/hl7_php_api_lib",
+    "name": "amin0x/hl7_php_api_lib",
     "type": "libarary",
     "autoload": {
         "psr-4": {
-            "Garo\\Nabidh\\": "src/"
+            "amin0x\\nabidh\\": [
+                "src/",
+                "src/config",
+                "src/message",
+                "src/message/fields",
+                "src/message/DataTaype",
+                "src/core",
+                "src/tables"
+            ]
+
         }
     },
     "authors": [

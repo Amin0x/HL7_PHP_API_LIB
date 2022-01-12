@@ -2,9 +2,9 @@
 
 
 
-namespace nabidh;
+namespace amin0x\nabidh;
 
-require_once 'config/config.php';
+
 
 class Nabidh2
 {
@@ -59,6 +59,7 @@ class Nabidh2
             return false;
         }
 
+        $config = include 'config/config.php';
         $message = new Message();
         $msh = new MSH();
         $msh->setSendingApplication($config['sending_application']);
@@ -67,6 +68,7 @@ class Nabidh2
         $msh->setProcessingID($config['processing_id']);
         $msh->setReceivingApplication($config['receiving_application']);
         $msh->setReceivingFacility($config['receiving_facility']);
+        $msh->setMessageType($msgType);
         $message->addSegment($msh);
 
         return $message;
