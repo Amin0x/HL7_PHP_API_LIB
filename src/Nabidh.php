@@ -5,6 +5,7 @@ use http\Exception\InvalidArgumentException;
 
 class Nabidh {
 
+
     /**
      * ADT^A01 Base Structure - A01
      *
@@ -37,14 +38,7 @@ class Nabidh {
         $evn->setRecordedDateTime('');
         $msg->addSegment($evn);
 
-        $pv1 = new PV1();
-        $pv1->setAdmitDateTime($patientVisit->admit_date_time);
-        $pv1->setVisitNumber($patientVisit->visit_number);
-        $pv1->setHospitalService($patientVisit->hospital_service);
-        $pv1->setPatientClass($patientVisit->patient_class);
-        $pv1->setAssignedPatientLocation($patientVisit->assigned_patient_location);
-        $pv1->setAdmissionType($patientVisit->admission_type);
-        $pv1->setAttendingDoctor($patientVisit->attend_doctor);
+        $pv1 = self::createPV1($patientVisit);
 
         $msg->addSegment($pv1);
         $this->send($msg);
@@ -121,30 +115,13 @@ class Nabidh {
 
         $msg->setHeader($this->creatMessageHeader());
 
-        $pid = new PID();
-        $pid->setNationality($patient->nationality);
-        $pid->setLastUpdateDateTime(date('r'));
-        $pid->setDateTimeofBirth('');
-        $pid->setPatientName([$patient->first_name, $patient->mid_name, $patient->last_name]);
-        $pid->setPatientIdentifierList("$patient->id^^^FACILITYCODE^MRN");
-        $pid->setAdministrativeSex($patient->administrative_sex);
-        $pid->setPatientAddress([]);
+        $pid = self::createPID($patient);
         $msg->addSegment($pid);
 
-        $evn = new EVN();
-        $evn->setEventTypeCode('A04');
-        $evn->setRecordedDateTime('');
-        $evn->setEventFacility('');
+        $evn = Nabidh::createEVN('A08', '', '');
         $msg->addSegment($evn);
 
-        $pv1 = new PV1();
-        $pv1->setAdmitDateTime($patientVisit->admit_date_time);
-        $pv1->setVisitNumber($patientVisit->visit_number);
-        $pv1->setHospitalService($patientVisit->hospital_service);
-        $pv1->setPatientClass($patientVisit->patient_class);
-        $pv1->setAssignedPatientLocation($patientVisit->assigned_patient_location);
-        $pv1->setAdmissionType($patientVisit->admission_type);
-        $pv1->setAttendingDoctor($patientVisit->attend_doctor);
+        $pv1 = self::createPV1($patientVisit);
 
         $msg->addSegment($pv1);
         $this->send($msg);
@@ -164,27 +141,13 @@ class Nabidh {
         $msg = new Message();
         $msg->setHeader($this->creatMessageHeader());
 
-        $pid = new PID();
-        $pid->setNationality($patient->nationality);
-        $pid->setLastUpdateDateTime(date('r'));
-        $pid->setDateTimeofBirth('');
-        $pid->setPatientName([$patient->first_name, $patient->mid_name, $patient->last_name]);
-        $pid->setPatientIdentifierList("$patient->id^^^FACILITYCODE^MRN");
-        $pid->setAdministrativeSex($patient->administrative_sex);
-        $pid->setPatientAddress([]);
+        $pid = self::createPID($patient);
         $msg->addSegment($pid);
 
-        $evn = new EVN('A04','','');
+        $evn = Nabidh::createEVN('A08', '', '');
         $msg->addSegment($evn);
 
-        $pv1 = new PV1();
-        $pv1->setAdmitDateTime($patientVisit->admit_date_time);
-        $pv1->setVisitNumber($patientVisit->visit_number);
-        $pv1->setHospitalService($patientVisit->hospital_service);
-        $pv1->setPatientClass($patientVisit->patient_class);
-        $pv1->setAssignedPatientLocation($patientVisit->assigned_patient_location);
-        $pv1->setAdmissionType($patientVisit->admission_type);
-        $pv1->setAttendingDoctor($patientVisit->attend_doctor);
+        $pv1 = self::createPV1($patientVisit);
 
         $msg->addSegment($pv1);
         $this->send($msg);
@@ -202,27 +165,13 @@ class Nabidh {
 
         $msg->setHeader($this->creatMessageHeader());
 
-        $pid = new PID();
-        $pid->setNationality($patient->nationality);
-        $pid->setLastUpdateDateTime(date('r'));
-        $pid->setDateTimeofBirth('');
-        $pid->setPatientName([$patient->first_name, $patient->mid_name, $patient->last_name]);
-        $pid->setPatientIdentifierList("$patient->id^^^FACILITYCODE^MRN");
-        $pid->setAdministrativeSex($patient->administrative_sex);
-        $pid->setPatientAddress([]);
+        $pid = self::createPID($patient);
         $msg->addSegment($pid);
 
-        $evn = new EVN('A04','','');
+        $evn = Nabidh::createEVN('A08', '', '');
         $msg->addSegment($evn);
 
-        $pv1 = new PV1();
-        $pv1->setAdmitDateTime($patientVisit->admit_date_time);
-        $pv1->setVisitNumber($patientVisit->visit_number);
-        $pv1->setHospitalService($patientVisit->hospital_service);
-        $pv1->setPatientClass($patientVisit->patient_class);
-        $pv1->setAssignedPatientLocation($patientVisit->assigned_patient_location);
-        $pv1->setAdmissionType($patientVisit->admission_type);
-        $pv1->setAttendingDoctor($patientVisit->attend_doctor);
+        $pv1 = self::createPV1($patientVisit);
 
         $msg->addSegment($pv1);
         $this->send($msg);
@@ -239,27 +188,13 @@ class Nabidh {
         $msg = new Message();
         $msg->setHeader($this->creatMessageHeader());
 
-        $pid = new PID();
-        $pid->setNationality($patient->nationality);
-        $pid->setLastUpdateDateTime(date('r'));
-        $pid->setDateTimeofBirth('');
-        $pid->setPatientName([$patient->first_name, $patient->mid_name, $patient->last_name]);
-        $pid->setPatientIdentifierList("$patient->id^^^FACILITYCODE^MRN");
-        $pid->setAdministrativeSex($patient->administrative_sex);
-        $pid->setPatientAddress([]);
+        $pid = self::createPID($patient);
         $msg->addSegment($pid);
 
         $evn = new EVN('A04','','');
         $msg->addSegment($evn);
 
-        $pv1 = new PV1();
-        $pv1->setAdmitDateTime($patientVisit->admit_date_time);
-        $pv1->setVisitNumber($patientVisit->visit_number);
-        $pv1->setHospitalService($patientVisit->hospital_service);
-        $pv1->setPatientClass($patientVisit->patient_class);
-        $pv1->setAssignedPatientLocation($patientVisit->assigned_patient_location);
-        $pv1->setAdmissionType($patientVisit->admission_type);
-        $pv1->setAttendingDoctor($patientVisit->attend_doctor);
+        $pv1 = self::createPV1($patientVisit);
 
         $msg->addSegment($pv1);
         $this->send($msg);
@@ -276,27 +211,13 @@ class Nabidh {
         $msg = new Message();
         $msg->setHeader($this->creatMessageHeader());
 
-        $pid = new PID();
-        $pid->setNationality($patient->nationality);
-        $pid->setLastUpdateDateTime(date('r'));
-        $pid->setDateTimeofBirth('');
-        $pid->setPatientName([$patient->first_name, $patient->mid_name, $patient->last_name]);
-        $pid->setPatientIdentifierList("$patient->id^^^FACILITYCODE^MRN");
-        $pid->setAdministrativeSex($patient->administrative_sex);
-        $pid->setPatientAddress([]);
+        $pid = self::createPID($patient);
         $msg->addSegment($pid);
 
         $evn = new EVN('A04','','');
         $msg->addSegment($evn);
 
-        $pv1 = new PV1();
-        $pv1->setAdmitDateTime($patientVisit->admit_date_time);
-        $pv1->setVisitNumber($patientVisit->visit_number);
-        $pv1->setHospitalService($patientVisit->hospital_service);
-        $pv1->setPatientClass($patientVisit->patient_class);
-        $pv1->setAssignedPatientLocation($patientVisit->assigned_patient_location);
-        $pv1->setAdmissionType($patientVisit->admission_type);
-        $pv1->setAttendingDoctor($patientVisit->attend_doctor);
+        $pv1 = self::createPV1($patientVisit);
 
         $msg->addSegment($pv1);
         $this->send($msg);
@@ -443,5 +364,54 @@ class Nabidh {
         }
 
         $message->addSegment($segment);
+    }
+
+    /**
+     * @param string $type
+     * @param string $p2
+     * @param string $p3
+     * @return EVN
+     */
+    private static function createEVN(string $type, string $p2, string $p3): EVN
+    {
+        $evn = new EVN();
+        $evn->setEventTypeCode('A04');
+        $evn->setRecordedDateTime('');
+        $evn->setEventFacility('');
+        return $evn;
+    }
+
+    /**
+     * @param $patient
+     * @return PID
+     */
+    private static function createPID($patient): PID
+    {
+        $pid = new PID();
+        $pid->setNationality($patient->nationality);
+        $pid->setLastUpdateDateTime(date('r'));
+        $pid->setDateTimeofBirth('');
+        $pid->setPatientName([$patient->first_name, $patient->mid_name, $patient->last_name]);
+        $pid->setPatientIdentifierList("$patient->id^^^FACILITYCODE^MRN");
+        $pid->setAdministrativeSex($patient->administrative_sex);
+        $pid->setPatientAddress([]);
+        return $pid;
+    }
+
+    /**
+     * @param $patientVisit
+     * @return PV1
+     */
+    private static function createPV1($patientVisit): PV1
+    {
+        $pv1 = new PV1();
+        $pv1->setAdmitDateTime($patientVisit->admit_date_time);
+        $pv1->setVisitNumber($patientVisit->visit_number);
+        $pv1->setHospitalService($patientVisit->hospital_service);
+        $pv1->setPatientClass($patientVisit->patient_class);
+        $pv1->setAssignedPatientLocation($patientVisit->assigned_patient_location);
+        $pv1->setAdmissionType($patientVisit->admission_type);
+        $pv1->setAttendingDoctor($patientVisit->attend_doctor);
+        return $pv1;
     }
 }
