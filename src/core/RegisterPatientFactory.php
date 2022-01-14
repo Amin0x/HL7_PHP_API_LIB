@@ -3,15 +3,26 @@ namespace amin0x\nabidh;
 
 class RegisterPatientFactory
 {
-    private MSH $msh;
-    private PID $pid;
-    private EVN $evn;
-    private PV1 $pv1;
+    private $msh;
+    private $evn;
+    private $pid;
+    private $pd1;
+    private $nk1 = [];
+    private $pv1;
+    private $pv2;
+    private $obx = [];
+    private $al1 = [];
+    private $dg1 = [];
+    private $drg;
+    private $pr1 = []; //
+    private $gt1 = [];
+    private $in1 = [];
+
 
     /**
      * RegisterPatientQuery constructor.
      */
-    public function __construct()
+    public function __construct($pid = null, $pv1 = null)
     {
         $this->msh = new MSH();
         $this->msh->setMessageType('ADT^A04');
@@ -21,14 +32,29 @@ class RegisterPatientFactory
         $this->msh->setSendingFacility('');
         $this->msh->setProcessingID('');
 
-        $this->evn = new EVN('A04',date('r'),'');
+        $this->evn = new EVN();
         $this->evn->setEventTypeCode('A04');
         $this->evn->setRecordedDateTime(date('c'));
         $this->evn->setEventFacility('');
-        $this->pid = new PID();
-        $this->pv1 = new PV1();
+        $this->pid = $pid;
+        $this->pv1 = $pv1;
     }
 
+
+    public function setEvent(EVN $evn)
+    {
+        $this->evn = $evn;
+    }
+
+    public function setPatientId(PID $pid)
+    {
+        $this->pid = $pid;
+    }
+
+    public function setPatientVisit(PV1 $pv1)
+    {
+        $this->pv1 = $pv1;
+    }
 
     public function addPatientName($firtName, $midName, $lastName) {
         if(!isset($firtName) || empty($firtName))

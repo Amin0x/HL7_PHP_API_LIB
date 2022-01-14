@@ -239,19 +239,25 @@ class MSH implements Segment
 
     public function toString(): string
     {
-        $fields = 'MSH'.'|'
-            .$this->EncodingCharacters . '|'
-            .$this->SendingApplication . '|'
-            .$this->SendingFacility . '|'
-            .$this->ReceivingApplication . '|'
-            .$this->ReceivingFacility . '|'
-            .$this->DateTimeOfMessage . '|'
-            .$this->MessageType . '|'
-            .$this->MessageControlID . '|'
-            .$this->ProcessingID . '|'
-            .$this->VersionID . '|'
-            .$this->CharacterSet . '|'
-            /*.'\r'*/;
+        $fields = 'MSH'.'|' //1
+            .$this->EncodingCharacters . '|'    //2
+            .$this->SendingApplication . '|'    //3
+            .$this->SendingFacility . '|'   //4
+            .$this->ReceivingApplication . '|'  //5
+            .$this->ReceivingFacility . '|' //6
+            .$this->DateTimeOfMessage . '|'  //7
+            .'|'   //8
+            .$this->MessageType . '|'   //9
+            .$this->MessageControlID . '|'  //10
+            .$this->ProcessingID . '|'  //11
+            .$this->VersionID . '|' //12
+            .'|'    //13
+            .'|'    //14
+            .'|'    //15
+            .'|'    //16
+            .'|'    //17
+            .$this->CharacterSet . '|'  //18
+            .'\r';
 
         return $fields;
     }

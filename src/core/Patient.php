@@ -13,4 +13,9 @@ class Patient {
     public $administrative_sex;
     public $address;
     public $phone;
+    public $dateOfBirth;
+    public $city;
+    public $state;
+    public $zip;
+    public $country;
 }

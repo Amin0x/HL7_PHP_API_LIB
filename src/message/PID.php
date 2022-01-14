@@ -5,15 +5,15 @@ class PID implements Segment {
 
     private $SetID = '1';
     private $PatientIdentifierList = '';
-    private $AlternatePatientID     = '';
+    //private $AlternatePatientID     = '';
     private $PatientName = '';
     private $MotherMaidenName = '';
     private $DateTimeofBirth = '';
     private $AdministrativeSex = '';
     private $PatientAlias = '';
     private $Race = '';
-    private $PatientAddress = '';
-    private $CountyCode = '';
+    private $PatientAddress = '^^Dubai^Dubai^^784^H'; //default value
+    //private $CountyCode = '';
     private $PhoneNumberHome = '';
     private $PhoneNumberBusiness = '';
     private $PrimaryLanguage = '';
@@ -21,26 +21,26 @@ class PID implements Segment {
     private $Religion = '';
     private $PatientAccountNumber = '';
     private $SSN_NumberPatient = '';
-    private $DriverLicenseNumberPatient = '';
+    //private $DriverLicenseNumberPatient = '';
     private $MotherIdentifier = '';
     private $EthnicGroup = '';
     private $BirthPlace = '';
     private $MultipleBirthIndicator = '';
     private $BirthOrder = '';
     private $Citizenship = '';
-    private $VeteransMilitaryStatus = '';
+    //private $VeteransMilitaryStatus = '';
     private $Nationality = '';
     private $PatientDeathDateTime = '';
     private $PatientDeathIndicator = '';
     private $IdentityUnknownIndicator = '';
-    private $IdentityReliabilityCode = '';
+    //private $IdentityReliabilityCode = '';
     private $LastUpdateDateTime = '';
     private $LastUpdateFacility = '';
-    private $SpeciesCode = '';
-    private $BreedCode = '';
-    private $Strain = '';
-    private $ProductionClassCode = '';
-    private $TribalCitizenship = '';
+    //private $SpeciesCode = '';
+    //private $BreedCode = '';
+    //private $Strain = '';
+    //private $ProductionClassCode = '';
+    //private $TribalCitizenship = '';
 
     /**
      * MessagePID constructor.
@@ -87,26 +87,16 @@ class PID implements Segment {
      * should be shared as: 123456^^^FACILITYCODE^MRN~9998888^^^GOVERNMENT^PPN
      * @param string $PatientIdentifierList
      */
-    public function setPatientIdentifierList(string $PatientIdentifierList): void
+    public function setPatientIdentifierList(string $facilityId, string $passportId = ''): void
     {
-        $this->PatientIdentifierList = $PatientIdentifierList;
+        if (!empty($facilityId)){
+            $this->PatientIdentifierList = $facilityId.'^^^FACILITYCODE^MRN';
+            if (!empty($passportId)){
+                $this->PatientIdentifierList .= "~".$passportId."^^^GOVERNMENT^PPN";
+            }
+        }
     }
 
-    /**
-     * @return string
-     */
-    public function getAlternatePatientID(): string
-    {
-        return $this->AlternatePatientID;
-    }
-
-    /**
-     * @param string $AlternatePatientID
-     */
-    public function setAlternatePatientID(string $AlternatePatientID): void
-    {
-        $this->AlternatePatientID = $AlternatePatientID;
-    }
 
     /**
      * @return string
@@ -122,12 +112,12 @@ class PID implements Segment {
      * @param string $middleName
      * @param bool $arabic
      */
-    public function setPatientName($name, bool $arabic = false): void
+    public function setPatientName(string $firstName, string $middleName, string $lastName, bool $arabic = false): void
     {
         if( !$arabic ){
-            $this->PatientName = "$name[0]^$name[1]^$name[2]^^^^D^^^^^^^Profession";
+            $this->PatientName = "$lastName^$firstName^$middleName^^^^D";
         } else {
-            $this->PatientName = "LastName^FirstName^MiddleName^^^^D^^^^^^^Profession~$name[0]^$name[1]^$name[2]^^^^D";
+            $this->PatientName = "LastName^FirstName^MiddleName^^^^D^^^^^^^Profession~$lastName^$firstName^$middleName^^^^D";
         }
     }
 
@@ -186,7 +176,11 @@ class PID implements Segment {
      */
     public function setAdministrativeSex(string $AdministrativeSex): void
     {
-        $this->AdministrativeSex = $AdministrativeSex;
+        if(!empty($AdministrativeSex) && in_array( $AdministrativeSex, ['F', 'M', 'U'])){
+            $this->AdministrativeSex = $AdministrativeSex;
+            return;
+        }
+        $this->AdministrativeSex = 'U';
     }
 
     /**
@@ -239,28 +233,21 @@ class PID implements Segment {
      * PID.11.7 Address Type Code should be valid value from HL7190 table list “BA, BDL, BR, C, F, H, L, M, O, P”.
      *
      * If address not captured by the EMR then send default value as  ^^Dubai^Dubai^^784^H
-     * @param array $PatientAddress
+     * @param $city
+     * @param $state
+     * @param $zip
+     * @param $country
+     * @param string $addressType
      */
-    public function setPatientAddress(array $PatientAddress): void
+    public function setPatientAddress($city, $state, $zip, $country, $addressType = 'BA'): void
     {
-        $this->PatientAddress = $PatientAddress;
+        if (!empty($city) && !empty($state) && !empty($country) && !empty($zip)){
+            $this->PatientAddress = "^^$city^$state^^$zip^H";
+            return;
+        }
+        $this->PatientAddress = "^^Dubai^Dubai^^784^H";
     }
 
-    /**
-     * @return string
-     */
-    public function getCountyCode(): string
-    {
-        return $this->CountyCode;
-    }
-
-    /**
-     * @param string $CountyCode
-     */
-    public function setCountyCode(string $CountyCode): void
-    {
-        $this->CountyCode = $CountyCode;
-    }
 
     /**
      * @return string
@@ -271,11 +258,19 @@ class PID implements Segment {
     }
 
     /**
-     * @param string $PhoneNumberHome
+     * @param string $phone
+     * @param string $email
      */
-    public function setPhoneNumberHome(string $PhoneNumberHome): void
+    public function setPhoneNumberHome(string $phone, string $email = ''): void
     {
-        $this->PhoneNumberHome = $PhoneNumberHome;
+        if (!empty($phone)){
+            $this->PhoneNumberHome = $phone.'^PRN^CP';
+            if (!empty($email)){
+                $this->PhoneNumberHome .= '~';
+                $this->PhoneNumberHome .= '^NET^Internet^'.$email;
+            }
+        }
+
     }
 
     /**
@@ -291,7 +286,7 @@ class PID implements Segment {
      */
     public function setPhoneNumberBusiness(string $PhoneNumberBusiness): void
     {
-        $this->PhoneNumberBusiness = $PhoneNumberBusiness;
+        $this->PhoneNumberBusiness = "$PhoneNumberBusiness^WPN^PH";
     }
 
     /**
@@ -374,21 +369,6 @@ class PID implements Segment {
         $this->SSN_NumberPatient = $SSN_NumberPatient;
     }
 
-    /**
-     * @return string
-     */
-    public function getDriverLicenseNumberPatient(): string
-    {
-        return $this->DriverLicenseNumberPatient;
-    }
-
-    /**
-     * @param string $DriverLicenseNumberPatient
-     */
-    public function setDriverLicenseNumberPatient(string $DriverLicenseNumberPatient): void
-    {
-        $this->DriverLicenseNumberPatient = $DriverLicenseNumberPatient;
-    }
 
     /**
      * @return string
@@ -486,21 +466,6 @@ class PID implements Segment {
         $this->Citizenship = $Citizenship;
     }
 
-    /**
-     * @return string
-     */
-    public function getVeteransMilitaryStatus(): string
-    {
-        return $this->VeteransMilitaryStatus;
-    }
-
-    /**
-     * @param string $VeteransMilitaryStatus
-     */
-    public function setVeteransMilitaryStatus(string $VeteransMilitaryStatus): void
-    {
-        $this->VeteransMilitaryStatus = $VeteransMilitaryStatus;
-    }
 
     /**
      * @return string
@@ -566,21 +531,6 @@ class PID implements Segment {
         $this->IdentityUnknownIndicator = $IdentityUnknownIndicator;
     }
 
-    /**
-     * @return string
-     */
-    public function getIdentityReliabilityCode(): string
-    {
-        return $this->IdentityReliabilityCode;
-    }
-
-    /**
-     * @param string $IdentityReliabilityCode
-     */
-    public function setIdentityReliabilityCode(string $IdentityReliabilityCode): void
-    {
-        $this->IdentityReliabilityCode = $IdentityReliabilityCode;
-    }
 
     /**
      * @return string
@@ -614,127 +564,51 @@ class PID implements Segment {
         $this->LastUpdateFacility = $LastUpdateFacility;
     }
 
-    /**
-     * @return string
-     */
-    public function getSpeciesCode(): string
-    {
-        return $this->SpeciesCode;
-    }
 
-    /**
-     * @param string $SpeciesCode
-     */
-    public function setSpeciesCode(string $SpeciesCode): void
-    {
-        $this->SpeciesCode = $SpeciesCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBreedCode(): string
-    {
-        return $this->BreedCode;
-    }
-
-    /**
-     * @param string $BreedCode
-     */
-    public function setBreedCode(string $BreedCode): void
-    {
-        $this->BreedCode = $BreedCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStrain(): string
-    {
-        return $this->Strain;
-    }
-
-    /**
-     * @param string $Strain
-     */
-    public function setStrain(string $Strain): void
-    {
-        $this->Strain = $Strain;
-    }
-
-    /**
-     * @return string
-     */
-    public function getProductionClassCode(): string
-    {
-        return $this->ProductionClassCode;
-    }
-
-    /**
-     * @param string $ProductionClassCode
-     */
-    public function setProductionClassCode(string $ProductionClassCode): void
-    {
-        $this->ProductionClassCode = $ProductionClassCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTribalCitizenship(): string
-    {
-        return $this->TribalCitizenship;
-    }
-
-    /**
-     * @param string $TribalCitizenship
-     */
-    public function setTribalCitizenship(string $TribalCitizenship): void
-    {
-        $this->TribalCitizenship = $TribalCitizenship;
-    }
 
     public function toString(): string
     {
-        $out = 'PID' . '|'
-        .$this->SetID .'|'
-        .$this->PatientIdentifierList . '|'
-        .$this->AlternatePatientID     . '|'
-        .$this->PatientName . '|'
-        .$this->MotherMaidenName . '|'
-        .$this->DateTimeofBirth . '|'
-        .$this->AdministrativeSex . '|'
-        .$this->PatientAlias . '|'
-        .$this->Race . '|'
-        .$this->PatientAddress . '|'
-        .$this->CountyCode . '|'
-        .$this->PhoneNumberHome . '|'
-        .$this->PhoneNumberBusiness . '|'
-        .$this->PrimaryLanguage . '|'
-        .$this->MaritalStatus . '|'
-        .$this->Religion . '|'
-        .$this->PatientAccountNumber . '|'
-        .$this->SSN_NumberPatient . '|'
-        .$this->DriverLicenseNumberPatient . '|'
-        .$this->MotherIdentifier . '|'
-        .$this->EthnicGroup . '|'
-        .$this->BirthPlace . '|'
-        .$this->MultipleBirthIndicator . '|'
-        .$this->BirthOrder . '|'
-        .$this->Citizenship . '|'
-        .$this->VeteransMilitaryStatus . '|'
-        .$this->Nationality . '|'
-        .$this->PatientDeathDateTime . '|'
-        .$this->PatientDeathIndicator . '|'
-        .$this->IdentityUnknownIndicator . '|'
-        .$this->IdentityReliabilityCode . '|'
-        .$this->LastUpdateDateTime . '|'
-        .$this->LastUpdateFacility . '|'
-        .$this->SpeciesCode . '|'
-        .$this->BreedCode . '|'
-        .$this->Strain . '|'
-        .$this->ProductionClassCode . '|'
-        .$this->TribalCitizenship . '\r';
+        $out = 'PID' . '|'  //0
+        .$this->SetID .'|'  //1
+        .'|' // 2
+        .$this->PatientIdentifierList . '|' //3
+        . '|' //4
+        .$this->PatientName . '|' //5
+        .$this->MotherMaidenName . '|' //6
+        .$this->DateTimeofBirth . '|' //7
+        .$this->AdministrativeSex . '|' //8
+        .$this->PatientAlias . '|' //9
+        .$this->Race . '|' //10
+        .$this->PatientAddress . '|' //11
+        . '|' //12
+        .$this->PhoneNumberHome . '|' //13
+        .$this->PhoneNumberBusiness . '|' //14
+        .$this->PrimaryLanguage . '|' //15
+        .$this->MaritalStatus . '|' //16
+        .$this->Religion . '|' //17
+        .$this->PatientAccountNumber . '|' //18
+        .$this->SSN_NumberPatient . '|' //19
+        . '|'   //20
+        .$this->MotherIdentifier . '|' //21
+        .$this->EthnicGroup . '|' //22
+        .$this->BirthPlace . '|' //23
+        .$this->MultipleBirthIndicator . '|' //24
+        .$this->BirthOrder . '|' //25
+        .$this->Citizenship . '|' //26
+        . '|' //27
+        .$this->Nationality . '|' //28
+        .$this->PatientDeathDateTime . '|' //29
+        .$this->PatientDeathIndicator . '|' //30
+        .$this->IdentityUnknownIndicator . '|' //31
+        . '|' //32
+        .$this->LastUpdateDateTime . '|' //33
+        .$this->LastUpdateFacility . '|' //34
+        . '|' //35
+        . '|' //36
+        . '|' //37
+        . '|' //38
+        .'|' //39
+        . '\r';
 
         return $out;
     }

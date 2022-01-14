@@ -37,12 +37,18 @@ class Nabidh2Test extends TestCase
     {
         $nab = new Nabidh2();
         $msg = $nab->createRegisterPatientMessage();
-
+        $pid = new PID();
+        $evn = new EVN();
+        $pv1 = new PV1();
+        $nab->addSegment($msg, $pid);
+        $nab->addSegment($msg, $evn);
+        $nab->addSegment($msg, $pv1);
         //$this->assertSame($msg->toString(), 'MSH|^&\|');
         $this->assertStringStartsWith('MSH', $msg->toString());
         $this->assertSame('DHA',$msg->getHeader()->getReceivingFacility());
         $this->assertSame('NABIDH',$msg->getHeader()->getReceivingApplication());
         $this->assertSame('ADT^A04',$msg->getHeader()->getMessageType());
+        var_dump($msg->toString());
     }
 
     public function testCreateChangeOutpatientToInpatientMessage()

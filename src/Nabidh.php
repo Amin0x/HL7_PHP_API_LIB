@@ -15,23 +15,26 @@ class Nabidh {
      * @param null $PR1
      * @param null $insurance
      */
-    public function AdmitPatientNotification( $patient, $patientVisit = null, $PR1 = null, $insurance = null)
+    public function AdmitPatientNotification(Patient $patient, $patientVisit = null, $PR1 = null, $insurance = null)
     {
         $msg = new Message();
 
-        $msg->setHeader($this->creatMessageHeader());
+        $msg->setHeader($this->creatMessageHeader('ADT^A01'));
 
         $pid = new PID();
         $pid->setNationality($patient->nationality);
         $pid->setLastUpdateDateTime(date('r'));
-        $pid->setDateTimeofBirth('');
-        $pid->setPatientName([$patient->first_name, $patient->mid_name, $patient->last_name]);
-        $pid->setPatientIdentifierList("$patient->id^^^FACILITYCODE^MRN");
+        $pid->setDateTimeofBirth($patient->dateOfBirth);
+        $pid->setPatientName($patient->first_name, $patient->mid_name, $patient->last_name);
+        $pid->setPatientIdentifierList($patient->id);
         $pid->setAdministrativeSex($patient->administrative_sex);
-        $pid->setPatientAddress([]);
+        $pid->setPatientAddress($patient->city, $patient->state, $patient->zip, $patient->country);
         $msg->addSegment($pid);
 
-        $evn = new EVN('A04','','');
+        $evn = new EVN();
+        $evn->setEventTypeCode('A01');
+        $evn->setEventFacility('');
+        $evn->setRecordedDateTime('');
         $msg->addSegment($evn);
 
         $pv1 = new PV1();
@@ -128,7 +131,10 @@ class Nabidh {
         $pid->setPatientAddress([]);
         $msg->addSegment($pid);
 
-        $evn = new EVN('A04','','');
+        $evn = new EVN();
+        $evn->setEventTypeCode('A04');
+        $evn->setRecordedDateTime('');
+        $evn->setEventFacility('');
         $msg->addSegment($evn);
 
         $pv1 = new PV1();

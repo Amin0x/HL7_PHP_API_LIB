@@ -7,18 +7,6 @@ class EVN implements Segment {
     private $RecordedDateTime = '';
     private $EventFacility = '';
 
-    /**
-     * EVN constructor.
-     * @param string $EventTypeCode
-     * @param string $RecordedDateTime
-     * @param string $EventFacility
-     */
-    public function __construct(string $EventTypeCode, string $RecordedDateTime, string $EventFacility)
-    {
-        $this->EventTypeCode = $EventTypeCode;
-        $this->RecordedDateTime = $RecordedDateTime;
-        $this->EventFacility = $EventFacility;
-    }
 
     /**
      * @return string
@@ -70,10 +58,14 @@ class EVN implements Segment {
 
     public function toString()
     {
-        $out = 'EVN' . '|'
-            .$this->EventTypeCode . '|'
-            .$this->RecordedDateTime . '|'
-            .$this->EventFacility . '|\r';
+        $out = 'EVN' . '|' //0
+            .$this->EventTypeCode . '|' //1
+            .$this->RecordedDateTime . '|' //2
+            .'|'    //3
+            .'|'    //4
+            .'|'    //5
+            .'|'    //6
+            .$this->EventFacility . '\r'; //7
     }
 
 
