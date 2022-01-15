@@ -20,7 +20,7 @@ class Nabidh {
     {
         $msg = new Message();
 
-        $msg->setHeader($this->creatMessageHeader('ADT^A01'));
+        $msg->setHeader(Nabidh::creatMessageHeader('ADT^A01'));
 
         $pid = new PID();
         $pid->setNationality($patient->nationality);
@@ -113,7 +113,7 @@ class Nabidh {
         $msg = new Message();
 
 
-        $msg->setHeader($this->creatMessageHeader());
+        $msg->setHeader(Nabidh::creatMessageHeader());
 
         $pid = self::createPID($patient);
         $msg->addSegment($pid);
@@ -128,18 +128,18 @@ class Nabidh {
     }
 
     /**
-     * @param RegisterPatientFactory $registerPatientQuery
+     * @param ADT_A04_Register_Patient $registerPatientQuery
      * @param $patientVisit
      * @param $patient
      */
-    public function registerPatientQ(RegisterPatientFactory $registerPatientQuery, $patientVisit, $patient)
+    public function registerPatientQ(ADT_A04_Register_Patient $registerPatientQuery, $patientVisit, $patient)
     {
         if (empty($registerPatientQuery)){
             throw new InvalidArgumentException();
         }
 
         $msg = new Message();
-        $msg->setHeader($this->creatMessageHeader());
+        $msg->setHeader(Nabidh::creatMessageHeader());
 
         $pid = self::createPID($patient);
         $msg->addSegment($pid);
@@ -163,7 +163,7 @@ class Nabidh {
     {
         $msg = new Message();
 
-        $msg->setHeader($this->creatMessageHeader());
+        $msg->setHeader(Nabidh::creatMessageHeader());
 
         $pid = self::createPID($patient);
         $msg->addSegment($pid);
@@ -186,12 +186,12 @@ class Nabidh {
     public function cancelDischargeEvent($patient, $patientVisit)
     {
         $msg = new Message();
-        $msg->setHeader($this->creatMessageHeader());
+        $msg->setHeader(Nabidh::creatMessageHeader());
 
         $pid = self::createPID($patient);
         $msg->addSegment($pid);
 
-        $evn = new EVN('A04','','');
+        $evn = Nabidh::createEVN('A08', '', '');
         $msg->addSegment($evn);
 
         $pv1 = self::createPV1($patientVisit);
@@ -209,17 +209,17 @@ class Nabidh {
     public function patientTransferEvent($patient, $patientVisit)
     {
         $msg = new Message();
-        $msg->setHeader($this->creatMessageHeader());
+        $msg->setHeader(Nabidh::creatMessageHeader());
 
         $pid = self::createPID($patient);
         $msg->addSegment($pid);
 
-        $evn = new EVN('A04','','');
+        $evn = Nabidh::createEVN('A08', '', '');
         $msg->addSegment($evn);
 
         $pv1 = self::createPV1($patientVisit);
-
         $msg->addSegment($pv1);
+
         $this->send($msg);
     }
 
@@ -336,7 +336,7 @@ class Nabidh {
         curl_setopt($ch, , );
     }
 
-    private function creatMessageHeader($type)
+    private static function creatMessageHeader($type)
     {
         $msh = new MSH();
         $msh->setMessageType($type);
@@ -368,16 +368,16 @@ class Nabidh {
 
     /**
      * @param string $type
-     * @param string $p2
-     * @param string $p3
+     * @param string $eventFacility
+     * @param string $recordedAt
      * @return EVN
      */
-    private static function createEVN(string $type, string $p2, string $p3): EVN
+    private static function createEVN(string $type, string $eventFacility, string $recordedAt): EVN
     {
         $evn = new EVN();
         $evn->setEventTypeCode('A04');
-        $evn->setRecordedDateTime('');
-        $evn->setEventFacility('');
+        $evn->setRecordedDateTime($recordedAt);
+        $evn->setEventFacility($eventFacility);
         return $evn;
     }
 
@@ -391,10 +391,10 @@ class Nabidh {
         $pid->setNationality($patient->nationality);
         $pid->setLastUpdateDateTime(date('r'));
         $pid->setDateTimeofBirth('');
-        $pid->setPatientName([$patient->first_name, $patient->mid_name, $patient->last_name]);
-        $pid->setPatientIdentifierList("$patient->id^^^FACILITYCODE^MRN");
+        $pid->setPatientName($patient->first_name, $patient->mid_name, $patient->last_name);
+        $pid->setPatientIdentifierList($patient->id, $patient->passport_number);
         $pid->setAdministrativeSex($patient->administrative_sex);
-        $pid->setPatientAddress([]);
+        $pid->setPatientAddress($patient->city, $patient->state, $patient->zip, $patient->country);
         return $pid;
     }
 

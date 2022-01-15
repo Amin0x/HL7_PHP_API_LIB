@@ -1,7 +1,7 @@
 <?php
 namespace amin0x\nabidh;
 
-class RegisterPatientFactory
+class ADT_A04_Register_Patient
 {
     private $msh;
     private $evn;
@@ -27,7 +27,7 @@ class RegisterPatientFactory
         $this->msh = new MSH();
         $this->msh->setMessageType('ADT^A04');
         $this->msh->setMessageControlID(time());
-        $this->msh->setDateTimeofMessage(date('YmdH:i:s'));
+        $this->msh->setDateTimeofMessage(date('YmdHis'));
         $this->msh->setSendingApplication('');
         $this->msh->setSendingFacility('');
         $this->msh->setProcessingID('');

@@ -59,4 +59,44 @@ class Message {
         return $str;
     }
 
+    public static function isMSH($segment): bool
+    {
+        if( !is_array($segment) && ($segment instanceof MSH))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function isPID($segment): bool
+    {
+        if( !is_array($segment) && ($segment instanceof PID))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function isEVN($segment): bool
+    {
+        if( !is_array($segment) && ($segment instanceof EVN))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function isPV1($segment): bool
+    {
+        if( !is_array($segment) && ($segment instanceof PV1))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }
