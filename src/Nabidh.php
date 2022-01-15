@@ -11,7 +11,7 @@ class Nabidh {
      *
      * Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
      *
-     * @param $patient
+     * @param Patient $patient
      * @param null $patientVisit PV1 array
      * @param null $PR1
      * @param null $insurance
@@ -49,51 +49,26 @@ class Nabidh {
      *
      * Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
      *
-     * @param PID $pid
-     * @param EVN $evn
-     * @param PV1 $pv1
-     * @param PD1|null $pd1
-     * @param array  $rol array of ROL
-     * @param array $nk1 array of NK1
-     * @param PV1 $pv2
-     * @param array $db1
-     * @param array $obx
-     * @param array $al1
-     * @param array $dg1
-     * @param array $drg
-     * @param array $procedures array of ADT_PROCEDURES
-     * @param array $gt1 array of GT1
-     * @param array $insurance array of ADT_INSURANCE
-     * @param null $acc
-     * @param null $ub1
-     * @param null $ub2
+     * @param ADT_A01_Admit_Patient $admit_Patient
      */
-    public function AdmitPatientNotificationEx(PID $pid, EVN $evn, PV1 $pv1, PD1 $pd1 = null, $rol = [],
-                                               $nk1 = [], $pv2 = null, $db1 = [], $obx = [], $al1 = [], $dg1 = [],
-                                               $drg = [], $procedures = [], $gt1 = [], $insurance = [], $acc = null, $ub1 = null, $ub2 = null)
+    public function AdmitPatientNotificationEx(ADT_A01_Admit_Patient  $admit_Patient)
     {
         $message = new Message();
-        $msh = new MSH();
 
-        $this->addSegment($message, $msh);
-        $this->addSegment($message, $pid);
-        $this->addSegment($message, $evn);
-        $this->addSegment($message, $pv1);
-        $this->addSegment($message, $pd1);
-        $this->addSegment($message, $rol);
-        $this->addSegment($message, $nk1);
-        $this->addSegment($message, $pv2);
-        $this->addSegment($message, $db1);
-        $this->addSegment($message, $obx);
-        $this->addSegment($message, $al1);
-        $this->addSegment($message, $dg1);
-        $this->addSegment($message, $drg);
-        $this->addSegment($message, $procedures->getArray());
-        $this->addSegment($message, $gt1);
-        $this->addSegment($message, $insurance->getArray());
-        $this->addSegment($message, $acc);
-        $this->addSegment($message, $ub1);
-        $this->addSegment($message, $ub2);
+        $this->addSegment($message, $admit_Patient->getMsh());
+        $this->addSegment($message, $admit_Patient->getPid());
+        $this->addSegment($message, $admit_Patient->getEvn());
+        $this->addSegment($message, $admit_Patient->getPv1());
+        $this->addSegment($message, $admit_Patient->getPd1());
+        $this->addSegment($message, $admit_Patient->getNk1());
+        $this->addSegment($message, $admit_Patient->getPv2());
+        $this->addSegment($message, $admit_Patient->getObx());
+        $this->addSegment($message, $admit_Patient->getAl1());
+        $this->addSegment($message, $admit_Patient->getDg1());
+        $this->addSegment($message, $admit_Patient->getDrg());
+        $this->addSegment($message, $admit_Patient->getPr1());
+        $this->addSegment($message, $admit_Patient->getGt1());
+        $this->addSegment($message, $admit_Patient->getIn1());
 
     }
 
@@ -128,11 +103,13 @@ class Nabidh {
     }
 
     /**
+     * ADT^A01 Base Structure - A04
+     * Register a patient
      * @param ADT_A04_Register_Patient $registerPatientQuery
      * @param $patientVisit
      * @param $patient
      */
-    public function registerPatientQ(ADT_A04_Register_Patient $registerPatientQuery, $patientVisit, $patient)
+    public function registerPatientQ(ADT_A04_Register_Patient $registerPatient)
     {
         if (empty($registerPatientQuery)){
             throw new InvalidArgumentException();
