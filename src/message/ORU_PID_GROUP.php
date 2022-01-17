@@ -10,6 +10,6 @@ class ORU_PID_GROUP
     private ?PD1 $pd1 = null;
     private array $nte = [];
     private array $nk1 = [];
-    private ?PV1_group $PV1_group = null;
+    private ?ADT_PV1_GROUP $PV1_group = null;
 
 }

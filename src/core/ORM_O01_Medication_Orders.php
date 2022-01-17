@@ -7,7 +7,7 @@ namespace amin0x\nabidh;
 class ORM_O01_Medication_Orders
 {
     private MSH $msh;
-    private ?PID_Group $pid_group = null;
+    private ?ADT_PID_GROUP $pid_group = null;
     private array $orc_group = [];
 
     /**
@@ -39,12 +39,12 @@ class ORM_O01_Medication_Orders
         return $this->pid_group;
     }
 
-    public function setPID_Group(PID_Group $group)
+    public function setPID_Group(ADT_PID_GROUP $group)
     {
         $this->pid_group = $group;
     }
 
-    public function addORC_Group(ORC_Group $group)
+    public function addORC_Group(ADT_ORC_GROUP $group)
     {
         array_push($this->orc_group, $group);
     }

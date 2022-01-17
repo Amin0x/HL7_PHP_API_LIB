@@ -4,11 +4,11 @@
 namespace amin0x\nabidh;
 
 
-class PID_Group
+class ADT_PID_GROUP
 {
     private PID $pid;
     private $pd1 = [];
-    private PV1_group $PV1_group;
+    private ADT_PV1_GROUP $PV1_group;
     private $in1 = [];
     private $gt1 = null;
     private $al1 = [];
