@@ -8,7 +8,7 @@ class ORM_O01_Medication_Orders
 {
     private MSH $msh;
     private ?PID_Group $pid_group = null;
-    private $orc_group = [];
+    private array $orc_group = [];
 
     /**
      * ORM_O01_Medication_Orders constructor.

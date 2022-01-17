@@ -85,7 +85,8 @@ class PID implements Segment {
      * Expected Format: GCC_Number^^^LOCAL^GCC
      * Example: If Patient has MRN = 123456 & Passport Number = 9998888 then PID-3 field
      * should be shared as: 123456^^^FACILITYCODE^MRN~9998888^^^GOVERNMENT^PPN
-     * @param string $PatientIdentifierList
+     * @param string $facilityId
+     * @param string $passportId
      */
     public function setPatientIdentifierList(string $facilityId, string $passportId = ''): void
     {
@@ -130,7 +131,9 @@ class PID implements Segment {
     }
 
     /**
-     * @param string $MotherMaidenName
+     * @param string $lastName
+     * @param string $firstName
+     * @param string $middleName
      */
     public function setMotherMaidenName(string $lastName, string $firstName, string $middleName): void
     {

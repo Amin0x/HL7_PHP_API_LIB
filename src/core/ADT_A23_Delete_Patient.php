@@ -12,7 +12,7 @@ class ADT_A23_Delete_Patient
     private PV1 $pv1;
     private $pd1 = null;
     private $pv2 = null;
-    private $obx = [];
+    private array $obx = [];
 
     public function __construct()
     {
