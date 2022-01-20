@@ -6,7 +6,7 @@ class PV1 implements Segment {
 
     private $SetID_PV1 = '';
     private $PatientClass = '';
-    private $AssignedPatientLocation = '';
+    private $AssignedPatientLocation = null;
     private $AdmissionType = '';
     private $PreadmitNumber = '';
     private $PriorPatientLocation = '';
@@ -59,15 +59,6 @@ class PV1 implements Segment {
 
     /**
      * PV1 constructor.
-     * @param string $SetID_PV1
-     * @param string $PatientClass
-     * @param string $AssignedPatientLocation
-     * @param string $AdmissionType
-     * @param string $PreadmitNumber
-     * @param string $PriorPatientLocation
-     * @param string $AttendingDoctor
-     * @param string $ReferringDoctor
-     * @param string $ConsultingDoctor
      */
     public function __construct()
     {
@@ -107,9 +98,9 @@ class PV1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return AssignedPatientLocation
      */
-    public function getAssignedPatientLocation(): string
+    public function getAssignedPatientLocation(): AssignedPatientLocation
     {
         return $this->AssignedPatientLocation;
     }
@@ -122,9 +113,9 @@ class PV1 implements Segment {
      * PV1.3.4 Facility is used (mandatory) and it should be Sheryan Facility Id 7 digits
      * PV1.3.9 LocationDescription is used (mandatory) and it should be the exact same name as in Sheryan
      *
-     * @param string $AssignedPatientLocation
+     * @param AssignedPatientLocation $AssignedPatientLocation
      */
-    public function setAssignedPatientLocation(string $AssignedPatientLocation): void
+    public function setAssignedPatientLocation(AssignedPatientLocation $AssignedPatientLocation): void
     {
         $this->AssignedPatientLocation = $AssignedPatientLocation;
     }

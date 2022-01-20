@@ -20,12 +20,6 @@ class MSH implements Segment
 
     /**
      * MSH constructor.
-     * @param string $MessageType
-     * @param string $SendingApplication
-     * @param string $SendingFacility
-     * @param null $DateTimeofMessage
-     * @param null $MessageControlID
-     * @param null $ProcessingID
      */
     public function __construct()
     {
@@ -35,7 +29,7 @@ class MSH implements Segment
         $this->SendingFacility = '';
         $this->ReceivingApplication = 'NABIDH';
         $this->ReceivingFacility = 'DHA';
-        $this->DateTimeOfMessage = date('c');
+        $this->DateTimeOfMessage = date('YmdHis');
         $this->MessageType = '';
         $this->MessageControlID = time();
         $this->ProcessingID = '';
@@ -256,7 +250,7 @@ class MSH implements Segment
             .'|'    //15
             .'|'    //16
             .'|'    //17
-            .$this->CharacterSet . '|'  //18
+            .$this->CharacterSet  //18
             .'\r';
 
         return $fields;

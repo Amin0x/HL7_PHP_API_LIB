@@ -40,6 +40,9 @@ class Nabidh2Test extends TestCase
         $pid = new PID();
         $evn = new EVN();
         $pv1 = new PV1();
+        $msg->getHeader()->setSendingFacility('TESTHOS20');
+        $pid->setSSNNumberPatient('');
+        $pid->setDateTimeofBirth(date('YYYYmmdd', strtotime('19990507')));
         $nab->addSegment($msg, $pid);
         $nab->addSegment($msg, $evn);
         $nab->addSegment($msg, $pv1);
