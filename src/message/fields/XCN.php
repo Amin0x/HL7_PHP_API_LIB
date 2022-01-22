@@ -4,14 +4,16 @@
 namespace amin0x\nabidh;
 
 
-class OperatorID
+class XCN
 {
-    private $SheryanID = '';
+    private $IdNumber = '';
     private $FirstName = '';
     private $LastName = '';
     private $MiddleName = '';
     private $prefex = '';
-    private $type = '';
+    private $AssigningAuthority = '';
+    private $NameTypeCode = '';
+
 
     /**
      * @return string

@@ -41,7 +41,7 @@ class Nabidh2Test extends TestCase
         $evn = new EVN();
         $pv1 = new PV1();
         $msg->getHeader()->setSendingFacility('TESTHOS20');
-        $pid->setSSNNumberPatient('');
+        //$pid->setSSNNumberPatient('');
         $pid->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $pid->setPatientIdentifierList(454445);
         $apl = new PL();
