@@ -193,7 +193,7 @@ class DRG {
 
     public function toString()
     {
-        $fields = 'DRG' . '|'
+        $str = 'DRG' . '|'
         .$this->DiagnosticRelatedGroup . '|'
         .$this->DRGAssignedDateTime . '|'
         .$this->DRGApprovalIndicator . '|'
@@ -205,6 +205,8 @@ class DRG {
         .$this->OutlierReimbursement . '|'
         .$this->ConfidentialIndicator . '|'
         .$this->DRGTransferType . '|';
+
+        return rtrim($str, '|');
     }
 
 }

@@ -291,6 +291,42 @@ class ADT_A01_Admit_Patient
         array_push($this->in1, $in1);
     }
 
+    public function __toString()
+    {
+
+        $str = $this->msh->toString() .'\r';
+        $str .= $this->pid->toString() .'\r';
+        $str .= $this->evn->toString() .'\r';
+        $str .= $this->pv1->toString() .'\r';
+        $str .= $this->pd1->toString() .'\r';
+
+        foreach ($this->nk1 as $item) {
+            $str .= $item->toString() .'\r';
+        }
+        $str .= $this->pv2->toString() .'\r';
+        foreach ($this->obx as $item) {
+            $str .= $item->toString() .'\r';
+        }
+        foreach ($this->al1 as $item) {
+            $str .= $item->toString() .'\r';
+        }
+        foreach ($this->dg1 as $item) {
+            $str .= $item->toString() .'\r';
+        }
+
+        $str .= $this->drg->toString() .'\r';
+        foreach ($this->pr1 as $item) {
+            $str .= $item->toString() .'\r';
+        }
+        foreach ($this->gt1 as $item) {
+            $str .= $item->toString() .'\r';
+        }
+        foreach ($this->in1 as $item) {
+            $str .= $item->toString() .'\r';
+        }
+
+        return $str;
+    }
 
 
 }

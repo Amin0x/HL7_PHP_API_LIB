@@ -611,9 +611,9 @@ class PID implements Segment {
         . '|' //37
         . '|' //38
         .'|' //39
-        . '\r';
+        ;
 
-        return $out;
+        return rtrim($out,'|').'\r';
     }
 
 

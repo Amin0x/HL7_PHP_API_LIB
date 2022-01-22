@@ -363,7 +363,7 @@ class DG1 {
 
     public function toString()
     {
-        $fields = 'DG1' . '|'
+        $str = 'DG1' . '|'
         .$this->SetID_DG1 . '|'
         .$this->DiagnosisCodingMethod . '|'
         .$this->DiagnosisCodeDG1 . '|'
@@ -384,9 +384,9 @@ class DG1 {
         .$this->ConfidentialIndicator . '|'
         .$this->AttestationDateTime . '|'
         .$this->DiagnosisIdentifier . '|'
-        .$this->DiagnosisActionCode . '\r';
+        .$this->DiagnosisActionCode;
 
-        return $fields;
+        return rtrim($str, '|');
     }
 
 }

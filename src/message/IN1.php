@@ -916,7 +916,7 @@ class IN1 implements Segment {
 
     public function toString()
     {
-        $fields = 'IN1'.'|'
+        $str = 'IN1'.'|'
         .$this->SetID_IN1 . '|'
         .$this->HealthPlanID . '|'
         .$this->InsuranceCompanyID . '|'
@@ -969,9 +969,9 @@ class IN1 implements Segment {
         .$this->SignatureCode . '|'
         .$this->SignatureCodeDate . '|'
         .$this->InsuredBirthPlace . '|'
-        .$this->VIPIndicator . '\r';
+        .$this->VIPIndicator;
 
-        return $fields;
+        return rtrim($str, '|');
     }
 
 

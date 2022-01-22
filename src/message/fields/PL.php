@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class AssignedPatientLocation
+class PL
 {
     private $pointOfCare = '';
     private $room = '';
@@ -91,5 +91,19 @@ class AssignedPatientLocation
     {
         $this->locationDescription = $locationDescription;
     }
+
+    public function __toString()
+    {
+        $str = '';
+        $str = $this->pointOfCare . '^';
+        $str .= $this->room . '^';
+        $str .= $this->bed . '^';
+        $str .= $this->facility . '^';
+        $str .= '^^^^';
+        $str .= $this->locationDescription . '^';
+
+        return $str;
+    }
+
 
 }

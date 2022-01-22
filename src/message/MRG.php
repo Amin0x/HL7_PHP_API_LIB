@@ -125,7 +125,7 @@ class MRG implements Segment {
 
     public function toString()
     {
-        $fields = 'MRG' . '|'
+        $str = 'MRG' . '|'
         .$this->PriorPatientIdentifierList . '|'
         .$this->PriorAlternatePatientID . '|'
         .$this->PriorPatientAccountNumber . '|'
@@ -133,6 +133,8 @@ class MRG implements Segment {
         .$this->PriorVisitNumber . '|'
         .$this->PriorAlternateVisitID . '|'
         .$this->PriorPatientName . '|';
+
+        return rtrim($str, '|');
     }
 
 

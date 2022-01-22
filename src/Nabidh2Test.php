@@ -42,7 +42,12 @@ class Nabidh2Test extends TestCase
         $pv1 = new PV1();
         $msg->getHeader()->setSendingFacility('TESTHOS20');
         $pid->setSSNNumberPatient('');
-        $pid->setDateTimeofBirth(date('YYYYmmdd', strtotime('19990507')));
+        $pid->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
+        $pid->setPatientIdentifierList(454445);
+        $apl = new PL();
+        $apl->setFacility('TCODE10');
+        $apl->setLocationDescription('Test Hospital 20');
+        $pv1->setAssignedPatientLocation($apl);
         $nab->addSegment($msg, $pid);
         $nab->addSegment($msg, $evn);
         $nab->addSegment($msg, $pv1);

@@ -163,4 +163,10 @@ class ADT_A11_Cancel_Admit
         array_push($this->dg1, $dg1);
     }
 
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+    }
+
+
 }

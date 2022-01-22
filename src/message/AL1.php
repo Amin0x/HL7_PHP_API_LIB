@@ -108,7 +108,7 @@ class AL1 implements Segment {
     }
 
     public function toString(){
-        $fields = 'AL1|'
+        $str = 'AL1|'
         .$this->SetID_AL1 . '|'
         .$this->AllergenTypeCode . '|'
         .$this->AllergenCodeMnemonicDescription . '|'
@@ -116,7 +116,7 @@ class AL1 implements Segment {
         .$this->AllergyReactionCode . '|'
         .$this->IdentificationDate . '|';
 
-        return $fields;
+        return $str;
     }
 
 }

@@ -62,14 +62,16 @@ class EVN implements Segment {
 
     public function toString()
     {
-        $out = 'EVN' . '|' //0
+        $str = 'EVN' . '|' //0
             .$this->EventTypeCode . '|' //1
             .$this->RecordedDateTime . '|' //2
             .'|'    //3
             .'|'    //4
             .'|'    //5
             .'|'    //6
-            .$this->EventFacility . '\r'; //7
+            .$this->EventFacility; //7
+
+        return rtrim($str, '|');
     }
 
 

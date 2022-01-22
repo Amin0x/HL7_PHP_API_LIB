@@ -98,9 +98,9 @@ class PV1 implements Segment {
     }
 
     /**
-     * @return AssignedPatientLocation
+     * @return PL
      */
-    public function getAssignedPatientLocation(): AssignedPatientLocation
+    public function getAssignedPatientLocation(): PL
     {
         return $this->AssignedPatientLocation;
     }
@@ -113,9 +113,9 @@ class PV1 implements Segment {
      * PV1.3.4 Facility is used (mandatory) and it should be Sheryan Facility Id 7 digits
      * PV1.3.9 LocationDescription is used (mandatory) and it should be the exact same name as in Sheryan
      *
-     * @param AssignedPatientLocation $AssignedPatientLocation
+     * @param PL $AssignedPatientLocation
      */
-    public function setAssignedPatientLocation(AssignedPatientLocation $AssignedPatientLocation): void
+    public function setAssignedPatientLocation(PL $AssignedPatientLocation): void
     {
         $this->AssignedPatientLocation = $AssignedPatientLocation;
     }
