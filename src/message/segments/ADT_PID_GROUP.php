@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_PID_GROUP
+class ADT_PID_GROUP extends Group
 {
     private PID $pid;
     private $pd1 = [];

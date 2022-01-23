@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ORU_PID_GROUP
+class ORU_PID_GROUP extends Group
 {
     private PID $pid;
     private ?PD1 $pd1 = null;

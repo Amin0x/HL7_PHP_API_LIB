@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ORU_ORC_GROUP
+class ORU_ORC_GROUP extends Group
 {
     private ?ORC $orc = null;
     private OBR $obr;

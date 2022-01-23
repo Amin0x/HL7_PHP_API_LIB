@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_PV1_GROUP
+class ADT_PV1_GROUP extends Group
 {
     private PV1 $pv1;
     private $pv2 = [];

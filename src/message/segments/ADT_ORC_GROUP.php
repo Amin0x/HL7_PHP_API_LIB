@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_ORC_GROUP
+class ADT_ORC_GROUP extends Group
 {
     private ORC $orc;
     private RXO $rxo;

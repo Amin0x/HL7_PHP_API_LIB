@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ORU_OBX_GROUP
+class ORU_OBX_GROUP extends Group
 {
     private OBX $obx;
     private array $nte = [];

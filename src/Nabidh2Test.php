@@ -64,11 +64,34 @@ class Nabidh2Test extends TestCase
         $this->assertSame('DHA',$msg->getHeader()->getReceivingFacility());
         $this->assertSame('NABIDH',$msg->getHeader()->getReceivingApplication());
         $this->assertSame('ADT^A04',$msg->getHeader()->getMessageType());
+        $this->assertSame('', rtrim(implode('^',['','','']), '^'));
+        $this->assertSame(['','','',''], explode('^','^^^'));
+        $this->assertSame(['A','B','','C'], explode('^','A^B^^C'));
         var_dump($msg->toString());
     }
 
     public function testCreateChangeOutpatientToInpatientMessage()
     {
+        $nab = new Nabidh2();
+        $pid = new PID();
+        $evn = new EVN();
+        $pv1 = new PV1();
+
+        $msg = $nab->createChangeOutpatientToInpatientMessage();
+        $msg->getHeader()->setSendingFacility('TESTHOS20');
+        //$pid->setSSNNumberPatient('');
+        $pid->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
+        $pid->setPatientIdentifierList(454445);
+
+        $apl = new PL();
+        $apl->setFacility('TCODE10');
+        $apl->setLocationDescription('Test Hospital 20');
+        $pv1->setAssignedPatientLocation($apl);
+
+        $evn->setRecordedDateTime(time());
+        $evn->setEventFacility('TCODE10');
+        $evn->setEventTypeCode('ADT^A04');
+
         $this->assertStringStartsWith('abc', 'abc');
         $this->assertSame('a','a');
     }
