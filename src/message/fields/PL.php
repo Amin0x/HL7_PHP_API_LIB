@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class PL
+final class PL extends Element
 {
     private $pointOfCare = '';
     private $room = '';

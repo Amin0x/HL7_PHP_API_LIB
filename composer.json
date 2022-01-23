@@ -8,7 +8,7 @@
                 "src/config",
                 "src/message",
                 "src/message/fields",
-                "src/message/DataTaype",
+                "src/message/segments",
                 "src/core",
                 "src/tables"
             ]

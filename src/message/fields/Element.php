@@ -8,17 +8,27 @@ class Element
 {
     private $components = [];
 
-    public function addComponent(int $index, $value){
+    protected function setElementValue(int $index, $value){
         if(count($this->components) > $index){
             foreach ($this->components as $i => $comp){
                 $this->components[$i] = '';
             }
         }
 
-        $this->components[$index-1] = $value;
+        $this->components[$index-1] = trim($value);
     }
 
-    public function toString(){
+    protected function getElementValue(int $index)
+    {
+        if (isset($this->components[$index]) && !empty($this->components[$index]))
+        {
+            return $this->components[$index];
+        }
+
+        return '';
+    }
+
+    public function __toString(){
         if (empty($this->components)){
             return '';
         }
@@ -28,6 +38,6 @@ class Element
             $str .= $component . '^';
         }
 
-        return  $str;
+        return  rtrim($str, '^');
     }
 }

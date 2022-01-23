@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class XCN
+final class XCN extends Element
 {
     private $IdNumber = '';
     private $FirstName = '';

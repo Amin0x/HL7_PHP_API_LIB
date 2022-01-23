@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class HD
+final class HD extends Element
 {
     private $NamespaceId;
     private $UniversalId;
@@ -58,6 +58,5 @@ class HD
         return $this->NamespaceId . '^' .$this->UniversalId;
 
     }
-
 
 }

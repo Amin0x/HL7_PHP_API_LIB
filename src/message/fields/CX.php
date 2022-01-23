@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class CX
+final class CX extends Element
 {
     private $IdNumber = '';
     private $CheckDigit = '';

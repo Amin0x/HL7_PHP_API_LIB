@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class XTN
+final class XTN extends Element
 {
 
 }

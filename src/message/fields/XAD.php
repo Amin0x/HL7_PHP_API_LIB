@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class PatientAddress
+final class XAD extends Element
 {
     private $City = '';
     private $State = '';

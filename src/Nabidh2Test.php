@@ -36,18 +36,26 @@ class Nabidh2Test extends TestCase
     public function testCreateRegisterPatientMessage()
     {
         $nab = new Nabidh2();
-        $msg = $nab->createRegisterPatientMessage();
         $pid = new PID();
         $evn = new EVN();
         $pv1 = new PV1();
+
+        $msg = $nab->createRegisterPatientMessage();
+
         $msg->getHeader()->setSendingFacility('TESTHOS20');
         //$pid->setSSNNumberPatient('');
         $pid->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $pid->setPatientIdentifierList(454445);
+
         $apl = new PL();
         $apl->setFacility('TCODE10');
         $apl->setLocationDescription('Test Hospital 20');
         $pv1->setAssignedPatientLocation($apl);
+
+        $evn->setRecordedDateTime(time());
+        $evn->setEventFacility('TCODE10');
+        $evn->setEventTypeCode('ADT^A04');
+
         $nab->addSegment($msg, $pid);
         $nab->addSegment($msg, $evn);
         $nab->addSegment($msg, $pv1);

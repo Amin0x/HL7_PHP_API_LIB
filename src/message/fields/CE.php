@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class CE
+final class CE extends Element
 {
     private  $Identifier;
     private  $Text;
@@ -60,7 +60,10 @@ class CE
 
     public function __toString()
     {
-        $str = '';
+        $str = $this->Identifier . '^';
+        $str .= $this->Text . '^';
+        $str .= $this->NameofCodingSystem;
+
         return rtrim($str, '^');
     }
 
