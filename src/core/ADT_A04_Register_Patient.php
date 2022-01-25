@@ -24,7 +24,7 @@ class ADT_A04_Register_Patient
      */
     public function __construct($pid = null, $pv1 = null)
     {
-        $config = include '../config/config.php';
+        $config = include dirname(__FILE__).'/../config/config.php';
         $this->msh = new MSH();
         $this->msh->setMessageType('ADT^A04');
         $this->msh->setMessageControlID(time());
@@ -37,8 +37,8 @@ class ADT_A04_Register_Patient
         $this->evn->setEventTypeCode('A04');
         $this->evn->setRecordedDateTime(date('c'));
         $this->evn->setEventFacility('');
-        $this->pid = $pid;
-        $this->pv1 = $pv1;
+        $this->pid = new PID();
+        $this->pv1 = new PV1();
     }
 
     /**

@@ -911,7 +911,7 @@ class PV1 implements Segment {
         $this->OtherHealthcareProvider = $OtherHealthcareProvider;
     }
 
-    public function toString()
+    public function __toString()
     {
         $out = 'PV1' . '|'
         .$this->SetID_PV1 . '|'
@@ -965,7 +965,7 @@ class PV1 implements Segment {
         .$this->TotalPayments . '|'
         .$this->AlternateVisitID . '|'
         .$this->VisitIndicator . '|'
-        .$this->OtherHealthcareProvider . '\r';
+        .$this->OtherHealthcareProvider ;
 
         return $out;
     }

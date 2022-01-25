@@ -569,7 +569,7 @@ class PID implements Segment {
 
 
 
-    public function toString(): string
+    public function __toString(): string
     {
         $out = 'PID' . '|'  //0
         .$this->SetID .'|'  //1

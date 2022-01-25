@@ -20,6 +20,11 @@ class ADT_A02_Patient_Transfer
         $this->pid = new PID();
         $this->evn = new EVN();
         $this->pv1 = new PV1();
+
+        $this->msh->setMessageType('ADT^A02');
+
+        $this->evn->setEventTypeCode($this->msh->getMessageType());
+
     }
 
     /**
@@ -140,5 +145,17 @@ class ADT_A02_Patient_Transfer
         array_push($this->obx, $obx);
     }
 
+    public function __toString()
+    {
+        $str = implode('\r',[
+            $this->msh,
+            $this->evn,
+            $this->pid,
+            $this->pv1,
+            $this->pd1,
+            ...$this->obx,
+        ]);
 
+        return $str;
+    }
 }

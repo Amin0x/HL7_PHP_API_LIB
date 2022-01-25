@@ -231,27 +231,23 @@ class MSH implements Segment
         $this->DateTimeOfMessage = $DateTimeofMessage;
     }
 
-    public function toString(): string
+    public function __toString(): string
     {
-        $fields = 'MSH'.'|' //1
-            .$this->EncodingCharacters . '|'    //2
-            .$this->SendingApplication . '|'    //3
-            .$this->SendingFacility . '|'   //4
-            .$this->ReceivingApplication . '|'  //5
-            .$this->ReceivingFacility . '|' //6
-            .$this->DateTimeOfMessage . '|'  //7
-            .'|'   //8
-            .$this->MessageType . '|'   //9
-            .$this->MessageControlID . '|'  //10
-            .$this->ProcessingID . '|'  //11
-            .$this->VersionID . '|' //12
-            .'|'    //13
-            .'|'    //14
-            .'|'    //15
-            .'|'    //16
-            .'|'    //17
-            .$this->CharacterSet  //18
-            .'\r';
+        $fields = 'MSH'.'|'; //0
+            $fields .=$this->EncodingCharacters . '|';    //1
+            $fields .= $this->SendingApplication . '|';    //2
+            $fields .= $this->SendingFacility . '|';   //3
+            $fields .= $this->ReceivingApplication . '|';  //4
+            $fields .= $this->ReceivingFacility . '|'; //5
+            $fields .= $this->DateTimeOfMessage . '|';  //6
+            $fields .= '|';   //7
+            $fields .= $this->MessageType . '|';   //8
+            $fields .= $this->MessageControlID . '|';  //9
+            $fields .= $this->ProcessingID . '|';  //10
+            $fields .= $this->VersionID . '|'; //11
+            $fields .= '|||||';    //12.13.14.15.16
+            $fields .= $this->CharacterSet;  //17
+
 
         return $fields;
     }

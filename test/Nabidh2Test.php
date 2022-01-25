@@ -2,7 +2,7 @@
 
 namespace amin0x\nabidh;
 
-require_once './../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 use PHPUnit\Framework\Constraint\StringStartsWith;
 use PHPUnit\Framework\TestCase;
@@ -60,7 +60,7 @@ class Nabidh2Test extends TestCase
         $nab->addSegment($msg, $evn);
         $nab->addSegment($msg, $pv1);
         //$this->assertSame($msg->toString(), 'MSH|^&\|');
-        $this->assertStringStartsWith('MSH', $msg->toString());
+        $this->assertStringStartsWith('MSH', (string) $msg);
         $this->assertSame('DHA',$msg->getHeader()->getReceivingFacility());
         $this->assertSame('NABIDH',$msg->getHeader()->getReceivingApplication());
         $this->assertSame('ADT^A04',$msg->getHeader()->getMessageType());

@@ -60,7 +60,7 @@ class EVN implements Segment {
         $this->EventFacility = "SHERYAN^$EventFacility";
     }
 
-    public function toString()
+    public function __toString()
     {
         $str = 'EVN' . '|' //0
             .$this->EventTypeCode . '|' //1

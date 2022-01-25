@@ -118,15 +118,15 @@ class Nabidh {
         $msg = new Message();
         $msg->setHeader(Nabidh::creatMessageHeader());
 
-        $pid = self::createPID($patient);
-        $msg->addSegment($pid);
+        //$pid = self::createPID($patient);
+        //$msg->addSegment($pid);
 
         $evn = Nabidh::createEVN('A08', '', '');
         $msg->addSegment($evn);
 
-        $pv1 = self::createPV1($patientVisit);
+        //$pv1 = self::createPV1($patientVisit);
 
-        $msg->addSegment($pv1);
+        //$msg->addSegment($pv1);
         $this->send($msg);
     }
 
@@ -232,7 +232,7 @@ class Nabidh {
     /**
      * ADT^A05 Base Structure - A31
      */
-    public function updatePatientInformation()
+    public function updatePatientInformation2()
     {
 
     }
@@ -310,7 +310,7 @@ class Nabidh {
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, []);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $str);
-        curl_setopt($ch, , );
+        //curl_setopt($ch, , );
     }
 
     private static function creatMessageHeader($type)

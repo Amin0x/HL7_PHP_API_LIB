@@ -438,7 +438,7 @@ class OBX implements Segment {
         $this->PerformingOrganizationMedicalDirector = $PerformingOrganizationMedicalDirector;
     }
 
-    public function toString()
+    public function __toString()
     {
         $fields = 'OBX|'
         .$this->SetID_OBX . '|'
@@ -465,7 +465,7 @@ class OBX implements Segment {
         .$this->Reservedforharmonizationwithv2_6c . '|'
         .$this->PerformingOrganizationName . '|'
         .$this->PerformingOrganizationAddress . '|'
-        .$this->PerformingOrganizationMedicalDirector . '\r';
+        .$this->PerformingOrganizationMedicalDirector ;
 
         return $fields;
     }

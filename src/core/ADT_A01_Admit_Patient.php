@@ -294,10 +294,10 @@ class ADT_A01_Admit_Patient
     public function __toString()
     {
 
-        $str = $this->msh->toString() .'\r';
-        $str .= $this->pid->toString() .'\r';
-        $str .= $this->evn->toString() .'\r';
-        $str .= $this->pv1->toString() .'\r';
+        $str = $this->msh->__toString() .'\r';
+        $str .= $this->pid->__toString() .'\r';
+        $str .= $this->evn->__toString() .'\r';
+        $str .= $this->pv1->__toString() .'\r';
         $str .= $this->pd1->toString() .'\r';
 
         foreach ($this->nk1 as $item) {
