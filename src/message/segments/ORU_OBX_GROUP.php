@@ -47,4 +47,13 @@ class ORU_OBX_GROUP extends Group
     }
 
 
+    public function __toString()
+    {
+        $str = $this->obx . '\r';
+        foreach ($this->nte as $item) {
+            $str .= $item . '\r';
+        }
+
+        return $str;
+    }
 }

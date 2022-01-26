@@ -60,14 +60,12 @@ class ORM_O01_Medication_Orders
 
     public function __toString()
     {
-        $str = '';
-        $str .= $this->msh->__toString();
-        if ($this->pid_group){
-            $str .= $this->pid_group->__toString();
-        }
+        $str = $this->msh .'\r';
+        if ($this->pid_group)
+            $str .= $this->pid_group;
 
         foreach ($this->orc_group as $item) {
-            $str .= $item->__toString();
+            $str .= $item;
         }
         return $str;
     }

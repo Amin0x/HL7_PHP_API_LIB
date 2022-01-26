@@ -41,5 +41,13 @@ class ORU_PID_SUPER_GROUP extends Group
         $this->oru_orc_group = $oru_orc_group;
     }
 
+    public function __toString()
+    {
+
+        $str = (string) $this->oru_pid_group;
+        $str .= $this->oru_orc_group;
+
+        return $str;
+    }
 
 }

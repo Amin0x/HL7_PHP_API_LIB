@@ -101,5 +101,19 @@ class ORU_PID_GROUP extends Group
         $this->PV1_group = $PV1_group;
     }
 
+    public function __toString()
+    {
+        $str = $this->pid . '\r';
+        $str .= $this->pd1 . '\r';
+        foreach ($this->nte as $item) {
+            $str .= $item . '\r';
+        }
+        foreach ($this->nk1 as $item) {
+            $str .= $item . '\r';
+        }
+        $str .= $this->PV1_group;
+
+        return $str;
+    }
 
 }

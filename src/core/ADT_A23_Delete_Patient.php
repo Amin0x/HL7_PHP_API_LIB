@@ -139,4 +139,21 @@ class ADT_A23_Delete_Patient
     {
         array_push($this->obx, $obx);
     }
+
+    public function __toString()
+    {
+        $str = $this->msh .'\r';
+        $str .= $this->pid .'\r';
+        $str .= $this->evn .'\r';
+        $str .= $this->pv1 .'\r';
+        $str .= $this->pd1 ? $this->pd1 .'\r' : '';
+        $str .= $this->pv2 ? $this->pv2 .'\r' : '';
+
+        foreach ($this->obx as $item) {
+            $str .= $item .'\r';
+        }
+
+
+        return $str;
+    }
 }

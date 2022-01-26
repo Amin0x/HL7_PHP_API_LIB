@@ -301,6 +301,41 @@ class ADT_A04_Register_Patient
     }
 
 
+    public function __toString()
+    {
+        $str = $this->msh .'\r';
+        $str .= $this->pid .'\r';
+        $str .= $this->evn .'\r';
+        $str .= $this->pv1 .'\r';
+        $str .= $this->pd1 ? $this->pd1 .'\r' : '';
+
+        foreach ($this->nk1 as $item) {
+            $str .= $item .'\r';
+        }
+        $str .= $this->pv2 ? $this->pv2 .'\r' : '';
+        foreach ($this->obx as $item) {
+            $str .= $item .'\r';
+        }
+        foreach ($this->al1 as $item) {
+            $str .= $item .'\r';
+        }
+        foreach ($this->dg1 as $item) {
+            $str .= $item .'\r';
+        }
+
+        $str .= $this->drg ? $this->drg .'\r' : '';
+        foreach ($this->pr1 as $item) {
+            $str .= $item .'\r';
+        }
+        foreach ($this->gt1 as $item) {
+            $str .= $item .'\r';
+        }
+        foreach ($this->in1 as $item) {
+            $str .= $item .'\r';
+        }
+
+        return $str;
+    }
 
 
 }

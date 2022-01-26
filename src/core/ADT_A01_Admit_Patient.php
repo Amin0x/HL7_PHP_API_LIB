@@ -298,12 +298,12 @@ class ADT_A01_Admit_Patient
         $str .= $this->pid .'\r';
         $str .= $this->evn .'\r';
         $str .= $this->pv1 .'\r';
-        $str .= $this->pd1 .'\r';
+        $str .= $this->pd1 ? $this->pd1 .'\r' : '';
 
         foreach ($this->nk1 as $item) {
             $str .= $item .'\r';
         }
-        $str .= $this->pv2 .'\r';
+        $str .= $this->pv2 ? $this->pv2 .'\r' : '';
         foreach ($this->obx as $item) {
             $str .= $item .'\r';
         }
@@ -314,7 +314,7 @@ class ADT_A01_Admit_Patient
             $str .= $item .'\r';
         }
 
-        $str .= $this->drg .'\r';
+        $str .= $this->drg ? $this->drg .'\r' : '';
         foreach ($this->pr1 as $item) {
             $str .= $item .'\r';
         }
