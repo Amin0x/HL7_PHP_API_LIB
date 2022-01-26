@@ -361,7 +361,7 @@ class DG1 {
         $this->DiagnosisActionCode = $DiagnosisActionCode;
     }
 
-    public function toString()
+    public function __toString()
     {
         $str = 'DG1' . '|'
         .$this->SetID_DG1 . '|'

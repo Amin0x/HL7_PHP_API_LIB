@@ -107,7 +107,7 @@ class AL1 implements Segment {
         $this->IdentificationDate = $IdentificationDate;
     }
 
-    public function toString(){
+    public function __toString(){
         $str = 'AL1|'
         .$this->SetID_AL1 . '|'
         .$this->AllergenTypeCode . '|'

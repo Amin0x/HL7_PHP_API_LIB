@@ -45,5 +45,14 @@ class ADT_PV1_GROUP extends Group
         array_push($this->pv2, $pv2);
     }
 
+    public function __toString()
+    {
+        $str = $this->pv1 .'\r';
+        foreach ($this->pv2 as $item) {
+            $str .= $item .'\r';
+        }
+        return $str;
+    }
+
 
 }

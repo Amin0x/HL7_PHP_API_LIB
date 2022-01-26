@@ -8,7 +8,7 @@ class ADT_PID_GROUP extends Group
 {
     private PID $pid;
     private $pd1 = [];
-    private ADT_PV1_GROUP $PV1_group;
+    private ?ADT_PV1_GROUP $PV1_group = null;
     private $in1 = [];
     private $gt1 = null;
     private $al1 = [];
@@ -119,6 +119,33 @@ class ADT_PID_GROUP extends Group
     public function setAl1(AL1 $al1): void
     {
         array_push($this->al1, $al1);
+    }
+
+    public function __toString()
+    {
+        $str = '';
+        $str .= $this->pid->__toString();
+        foreach ($this->pd1 as $item) {
+            $str .= $this->pid->__toString();
+        }
+
+        if($this->PV1_group) {
+            $str .= $this->PV1_group->__toString();
+        }
+
+        foreach ($this->in1 as $item) {
+            $str .= $item->__toString();
+        }
+
+        if($this->gt1){
+            $str .= $this->gt1->__toString();
+        }
+        foreach ($this->al1 as $item) {
+            $str .= $item->__toString();
+        }
+
+        return $str;
+
     }
 
 

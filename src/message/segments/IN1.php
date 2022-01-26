@@ -914,7 +914,7 @@ class IN1 implements Segment {
         $this->VIPIndicator = $VIPIndicator;
     }
 
-    public function toString()
+    public function __toString()
     {
         $str = 'IN1'.'|'
         .$this->SetID_IN1 . '|'

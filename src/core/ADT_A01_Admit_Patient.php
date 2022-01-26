@@ -294,35 +294,35 @@ class ADT_A01_Admit_Patient
     public function __toString()
     {
 
-        $str = $this->msh->__toString() .'\r';
-        $str .= $this->pid->__toString() .'\r';
-        $str .= $this->evn->__toString() .'\r';
-        $str .= $this->pv1->__toString() .'\r';
-        $str .= $this->pd1->toString() .'\r';
+        $str = $this->msh .'\r';
+        $str .= $this->pid .'\r';
+        $str .= $this->evn .'\r';
+        $str .= $this->pv1 .'\r';
+        $str .= $this->pd1 .'\r';
 
         foreach ($this->nk1 as $item) {
-            $str .= $item->toString() .'\r';
+            $str .= $item .'\r';
         }
-        $str .= $this->pv2->toString() .'\r';
+        $str .= $this->pv2 .'\r';
         foreach ($this->obx as $item) {
-            $str .= $item->toString() .'\r';
+            $str .= $item .'\r';
         }
         foreach ($this->al1 as $item) {
-            $str .= $item->toString() .'\r';
+            $str .= $item .'\r';
         }
         foreach ($this->dg1 as $item) {
-            $str .= $item->toString() .'\r';
+            $str .= $item .'\r';
         }
 
-        $str .= $this->drg->toString() .'\r';
+        $str .= $this->drg .'\r';
         foreach ($this->pr1 as $item) {
-            $str .= $item->toString() .'\r';
+            $str .= $item .'\r';
         }
         foreach ($this->gt1 as $item) {
-            $str .= $item->toString() .'\r';
+            $str .= $item .'\r';
         }
         foreach ($this->in1 as $item) {
-            $str .= $item->toString() .'\r';
+            $str .= $item .'\r';
         }
 
         return $str;

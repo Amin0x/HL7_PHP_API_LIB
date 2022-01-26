@@ -394,4 +394,9 @@ class TXA implements Segment {
         $this->DistributedCopies_CodeAndNameOfRecipients = $DistributedCopies_CodeAndNameOfRecipients;
     }
 
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+    }
+
 }

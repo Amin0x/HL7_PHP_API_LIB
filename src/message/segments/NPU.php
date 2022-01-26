@@ -50,4 +50,8 @@ class NPU implements Segment {
     }
 
 
+    public function __toString()
+    {
+        return '';
+    }
 }

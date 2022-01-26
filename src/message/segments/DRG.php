@@ -191,7 +191,7 @@ class DRG {
         $this->DRGTransferType = $DRGTransferType;
     }
 
-    public function toString()
+    public function __toString()
     {
         $str = 'DRG' . '|'
         .$this->DiagnosticRelatedGroup . '|'

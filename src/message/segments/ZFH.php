@@ -139,4 +139,8 @@ class ZFH implements Segment {
         $this->EnteredBy = $EnteredBy;
     }
 
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+    }
 }

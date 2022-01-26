@@ -361,7 +361,7 @@ class PD1 implements Segment {
         $this->MilitaryStatus = $MilitaryStatus;
     }
 
-    public function toString()
+    public function __toString()
     {
         $fields = 'PD1|'
         .$this->LivingDependency . '|'

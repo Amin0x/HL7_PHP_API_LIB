@@ -1,6 +1,8 @@
 <?php
 namespace amin0x\nabidh;
 
+use BadMethodCallException;
+
 class ORC implements Segment {
     
 
@@ -551,7 +553,8 @@ class ORC implements Segment {
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
+        throw new BadMethodCallException();
+        return '';
     }
 
 

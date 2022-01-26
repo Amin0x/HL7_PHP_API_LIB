@@ -117,9 +117,6 @@ class NabidhTest extends TestCase
     public function testRegisterPatientQ()
     {
         $msg = new ADT_A04_Register_Patient();
-        $msg->getMsh()->setMessageType('');
-        $msg->getMsh()->setSendingFacility('');
-        $msg->getMsh()->setDateTimeofMessage('');
         $msg->getMsh()->setProcessingID('');
 
         $msg->getPid()->setPatientIdentifierList();

@@ -369,7 +369,7 @@ class PR1 implements Segment {
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
+        throw new \BadMethodCallException();
     }
 
 

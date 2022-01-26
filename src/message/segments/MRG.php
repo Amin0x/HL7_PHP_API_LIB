@@ -123,7 +123,7 @@ class MRG implements Segment {
         $this->PriorPatientName = $PriorPatientName;
     }
 
-    public function toString()
+    public function __toString()
     {
         $str = 'MRG' . '|'
         .$this->PriorPatientIdentifierList . '|'

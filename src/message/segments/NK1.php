@@ -668,4 +668,8 @@ class NK1 implements Segment {
     }
 
 
+    public function __toString()
+    {
+        return '';
+    }
 }
