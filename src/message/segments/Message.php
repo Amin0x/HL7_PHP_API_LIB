@@ -54,7 +54,7 @@ class Message {
     {
         $str = '';
         foreach ($this->segments as $segment) {
-            $str .= $segment->toString();
+            $str .= $segment . '\r';
         }
         return $str;
     }

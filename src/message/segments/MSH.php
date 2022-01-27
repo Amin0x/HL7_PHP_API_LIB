@@ -249,6 +249,9 @@ class MSH implements Segment
             $fields .= $this->CharacterSet;  //17
 
 
+        //$fields = rtrim($fields, '|');
+        //return $fields == ''? $fields : $fields.'\r';
+
         return $fields;
     }
 

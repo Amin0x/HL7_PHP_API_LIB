@@ -2,21 +2,25 @@
 namespace amin0x\nabidh;
 
 class PatientDischargeFactory {
-    
-    private $msh;
-    private $evn;
-    private $pid;
-    private $pd1 = null;
-    private $rol = [];
-    private $pv1;
-    private $pv2 = null;
-    private $obx = [];
-    private $al1 = [];
-    private $dg1 = [];
-    private $drg = null;
+
+    private $name;
+    private $phone;
+    private $email;
+    private $address;
+    private $city;
+    private $state;
+    private $country;
+    private $id;
+    private $passprot = [];
+    private $sex;
+    private $nationality = null;
+    private $observations = [];
+    private $allegory = [];
+    private $diagnoses = [];
+    private $drogs = null;
     private $pr1;
     private $gt1 = [];
-    private $in1;
+    private $insurances = [];
 
     private $message = null;
 
@@ -25,64 +29,54 @@ class PatientDischargeFactory {
      */
     public function __construct()
     {
-        $this->message = new Message();
-        $msh = new MSH();
-        $msh->setMessageType('ADP^A01');
-        $this->message->addSegment($msh);
 
-        $evn = new EVN();
-        $evn->setEventTypeCode('');
-        $evn->setRecordedDateTime('');
-        $this->message->addSegment($evn);
-        $pid = new PID();
-        $pv1 = new PV1();
     }
 
-    public function setPatientInfo(PID $pid)
+    public function withPatientInfo(PID $pid)
     {
         $this->pid = $pid;
     }
 
-    public function addInsurance(IN1 $in1)
+    public function withInsurance(IN1 $in1)
     {
         $this->in1 = $in1;
     }
 
-    public function setPatientAditionalInfo(PD1 $pd1){
+    public function withPatientAditionalInfo(PD1 $pd1){
         $this->pd1 = $pd1;
     }
 
-    public function setPatientName(string $name) : PatientDischargeFactory
+    public function withPatientName(string $name) : PatientDischargeFactory
     {
         return $this;
     }
 
-    public function setPatientPhone(string $name): PatientDischargeFactory
+    public function withPatientPhone(string $name): PatientDischargeFactory
     {
         return $this;
     }
 
-    public function setPatientPassportId(string $name): PatientDischargeFactory
+    public function withPatientPassportId(string $name): PatientDischargeFactory
     {
         return $this;
     }
 
-    public function setPatientName2(string $name): PatientDischargeFactory
+    public function withPatientName2(string $name): PatientDischargeFactory
     {
         return $this;
     }
 
-    public function setPatientPhone2(string $name): PatientDischargeFactory
+    public function withPatientPhone2(string $name): PatientDischargeFactory
     {
         return $this;
     }
 
-    public function setPatientPassportId2(string $name): PatientDischargeFactory
+    public function withPatientPassportId2(string $name): PatientDischargeFactory
     {
         return $this;
     }
 
-    public function get(){
+    public function build(){
 
     }
 }

@@ -31,7 +31,8 @@ class NabidhTest extends TestCase
         $pt->getPv1()->setAssignedPatientLocation($apl);
 
 
-        $this->assertSame('',(string)$pt);
+        $this->assertStringStartsWith('MSH',(string)$pt);
+        var_dump((string)$pt);
     }
 
     public function testDeletePatientRecord()
@@ -57,6 +58,7 @@ class NabidhTest extends TestCase
         $apl->setLocationDescription('Test Hospital 20');
         $pt->getPv1()->setAssignedPatientLocation($apl);
         $this->assertSame('','');
+        var_dump((string) $pt);
     }
 
     public function testAdmitPatientNotification()
@@ -82,6 +84,8 @@ class NabidhTest extends TestCase
         $apl->setLocationDescription('Test Hospital 20');
         $pt->getPv1()->setAssignedPatientLocation($apl);
         $this->assertSame('','');
+
+        var_dump((string) $pt);
     }
 
     public function testDischargeEvent()
@@ -117,28 +121,31 @@ class NabidhTest extends TestCase
     public function testRegisterPatientQ()
     {
         $msg = new ADT_A04_Register_Patient();
-        $msg->getMsh()->setProcessingID('');
+        $nabidh = new Nabidh();
 
-        $msg->getPid()->setPatientIdentifierList();
-        $msg->getPid()->setDateTimeofBirth();
-        $msg->getPid()->setSSNNumberPatient();
-        $msg->getPid()->setPatientAddress();
-        $msg->getPid()->setPatientName();
-        $msg->getPid()->setNationality();
-        $msg->getPid()->setPhoneNumberHome();
-        $msg->getPid()->setLastUpdateDateTime();
-        $msg->getPid()->setAdministrativeSex();
+        $msg->getMsh()->setSendingFacility('TESTHOS20');
+        $msg->getMsh()->setDateTimeofMessage(date('YmdHis'));
+        $msg->getMsh()->setProcessingID('1002');
+        $msg->getPid()->setAdministrativeSex('M');
+        $msg->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
+        $msg->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
+        $msg->getEvn()->setRecordedDateTime(date('r'));
+        $msg->getEvn()->setEventFacility('TCODE10');
 
-        $msg->getEvn()->setEventTypeCode();
-        $msg->getEvn()->setEventFacility();
-        $msg->getEvn()->setRecordedDateTime();
+        $msg->getPid()->setPatientIdentifierList('123123', 'PP1122334455');
+        $msg->getPid()->setPatientAddress('abc', 'abc state', '123', 'UK');
+        $msg->getPid()->setNationality('USA');
+        $msg->getPid()->setPhoneNumberHome('0123456789');
 
-        $msg->getPv1()->setAssignedPatientLocation();
-        $msg->getPv1()->setVisitNumber();
-        $msg->getPv1()->setAdmitDateTime();
-        $msg->getPv1()->setPendingLocation();
+        $apl = new PL();
+        $apl->setFacility('TCODE10');
+        $apl->setLocationDescription('Test Hospital 20');
+        $msg->getPv1()->setAssignedPatientLocation($apl);
 
-        var_dump($msg);
+
+        $this->assertStringStartsWith('MSH',(string)$msg);
+
+        var_dump((string)$msg);
 
         $this->assertSame('','');
     }
