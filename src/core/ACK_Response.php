@@ -14,6 +14,19 @@ class ACK_Response
     {
         $this->MSH = null;
         $this->MSA = null;
+        if (isset($res)){
+            $res = trim($res, '\r');
+            $segments = explode('\r', $res);
+            if (empty($segments) || count($segments) < 3)
+                return;
+
+            $msh_fields = explode('|', $segments[0]);
+            $msa_fields = explode('|', $segments[1]);
+            $err_fields = explode('|', $segments[2]);
+            $msh = new MSH();
+
+        }
+
     }
 
     public function isSuccess()

@@ -141,6 +141,15 @@ class ZFH implements Segment {
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
+        $str = $this->SetID_ZFH . '^';
+        $str .= $this->FamilyMember . '^';
+        $str .= $this->Diagnosis . '^';
+        $str .= $this->NoteText . '^';
+        $str .= $this->Status . '^';
+        $str .= $this->FromTime . '^';
+        $str .= $this->ToTime . '^';
+        $str .= $this->EnteredBy;
+
+        return $str;
     }
 }

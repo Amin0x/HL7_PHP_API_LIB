@@ -160,6 +160,16 @@ class ZSH implements Segment
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
+        $str = $this->SetID_ZSH . '^';
+        $str .= $this->SocialHabit . '^';
+        $str .= $this->SocialHabitQty . '^';
+        $str .= $this->SocialHabitCategory . '^';
+        $str .= $this->SocialHabitComments . '^';
+        $str .= $this->Status . '^';
+        $str .= $this->FromTime . '^';
+        $str .= $this->ToTime . '^';
+        $str .= $this->EnteredBy;
+
+        return $str;
     }
 }

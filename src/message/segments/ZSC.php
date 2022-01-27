@@ -73,6 +73,11 @@ class ZSC implements Segment {
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
+        $str = $this->OptOutFlag . '^';
+        $str .= $this->OptOutFlagEnteredDate . '^';
+        $str .= $this->VIPFlag . '^';
+        $str .= $this->VIPFlagEnteredDate;
+
+        return $str;
     }
 }

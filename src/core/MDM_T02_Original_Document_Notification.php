@@ -110,4 +110,16 @@ class MDM_T02_Original_Document_Notification
     }
 
 
+    public function __toString()
+    {
+        $str = (string) $this->msh;
+        $str .= $this->pid . '\r';
+        $str .= $this->evn . '\r';
+        $str .= $this->pv1 . '\r';
+        $str .= $this->txa . '\r';
+        foreach ($this->OBX_group as $item) {
+            $str .= $item;
+        }
+       return $str;
+    }
 }

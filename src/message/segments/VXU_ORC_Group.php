@@ -93,4 +93,19 @@ class VXU_ORC_Group
     }
 
 
+    public function __toString()
+    {
+        $str = (string) $this->orc;
+        foreach ($this->tq1 as $item) {
+            $str .= $item;
+        }
+
+        $str .= $this->rxa;
+        $str .= $this->rxr ? $this->rxr : '';
+        foreach ($this->OBX_GROUP as $item) {
+            $str .= $item;
+        }
+
+        return $str;
+    }
 }

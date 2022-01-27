@@ -24,6 +24,7 @@ class ORU_R01_Observation_Results
     {
         return $this->msh;
     }
+
     /**
      * @param ORU_PID_SUPER_GROUP $oru_pid_group
      */
