@@ -118,7 +118,7 @@ class NabidhTest extends TestCase
         $this->assertSame('','');
     }
 
-    public function testRegisterPatientQ()
+    public function testRegisterPatient()
     {
         $msg = new ADT_A04_Register_Patient();
         $nabidh = new Nabidh();
@@ -165,10 +165,6 @@ class NabidhTest extends TestCase
         $this->assertSame('','');
     }
 
-    public function testRegisterPatient()
-    {
-        $this->assertSame('','');
-    }
 
     public function testPatientArrivedTracking()
     {

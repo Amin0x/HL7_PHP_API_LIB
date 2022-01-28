@@ -127,4 +127,23 @@ class VXU_V04_Vaccination_Record_Message
     }
 
 
+    public function __toString()
+    {
+        $str = $this->msh . '\r';
+        $str .= $this->pid . '\r';
+        $str .= $this->pd1 ? $this->pd1 . '\r' : '';
+        foreach ($this->nk1 as $item) {
+            $str .= $item . '\r';
+        }
+
+        $str .= $this->ADT_PV1_GROUP ? $this->ADT_PV1_GROUP : '';
+        foreach ($this->gt1 as $item) {
+            $str .= $item . '\r';
+        }
+
+        foreach ($this->nk1 as $item) {
+            $str .= $item . '\r';
+        }
+        return $str;
+    }
 }
