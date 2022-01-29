@@ -1,6 +1,8 @@
 <?php
 namespace amin0x\nabidh;
 
+use BadMethodCallException;
+
 class RXE implements Segment {
 
     private $QuantityTiming;
@@ -310,5 +312,48 @@ class RXE implements Segment {
         $this->GiveDrugStrengthUnits = $GiveDrugStrengthUnits;
     }
 
+    public function __toString()
+    {
+        $fields = [];
+        $fields[] = 'RXE';
+        $fields[] = $this->QuantityTiming;
+        $fields[] = $this->GiveCode;
+        $fields[] = $this->GiveAmountMinimum;
+        $fields[] = $this->GiveAmountMaximum;
+        $fields[] = $this->GiveUnits;
+        $fields[] = $this->GiveDosageForm;
+        $fields[] = $this->ProviderAdministrationInstructions;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->NumberOfRefills;
+        $fields[] = $this->OrderingProviderNumber;
+        $fields[] = '';
+        $fields[] = $this->PrescriptionNumber;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->GivePer;
+        $fields[] = $this->GiveRateAmount;
+        $fields[] = $this->GiveRateUnits;
+        $fields[] = $this->GiveStrength;
+        $fields[] = $this->GiveStrengthUnits;
+        $fields[] = $this->GiveIndication;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->GiveDrugStrengthVolume;
+        $fields[] = $this->GiveDrugStrengthUnits;
+        $fields[] = ''; $fields[] = ''; $fields[] = ''; $fields[] = ''; $fields[] = '';
+        $fields[] = ''; $fields[] = ''; $fields[] = ''; $fields[] = ''; $fields[] = '';
+
+        return implode('|', $fields) . '\r';
+    }
 
 }

@@ -6,45 +6,20 @@ class PR1 implements Segment {
     
 
     private $SetID_PR1 = '';
-    private $ProcedureCodingMethod = '';
     private $ProcedureCode = '';
     private $ProcedureDescription = '';
     private $ProcedureDateTime = '';
-    private $ProcedureFunctionalType = '';
-    private $ProcedureMinutes = '';
-    private $Anesthesiologist = '';
-    private $AnesthesiaCode = '';
-    private $AnesthesiaMinutes = '';
     private $Surgeon = '';
-    private $ProcedurePractitioner = '';
-    private $ConsentCode = '';
     private $ProcedurePriority = '';
-    private $AssociatedDiagnosisCode = '';
-    private $ProcedureCodeModifier = '';
-    private $ProcedureDRGType = '';
-    private $TissueTypeCode = '';
     private $ProcedureIdentifier = '';
     private $ProcedureActionCode = '';
 
     /**
      * PR1 constructor.
-     * @param string $SetID_PR1
-     * @param string $ProcedureCodingMethod
-     * @param string $ProcedureCode
-     * @param string $ProcedureDescription
-     * @param string $ProcedureDateTime
-     * @param string $ProcedureFunctionalType
-     * @param string $ProcedureMinutes
      */
-    public function __construct(string $SetID_PR1, string $ProcedureCodingMethod, string $ProcedureCode, string $ProcedureDescription, string $ProcedureDateTime, string $ProcedureFunctionalType, string $ProcedureMinutes)
+    public function __construct()
     {
-        $this->SetID_PR1 = $SetID_PR1;
-        $this->ProcedureCodingMethod = $ProcedureCodingMethod;
-        $this->ProcedureCode = $ProcedureCode;
-        $this->ProcedureDescription = $ProcedureDescription;
-        $this->ProcedureDateTime = $ProcedureDateTime;
-        $this->ProcedureFunctionalType = $ProcedureFunctionalType;
-        $this->ProcedureMinutes = $ProcedureMinutes;
+
     }
 
     /**
@@ -63,21 +38,6 @@ class PR1 implements Segment {
         $this->SetID_PR1 = $SetID_PR1;
     }
 
-    /**
-     * @return string
-     */
-    public function getProcedureCodingMethod(): string
-    {
-        return $this->ProcedureCodingMethod;
-    }
-
-    /**
-     * @param string $ProcedureCodingMethod
-     */
-    public function setProcedureCodingMethod(string $ProcedureCodingMethod): void
-    {
-        $this->ProcedureCodingMethod = $ProcedureCodingMethod;
-    }
 
     /**
      * @return string
@@ -130,86 +90,6 @@ class PR1 implements Segment {
     /**
      * @return string
      */
-    public function getProcedureFunctionalType(): string
-    {
-        return $this->ProcedureFunctionalType;
-    }
-
-    /**
-     * @param string $ProcedureFunctionalType
-     */
-    public function setProcedureFunctionalType(string $ProcedureFunctionalType): void
-    {
-        $this->ProcedureFunctionalType = $ProcedureFunctionalType;
-    }
-
-    /**
-     * @return string
-     */
-    public function getProcedureMinutes(): string
-    {
-        return $this->ProcedureMinutes;
-    }
-
-    /**
-     * @param string $ProcedureMinutes
-     */
-    public function setProcedureMinutes(string $ProcedureMinutes): void
-    {
-        $this->ProcedureMinutes = $ProcedureMinutes;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAnesthesiologist(): string
-    {
-        return $this->Anesthesiologist;
-    }
-
-    /**
-     * @param string $Anesthesiologist
-     */
-    public function setAnesthesiologist(string $Anesthesiologist): void
-    {
-        $this->Anesthesiologist = $Anesthesiologist;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAnesthesiaCode(): string
-    {
-        return $this->AnesthesiaCode;
-    }
-
-    /**
-     * @param string $AnesthesiaCode
-     */
-    public function setAnesthesiaCode(string $AnesthesiaCode): void
-    {
-        $this->AnesthesiaCode = $AnesthesiaCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAnesthesiaMinutes(): string
-    {
-        return $this->AnesthesiaMinutes;
-    }
-
-    /**
-     * @param string $AnesthesiaMinutes
-     */
-    public function setAnesthesiaMinutes(string $AnesthesiaMinutes): void
-    {
-        $this->AnesthesiaMinutes = $AnesthesiaMinutes;
-    }
-
-    /**
-     * @return string
-     */
     public function getSurgeon(): string
     {
         return $this->Surgeon;
@@ -226,38 +106,6 @@ class PR1 implements Segment {
     /**
      * @return string
      */
-    public function getProcedurePractitioner(): string
-    {
-        return $this->ProcedurePractitioner;
-    }
-
-    /**
-     * @param string $ProcedurePractitioner
-     */
-    public function setProcedurePractitioner(string $ProcedurePractitioner): void
-    {
-        $this->ProcedurePractitioner = $ProcedurePractitioner;
-    }
-
-    /**
-     * @return string
-     */
-    public function getConsentCode(): string
-    {
-        return $this->ConsentCode;
-    }
-
-    /**
-     * @param string $ConsentCode
-     */
-    public function setConsentCode(string $ConsentCode): void
-    {
-        $this->ConsentCode = $ConsentCode;
-    }
-
-    /**
-     * @return string
-     */
     public function getProcedurePriority(): string
     {
         return $this->ProcedurePriority;
@@ -269,70 +117,6 @@ class PR1 implements Segment {
     public function setProcedurePriority(string $ProcedurePriority): void
     {
         $this->ProcedurePriority = $ProcedurePriority;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAssociatedDiagnosisCode(): string
-    {
-        return $this->AssociatedDiagnosisCode;
-    }
-
-    /**
-     * @param string $AssociatedDiagnosisCode
-     */
-    public function setAssociatedDiagnosisCode(string $AssociatedDiagnosisCode): void
-    {
-        $this->AssociatedDiagnosisCode = $AssociatedDiagnosisCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getProcedureCodeModifier(): string
-    {
-        return $this->ProcedureCodeModifier;
-    }
-
-    /**
-     * @param string $ProcedureCodeModifier
-     */
-    public function setProcedureCodeModifier(string $ProcedureCodeModifier): void
-    {
-        $this->ProcedureCodeModifier = $ProcedureCodeModifier;
-    }
-
-    /**
-     * @return string
-     */
-    public function getProcedureDRGType(): string
-    {
-        return $this->ProcedureDRGType;
-    }
-
-    /**
-     * @param string $ProcedureDRGType
-     */
-    public function setProcedureDRGType(string $ProcedureDRGType): void
-    {
-        $this->ProcedureDRGType = $ProcedureDRGType;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTissueTypeCode(): string
-    {
-        return $this->TissueTypeCode;
-    }
-
-    /**
-     * @param string $TissueTypeCode
-     */
-    public function setTissueTypeCode(string $TissueTypeCode): void
-    {
-        $this->TissueTypeCode = $TissueTypeCode;
     }
 
     /**
@@ -369,7 +153,30 @@ class PR1 implements Segment {
 
     public function __toString()
     {
-        throw new \BadMethodCallException();
+        $fields = [];
+        $fields[] = 'PR1';
+        $fields[] = $this->SetID_PR1;
+        $fields[] = '';
+        $fields[] = $this->ProcedureCode;
+        $fields[] = $this->ProcedureDescription;
+        $fields[] = $this->ProcedureDateTime;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->Surgeon;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->ProcedurePriority;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->ProcedureIdentifier;
+        $fields[] = $this->ProcedureActionCode;
+
+        return implode('|', $fields).'\r';
     }
 
 

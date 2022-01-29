@@ -4,91 +4,20 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A02_Patient_Transfer
+class ADT_A02_Patient_Transfer extends ADTBase
 {
-    private MSH $msh;
-    private PID $pid;
-    private EVN $evn;
-    private PV1 $pv1;
+
     private $pd1 = null;
     private $pv2 = null;
     private $obx = [];
 
     public function __construct()
     {
-        $this->msh = new MSH();
-        $this->pid = new PID();
-        $this->evn = new EVN();
-        $this->pv1 = new PV1();
+        parent::__construct();
 
-        $this->msh->setMessageType('ADT^A02');
+        $this->getMsh()->setMessageType('ADT^A02');
+        $this->getEvn()->setEventTypeCode($this->getMsh()->getMessageType());
 
-        $this->evn->setEventTypeCode($this->msh->getMessageType());
-
-    }
-
-    /**
-     * @return MSH
-     */
-    public function getMsh(): MSH
-    {
-        return $this->msh;
-    }
-
-    /**
-     * @param MSH $msh
-     */
-    public function setMsh(MSH $msh): void
-    {
-        $this->msh = $msh;
-    }
-
-    /**
-     * @return PID
-     */
-    public function getPid(): PID
-    {
-        return $this->pid;
-    }
-
-    /**
-     * @param PID $pid
-     */
-    public function setPid(PID $pid): void
-    {
-        $this->pid = $pid;
-    }
-
-    /**
-     * @return EVN
-     */
-    public function getEvn(): EVN
-    {
-        return $this->evn;
-    }
-
-    /**
-     * @param EVN $evn
-     */
-    public function setEvn(EVN $evn): void
-    {
-        $this->evn = $evn;
-    }
-
-    /**
-     * @return PV1
-     */
-    public function getPv1(): PV1
-    {
-        return $this->pv1;
-    }
-
-    /**
-     * @param PV1 $pv1
-     */
-    public function setPv1(PV1 $pv1): void
-    {
-        $this->pv1 = $pv1;
     }
 
     /**
@@ -147,11 +76,11 @@ class ADT_A02_Patient_Transfer
 
     public function __toString()
     {
-        $str = implode('\r',[
-            $this->msh,
-            $this->evn,
-            $this->pid,
-            $this->pv1,
+        $str = implode('',[
+            $this->getMsh(),
+            $this->getEvn(),
+            $this->getPid(),
+            $this->getPv1(),
             $this->pd1,
             ...$this->obx,
         ]);

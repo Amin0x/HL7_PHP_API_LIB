@@ -1,21 +1,19 @@
 <?php
 namespace amin0x\nabidh;
+use BadMethodCallException;
+
 class TQ1 implements Segment {
 
     private $SetID_TQ1 = '';
     private $Quantity = '';
     private $RepeatPattern = '';
-    private $ExplicitTime = '';
-    private $RelativeTimeandUnits = '';
     private $ServiceDuration = '';
     private $StartDateTime = '';
     private $EndDateTime = '';
     private $Priority = '';
     private $ConditionText = '';
     private $TextInstruction = '';
-    private $Conjunction = '';
-    private $OccurrenceDuration = '';
-    private $TotalOccurrences = '';
+
 
     /**
      * TQ1 constructor.
@@ -262,7 +260,24 @@ class TQ1 implements Segment {
 
     public function __toString()
     {
-        throw new \BadMethodCallException();
+        $fields = [];
+        $fields[] = 'TQ1';
+        $fields[] = $this->SetID_TQ1;
+        $fields[] = $this->Quantity;
+        $fields[] = $this->RepeatPattern;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->ServiceDuration;
+        $fields[] = $this->StartDateTime;
+        $fields[] = $this->EndDateTime;
+        $fields[] = $this->Priority;
+        $fields[] = $this->ConditionText;
+        $fields[] = $this->TextInstruction;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+
+        return implode('|', $fields) . '\r';
     }
 
 

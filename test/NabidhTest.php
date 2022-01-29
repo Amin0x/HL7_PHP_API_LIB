@@ -175,4 +175,18 @@ class NabidhTest extends TestCase
     {
         $this->assertSame('','');
     }
+
+    public function testVaccinationRecordMessage()
+    {
+        $nb = new Nabidh();
+        $vr = new VXU_V04_Vaccination_Record_Message();
+        $vr->setMsh(new MSH());
+        $vr->setPid(new PID());
+        $vr->addGt1(new GT1(1));
+        $vr->addGt1(new GT1(2));
+        $vr->addIn1(new IN1(1));
+        $vr->addIn1(new IN1(2));
+
+        var_dump((string)$vr);
+    }
 }

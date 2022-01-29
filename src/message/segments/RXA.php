@@ -9,4 +9,9 @@ class RXA extends RXE {
     public function __construct()
     {
     }
+
+    public function __toString()
+    {
+        return 'RXA' . ltrim(parent::__toString(), 'RXE');
+    }
 }

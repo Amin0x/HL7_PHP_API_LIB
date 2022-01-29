@@ -65,17 +65,17 @@ class VXU_V04_Vaccination_Record_Message
     /**
      * @return array
      */
-    public function getNk1(): array
+    public function getNk1(int $index)
     {
-        return $this->nk1;
+        return $this->nk1[$index];
     }
 
     /**
      * @param array $nk1
      */
-    public function setNk1(array $nk1): void
+    public function setNk1(NK1 $nk1): void
     {
-        $this->nk1 = $nk1;
+        array_push($this->nk1 , $nk1);
     }
 
     /**
@@ -97,33 +97,33 @@ class VXU_V04_Vaccination_Record_Message
     /**
      * @return array
      */
-    public function getGt1(): array
+    public function getGt1(int $index)
     {
-        return $this->gt1;
+        return $this->gt1[$index];
     }
 
     /**
      * @param array $gt1
      */
-    public function setGt1(array $gt1): void
+    public function addGt1(GT1 $gt1): void
     {
-        $this->gt1 = $gt1;
+        array_push($this->gt1 , $gt1);
     }
 
     /**
      * @return array
      */
-    public function getIn1(): array
+    public function getIn1($index)
     {
-        return $this->in1;
+        return $this->in1[$index];
     }
 
     /**
      * @param array $in1
      */
-    public function setIn1(array $in1): void
+    public function addIn1(IN1 $in1): void
     {
-        $this->in1 = $in1;
+        array_push($this->in1 , $in1);
     }
 
 

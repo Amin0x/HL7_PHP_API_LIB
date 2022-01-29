@@ -106,6 +106,18 @@ class MSA implements Segment {
         $this->ErrorCondition = $ErrorCondition;
     }
 
+    public function __toString()
+    {
+        $fields = [];
+        $fields[] = 'MSA';
+        $fields[] = $this->AcknowledgmentCode;
+        $fields[] = $this->MessageControlID;
+        $fields[] = $this->TextMessage;
+        $fields[] = $this->ExpectedSequenceNumber;
+        $fields[] = $this->DelayedAcknowledgmentType;
+        $fields[] = $this->ErrorCondition;
 
+        return implode('|', $fields) . '\r';
+    }
 
 }

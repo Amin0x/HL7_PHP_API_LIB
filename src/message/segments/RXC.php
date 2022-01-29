@@ -1,6 +1,8 @@
 <?php
 namespace amin0x\nabidh;
 
+use BadMethodCallException;
+
 class RXC implements Segment {
 
     private $GiveSubIdCounter;
@@ -12,7 +14,7 @@ class RXC implements Segment {
     private $AdministeredUnits;
     private $AdministeredDosageForm;
     private $AdministrationNotes;
-    private $AdministraingProvider;
+    private $AdministrationProvider;
     private $AdministeredAtLocation;
     private $AdministeredPer;
     private $AdministeredStrength;
@@ -174,17 +176,17 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getAdministraingProvider()
+    public function getAdministrationProvider()
     {
-        return $this->AdministraingProvider;
+        return $this->AdministrationProvider;
     }
 
     /**
-     * @param mixed $AdministraingProvider
+     * @param mixed $AdministrationProvider
      */
-    public function setAdministraingProvider($AdministraingProvider): void
+    public function setAdministrationProvider($AdministrationProvider): void
     {
-        $this->AdministraingProvider = $AdministraingProvider;
+        $this->AdministrationProvider = $AdministrationProvider;
     }
 
     /**
@@ -396,4 +398,37 @@ class RXC implements Segment {
     }
 
 
+    public function __toString()
+    {
+        $fields = [];
+        $fields[] = 'RXC';
+        $fields[] = $this->GiveSubIdCounter;
+        $fields[] = $this->AdministrationSubIdCounter;
+        $fields[] = $this->TimeStartOfAdministration;
+        $fields[] = $this->TimeEndOfAdministration;
+        $fields[] = $this->AdministeredCode;
+        $fields[] = $this->AdministeredAmount;
+        $fields[] = $this->AdministeredUnits;
+        $fields[] = $this->AdministeredDosageForm;
+        $fields[] = $this->AdministrationNotes;
+        $fields[] = $this->AdministrationProvider;
+        $fields[] = $this->AdministeredAtLocation;
+        $fields[] = $this->AdministeredPer;
+        $fields[] = $this->AdministeredStrength;
+        $fields[] = $this->AdministeredStrengthUnits;
+        $fields[] = $this->SubstanceLotNumber;
+        $fields[] = $this->SubstanceExpirationDate;
+        $fields[] = $this->SubstanceManufacturerName;
+        $fields[] = $this->SubstanceRefusalReason;
+        $fields[] = $this->Indication;
+        $fields[] = $this->CompletionStatus;
+        $fields[] = '';
+        $fields[] = $this->SystemEntryTime;
+        $fields[] = $this->AdministeredDrugStrengthVolume;
+        $fields[] = $this->AdministeredDrugStrengthVolumeUnits;
+        $fields[] = '';
+        $fields[] = '';
+
+        return implode('|', $fields) . '\r';
+    }
 }

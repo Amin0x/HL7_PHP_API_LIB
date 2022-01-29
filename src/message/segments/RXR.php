@@ -1,6 +1,8 @@
 <?php
 namespace amin0x\nabidh;
 
+use BadMethodCallException;
+
 class RXR implements Segment
 {
     private $Route = '';
@@ -38,5 +40,9 @@ class RXR implements Segment
         $this->AdministrationSite = $AdministrationSite;
     }
 
+    public function __toString()
+    {
+        return 'RXR' . $this->Route . '|' . $this->AdministrationSite . '||||\r';
+    }
 
 }

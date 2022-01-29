@@ -1,22 +1,21 @@
 <?php
 namespace amin0x\nabidh;
 
-class ADT_A04_Register_Patient
+class ADT_A04_Register_Patient extends ADTBase
 {
-    private $msh;
-    private $evn;
-    private $pid;
-    private $pd1;
+    private $pd1 = null;
     private $nk1 = [];
-    private $pv1;
-    private $pv2;
+    private $pv2 = null;
     private $obx = [];
     private $al1 = [];
     private $dg1 = [];
-    private $drg;
-    private $pr1 = []; //
+    private $drg = null;
+    private $pr1 = [];
     private $gt1 = [];
     private $in1 = [];
+    private $zsc = null;
+    private $zsh = [];
+    private $zfh = [];
 
 
     /**
@@ -24,85 +23,20 @@ class ADT_A04_Register_Patient
      */
     public function __construct($pid = null, $pv1 = null)
     {
+        parent::__construct();
         $config = include dirname(__FILE__).'/../config/config.php';
-        $this->msh = new MSH();
-        $this->msh->setMessageType('ADT^A04');
-        $this->msh->setMessageControlID(time());
-        $this->msh->setDateTimeofMessage(date('YmdHis'));
-        $this->msh->setSendingApplication('');
-        $this->msh->setSendingFacility('');
-        $this->msh->setProcessingID('');
 
-        $this->evn = new EVN();
-        $this->evn->setEventTypeCode('A04');
-        $this->evn->setRecordedDateTime(date('c'));
-        $this->evn->setEventFacility('');
-        $this->pid = new PID();
-        $this->pv1 = new PV1();
-    }
+        $this->getMsh()->setMessageType('ADT^A04');
+        $this->getMsh()->setMessageControlID(time());
+        $this->getMsh()->setDateTimeofMessage(date('YmdHis'));
+        $this->getMsh()->setSendingApplication('');
+        $this->getMsh()->setSendingFacility('');
+        $this->getMsh()->setProcessingID('');
 
-    /**
-     * @return MSH
-     */
-    public function getMsh(): MSH
-    {
-        return $this->msh;
-    }
+        $this->getEvn()->setEventTypeCode('A04');
+        $this->getEvn()->setRecordedDateTime(date('c'));
+        $this->getEvn()->setEventFacility('');
 
-    /**
-     * @param MSH $msh
-     */
-    public function setMsh(MSH $msh): void
-    {
-        $this->msh = $msh;
-    }
-
-    /**
-     * @return PID
-     */
-    public function getPid(): PID
-    {
-        return $this->pid;
-    }
-
-    /**
-     * @param PID $pid
-     */
-    public function setPid(PID $pid): void
-    {
-        $this->pid = $pid;
-    }
-
-    /**
-     * @return EVN
-     */
-    public function getEvn(): EVN
-    {
-        return $this->evn;
-    }
-
-    /**
-     * @param EVN $evn
-     */
-    public function setEvn(EVN $evn): void
-    {
-        $this->evn = $evn;
-    }
-
-    /**
-     * @return PV1
-     */
-    public function getPv1(): PV1
-    {
-        return $this->pv1;
-    }
-
-    /**
-     * @param PV1 $pv1
-     */
-    public function setPv1(PV1 $pv1): void
-    {
-        $this->pv1 = $pv1;
     }
 
     /**
@@ -303,35 +237,35 @@ class ADT_A04_Register_Patient
 
     public function __toString()
     {
-        $str = $this->msh .'\r';
-        $str .= $this->pid .'\r';
-        $str .= $this->evn .'\r';
-        $str .= $this->pv1 .'\r';
-        $str .= $this->pd1 ? $this->pd1 .'\r' : '';
+        $str = (string) $this->getMsh();
+        $str .= $this->getPid();
+        $str .= $this->getEvn();
+        $str .= $this->getPv1();
+        $str .= $this->pd1 != null ? $this->pd1 : '';
 
         foreach ($this->nk1 as $item) {
-            $str .= $item .'\r';
+            $str .= $item;
         }
-        $str .= $this->pv2 ? $this->pv2 .'\r' : '';
+        $str .= $this->pv2 != null ? $this->pv2 : '';
         foreach ($this->obx as $item) {
-            $str .= $item .'\r';
+            $str .= $item;
         }
         foreach ($this->al1 as $item) {
-            $str .= $item .'\r';
+            $str .= $item;
         }
         foreach ($this->dg1 as $item) {
-            $str .= $item .'\r';
+            $str .= $item;
         }
 
-        $str .= $this->drg ? $this->drg .'\r' : '';
+        $str .= $this->drg != null ? $this->drg : '';
         foreach ($this->pr1 as $item) {
-            $str .= $item .'\r';
+            $str .= $item;
         }
         foreach ($this->gt1 as $item) {
-            $str .= $item .'\r';
+            $str .= $item;
         }
         foreach ($this->in1 as $item) {
-            $str .= $item .'\r';
+            $str .= $item;
         }
 
         return $str;

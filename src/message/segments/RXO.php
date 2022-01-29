@@ -19,6 +19,8 @@ class RXO implements Segment
     private $Indication;
     private $RequestedGiveRateAmount;
     private $RequestedGiveRateUnits;
+    private $RequestedDrugStrengthVolume;
+    private $RequestedDrugStrengthVolumeUnits;
 
     /**
      * RXO constructor.
@@ -267,5 +269,72 @@ class RXO implements Segment
         $this->RequestedGiveRateUnits = $RequestedGiveRateUnits;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getRequestedDrugStrengthVolume()
+    {
+        return $this->RequestedDrugStrengthVolume;
+    }
+
+    /**
+     * @param mixed $RequestedDrugStrengthVolume
+     */
+    public function setRequestedDrugStrengthVolume($RequestedDrugStrengthVolume): void
+    {
+        $this->RequestedDrugStrengthVolume = $RequestedDrugStrengthVolume;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRequestedDrugStrengthVolumeUnits()
+    {
+        return $this->RequestedDrugStrengthVolumeUnits;
+    }
+
+    /**
+     * @param mixed $RequestedDrugStrengthVolumeUnits
+     */
+    public function setRequestedDrugStrengthVolumeUnits($RequestedDrugStrengthVolumeUnits): void
+    {
+        $this->RequestedDrugStrengthVolumeUnits = $RequestedDrugStrengthVolumeUnits;
+    }
+
+    public function __toString()
+    {
+        $fields = [];
+        $fields[] = 'RXO';
+        $fields[] = $this->RequestedGiveCode;
+        $fields[] = $this->RequestedGiveAmountMinimum;
+        $fields[] = $this->RequestedGiveAmountMaximum;
+        $fields[] = $this->RequestedGiveUnits;
+        $fields[] = $this->RequestedDosageForm;
+        $fields[] = $this->ProviderTreatmentInstructions;
+        $fields[] = $this->ProviderAdministrationInstructions;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->NumberOfRefills;
+        $fields[] = $this->OrderingProviderNumber;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->RequestedGivePer;
+        $fields[] = $this->RequestedGiveStrength;
+        $fields[] = $this->RequestedGiveStrengthUnits;
+        $fields[] = $this->Indication;
+        $fields[] = $this->RequestedGiveRateAmount;
+        $fields[] = $this->RequestedGiveRateUnits;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->RequestedDrugStrengthVolume;
+        $fields[] = $this->RequestedDrugStrengthVolumeUnits;
+        $fields[] = '';
+        $fields[] = '';
+
+        return implode('|', $fields) . '\r';
+    }
 
 }

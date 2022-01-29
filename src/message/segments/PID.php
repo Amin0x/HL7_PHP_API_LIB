@@ -571,49 +571,50 @@ class PID implements Segment {
 
     public function __toString(): string
     {
-        $out = 'PID' . '|'  //0
-        .$this->SetID .'|'  //1
-        .'|' // 2
-        .$this->PatientIdentifierList . '|' //3
-        . '|' //4
-        .$this->PatientName . '|' //5
-        .$this->MotherMaidenName . '|' //6
-        .$this->DateTimeofBirth . '|' //7
-        .$this->AdministrativeSex . '|' //8
-        .$this->PatientAlias . '|' //9
-        .$this->Race . '|' //10
-        .$this->PatientAddress . '|' //11
-        . '|' //12
-        .$this->PhoneNumberHome . '|' //13
-        .$this->PhoneNumberBusiness . '|' //14
-        .$this->PrimaryLanguage . '|' //15
-        .$this->MaritalStatus . '|' //16
-        .$this->Religion . '|' //17
-        .$this->PatientAccountNumber . '|' //18
-        .$this->SSN_NumberPatient . '|' //19
-        . '|'   //20
-        .$this->MotherIdentifier . '|' //21
-        .$this->EthnicGroup . '|' //22
-        .$this->BirthPlace . '|' //23
-        .$this->MultipleBirthIndicator . '|' //24
-        .$this->BirthOrder . '|' //25
-        .$this->Citizenship . '|' //26
-        . '|' //27
-        .$this->Nationality . '|' //28
-        .$this->PatientDeathDateTime . '|' //29
-        .$this->PatientDeathIndicator . '|' //30
-        .$this->IdentityUnknownIndicator . '|' //31
-        . '|' //32
-        .$this->LastUpdateDateTime . '|' //33
-        .$this->LastUpdateFacility . '|' //34
-        . '|' //35
-        . '|' //36
-        . '|' //37
-        . '|' //38
-        .'|' //39
-        ;
+        $srt = [];
+        $str[] = 'PID';
+        $str[] = $this->SetID;
+        $str[] = '';
+        $str[] = $this->PatientIdentifierList;
+        $str[] = '';
+        $str[] = $this->PatientName;
+        $str[] = $this->MotherMaidenName;
+        $str[] = $this->DateTimeofBirth;
+        $str[] = $this->AdministrativeSex;
+        $str[] = $this->PatientAlias;
+        $str[] = $this->Race;
+        $str[] = $this->PatientAddress;
+        $str[] = '';
+        $str[] = $this->PhoneNumberHome;
+        $str[] = $this->PhoneNumberBusiness;
+        $str[] = $this->PrimaryLanguage;
+        $str[] = $this->MaritalStatus;
+        $str[] = $this->Religion;
+        $str[] = $this->PatientAccountNumber;
+        $str[] = $this->SSN_NumberPatient;
+        $str[] = '';
+        $str[] = $this->MotherIdentifier;
+        $str[] = $this->EthnicGroup;
+        $str[] = $this->BirthPlace;
+        $str[] = $this->MultipleBirthIndicator;
+        $str[] = $this->BirthOrder;
+        $str[] = $this->Citizenship;
+        $str[] = '';
+        $str[] = $this->Nationality;
+        $str[] = $this->PatientDeathDateTime;
+        $str[] = $this->PatientDeathIndicator;
+        $str[] = $this->IdentityUnknownIndicator;
+        $str[] = '';
+        $str[] = $this->LastUpdateDateTime;
+        $str[] = $this->LastUpdateFacility;
+        $str[] = '';
+        $str[] = '';
+        $str[] = '';
+        $str[] = '';
+        $str[] = '';
 
-        return rtrim($out,'|').'\r';
+        return implode('|', $str) . '\r';
+
     }
 
 

@@ -9,50 +9,27 @@ class ORC implements Segment {
     private $OrderControl = '';
     private $PlacerOrderNumber = '';
     private $FillerOrderNumber = '';
-    private $PlacerGroupNumber = '';
     private $OrderStatus = '';
-    private $ResponseFlag = '';
     private $QualityTiming = '';
-    private $Parent = '';
     private $DateTimeTransaction = '';
     private $EnteredBy = '';
     private $VerifiedBy = '';
     private $OrderingProvider = '';
     private $EntererLocation = '';
     private $CallBackPhoneNumber = '';
-    private $OrderEffectiveDateTime = '';
-    private $OrderControlCodeReason = '';
-    private $EnteringOrganization = '';
-    private $EnteringDevice = '';
-    private $ActionBy = '';
-    private $AdvancedBeneficiaryNoticeCode = '';
     private $OrderingFacilityName = '';
     private $OrderingFacilityAddress = '';
     private $OrderingFacilityPhoneNumber = '';
-    private $OrderingProviderAddress = '';
-    private $OrderStatusModifier = '';
-    private $AdvancedBeneficiaryNoticeOverrideReason = '';
-    private $FillerExpectedAvailabilityDateTime = '';
     private $ConfidentialityCode = '';
     private $OrderType = '';
-    private $EntererAuthorizationMode = '';
-    private $ParentUniversalServiceIdentifier = '';
+
 
     /**
      * ORC constructor.
-     * @param string $OrderControl
-     * @param string $PlacerOrderNumber
-     * @param string $FillerOrderNumber
-     * @param string $PlacerGroupNumber
-     * @param string $OrderStatus
      */
-    public function __construct(string $OrderControl, string $PlacerOrderNumber, string $FillerOrderNumber, string $PlacerGroupNumber, string $OrderStatus)
+    public function __construct()
     {
-        $this->OrderControl = $OrderControl;
-        $this->PlacerOrderNumber = $PlacerOrderNumber;
-        $this->FillerOrderNumber = $FillerOrderNumber;
-        $this->PlacerGroupNumber = $PlacerGroupNumber;
-        $this->OrderStatus = $OrderStatus;
+
     }
 
     /**
@@ -106,22 +83,6 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getPlacerGroupNumber(): string
-    {
-        return $this->PlacerGroupNumber;
-    }
-
-    /**
-     * @param string $PlacerGroupNumber
-     */
-    public function setPlacerGroupNumber(string $PlacerGroupNumber): void
-    {
-        $this->PlacerGroupNumber = $PlacerGroupNumber;
-    }
-
-    /**
-     * @return string
-     */
     public function getOrderStatus(): string
     {
         return $this->OrderStatus;
@@ -138,22 +99,6 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getResponseFlag(): string
-    {
-        return $this->ResponseFlag;
-    }
-
-    /**
-     * @param string $ResponseFlag
-     */
-    public function setResponseFlag(string $ResponseFlag): void
-    {
-        $this->ResponseFlag = $ResponseFlag;
-    }
-
-    /**
-     * @return string
-     */
     public function getQualityTiming(): string
     {
         return $this->QualityTiming;
@@ -165,22 +110,6 @@ class ORC implements Segment {
     public function setQualityTiming(string $QualityTiming): void
     {
         $this->QualityTiming = $QualityTiming;
-    }
-
-    /**
-     * @return string
-     */
-    public function getParent(): string
-    {
-        return $this->Parent;
-    }
-
-    /**
-     * @param string $Parent
-     */
-    public function setParent(string $Parent): void
-    {
-        $this->Parent = $Parent;
     }
 
     /**
@@ -282,102 +211,6 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getOrderEffectiveDateTime(): string
-    {
-        return $this->OrderEffectiveDateTime;
-    }
-
-    /**
-     * @param string $OrderEffectiveDateTime
-     */
-    public function setOrderEffectiveDateTime(string $OrderEffectiveDateTime): void
-    {
-        $this->OrderEffectiveDateTime = $OrderEffectiveDateTime;
-    }
-
-    /**
-     * @return string
-     */
-    public function getOrderControlCodeReason(): string
-    {
-        return $this->OrderControlCodeReason;
-    }
-
-    /**
-     * @param string $OrderControlCodeReason
-     */
-    public function setOrderControlCodeReason(string $OrderControlCodeReason): void
-    {
-        $this->OrderControlCodeReason = $OrderControlCodeReason;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEnteringOrganization(): string
-    {
-        return $this->EnteringOrganization;
-    }
-
-    /**
-     * @param string $EnteringOrganization
-     */
-    public function setEnteringOrganization(string $EnteringOrganization): void
-    {
-        $this->EnteringOrganization = $EnteringOrganization;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEnteringDevice(): string
-    {
-        return $this->EnteringDevice;
-    }
-
-    /**
-     * @param string $EnteringDevice
-     */
-    public function setEnteringDevice(string $EnteringDevice): void
-    {
-        $this->EnteringDevice = $EnteringDevice;
-    }
-
-    /**
-     * @return string
-     */
-    public function getActionBy(): string
-    {
-        return $this->ActionBy;
-    }
-
-    /**
-     * @param string $ActionBy
-     */
-    public function setActionBy(string $ActionBy): void
-    {
-        $this->ActionBy = $ActionBy;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAdvancedBeneficiaryNoticeCode(): string
-    {
-        return $this->AdvancedBeneficiaryNoticeCode;
-    }
-
-    /**
-     * @param string $AdvancedBeneficiaryNoticeCode
-     */
-    public function setAdvancedBeneficiaryNoticeCode(string $AdvancedBeneficiaryNoticeCode): void
-    {
-        $this->AdvancedBeneficiaryNoticeCode = $AdvancedBeneficiaryNoticeCode;
-    }
-
-    /**
-     * @return string
-     */
     public function getOrderingFacilityName(): string
     {
         return $this->OrderingFacilityName;
@@ -426,70 +259,6 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getOrderingProviderAddress(): string
-    {
-        return $this->OrderingProviderAddress;
-    }
-
-    /**
-     * @param string $OrderingProviderAddress
-     */
-    public function setOrderingProviderAddress(string $OrderingProviderAddress): void
-    {
-        $this->OrderingProviderAddress = $OrderingProviderAddress;
-    }
-
-    /**
-     * @return string
-     */
-    public function getOrderStatusModifier(): string
-    {
-        return $this->OrderStatusModifier;
-    }
-
-    /**
-     * @param string $OrderStatusModifier
-     */
-    public function setOrderStatusModifier(string $OrderStatusModifier): void
-    {
-        $this->OrderStatusModifier = $OrderStatusModifier;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAdvancedBeneficiaryNoticeOverrideReason(): string
-    {
-        return $this->AdvancedBeneficiaryNoticeOverrideReason;
-    }
-
-    /**
-     * @param string $AdvancedBeneficiaryNoticeOverrideReason
-     */
-    public function setAdvancedBeneficiaryNoticeOverrideReason(string $AdvancedBeneficiaryNoticeOverrideReason): void
-    {
-        $this->AdvancedBeneficiaryNoticeOverrideReason = $AdvancedBeneficiaryNoticeOverrideReason;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFillerExpectedAvailabilityDateTime(): string
-    {
-        return $this->FillerExpectedAvailabilityDateTime;
-    }
-
-    /**
-     * @param string $FillerExpectedAvailabilityDateTime
-     */
-    public function setFillerExpectedAvailabilityDateTime(string $FillerExpectedAvailabilityDateTime): void
-    {
-        $this->FillerExpectedAvailabilityDateTime = $FillerExpectedAvailabilityDateTime;
-    }
-
-    /**
-     * @return string
-     */
     public function getConfidentialityCode(): string
     {
         return $this->ConfidentialityCode;
@@ -519,42 +288,28 @@ class ORC implements Segment {
         $this->OrderType = $OrderType;
     }
 
-    /**
-     * @return string
-     */
-    public function getEntererAuthorizationMode(): string
-    {
-        return $this->EntererAuthorizationMode;
-    }
-
-    /**
-     * @param string $EntererAuthorizationMode
-     */
-    public function setEntererAuthorizationMode(string $EntererAuthorizationMode): void
-    {
-        $this->EntererAuthorizationMode = $EntererAuthorizationMode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getParentUniversalServiceIdentifier(): string
-    {
-        return $this->ParentUniversalServiceIdentifier;
-    }
-
-    /**
-     * @param string $ParentUniversalServiceIdentifier
-     */
-    public function setParentUniversalServiceIdentifier(string $ParentUniversalServiceIdentifier): void
-    {
-        $this->ParentUniversalServiceIdentifier = $ParentUniversalServiceIdentifier;
-    }
-
     public function __toString()
     {
-        throw new BadMethodCallException();
-        return '';
+        $fields = [];
+        $fields[] = 'ORC';
+        $fields[] = $this->OrderControl;
+        $fields[] = $this->PlacerOrderNumber;
+        $fields[] = $this->FillerOrderNumber;
+        $fields[] = $this->OrderStatus;
+        $fields[] = $this->QualityTiming;
+        $fields[] = $this->DateTimeTransaction;
+        $fields[] = $this->EnteredBy;
+        $fields[] = $this->VerifiedBy;
+        $fields[] = $this->OrderingProvider;
+        $fields[] = $this->EntererLocation;
+        $fields[] = $this->CallBackPhoneNumber;
+        $fields[] = $this->OrderingFacilityName;
+        $fields[] = $this->OrderingFacilityAddress;
+        $fields[] = $this->OrderingFacilityPhoneNumber;
+        $fields[] = $this->ConfidentialityCode;
+        $fields[] = $this->OrderType;
+
+        return implode('|', $fields) . '\r';
     }
 
 

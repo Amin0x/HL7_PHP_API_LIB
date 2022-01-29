@@ -52,6 +52,6 @@ class NPU implements Segment {
 
     public function __toString()
     {
-        return '';
+        return $this->BedLocation . '|' . $this->BedStatus . '\r';
     }
 }

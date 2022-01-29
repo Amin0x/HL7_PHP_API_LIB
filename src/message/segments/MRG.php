@@ -4,12 +4,8 @@ namespace amin0x\nabidh;
 class MRG implements Segment {
 
     private $PriorPatientIdentifierList = '';
-    private $PriorAlternatePatientID = '';
-    private $PriorPatientAccountNumber = '';
-    private $PriorPatientID = '';
     private $PriorVisitNumber = '';
-    private $PriorAlternateVisitID = '';
-    private $PriorPatientName = '';
+
 
     /**
      * @return string
@@ -30,54 +26,6 @@ class MRG implements Segment {
     /**
      * @return string
      */
-    public function getPriorAlternatePatientID(): string
-    {
-        return $this->PriorAlternatePatientID;
-    }
-
-    /**
-     * @param string $PriorAlternatePatientID
-     */
-    public function setPriorAlternatePatientID(string $PriorAlternatePatientID): void
-    {
-        $this->PriorAlternatePatientID = $PriorAlternatePatientID;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPriorPatientAccountNumber(): string
-    {
-        return $this->PriorPatientAccountNumber;
-    }
-
-    /**
-     * @param string $PriorPatientAccountNumber
-     */
-    public function setPriorPatientAccountNumber(string $PriorPatientAccountNumber): void
-    {
-        $this->PriorPatientAccountNumber = $PriorPatientAccountNumber;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPriorPatientID(): string
-    {
-        return $this->PriorPatientID;
-    }
-
-    /**
-     * @param string $PriorPatientID
-     */
-    public function setPriorPatientID(string $PriorPatientID): void
-    {
-        $this->PriorPatientID = $PriorPatientID;
-    }
-
-    /**
-     * @return string
-     */
     public function getPriorVisitNumber(): string
     {
         return $this->PriorVisitNumber;
@@ -91,50 +39,19 @@ class MRG implements Segment {
         $this->PriorVisitNumber = $PriorVisitNumber;
     }
 
-    /**
-     * @return string
-     */
-    public function getPriorAlternateVisitID(): string
-    {
-        return $this->PriorAlternateVisitID;
-    }
-
-    /**
-     * @param string $PriorAlternateVisitID
-     */
-    public function setPriorAlternateVisitID(string $PriorAlternateVisitID): void
-    {
-        $this->PriorAlternateVisitID = $PriorAlternateVisitID;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPriorPatientName(): string
-    {
-        return $this->PriorPatientName;
-    }
-
-    /**
-     * @param string $PriorPatientName
-     */
-    public function setPriorPatientName(string $PriorPatientName): void
-    {
-        $this->PriorPatientName = $PriorPatientName;
-    }
-
     public function __toString()
     {
-        $str = 'MRG' . '|'
-        .$this->PriorPatientIdentifierList . '|'
-        .$this->PriorAlternatePatientID . '|'
-        .$this->PriorPatientAccountNumber . '|'
-        .$this->PriorPatientID . '|'
-        .$this->PriorVisitNumber . '|'
-        .$this->PriorAlternateVisitID . '|'
-        .$this->PriorPatientName . '|';
+        $str = [];
+        $str[] = 'MRG';
+        $str[] = $this->PriorPatientIdentifierList;
+        $str[] = '';
+        $str[] = '';
+        $str[] = '';
+        $str[] = $this->PriorVisitNumber;
+        $str[] = '';
+        $str[] = '';
 
-        return rtrim($str, '|');
+        return implode( '|', $str) . '\r';
     }
 
 

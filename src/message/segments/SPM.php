@@ -5,33 +5,21 @@ class SPM implements Segment {
 
     private $SetID_SPM = '';
     private $SpecimenID = '';
-    private $SpecimenParentIDs = '';
     private $SpecimenType = '';
     private $SpecimenTypeModifier = '';
     private $SpecimenAdditives = '';
     private $SpecimenCollectionMethod = '';
     private $SpecimenSourceSite = '';
     private $SpecimenSourceSiteModifier = '';
-    private $SpecimenCollectionSite = '';
     private $SpecimenRole = '';
     private $SpecimenCollectionAmount = '';
-    private $GroupedSpecimenCount = '';
-    private $SpecimenDescription = '';
-    private $SpecimenHandlingCode = '';
-    private $SpecimenRiskCode = '';
     private $SpecimenCollectionDateTime = '';
     private $SpecimenReceivedDateTime = '';
-    private $SpecimenExpirationDateTime = '';
-    private $SpecimenAvailability = '';
     private $SpecimenRejectReason = '';
     private $SpecimenQuality = '';
     private $SpecimenAppropriateness = '';
     private $SpecimenCondition = '';
-    private $SpecimenCurrentQuantity = '';
-    private $NumberSpecimenContainers = '';
-    private $ContainerType = '';
-    private $ContainerCondition = '';
-    private $SpecimenChildRole = '';
+
 
     /**
      * SPM constructor.
@@ -42,14 +30,9 @@ class SPM implements Segment {
      * @param string $SpecimenTypeModifier
      * @param string $SpecimenAdditives
      */
-    public function __construct(string $SetID_SPM, string $SpecimenID, string $SpecimenParentIDs, string $SpecimenType, string $SpecimenTypeModifier, string $SpecimenAdditives)
+    public function __construct()
     {
-        $this->SetID_SPM = $SetID_SPM;
-        $this->SpecimenID = $SpecimenID;
-        $this->SpecimenParentIDs = $SpecimenParentIDs;
-        $this->SpecimenType = $SpecimenType;
-        $this->SpecimenTypeModifier = $SpecimenTypeModifier;
-        $this->SpecimenAdditives = $SpecimenAdditives;
+
     }
 
     /**
@@ -82,22 +65,6 @@ class SPM implements Segment {
     public function setSpecimenID(string $SpecimenID): void
     {
         $this->SpecimenID = $SpecimenID;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSpecimenParentIDs(): string
-    {
-        return $this->SpecimenParentIDs;
-    }
-
-    /**
-     * @param string $SpecimenParentIDs
-     */
-    public function setSpecimenParentIDs(string $SpecimenParentIDs): void
-    {
-        $this->SpecimenParentIDs = $SpecimenParentIDs;
     }
 
     /**
@@ -199,22 +166,6 @@ class SPM implements Segment {
     /**
      * @return string
      */
-    public function getSpecimenCollectionSite(): string
-    {
-        return $this->SpecimenCollectionSite;
-    }
-
-    /**
-     * @param string $SpecimenCollectionSite
-     */
-    public function setSpecimenCollectionSite(string $SpecimenCollectionSite): void
-    {
-        $this->SpecimenCollectionSite = $SpecimenCollectionSite;
-    }
-
-    /**
-     * @return string
-     */
     public function getSpecimenRole(): string
     {
         return $this->SpecimenRole;
@@ -247,70 +198,6 @@ class SPM implements Segment {
     /**
      * @return string
      */
-    public function getGroupedSpecimenCount(): string
-    {
-        return $this->GroupedSpecimenCount;
-    }
-
-    /**
-     * @param string $GroupedSpecimenCount
-     */
-    public function setGroupedSpecimenCount(string $GroupedSpecimenCount): void
-    {
-        $this->GroupedSpecimenCount = $GroupedSpecimenCount;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSpecimenDescription(): string
-    {
-        return $this->SpecimenDescription;
-    }
-
-    /**
-     * @param string $SpecimenDescription
-     */
-    public function setSpecimenDescription(string $SpecimenDescription): void
-    {
-        $this->SpecimenDescription = $SpecimenDescription;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSpecimenHandlingCode(): string
-    {
-        return $this->SpecimenHandlingCode;
-    }
-
-    /**
-     * @param string $SpecimenHandlingCode
-     */
-    public function setSpecimenHandlingCode(string $SpecimenHandlingCode): void
-    {
-        $this->SpecimenHandlingCode = $SpecimenHandlingCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSpecimenRiskCode(): string
-    {
-        return $this->SpecimenRiskCode;
-    }
-
-    /**
-     * @param string $SpecimenRiskCode
-     */
-    public function setSpecimenRiskCode(string $SpecimenRiskCode): void
-    {
-        $this->SpecimenRiskCode = $SpecimenRiskCode;
-    }
-
-    /**
-     * @return string
-     */
     public function getSpecimenCollectionDateTime(): string
     {
         return $this->SpecimenCollectionDateTime;
@@ -338,38 +225,6 @@ class SPM implements Segment {
     public function setSpecimenReceivedDateTime(string $SpecimenReceivedDateTime): void
     {
         $this->SpecimenReceivedDateTime = $SpecimenReceivedDateTime;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSpecimenExpirationDateTime(): string
-    {
-        return $this->SpecimenExpirationDateTime;
-    }
-
-    /**
-     * @param string $SpecimenExpirationDateTime
-     */
-    public function setSpecimenExpirationDateTime(string $SpecimenExpirationDateTime): void
-    {
-        $this->SpecimenExpirationDateTime = $SpecimenExpirationDateTime;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSpecimenAvailability(): string
-    {
-        return $this->SpecimenAvailability;
-    }
-
-    /**
-     * @param string $SpecimenAvailability
-     */
-    public function setSpecimenAvailability(string $SpecimenAvailability): void
-    {
-        $this->SpecimenAvailability = $SpecimenAvailability;
     }
 
     /**
@@ -436,89 +291,40 @@ class SPM implements Segment {
         $this->SpecimenCondition = $SpecimenCondition;
     }
 
-    /**
-     * @return string
-     */
-    public function getSpecimenCurrentQuantity(): string
-    {
-        return $this->SpecimenCurrentQuantity;
-    }
-
-    /**
-     * @param string $SpecimenCurrentQuantity
-     */
-    public function setSpecimenCurrentQuantity(string $SpecimenCurrentQuantity): void
-    {
-        $this->SpecimenCurrentQuantity = $SpecimenCurrentQuantity;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNumberSpecimenContainers(): string
-    {
-        return $this->NumberSpecimenContainers;
-    }
-
-    /**
-     * @param string $NumberSpecimenContainers
-     */
-    public function setNumberSpecimenContainers(string $NumberSpecimenContainers): void
-    {
-        $this->NumberSpecimenContainers = $NumberSpecimenContainers;
-    }
-
-    /**
-     * @return string
-     */
-    public function getContainerType(): string
-    {
-        return $this->ContainerType;
-    }
-
-    /**
-     * @param string $ContainerType
-     */
-    public function setContainerType(string $ContainerType): void
-    {
-        $this->ContainerType = $ContainerType;
-    }
-
-    /**
-     * @return string
-     */
-    public function getContainerCondition(): string
-    {
-        return $this->ContainerCondition;
-    }
-
-    /**
-     * @param string $ContainerCondition
-     */
-    public function setContainerCondition(string $ContainerCondition): void
-    {
-        $this->ContainerCondition = $ContainerCondition;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSpecimenChildRole(): string
-    {
-        return $this->SpecimenChildRole;
-    }
-
-    /**
-     * @param string $SpecimenChildRole
-     */
-    public function setSpecimenChildRole(string $SpecimenChildRole): void
-    {
-        $this->SpecimenChildRole = $SpecimenChildRole;
-    }
-
     public function __toString()
     {
-        throw new \BadMethodCallException();
+        $fields = [];
+        $fields[] = 'SPM';
+        $fields[] = $this->SetID_SPM;
+        $fields[] = $this->SpecimenID;
+        $fields[] = '';
+        $fields[] = $this->SpecimenType;
+        $fields[] = $this->SpecimenTypeModifier;
+        $fields[] = $this->SpecimenAdditives;
+        $fields[] = $this->SpecimenCollectionMethod;
+        $fields[] = $this->SpecimenSourceSite;
+        $fields[] = $this->SpecimenSourceSiteModifier;
+        $fields[] = '';
+        $fields[] = $this->SpecimenRole;
+        $fields[] = $this->SpecimenCollectionAmount;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->SpecimenCollectionDateTime;
+        $fields[] = $this->SpecimenReceivedDateTime;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->SpecimenRejectReason;
+        $fields[] = $this->SpecimenQuality;
+        $fields[] = $this->SpecimenAppropriateness;
+        $fields[] = $this->SpecimenCondition;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        return '';
     }
 
 

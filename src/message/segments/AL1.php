@@ -108,15 +108,16 @@ class AL1 implements Segment {
     }
 
     public function __toString(){
-        $str = 'AL1|'
-        .$this->SetID_AL1 . '|'
-        .$this->AllergenTypeCode . '|'
-        .$this->AllergenCodeMnemonicDescription . '|'
-        .$this->AllergySeverityCode . '|'
-        .$this->AllergyReactionCode . '|'
-        .$this->IdentificationDate . '|';
+        $str = [];
+        $str[] = 'AL1';
+        $str[] = $this->SetID_AL1;
+        $str[] = $this->AllergenTypeCode;
+        $str[] = $this->AllergenCodeMnemonicDescription;
+        $str[] = $this->AllergySeverityCode;
+        $str[] = $this->AllergyReactionCode;
+        $str[] = $this->IdentificationDate ;
 
-        return $str;
+        return implode('|', $str).'\r';
     }
 
 }

@@ -233,26 +233,30 @@ class MSH implements Segment
 
     public function __toString(): string
     {
-        $fields = 'MSH'.'|'; //0
-            $fields .=$this->EncodingCharacters . '|';    //1
-            $fields .= $this->SendingApplication . '|';    //2
-            $fields .= $this->SendingFacility . '|';   //3
-            $fields .= $this->ReceivingApplication . '|';  //4
-            $fields .= $this->ReceivingFacility . '|'; //5
-            $fields .= $this->DateTimeOfMessage . '|';  //6
-            $fields .= '|';   //7
-            $fields .= $this->MessageType . '|';   //8
-            $fields .= $this->MessageControlID . '|';  //9
-            $fields .= $this->ProcessingID . '|';  //10
-            $fields .= $this->VersionID . '|'; //11
-            $fields .= '|||||';    //12.13.14.15.16
-            $fields .= $this->CharacterSet;  //17
+        $fields = [];
+        $fields[] = 'MSH';
+        $fields[] = $this->EncodingCharacters;
+        $fields[] = $this->SendingApplication;
+        $fields[] = $this->SendingFacility;
+        $fields[] = $this->ReceivingApplication;
+        $fields[] = $this->ReceivingFacility;
+        $fields[] = $this->DateTimeOfMessage;
+        $fields[] = '';
+        $fields[] = $this->MessageType ;
+        $fields[] = $this->MessageControlID;
+        $fields[] = $this->ProcessingID;
+        $fields[] = $this->VersionID;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->CharacterSet;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
 
-
-        //$fields = rtrim($fields, '|');
-        //return $fields == ''? $fields : $fields.'\r';
-
-        return $fields;
+        return implode('|', $fields) . '\r';
     }
 
 }

@@ -3,26 +3,18 @@ namespace amin0x\nabidh;
 
 class NTE implements Segment {
 
-    
-
     private $SetID_NTE = '';
-    private $SourceComment = '';
     private $Comment = '';
-    private $CommentType = '';
 
     /**
      * NTE constructor.
      * @param string $SetID_NTE
-     * @param string $SourceComment
      * @param string $Comment
-     * @param string $CommentType
      */
-    public function __construct(string $SetID_NTE, string $SourceComment, string $Comment, string $CommentType)
+    public function __construct(string $SetID_NTE,  string $Comment)
     {
         $this->SetID_NTE = $SetID_NTE;
-        $this->SourceComment = $SourceComment;
         $this->Comment = $Comment;
-        $this->CommentType = $CommentType;
     }
 
     /**
@@ -44,22 +36,6 @@ class NTE implements Segment {
     /**
      * @return string
      */
-    public function getSourceComment(): string
-    {
-        return $this->SourceComment;
-    }
-
-    /**
-     * @param string $SourceComment
-     */
-    public function setSourceComment(string $SourceComment): void
-    {
-        $this->SourceComment = $SourceComment;
-    }
-
-    /**
-     * @return string
-     */
     public function getComment(): string
     {
         return $this->Comment;
@@ -73,25 +49,9 @@ class NTE implements Segment {
         $this->Comment = $Comment;
     }
 
-    /**
-     * @return string
-     */
-    public function getCommentType(): string
-    {
-        return $this->CommentType;
-    }
-
-    /**
-     * @param string $CommentType
-     */
-    public function setCommentType(string $CommentType): void
-    {
-        $this->CommentType = $CommentType;
-    }
-
     public function __toString()
     {
-        return '';
+        return $this->SetID_NTE . '||' . $this->Comment . '|\r';
     }
 
 

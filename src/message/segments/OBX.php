@@ -11,20 +11,16 @@ class OBX implements Segment {
     private $Units = '';
     private $ReferencesRange = '';
     private $AbnormalFlags = '';
-    private $Probability = '';
-    private $NatureofAbnormalTest = '';
+
     private $ObservationResultStatus = '';
-    private $EffectiveDateofReferenceRangeValues = '';
-    private $UserDefinedAccessChecks = '';
+
     private $DateTimeoftheObservation = '';
     private $ProducerReference = '';
     private $ResponsibleObserver = '';
     private $ObservationMethod = '';
-    private $EquipmentInstanceIdentifier = '';
+
     private $DateTimeoftheAnalysis = '';
-    private $Reservedforharmonizationwithv2_6a = '';
-    private $Reservedforharmonizationwithv2_6b = '';
-    private $Reservedforharmonizationwithv2_6c = '';
+
     private $PerformingOrganizationName = '';
     private $PerformingOrganizationAddress = '';
     private $PerformingOrganizationMedicalDirector = '';
@@ -169,38 +165,6 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getProbability(): string
-    {
-        return $this->Probability;
-    }
-
-    /**
-     * @param string $Probability
-     */
-    public function setProbability(string $Probability): void
-    {
-        $this->Probability = $Probability;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNatureofAbnormalTest(): string
-    {
-        return $this->NatureofAbnormalTest;
-    }
-
-    /**
-     * @param string $NatureofAbnormalTest
-     */
-    public function setNatureofAbnormalTest(string $NatureofAbnormalTest): void
-    {
-        $this->NatureofAbnormalTest = $NatureofAbnormalTest;
-    }
-
-    /**
-     * @return string
-     */
     public function getObservationResultStatus(): string
     {
         return $this->ObservationResultStatus;
@@ -212,38 +176,6 @@ class OBX implements Segment {
     public function setObservationResultStatus(string $ObservationResultStatus): void
     {
         $this->ObservationResultStatus = $ObservationResultStatus;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEffectiveDateofReferenceRangeValues(): string
-    {
-        return $this->EffectiveDateofReferenceRangeValues;
-    }
-
-    /**
-     * @param string $EffectiveDateofReferenceRangeValues
-     */
-    public function setEffectiveDateofReferenceRangeValues(string $EffectiveDateofReferenceRangeValues): void
-    {
-        $this->EffectiveDateofReferenceRangeValues = $EffectiveDateofReferenceRangeValues;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserDefinedAccessChecks(): string
-    {
-        return $this->UserDefinedAccessChecks;
-    }
-
-    /**
-     * @param string $UserDefinedAccessChecks
-     */
-    public function setUserDefinedAccessChecks(string $UserDefinedAccessChecks): void
-    {
-        $this->UserDefinedAccessChecks = $UserDefinedAccessChecks;
     }
 
     /**
@@ -313,22 +245,6 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getEquipmentInstanceIdentifier(): string
-    {
-        return $this->EquipmentInstanceIdentifier;
-    }
-
-    /**
-     * @param string $EquipmentInstanceIdentifier
-     */
-    public function setEquipmentInstanceIdentifier(string $EquipmentInstanceIdentifier): void
-    {
-        $this->EquipmentInstanceIdentifier = $EquipmentInstanceIdentifier;
-    }
-
-    /**
-     * @return string
-     */
     public function getDateTimeoftheAnalysis(): string
     {
         return $this->DateTimeoftheAnalysis;
@@ -340,54 +256,6 @@ class OBX implements Segment {
     public function setDateTimeoftheAnalysis(string $DateTimeoftheAnalysis): void
     {
         $this->DateTimeoftheAnalysis = $DateTimeoftheAnalysis;
-    }
-
-    /**
-     * @return string
-     */
-    public function getReservedforharmonizationwithv26a(): string
-    {
-        return $this->Reservedforharmonizationwithv2_6a;
-    }
-
-    /**
-     * @param string $Reservedforharmonizationwithv2_6a
-     */
-    public function setReservedforharmonizationwithv26a(string $Reservedforharmonizationwithv2_6a): void
-    {
-        $this->Reservedforharmonizationwithv2_6a = $Reservedforharmonizationwithv2_6a;
-    }
-
-    /**
-     * @return string
-     */
-    public function getReservedforharmonizationwithv26b(): string
-    {
-        return $this->Reservedforharmonizationwithv2_6b;
-    }
-
-    /**
-     * @param string $Reservedforharmonizationwithv2_6b
-     */
-    public function setReservedforharmonizationwithv26b(string $Reservedforharmonizationwithv2_6b): void
-    {
-        $this->Reservedforharmonizationwithv2_6b = $Reservedforharmonizationwithv2_6b;
-    }
-
-    /**
-     * @return string
-     */
-    public function getReservedforharmonizationwithv26c(): string
-    {
-        return $this->Reservedforharmonizationwithv2_6c;
-    }
-
-    /**
-     * @param string $Reservedforharmonizationwithv2_6c
-     */
-    public function setReservedforharmonizationwithv26c(string $Reservedforharmonizationwithv2_6c): void
-    {
-        $this->Reservedforharmonizationwithv2_6c = $Reservedforharmonizationwithv2_6c;
     }
 
     /**
@@ -440,34 +308,35 @@ class OBX implements Segment {
 
     public function __toString()
     {
-        $fields = 'OBX|'
-        .$this->SetID_OBX . '|'
-        .$this->ValueType . '|'
-        .$this->ObservationIdentifier . '|'
-        .$this->ObservationSubID . '|'
-        .$this->ObservationValue . '|'
-        .$this->Units . '|'
-        .$this->ReferencesRange . '|'
-        .$this->AbnormalFlags . '|'
-        .$this->Probability . '|'
-        .$this->NatureofAbnormalTest . '|'
-        .$this->ObservationResultStatus . '|'
-        .$this->EffectiveDateofReferenceRangeValues . '|'
-        .$this->UserDefinedAccessChecks . '|'
-        .$this->DateTimeoftheObservation . '|'
-        .$this->ProducerReference . '|'
-        .$this->ResponsibleObserver . '|'
-        .$this->ObservationMethod . '|'
-        .$this->EquipmentInstanceIdentifier . '|'
-        .$this->DateTimeoftheAnalysis . '|'
-        .$this->Reservedforharmonizationwithv2_6a . '|'
-        .$this->Reservedforharmonizationwithv2_6b . '|'
-        .$this->Reservedforharmonizationwithv2_6c . '|'
-        .$this->PerformingOrganizationName . '|'
-        .$this->PerformingOrganizationAddress . '|'
-        .$this->PerformingOrganizationMedicalDirector ;
+        $fields = [];
+        $fields[] = 'OBX|';
+        $fields[] = $this->SetID_OBX;
+        $fields[] = $this->ValueType;
+        $fields[] = $this->ObservationIdentifier;
+        $fields[] = $this->ObservationSubID;
+        $fields[] = $this->ObservationValue;
+        $fields[] = $this->Units;
+        $fields[] = $this->ReferencesRange;
+        $fields[] = $this->AbnormalFlags;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->ObservationResultStatus;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->DateTimeoftheObservation;
+        $fields[] = $this->ProducerReference;
+        $fields[] = $this->ResponsibleObserver;
+        $fields[] = $this->ObservationMethod;
+        $fields[] = '';
+        $fields[] = $this->DateTimeoftheAnalysis;
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = '';
+        $fields[] = $this->PerformingOrganizationName;
+        $fields[] = $this->PerformingOrganizationAddress;
+        $fields[] = $this->PerformingOrganizationMedicalDirector;
 
-        return $fields;
+        return implode('|', $fields).'\r';
     }
 
 
