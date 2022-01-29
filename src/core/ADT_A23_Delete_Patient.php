@@ -4,86 +4,16 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A23_Delete_Patient
+class ADT_A23_Delete_Patient extends ADTBase
 {
-    private MSH $msh;
-    private PID $pid;
-    private EVN $evn;
-    private PV1 $pv1;
     private $pd1 = null;
     private $pv2 = null;
+    private array $db1 = [];
     private array $obx = [];
 
     public function __construct()
     {
-        $this->msh = new MSH();
-        $this->pid = new PID();
-        $this->evn = new EVN();
-        $this->pv1 = new PV1();
-    }
-
-    /**
-     * @return MSH
-     */
-    public function getMsh(): MSH
-    {
-        return $this->msh;
-    }
-
-    /**
-     * @param MSH $msh
-     */
-    public function setMsh(MSH $msh): void
-    {
-        $this->msh = $msh;
-    }
-
-    /**
-     * @return PID
-     */
-    public function getPid(): PID
-    {
-        return $this->pid;
-    }
-
-    /**
-     * @param PID $pid
-     */
-    public function setPid(PID $pid): void
-    {
-        $this->pid = $pid;
-    }
-
-    /**
-     * @return EVN
-     */
-    public function getEvn(): EVN
-    {
-        return $this->evn;
-    }
-
-    /**
-     * @param EVN $evn
-     */
-    public function setEvn(EVN $evn): void
-    {
-        $this->evn = $evn;
-    }
-
-    /**
-     * @return PV1
-     */
-    public function getPv1(): PV1
-    {
-        return $this->pv1;
-    }
-
-    /**
-     * @param PV1 $pv1
-     */
-    public function setPv1(PV1 $pv1): void
-    {
-        $this->pv1 = $pv1;
+        parent::__construct();
     }
 
     /**
@@ -142,17 +72,20 @@ class ADT_A23_Delete_Patient
 
     public function __toString()
     {
-        $str = $this->msh .'\r';
-        $str .= $this->pid .'\r';
-        $str .= $this->evn .'\r';
-        $str .= $this->pv1 .'\r';
-        $str .= $this->pd1 ? $this->pd1 .'\r' : '';
-        $str .= $this->pv2 ? $this->pv2 .'\r' : '';
+        $str = $this->getMsh();
+        $str .= $this->getEvn();
+        $str .= $this->getPid();
+        $str .= $this->pd1 == null ?  '' : $this->pd1;
+        $str .= $this->getPv1();
+        $str .= $this->pv2 == null ? '' : $this->pv2;
 
-        foreach ($this->obx as $item) {
-            $str .= $item .'\r';
+        foreach ($this->db1 as $item) {
+            $str .= $item;
         }
 
+        foreach ($this->obx as $item) {
+            $str .= $item;
+        }
 
         return $str;
     }

@@ -4,87 +4,18 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A11_Cancel_Admit
+class ADT_A11_Cancel_Admit extends ADTBase
 {
-    private MSH $msh;
-    private PID $pid;
-    private EVN $evn;
-    private PV1 $pv1;
+
     private $pd1 = null;
     private $pv2 = null;
+    private $db1 = [];
     private $obx = [];
     private $dg1 = [];
 
     public function __construct()
     {
-        $this->msh = new MSH();
-        $this->pid = new PID();
-        $this->evn = new EVN();
-        $this->pv1 = new PV1();
-    }
-
-    /**
-     * @return MSH
-     */
-    public function getMsh(): MSH
-    {
-        return $this->msh;
-    }
-
-    /**
-     * @param MSH $msh
-     */
-    public function setMsh(MSH $msh): void
-    {
-        $this->msh = $msh;
-    }
-
-    /**
-     * @return PID
-     */
-    public function getPid(): PID
-    {
-        return $this->pid;
-    }
-
-    /**
-     * @param PID $pid
-     */
-    public function setPid(PID $pid): void
-    {
-        $this->pid = $pid;
-    }
-
-    /**
-     * @return EVN
-     */
-    public function getEvn(): EVN
-    {
-        return $this->evn;
-    }
-
-    /**
-     * @param EVN $evn
-     */
-    public function setEvn(EVN $evn): void
-    {
-        $this->evn = $evn;
-    }
-
-    /**
-     * @return PV1
-     */
-    public function getPv1(): PV1
-    {
-        return $this->pv1;
-    }
-
-    /**
-     * @param PV1 $pv1
-     */
-    public function setPv1(PV1 $pv1): void
-    {
-        $this->pv1 = $pv1;
+        parent::__construct();
     }
 
     /**
@@ -102,7 +33,6 @@ class ADT_A11_Cancel_Admit
     {
         $this->pd1 = $pd1;
     }
-
 
     /**
      * @return null
@@ -141,7 +71,6 @@ class ADT_A11_Cancel_Admit
         array_push($this->obx, $obx);
     }
 
-
     /**
      * @param int $index
      * @return DG1|null
@@ -163,10 +92,26 @@ class ADT_A11_Cancel_Admit
         array_push($this->dg1, $dg1);
     }
 
-    public function __toString()
+
+    /**
+     * @return array
+     */
+    public function getDb1(int $index): array
     {
-        // TODO: Implement __toString() method.
+        return $this->db1[$index];
     }
 
+    /**
+     * @param array $db1
+     */
+    public function setDb1($db1): void
+    {
+        $this->db1[] = $db1;
+    }
+
+    public function __toString()
+    {
+        return '';
+    }
 
 }

@@ -33,7 +33,7 @@ class ADT_A04_Register_Patient extends ADTBase
         $this->getMsh()->setSendingFacility('');
         $this->getMsh()->setProcessingID('');
 
-        $this->getEvn()->setEventTypeCode('A04');
+        $this->getEvn()->setEventTypeCode('ADT^A04');
         $this->getEvn()->setRecordedDateTime(date('c'));
         $this->getEvn()->setEventFacility('');
 
