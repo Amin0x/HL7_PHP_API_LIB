@@ -13,6 +13,23 @@ class VXU_ORC_Group
     private array $OBX_GROUP = [];
 
     /**
+     * VXU_ORC_Group constructor.
+     * @param ORC $orc
+     * @param array $tq1
+     * @param RXA $rxa
+     * @param RXR|null $rxr
+     * @param array $OBX_GROUP
+     */
+    public function __construct(ORC $orc, RXA $rxa, ?RXR $rxr = null, array $tq1 = [], array $OBX_GROUP = [])
+    {
+        $this->orc = $orc;
+        $this->tq1 = $tq1;
+        $this->rxa = $rxa;
+        $this->rxr = $rxr;
+        $this->OBX_GROUP = $OBX_GROUP;
+    }
+
+    /**
      * @return ORC
      */
     public function getOrc(): ORC

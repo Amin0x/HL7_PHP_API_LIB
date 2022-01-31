@@ -10,7 +10,7 @@ class ORU_PID_GROUP extends Group
     private ?PD1 $pd1 = null;
     private array $nte = [];
     private array $nk1 = [];
-    private ?ADT_PV1_GROUP $PV1_group = null;
+    private ?PV1_GROUP $PV1_group = null;
 
     /**
      * @return PID
@@ -86,17 +86,17 @@ class ORU_PID_GROUP extends Group
     }
 
     /**
-     * @return ADT_PV1_GROUP|null
+     * @return PV1_GROUP|null
      */
-    public function getPV1Group(): ?ADT_PV1_GROUP
+    public function getPV1Group(): ?PV1_GROUP
     {
         return $this->PV1_group;
     }
 
     /**
-     * @param ADT_PV1_GROUP|null $PV1_group
+     * @param PV1_GROUP|null $PV1_group
      */
-    public function setPV1Group(?ADT_PV1_GROUP $PV1_group): void
+    public function setPV1Group(?PV1_GROUP $PV1_group): void
     {
         $this->PV1_group = $PV1_group;
     }

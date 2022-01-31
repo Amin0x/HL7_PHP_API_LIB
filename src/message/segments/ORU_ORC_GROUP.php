@@ -124,17 +124,17 @@ class ORU_ORC_GROUP extends Group
 
     public function __toString()
     {
-        $str = $this->orc? $this->orc . '\r':'';
-        $str .= $this->obr . '\r';
+        $str = $this->orc? $this->orc :'';
+        $str .= $this->obr ;
         foreach ($this->nte as $item) {
-            $str .= $item . '\r';
+            $str .= $item ;
         }
         foreach ($this->tq1 as $item) {
-            $str .= $item . '\r';
+            $str .= $item ;
         }
 
         $str .= $this->oru_obx_group;
-        $str .= $this->spm . '\r';
+        $str .= $this->spm;
         return $str;
     }
 

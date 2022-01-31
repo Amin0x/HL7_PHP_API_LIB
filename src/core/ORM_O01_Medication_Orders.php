@@ -34,7 +34,7 @@ class ORM_O01_Medication_Orders
         $this->msh = $msh;
     }
 
-    public function getPID_Group()
+    public function getPID_Group(): ?ADT_PID_GROUP
     {
         return $this->pid_group;
     }
@@ -60,12 +60,19 @@ class ORM_O01_Medication_Orders
 
     public function __toString()
     {
-        $str = $this->msh .'\r';
-        if ($this->pid_group)
+        $str = (string) $this->msh;
+        if ($this->pid_group){
             $str .= $this->pid_group;
+        }
+
 
         foreach ($this->orc_group as $item) {
-            $str .= $item;
+            $str .= $item->getOrc();
+            $str .= $item->getRxo();
+
+            foreach ($item->getNteArray() as $value) {
+                $str .= $value;
+            }
         }
         return $str;
     }

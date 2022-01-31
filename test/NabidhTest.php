@@ -38,7 +38,7 @@ class NabidhTest extends TestCase
     public function testDeletePatientRecord()
     {
         $nabidh = new Nabidh();
-        $pt = new ADT_A23_Delete_Patient();
+        $pt = new ADT_A23_Delete_Patient_record();
         $pt->getMsh()->setSendingFacility('TESTHOS20');
         $pt->getMsh()->setDateTimeofMessage(date('YmdHis'));
         $pt->getMsh()->setProcessingID('1002');
@@ -180,13 +180,49 @@ class NabidhTest extends TestCase
     {
         $nb = new Nabidh();
         $vr = new VXU_V04_Vaccination_Record_Message();
-        $vr->setMsh(new MSH());
-        $vr->setPid(new PID());
+        $vr->getMsh()->setSendingFacility('TESTHOS20');
+        $vr->getMsh()->setDateTimeofMessage(date('YmdHis'));
+        $vr->getMsh()->setProcessingID('1002');
+        $vr->getPid()->setAdministrativeSex('M');
+        $vr->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
+        $vr->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
+
         $vr->addGt1(new GT1(1));
+        $vr->getGt1(0)->setGuarantorEmployerName('test data');
         $vr->addGt1(new GT1(2));
+        $vr->getGt1(1)->setGuarantorEmployerName('xyz');
+        $vr->getGt1(1)->setEmploymentStopDate(date('Ymd'));
         $vr->addIn1(new IN1(1));
         $vr->addIn1(new IN1(2));
+        $pvg = new PV1_GROUP(new PV1());
+        $pl = new PL();
+        $pl->setFacility('232323');
+        $pl->setBed('w3z1256');
+        $pl->setRoom('room 555');
+        $pl->setLocationDescription('moo hospital');
+        $pl->setPointOfCare('drt');
+        $pvg->getPv1()->setAssignedPatientLocation($pl);
+        $pvg->getPv1()->setPatientType('4578');
+        $vr->setADTPV1GROUP($pvg);
 
         var_dump((string)$vr);
+    }
+
+    public function testMDM_T02_Original_Document_Notification()
+    {
+        $msg = new MDM_T02_Original_Document_Notification();
+        $msg->getMsh()->setSendingFacility('TESTHOS20');
+        $msg->getMsh()->setDateTimeofMessage(date('YmdHis'));
+        $msg->getMsh()->setProcessingID('1002');
+        $msg->getPid()->setAdministrativeSex('M');
+        $msg->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
+        $msg->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
+        $msg->getTxa()->setSetIDTXA(1);
+        $msg->getTxa()->setActivityDateTime(strftime('%s', time()));
+        $msg->getTxa()->setDocumentType('asas');
+        $msg->getTxa()->setDocumentCompletionStatus('we3434');
+        $msg->setMDMORCGROUP( [new MDM_ORC_GROUP(new ORC(), new OBR(1))]);
+        //$msg->getMDMORCGROUP()
+        var_dump((string) $msg);
     }
 }

@@ -11,6 +11,19 @@ class ADT_ORC_GROUP extends Group
     private $nte = [];
 
     /**
+     * ADT_ORC_GROUP constructor.
+     * @param ORC $orc
+     * @param RXO $rxo
+     * @param array $nte
+     */
+    public function __construct(ORC $orc, RXO $rxo, array $nte = [])
+    {
+        $this->orc = $orc;
+        $this->rxo = $rxo;
+        $this->nte = $nte;
+    }
+
+    /**
      * @return ORC
      */
     public function getOrc(): ORC
@@ -63,5 +76,9 @@ class ADT_ORC_GROUP extends Group
         array_push($this->nte, $nte);
     }
 
+    public function getNteArray()
+    {
+        return $this->nte;
+    }
 
 }

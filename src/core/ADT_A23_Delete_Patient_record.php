@@ -76,6 +76,21 @@ class ADT_A23_Delete_Patient_record extends ADTBase
 
     public function __toString()
     {
-        return '';
+        $str = $this->getMsh();
+        $str .= $this->getEvn();
+        $str .= $this->getPid();
+        $str .= $this->pd1 == null ?  '' : $this->pd1;
+        $str .= $this->getPv1();
+        $str .= $this->pv2 == null ? '' : $this->pv2;
+
+        foreach ($this->db1 as $item) {
+            $str .= $item;
+        }
+
+        foreach ($this->obx as $item) {
+            $str .= $item;
+        }
+
+        return $str;
     }
 }

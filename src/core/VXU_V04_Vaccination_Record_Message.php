@@ -10,9 +10,18 @@ class VXU_V04_Vaccination_Record_Message
     private PID $pid;
     private ?PD1 $pd1 = null;
     private array $nk1 = [];
-    private ?ADT_PV1_GROUP $ADT_PV1_GROUP = null;
+    private ?PV1_GROUP $PV1_GROUP = null;
     private array $gt1 = [];
     private array $in1 = [];
+
+    /**
+     * VXU_V04_Vaccination_Record_Message constructor.
+     */
+    public function __construct()
+    {
+        $this->msh = new MSH();
+        $this->pid = new PID();
+    }
 
     /**
      * @return MSH
@@ -79,25 +88,25 @@ class VXU_V04_Vaccination_Record_Message
     }
 
     /**
-     * @return ADT_PV1_GROUP|null
+     * @return PV1_GROUP|null
      */
-    public function getADTPV1GROUP(): ?ADT_PV1_GROUP
+    public function getADTPV1GROUP(): ?PV1_GROUP
     {
-        return $this->ADT_PV1_GROUP;
+        return $this->PV1_GROUP;
     }
 
     /**
-     * @param ADT_PV1_GROUP|null $ADT_PV1_GROUP
+     * @param PV1_GROUP|null $PV1_GROUP
      */
-    public function setADTPV1GROUP(?ADT_PV1_GROUP $ADT_PV1_GROUP): void
+    public function setADTPV1GROUP(?PV1_GROUP $PV1_GROUP): void
     {
-        $this->ADT_PV1_GROUP = $ADT_PV1_GROUP;
+        $this->PV1_GROUP = $PV1_GROUP;
     }
 
     /**
      * @return array
      */
-    public function getGt1(int $index)
+    public function getGt1(int $index): ?GT1
     {
         return $this->gt1[$index];
     }
@@ -129,21 +138,31 @@ class VXU_V04_Vaccination_Record_Message
 
     public function __toString()
     {
-        $str = $this->msh . '\r';
-        $str .= $this->pid . '\r';
-        $str .= $this->pd1 ? $this->pd1 . '\r' : '';
+        $str = $this->msh;
+        $str .= $this->pid;
+
+        if ($this->pd1 != null)
+            $str .= $this->pd1;
+
         foreach ($this->nk1 as $item) {
-            $str .= $item . '\r';
+            $str .= $item;
         }
 
-        $str .= $this->ADT_PV1_GROUP ? $this->ADT_PV1_GROUP : '';
+        if ($this->getADTPV1GROUP() != null){
+            $str .= $this->PV1_GROUP->getPv1();
+            foreach ($this->PV1_GROUP->getPv2Array() as $item) {
+                $str .= $item;
+            }
+        }
+
         foreach ($this->gt1 as $item) {
-            $str .= $item . '\r';
+            $str .= $item;
         }
 
         foreach ($this->nk1 as $item) {
-            $str .= $item . '\r';
+            $str .= $item ;
         }
+
         return $str;
     }
 }

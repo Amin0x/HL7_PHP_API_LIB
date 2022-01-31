@@ -391,7 +391,7 @@ class GT1 {
     public function __toString()
     {
         $str = [];
-        $str = 'GT1';
+        $str[] = 'GT1';
         $str[] = $this->SetID_GT1;
         $str[] = $this->GuarantorNumber;
         $str[] = $this->GuarantorName;
