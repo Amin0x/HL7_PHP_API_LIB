@@ -1,7 +1,7 @@
 <?php
 namespace amin0x\nabidh;
 
-use http\Exception\InvalidArgumentException;
+use InvalidArgumentException;
 
 class Nabidh {
 
@@ -11,12 +11,12 @@ class Nabidh {
      *
      * Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
      *
-     * @param Patient $patient
+     * @param $patient
      * @param null $patientVisit PV1 array
      * @param null $PR1
      * @param null $insurance
      */
-    public function AdmitPatientNotification(Patient $patient, $patientVisit = null, $PR1 = null, $insurance = null)
+    public function AdmitPatientNotification($patient, $patientVisit = null, $PR1 = null, $insurance = null)
     {
         $msg = new Message();
 
@@ -53,6 +53,10 @@ class Nabidh {
      */
     public function AdmitPatientNotificationEx(ADT_A01_Admit_Patient  $admitPatient)
     {
+        if (empty($admitPatient)){
+            throw new InvalidArgumentException();
+        }
+
         $this->send($admitPatient, 'ADT_A01');
 
     }
@@ -61,7 +65,7 @@ class Nabidh {
 
     public function registerPatient(ADT_A04_Register_Patient $registerPatient)
     {
-        if (empty($patient)){
+        if (empty($registerPatient)){
             throw new InvalidArgumentException();
         }
 
@@ -98,7 +102,7 @@ class Nabidh {
      */
     public function patientTransferEvent(ADT_A02_Patient_Transfer $patientTransfer)    {
 
-        $this->send($patientTransfer);
+        $this->send($patientTransfer, 'ADT_A02');
     }
 
 
@@ -208,16 +212,21 @@ class Nabidh {
     //MDM^T02 Base Structure– T08
     //VXU^V04 Base Structure – V04
 
-    private function send(Message $msg, string $endPoint)
+    private function send(IMessage $msg, string $endPoint)
     {
-        $str = $msg->toString();
-        $headers = [];
-        $ch = curl_init('https://example.com/'.$endPoint);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $str);
-        //curl_setopt($ch, , );
-        $res = curl_exec($ch);
+
+        try {
+            $endPoint = $msg->getMsh()->getMessageType();
+            $str = $msg->__toString();
+            $headers = [];
+            $ch = curl_init('https://example.com/' . $endPoint);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $str);//curl_setopt($ch, , );
+            $res = curl_exec($ch);
+        } catch (\Exception $e) {
+            return false;
+        }
 
         if($res === false){
             return false;
@@ -272,36 +281,67 @@ class Nabidh {
     }
 
     /**
-     * @param $patient
+     * @param array $patient
      * @return PID
      */
-    private static function createPID($patient): PID
+    private static function createPID(array $patient): PID
     {
         $pid = new PID();
-        $pid->setNationality($patient->nationality);
-        $pid->setLastUpdateDateTime(date('r'));
-        $pid->setDateTimeofBirth('');
-        $pid->setPatientName($patient->first_name, $patient->mid_name, $patient->last_name);
-        $pid->setPatientIdentifierList($patient->id, $patient->passport_number);
-        $pid->setAdministrativeSex($patient->administrative_sex);
-        $pid->setPatientAddress($patient->city, $patient->state, $patient->zip, $patient->country);
+
+        if (isset($patient['nationality'])) {
+            $pid->setNationality($patient['nationality']);
+        }
+
+        $pid->setLastUpdateDateTime($patient['last_update_date_time'] ?? date('r'));
+
+        if (isset($patient['date_time_of_birth'])) {
+            $pid->setDateTimeofBirth($patient['date_time_of_birth']);
+        }
+
+        if (isset($patient['first_name']) && isset($patient['mid_name']) && isset($patient['last_name'])) {
+            $pid->setPatientName($patient['first_name'], $patient['mid_name'], $patient['last_name']);
+        }
+
+        $pid->setPatientIdentifierList($patient['id'] ?? '', $patient['passport_number'] ?? '');
+
+        if (isset($patient['administrative_sex'])) {
+            $pid->setAdministrativeSex($patient['administrative_sex']);
+        }
+
+        if (isset($patient['city']) && isset($patient['state']) && isset($patient['country'])) {
+            $pid->setPatientAddress($patient['city'], $patient['state'], $patient['zip'], $patient['country']);
+        }
+
         return $pid;
     }
 
     /**
-     * @param $patientVisit
+     * @param array $patientVisit
      * @return PV1
      */
-    private static function createPV1($patientVisit): PV1
+    private static function createPV1(array $patientVisit): PV1
     {
         $pv1 = new PV1();
-        $pv1->setAdmitDateTime($patientVisit->admit_date_time);
-        $pv1->setVisitNumber($patientVisit->visit_number);
-        $pv1->setHospitalService($patientVisit->hospital_service);
-        $pv1->setPatientClass($patientVisit->patient_class);
-        $pv1->setAssignedPatientLocation($patientVisit->assigned_patient_location);
-        $pv1->setAdmissionType($patientVisit->admission_type);
-        $pv1->setAttendingDoctor($patientVisit->attend_doctor);
+
+        if(isset($patientVisit['admit_date_time']))
+            $pv1->setAdmitDateTime($patientVisit['admit_date_time']);
+
+        if(isset($patientVisit['visit_number']))
+            $pv1->setVisitNumber($patientVisit['visit_number']);
+
+        if(isset($patientVisit['hospital_service']))
+            $pv1->setHospitalService($patientVisit['hospital_service']);
+        if(isset($patientVisit['patient_class']))
+            $pv1->setPatientClass($patientVisit['patient_class']);
+        if(isset($patientVisit['assigned_patient_location']))
+            $pv1->setAssignedPatientLocation($patientVisit['assigned_patient_location']);
+
+        if(isset($patientVisit['admission_type']))
+            $pv1->setAdmissionType($patientVisit['admission_type']);
+
+        if(isset($patientVisit['attend_doctor']))
+            $pv1->setAttendingDoctor($patientVisit['attend_doctor']);
+
         return $pv1;
     }
 
