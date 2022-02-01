@@ -4,10 +4,10 @@
 namespace amin0x\nabidh;
 
 
-class MDM_T02_Original_Document_Notification extends MDMT02Base
+class MDM_T02_Original_Document_Notification extends MDMT02Base implements IMessage
 {
 
-    public function __toString()
+    public function __toString() : string
     {
         $str = (string) $this->getMsh();
         $str .= $this->getPid();
@@ -19,7 +19,7 @@ class MDM_T02_Original_Document_Notification extends MDMT02Base
 
         foreach ($this->getMDMORCGROUP() as $item) {
             $str .= $item->getOrc();
-            
+
             if ($item->getTQ1GROUP())
                 $str .= $item->getTQ1GROUP();
 

@@ -49,85 +49,23 @@ class Nabidh {
      *
      * Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
      *
-     * @param ADT_A01_Admit_Patient $admit_Patient
+     * @param ADT_A01_Admit_Patient $admitPatient
      */
-    public function AdmitPatientNotificationEx(ADT_A01_Admit_Patient  $admit_Patient)
+    public function AdmitPatientNotificationEx(ADT_A01_Admit_Patient  $admitPatient)
     {
-        $message = new Message();
-
-        $this->addSegment($message, $admit_Patient->getMsh());
-        $this->addSegment($message, $admit_Patient->getPid());
-        $this->addSegment($message, $admit_Patient->getEvn());
-        $this->addSegment($message, $admit_Patient->getPv1());
-        $this->addSegment($message, $admit_Patient->getPd1());
-        $this->addSegment($message, $admit_Patient->getNk1());
-        $this->addSegment($message, $admit_Patient->getPv2());
-        $this->addSegment($message, $admit_Patient->getObx());
-        $this->addSegment($message, $admit_Patient->getAl1());
-        $this->addSegment($message, $admit_Patient->getDg1());
-        $this->addSegment($message, $admit_Patient->getDrg());
-        $this->addSegment($message, $admit_Patient->getPr1());
-        $this->addSegment($message, $admit_Patient->getGt1());
-        $this->addSegment($message, $admit_Patient->getIn1());
+        $this->send($admitPatient, 'ADT_A01');
 
     }
 
 
-    /**
-     * ADT^A01 Base Structure - A04
-     * Register a patient
-     * @param Patient $patient
-     * @param PatientVisit $patientVisit
-     */
-    public function registerPatient(Patient $patient, PatientVisit $patientVisit)
+
+    public function registerPatient(ADT_A04_Register_Patient $registerPatient)
     {
-        if (empty($patient) || empty($patientVisit)){
+        if (empty($patient)){
             throw new InvalidArgumentException();
         }
 
-        $msg = new Message();
-
-
-        $msg->setHeader(Nabidh::creatMessageHeader());
-
-        $pid = self::createPID($patient);
-        $msg->addSegment($pid);
-
-        $evn = Nabidh::createEVN('A08', '', '');
-        $msg->addSegment($evn);
-
-        $pv1 = self::createPV1($patientVisit);
-
-        $msg->addSegment($pv1);
-        $this->send($msg);
-    }
-
-    /**
-     * ADT^A01 Base Structure - A04
-     * Register a patient
-     * @param ADT_A04_Register_Patient $registerPatientQuery
-     * @param $patientVisit
-     * @param $patient
-     */
-    public function registerPatientQ(ADT_A04_Register_Patient $registerPatient)
-    {
-        if (empty($registerPatientQuery)){
-            throw new InvalidArgumentException();
-        }
-
-        $msg = new Message();
-        $msg->setHeader(Nabidh::creatMessageHeader());
-
-        //$pid = self::createPID($patient);
-        //$msg->addSegment($pid);
-
-        $evn = Nabidh::createEVN('A08', '', '');
-        $msg->addSegment($evn);
-
-        //$pv1 = self::createPV1($patientVisit);
-
-        //$msg->addSegment($pv1);
-        $this->send($msg);
+        $this->send($registerPatient, 'ADT_A04');
     }
 
 
@@ -136,22 +74,9 @@ class Nabidh {
      * @param $patient
      * @param $patientVisit
      */
-    public function updatePatientInformation($patient, $patientVisit)
+    public function updatePatientInformation()
     {
-        $msg = new Message();
 
-        $msg->setHeader(Nabidh::creatMessageHeader());
-
-        $pid = self::createPID($patient);
-        $msg->addSegment($pid);
-
-        $evn = Nabidh::createEVN('A08', '', '');
-        $msg->addSegment($evn);
-
-        $pv1 = self::createPV1($patientVisit);
-
-        $msg->addSegment($pv1);
-        $this->send($msg);
     }
 
 
@@ -162,19 +87,7 @@ class Nabidh {
      */
     public function cancelDischargeEvent($patient, $patientVisit)
     {
-        $msg = new Message();
-        $msg->setHeader(Nabidh::creatMessageHeader());
 
-        $pid = self::createPID($patient);
-        $msg->addSegment($pid);
-
-        $evn = Nabidh::createEVN('A08', '', '');
-        $msg->addSegment($evn);
-
-        $pv1 = self::createPV1($patientVisit);
-
-        $msg->addSegment($pv1);
-        $this->send($msg);
     }
 
 
@@ -183,21 +96,9 @@ class Nabidh {
      * @param $patient
      * @param $patientVisit
      */
-    public function patientTransferEvent($patient, $patientVisit)
-    {
-        $msg = new Message();
-        $msg->setHeader(Nabidh::creatMessageHeader());
+    public function patientTransferEvent(ADT_A02_Patient_Transfer $patientTransfer)    {
 
-        $pid = self::createPID($patient);
-        $msg->addSegment($pid);
-
-        $evn = Nabidh::createEVN('A08', '', '');
-        $msg->addSegment($evn);
-
-        $pv1 = self::createPV1($patientVisit);
-        $msg->addSegment($pv1);
-
-        $this->send($msg);
+        $this->send($patientTransfer);
     }
 
 
@@ -243,7 +144,7 @@ class Nabidh {
      * ADT^A09 Base Structure - A09
      *
      */
-    public function patientDepartedTracking()
+    public function patientDepartedTracking(ADT_A09_Patient_Departed $patientDeparted)
     {
 
     }
@@ -253,7 +154,7 @@ class Nabidh {
      *
      * ADT^A09 Base Structure - A10
      */
-    public function patientArrivedTracking()
+    public function patientArrivedTracking(ADT_A10_Patient_Arrived $patientArrived)
     {
 
     }
@@ -263,20 +164,22 @@ class Nabidh {
      * ADT^A09 Base Structure - A11
      *
      */
-    public function cancelAdmitPatientNotification()
+    public function cancelAdmitPatientNotification(ADT_A11_Cancel_Admit $cancelAdmit)
     {
 
     }
+
     //ADT^A12 Base Structure - A12
 
     /**
      * ADT^A21 Base Structure - A23
      * @param null $var
      */
-    public function deletePatientRecord($var = null)
+    public function deletePatientRecord(ADT_A23_Delete_Patient_Record $deletePatientRecord)
     {
         # code...
     }
+
     //ADT^A21 Base Structure - A25
     //ADT^A21 Base Structure - A27
 
@@ -286,10 +189,11 @@ class Nabidh {
      * @param $mrg
      * @param null $pd1
      */
-    public function mergePatientInformation($pid, $mrg, $pd1 = null)
+    public function mergePatientInformation(ADT_A30_Merge_Patient_Information $mergePatientInformation)
     {
         # code...
     }
+
     //ADT^A30 Base Structure - A47
     //ADT^A39 Base Structure - A39
     //ADT^A39 Base Structure - A40
@@ -303,14 +207,23 @@ class Nabidh {
     //MDM^T02 Base Structure– T04
     //MDM^T02 Base Structure– T08
     //VXU^V04 Base Structure – V04
-    private function send(Message $msg)
+
+    private function send(Message $msg, string $endPoint)
     {
         $str = $msg->toString();
-        $ch = curl_init('https://example.com/ADT');
+        $headers = [];
+        $ch = curl_init('https://example.com/'.$endPoint);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, []);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $str);
         //curl_setopt($ch, , );
+        $res = curl_exec($ch);
+
+        if($res === false){
+            return false;
+        }
+
+        return true;
     }
 
     private static function creatMessageHeader($type)
@@ -391,4 +304,6 @@ class Nabidh {
         $pv1->setAttendingDoctor($patientVisit->attend_doctor);
         return $pv1;
     }
+
+
 }

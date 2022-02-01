@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A23_Delete_Patient_record extends ADTBase
+class ADT_A23_Delete_Patient_Record extends ADTBase implements IMessage
 {
     private ?PD1 $pd1 = null;
     private ?PV2 $pv2 = null;
@@ -74,7 +74,7 @@ class ADT_A23_Delete_Patient_record extends ADTBase
         array_push($this->db1, $obx);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = $this->getMsh();
         $str .= $this->getEvn();

@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ORU_R01_Observation_Results
+class ORU_R01_Observation_Results implements IMessage
 {
     private MSH $msh;
     private ORU_PID_SUPER_GROUP $oru_pid_group;
@@ -41,7 +41,7 @@ class ORU_R01_Observation_Results
         return $this->oru_pid_group;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
 
         $str = $this->msh .'\r';

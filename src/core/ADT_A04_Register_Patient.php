@@ -1,7 +1,7 @@
 <?php
 namespace amin0x\nabidh;
 
-class ADT_A04_Register_Patient extends ADTBase
+class ADT_A04_Register_Patient extends ADTBase implements IMessage
 {
     private $pd1 = null;
     private $nk1 = [];
@@ -235,7 +235,7 @@ class ADT_A04_Register_Patient extends ADTBase
     }
 
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = (string) $this->getMsh();
         $str .= $this->getPid();

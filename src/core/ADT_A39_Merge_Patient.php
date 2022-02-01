@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A39_Merge_Patient
+class ADT_A39_Merge_Patient implements IMessage
 {
     private MSH $MSH;
     private EVN $EVN;
@@ -66,4 +66,8 @@ class ADT_A39_Merge_Patient
     }
 
 
+    public function __toString(): string
+    {
+        return '';
+    }
 }

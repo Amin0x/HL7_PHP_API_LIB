@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class MDM_T11_Document_Cancel_Notification extends ADTBase
+class MDM_T11_Document_Cancel_Notification extends ADTBase implements IMessage
 {
 
     private TXA $txa;
@@ -25,4 +25,8 @@ class MDM_T11_Document_Cancel_Notification extends ADTBase
         $this->txa = $txa;
     }
 
+    public function __toString(): string
+    {
+        // TODO: Implement __toString() method.
+    }
 }

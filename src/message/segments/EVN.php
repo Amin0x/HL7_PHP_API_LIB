@@ -71,7 +71,10 @@ class EVN implements Segment {
             .'|'    //6
             .$this->EventFacility; //7
 
-        return rtrim($str, '|');
+        if (rtrim($str, '|') == 'EVN')
+            return '';
+
+        return $str.'\r';
     }
 
 

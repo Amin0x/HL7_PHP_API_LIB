@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A10_Patient_Arrived extends ADTBase
+class ADT_A10_Patient_Arrived extends ADTBase implements IMessage
 {
 
     /**
@@ -15,7 +15,7 @@ class ADT_A10_Patient_Arrived extends ADTBase
         parent::__construct();
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return '';
     }

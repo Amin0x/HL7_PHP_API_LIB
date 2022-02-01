@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class VXU_V04_Vaccination_Record_Message
+class VXU_V04_Vaccination_Record_Message implements IMessage
 {
     private MSH $msh;
     private PID $pid;
@@ -136,7 +136,7 @@ class VXU_V04_Vaccination_Record_Message
     }
 
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = $this->msh;
         $str .= $this->pid;

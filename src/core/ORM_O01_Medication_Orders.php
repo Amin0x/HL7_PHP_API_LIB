@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ORM_O01_Medication_Orders
+class ORM_O01_Medication_Orders implements IMessage
 {
     private MSH $msh;
     private ?ADT_PID_GROUP $pid_group = null;
@@ -58,7 +58,7 @@ class ORM_O01_Medication_Orders
         return null;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = (string) $this->msh;
         if ($this->pid_group){

@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A02_Patient_Transfer extends ADTBase
+class ADT_A02_Patient_Transfer extends ADTBase implements IMessage
 {
 
     private $pd1 = null;
@@ -74,7 +74,7 @@ class ADT_A02_Patient_Transfer extends ADTBase
         array_push($this->obx, $obx);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = implode('',[
             $this->getMsh(),

@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A01_Admit_Patient extends ADTBase
+class ADT_A01_Admit_Patient extends ADTBase implements IMessage
 {
     private $pd1 = null;
     private $nk1 = [];
@@ -223,7 +223,7 @@ class ADT_A01_Admit_Patient extends ADTBase
         array_push($this->in1, $in1);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
 
         $str = (string) $this->getMsh();

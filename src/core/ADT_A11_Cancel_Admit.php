@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A11_Cancel_Admit extends ADTBase
+class ADT_A11_Cancel_Admit extends ADTBase implements IMessage
 {
 
     private $pd1 = null;
@@ -109,7 +109,7 @@ class ADT_A11_Cancel_Admit extends ADTBase
         $this->db1[] = $db1;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return '';
     }

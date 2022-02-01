@@ -38,7 +38,7 @@ class NabidhTest extends TestCase
     public function testDeletePatientRecord()
     {
         $nabidh = new Nabidh();
-        $pt = new ADT_A23_Delete_Patient_record();
+        $pt = new ADT_A23_Delete_Patient_Record();
         $pt->getMsh()->setSendingFacility('TESTHOS20');
         $pt->getMsh()->setDateTimeofMessage(date('YmdHis'));
         $pt->getMsh()->setProcessingID('1002');
@@ -165,7 +165,6 @@ class NabidhTest extends TestCase
         $this->assertSame('','');
     }
 
-
     public function testPatientArrivedTracking()
     {
         $this->assertSame('','');
@@ -225,6 +224,21 @@ class NabidhTest extends TestCase
         $msg->getMDMORCGROUP(0)->getOBR()->setDiagnosticServiceSectionID('323');
         $msg->getMDMORCGROUP(0)->getOBR()->setFillerOrderNumber('3233333344');
         $msg->getMDMORCGROUP(0)->getOBR()->setParent('5-0232332');
+        var_dump((string) $msg);
+    }
+
+    public function testADT_A47_Change_Patient_Identifier_List()
+    {
+        $msg = new ADT_A47_Change_Patient_Identifier_List();
+        $msg->getMsh()->setSendingFacility('TESTHOS20');
+        $msg->getMsh()->setDateTimeofMessage(date('YmdHis'));
+        $msg->getMsh()->setProcessingID('1002');
+        $msg->getPid()->setAdministrativeSex('M');
+        $msg->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
+        $msg->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
+
+
+
         var_dump((string) $msg);
     }
 }

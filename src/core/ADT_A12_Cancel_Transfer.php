@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A12_Cancel_Transfer extends ADTBase
+class ADT_A12_Cancel_Transfer extends ADTBase implements IMessage
 {
     private $pd1 = null;
     private $pv2 = null;
@@ -90,5 +90,10 @@ class ADT_A12_Cancel_Transfer extends ADTBase
     public function addDg1(DG1 $dg1): void
     {
         array_push($this->dg1, $dg1);
+    }
+
+    public function __toString(): string
+    {
+        return '';
     }
 }

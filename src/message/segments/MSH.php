@@ -25,14 +25,14 @@ class MSH implements Segment
     {
         $this->FieldSeparator = '|';
         $this->EncodingCharacters = '^~\&';
-        $this->SendingApplication = '';
+        $this->SendingApplication = 'Amin0x HL7_PHP_API_LIB';
         $this->SendingFacility = '';
         $this->ReceivingApplication = 'NABIDH';
         $this->ReceivingFacility = 'DHA';
         $this->DateTimeOfMessage = date('YmdHis');
         $this->MessageType = '';
         $this->MessageControlID = time();
-        $this->ProcessingID = '';
+        $this->ProcessingID = 'D'; //‘P’: Production, ‘T’: Testing, ‘D’: Development
         $this->VersionID = '2.5';
         $this->CharacterSet = 'UTF-8';
     }
