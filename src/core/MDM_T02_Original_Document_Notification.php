@@ -18,7 +18,16 @@ class MDM_T02_Original_Document_Notification extends MDMT02Base
         $str .= $this->getPv1();
 
         foreach ($this->getMDMORCGROUP() as $item) {
-            $str .= $item;
+            $str .= $item->getOrc();
+            
+            if ($item->getTQ1GROUP())
+                $str .= $item->getTQ1GROUP();
+
+            $str .= $item->getObr();
+
+            foreach ($item->getNte() as $value) {
+                $str .= $value;
+            }
         }
 
         $str .= $this->getTxa();

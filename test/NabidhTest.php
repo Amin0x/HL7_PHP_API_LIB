@@ -221,8 +221,10 @@ class NabidhTest extends TestCase
         $msg->getTxa()->setActivityDateTime(strftime('%s', time()));
         $msg->getTxa()->setDocumentType('asas');
         $msg->getTxa()->setDocumentCompletionStatus('we3434');
-        $msg->setMDMORCGROUP( [new MDM_ORC_GROUP(new ORC(), new OBR(1))]);
-        //$msg->getMDMORCGROUP()
+        $msg->setMDMORCGROUP( new MDM_ORC_GROUP(new ORC(), new OBR(1)));
+        $msg->getMDMORCGROUP(0)->getOBR()->setDiagnosticServiceSectionID('323');
+        $msg->getMDMORCGROUP(0)->getOBR()->setFillerOrderNumber('3233333344');
+        $msg->getMDMORCGROUP(0)->getOBR()->setParent('5-0232332');
         var_dump((string) $msg);
     }
 }
