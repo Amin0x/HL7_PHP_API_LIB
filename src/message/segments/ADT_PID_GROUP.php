@@ -34,7 +34,7 @@ class ADT_PID_GROUP extends Group
      */
     public function getPd1(int $index)
     {
-        if(count($this->pd1) > 0 && $index < count($this->pd1)){
+        if(isset($this->pd1[$index])){
             return $this->pd1[$index];
         }
 
@@ -70,7 +70,7 @@ class ADT_PID_GROUP extends Group
      */
     public function getIn1(int $index)
     {
-        if(count($this->in1) > 0 && $index < count($this->in1)){
+        if(isset($this->in1[$index])){
             return $this->in1[$index];
         }
 
@@ -106,7 +106,7 @@ class ADT_PID_GROUP extends Group
      */
     public function getAl1( int $index)
     {
-        if(count($this->al1) > 0 && $index < count($this->al1)){
+        if(isset($this->al1)){
             return $this->al1[$index];
         }
 

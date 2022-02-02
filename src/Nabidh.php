@@ -11,36 +11,25 @@ class Nabidh {
      *
      * Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
      *
-     * @param $patient
-     * @param null $patientVisit PV1 array
-     * @param null $PR1
-     * @param null $insurance
+     * @param array $patient
      */
-    public function AdmitPatientNotification($patient, $patientVisit = null, $PR1 = null, $insurance = null)
+    public function AdmitPatientNotification(array $patient)
     {
         $msg = new Message();
+        $msg->setHeader(self::creatMessageHeader('ADT^A01'));
 
-        $msg->setHeader(Nabidh::creatMessageHeader('ADT^A01'));
-
-        $pid = new PID();
-        $pid->setNationality($patient->nationality);
-        $pid->setLastUpdateDateTime(date('r'));
-        $pid->setDateTimeofBirth($patient->dateOfBirth);
-        $pid->setPatientName($patient->first_name, $patient->mid_name, $patient->last_name);
-        $pid->setPatientIdentifierList($patient->id);
-        $pid->setAdministrativeSex($patient->administrative_sex);
-        $pid->setPatientAddress($patient->city, $patient->state, $patient->zip, $patient->country);
+        $pid = self::createPID($patient);
         $msg->addSegment($pid);
 
         $evn = new EVN();
-        $evn->setEventTypeCode('A01');
+        $evn->setEventTypeCode('ADT^A01');
         $evn->setEventFacility('');
         $evn->setRecordedDateTime('');
         $msg->addSegment($evn);
 
-        $pv1 = self::createPV1($patientVisit);
-
+        $pv1 = self::createPV1($patient);
         $msg->addSegment($pv1);
+
         $this->send($msg);
     }
 

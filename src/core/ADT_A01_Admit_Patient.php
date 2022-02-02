@@ -50,7 +50,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getNk1(int $index): ?NK1
     {
-        if(count($this->nk1) > 0 && $index < count($this->nk1)){
+        if($index >= 0 && $index < count($this->nk1)){
             return $this->nk1[$index];
         }
 
@@ -87,7 +87,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getObx(int $index): ?OBX
     {
-        if(count($this->obx) > 0 && $index < count($this->obx)){
+        if($index >= 0 && $index < count($this->obx)){
             return $this->obx[$index];
         }
 
@@ -108,7 +108,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getAl1(int $index): ?AL1
     {
-        if(count($this->al1) > 0 && $index < count($this->al1)){
+        if($index >= 0 && $index < count($this->al1)){
             return $this->al1[$index];
         }
 
@@ -129,7 +129,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getDg1(int $index): ?DG1
     {
-        if(count($this->dg1) > 0 && $index < count($this->dg1)){
+        if($index >= 0 && $index < count($this->dg1)){
             return $this->dg1[$index];
         }
 
@@ -166,7 +166,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getPr1(int $index): ?PR1
     {
-        if(count($this->pr1) > 0 && $index < count($this->pr1)){
+        if($index >= 0 && $index < count($this->pr1)){
             return $this->pr1[$index];
         }
 
@@ -187,7 +187,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getGt1(int $index): ?GT1
     {
-        if(count($this->gt1) > 0 && $index < count($this->gt1)){
+        if($index >= 0 && $index < count($this->gt1)){
             return $this->gt1[$index];
         }
 
@@ -208,7 +208,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getIn1(int $index): ?IN1
     {
-        if(count($this->in1) > 0 && $index < count($this->in1)){
+        if($index >= 0 && $index < count($this->in1)){
             return $this->in1[$index];
         }
 

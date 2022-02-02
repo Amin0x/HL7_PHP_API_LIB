@@ -49,7 +49,7 @@ class ORU_PID_GROUP extends Group
      */
     public function getNte(int $index): ?NTE
     {
-        if(count($this->nte) > 0 && $index < count($this->nte)){
+        if(isset($this->nte[$index])){
             return $this->nte[$index];
         }
 
@@ -70,7 +70,7 @@ class ORU_PID_GROUP extends Group
      */
     public function getNk1(int $index): ?NK1
     {
-        if(count($this->nk1) > 0 && $index < count($this->nk1)){
+        if(isset($this->nk1[$index])){
             return $this->nk1[$index];
         }
 
@@ -103,13 +103,13 @@ class ORU_PID_GROUP extends Group
 
     public function __toString()
     {
-        $str = $this->pid . '\r';
-        $str .= $this->pd1 . '\r';
+        $str = $this->pid;
+        $str .= $this->pd1;
         foreach ($this->nte as $item) {
-            $str .= $item . '\r';
+            $str .= $item;
         }
         foreach ($this->nk1 as $item) {
-            $str .= $item . '\r';
+            $str .= $item;
         }
         $str .= $this->PV1_group;
 

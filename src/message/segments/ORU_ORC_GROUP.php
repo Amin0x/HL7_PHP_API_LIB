@@ -51,7 +51,7 @@ class ORU_ORC_GROUP extends Group
      */
     public function getNte(int $index): ?NTE
     {
-        if(count($this->nte) > 0 && $index < count($this->nte)){
+        if(isset($this->nte[$index])){
             return $this->nte[$index];
         }
 
@@ -107,7 +107,7 @@ class ORU_ORC_GROUP extends Group
      */
     public function getSpm(int $index): ?SPM
     {
-        if(count($this->spm) > 0 && $index < count($this->spm)){
+        if(isset($this->spm[$index])){
             return $this->spm[$index];
         }
 
@@ -134,7 +134,12 @@ class ORU_ORC_GROUP extends Group
         }
 
         $str .= $this->oru_obx_group;
-        $str .= $this->spm;
+
+        foreach ($this->spm as $value){
+            $str .= $value;
+        }
+
+
         return $str;
     }
 

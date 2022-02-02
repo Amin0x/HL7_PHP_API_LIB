@@ -31,7 +31,7 @@ class ORU_OBX_GROUP extends Group
      */
     public function getNte(int $index): ?NTE
     {
-        if (count($this->nte) > 0 && $index < count($this->nte))
+        if (isset($this->nte[$index]))
         {
             return $this->nte[$index];
         }

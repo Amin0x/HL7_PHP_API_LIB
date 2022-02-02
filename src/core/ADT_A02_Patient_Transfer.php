@@ -59,7 +59,7 @@ class ADT_A02_Patient_Transfer extends ADTBase implements IMessage
      */
     public function getObx(int $index): ?OBX
     {
-        if(count($this->obx) > 0 && $index < count($this->obx)){
+        if($index >= 0 && $index < count($this->obx)){
             return $this->obx[$index];
         }
 
