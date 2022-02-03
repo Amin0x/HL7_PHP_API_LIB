@@ -8,14 +8,46 @@ namespace amin0x\nabidh;
 
 class Nabidh2
 {
-    public function createRegisterPatientMessage()
+    /**
+     * ADT^A01 Base Structure - A01
+     *
+     * Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
+     *
+     * @param array $patient
+     */
+    public function sendAdmitPatientNotification(array $patient)
     {
-        return $this->createMessage('ADT^A04');
+        $msg = new Message();
+        $msg->setHeader(self::creatMessageHeader('ADT^A01'));
+
+        $pid = self::createPID($patient);
+        $msg->addSegment($pid);
+
+        $evn = new EVN();
+        $evn->setEventTypeCode('ADT^A01');
+        $evn->setEventFacility('');
+        $evn->setRecordedDateTime('');
+        $msg->addSegment($evn);
+
+        $pv1 = self::createPV1($patient);
+        $msg->addSegment($pv1);
+
+        $this->send($msg);
+    }
+
+    public function createRegisterPatientMessage(array $reg)
+    {
+        $msg = $this->createMessage('ADT^A04');
+        $msg->addSegment(self::createEVN($reg));
+        $msg->addSegment(self::createPID($reg));
+        $msg->addSegment(self::createPV1($reg));
+        return $msg;
     }
 
     public function createPatientVisitMessage()
     {
-        return $this->createMessage('ADT^A10');
+        $msg = $this->createMessage('ADT^A10');
+        return $msg;
     }
 
     public function createCanclePatientVisitMessage()
@@ -74,45 +106,6 @@ class Nabidh2
         return $message;
     }
 
-    public function insertRegisterPatientMessageSegments(Message $message, PID $pid, EVN $evn, PV1 $pv1)
-    {
-        if ($message->getHeader()->getMessageType() != 'ADT^A10'){
-            return false;
-        }
-
-        return true;
-    }
-
-    public function addPatientIdSegment(Message $message, PID $pid)
-    {
-        if (empty($message) || empty($pid)){
-            return false;
-        }
-
-        $message->addSegment($pid);
-
-        return true;
-    }
-
-    public function addPatientId(Message $message, Patient $patient)
-    {
-        if (empty($message) || empty($patient)){
-            return false;
-        }
-
-        $pid = new PID();
-
-
-        $this->addPatientIdSegment($message, $pid);
-
-
-        return true;
-    }
-
-    public function addEvent(Message $message, EVN $evn)
-    {
-
-    }
 
     public function addSegment(Message $message, Segment $segment)
     {
@@ -140,4 +133,103 @@ class Nabidh2
             }
         }
     }
+
+    public static function creatMessageHeader($type): MSH
+    {
+        $msh = new MSH();
+        $msh->setMessageType($type);
+        $msh->setVersionID('2.5');
+        $msh->setSendingFacility('');
+        $msh->setSendingApplication('');
+        $msh->setMessageControlID(time());
+        $msh->setProcessingID('');
+        $msh->setReceivingFacility('DHA');
+        $msh->setReceivingApplication('NABIDH');
+        $msh->setEncodingCharacters('^~\&');
+        $msh->setDateTimeofMessage(date('r'));
+
+        return $msh;
+    }
+
+
+    /**
+     * @param string $type
+     * @param string $eventFacility
+     * @param string $recordedAt
+     * @return EVN
+     */
+    private static function createEVN(string $type, string $eventFacility, string $recordedAt): EVN
+    {
+        $evn = new EVN();
+        $evn->setEventTypeCode('A04');
+        $evn->setRecordedDateTime($recordedAt);
+        $evn->setEventFacility($eventFacility);
+        return $evn;
+    }
+
+    /**
+     * @param array $patient
+     * @return PID
+     */
+    private static function createPID(array $patient): PID
+    {
+        $pid = new PID();
+
+        if (isset($patient['nationality'])) {
+            $pid->setNationality($patient['nationality']);
+        }
+
+        $pid->setLastUpdateDateTime($patient['last_update_date_time'] ?? date('r'));
+
+        if (isset($patient['date_time_of_birth'])) {
+            $pid->setDateTimeofBirth($patient['date_time_of_birth']);
+        }
+
+        if (isset($patient['first_name']) && isset($patient['mid_name']) && isset($patient['last_name'])) {
+            $pid->setPatientName($patient['first_name'], $patient['mid_name'], $patient['last_name']);
+        }
+
+        $pid->setPatientIdentifierList($patient['id'] ?? '', $patient['passport_number'] ?? '');
+
+        if (isset($patient['administrative_sex'])) {
+            $pid->setAdministrativeSex($patient['administrative_sex']);
+        }
+
+        if (isset($patient['city']) && isset($patient['state']) && isset($patient['country'])) {
+            $pid->setPatientAddress($patient['city'], $patient['state'], $patient['zip'], $patient['country']);
+        }
+
+        return $pid;
+    }
+
+    /**
+     * @param array $patientVisit
+     * @return PV1
+     */
+    private static function createPV1(array $patientVisit): PV1
+    {
+        $pv1 = new PV1();
+
+        if(isset($patientVisit['admit_date_time']))
+            $pv1->setAdmitDateTime($patientVisit['admit_date_time']);
+
+        if(isset($patientVisit['visit_number']))
+            $pv1->setVisitNumber($patientVisit['visit_number']);
+
+        if(isset($patientVisit['hospital_service']))
+            $pv1->setHospitalService($patientVisit['hospital_service']);
+        if(isset($patientVisit['patient_class']))
+            $pv1->setPatientClass($patientVisit['patient_class']);
+        if(isset($patientVisit['assigned_patient_location']))
+            $pv1->setAssignedPatientLocation($patientVisit['assigned_patient_location']);
+
+        if(isset($patientVisit['admission_type']))
+            $pv1->setAdmissionType($patientVisit['admission_type']);
+
+        if(isset($patientVisit['attend_doctor']))
+            $pv1->setAttendingDoctor($patientVisit['attend_doctor']);
+
+        return $pv1;
+    }
+
 }

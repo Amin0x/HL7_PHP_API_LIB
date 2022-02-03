@@ -8,9 +8,9 @@ class VXU_V04_Vaccination_Record_Message implements IMessage
 {
     private MSH $msh;
     private PID $pid;
-    private ?PD1 $pd1 = null;
+    private PD1|null $pd1 = null;
     private array $nk1 = [];
-    private ?PV1_GROUP $PV1_GROUP = null;
+    private PV1_GROUP|null $PV1_GROUP = null;
     private array $gt1 = [];
     private array $in1 = [];
 

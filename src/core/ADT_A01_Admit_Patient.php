@@ -50,7 +50,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getNk1(int $index): ?NK1
     {
-        if($index >= 0 && $index < count($this->nk1)){
+        if(isset($this->nk1[$index])){
             return $this->nk1[$index];
         }
 
@@ -87,7 +87,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getObx(int $index): ?OBX
     {
-        if($index >= 0 && $index < count($this->obx)){
+        if(isset($this->nk1[$index])){
             return $this->obx[$index];
         }
 
@@ -108,7 +108,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getAl1(int $index): ?AL1
     {
-        if($index >= 0 && $index < count($this->al1)){
+        if(isset($this->al1[$index])){
             return $this->al1[$index];
         }
 
@@ -129,7 +129,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getDg1(int $index): ?DG1
     {
-        if($index >= 0 && $index < count($this->dg1)){
+        if(isset($this->dg1[$index])){
             return $this->dg1[$index];
         }
 
@@ -166,7 +166,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getPr1(int $index): ?PR1
     {
-        if($index >= 0 && $index < count($this->pr1)){
+        if(isset($this->pr1[$index])){
             return $this->pr1[$index];
         }
 
@@ -187,7 +187,7 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
      */
     public function getGt1(int $index): ?GT1
     {
-        if($index >= 0 && $index < count($this->gt1)){
+        if(isset($this->gt1[$index])){
             return $this->gt1[$index];
         }
 
