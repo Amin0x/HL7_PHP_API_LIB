@@ -9,6 +9,9 @@ class Element
     private $components = [];
 
     protected function setElementValue(int $index, $value){
+        if ($index < 0)
+            return;
+
         if($index > count($this->components)){
             for ($i = count($this->components); $i < $index-1 ; ++$i)
             {

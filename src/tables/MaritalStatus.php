@@ -19,3 +19,4 @@ class MaritalStatus {
     public const RegisteredDomesticPartner = 'R';
     public const Unreported = 'T';
 }
+

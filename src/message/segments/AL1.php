@@ -40,7 +40,7 @@ class AL1 implements Segment {
      */
     public function setAllergenTypeCode(string $AllergenTypeCode): void
     {
-        $this->AllergenTypeCode = $AllergenTypeCode;
+        $this->AllergenTypeCode = getAllergyTypeCodeTable($AllergenTypeCode);
     }
 
     /**
@@ -56,7 +56,7 @@ class AL1 implements Segment {
      */
     public function setAllergenCodeMnemonicDescription(string $AllergenCodeMnemonicDescription): void
     {
-        $this->AllergenCodeMnemonicDescription = $AllergenCodeMnemonicDescription;
+        $this->AllergenCodeMnemonicDescription = getAllergenTable($AllergenCodeMnemonicDescription);
     }
 
     /**

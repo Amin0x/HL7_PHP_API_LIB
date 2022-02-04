@@ -20,7 +20,7 @@ class NabidhTest extends TestCase
         $pt->getEvn()->setRecordedDateTime(date('r'));
         $pt->getEvn()->setEventFacility('TCODE10');
 
-        $pt->getPid()->setPatientIdentifierList('123123', 'PP1122334455');
+        $pt->getPid()->setPatientIdentifierList('123123');
         $pt->getPid()->setPatientAddress('abc', 'abc state', '123', 'UK');
         $pt->getPid()->setNationality('USA');
         $pt->getPid()->setPhoneNumberHome('0123456789');
@@ -205,6 +205,8 @@ class NabidhTest extends TestCase
         $vr->setADTPV1GROUP($pvg);
 
         var_dump((string)$vr);
+
+        $this->assertSame('','');
     }
 
     public function testMDM_T02_Original_Document_Notification()
@@ -225,6 +227,8 @@ class NabidhTest extends TestCase
         $msg->getMDMORCGROUP(0)->getOBR()->setFillerOrderNumber('3233333344');
         $msg->getMDMORCGROUP(0)->getOBR()->setParent('5-0232332');
         var_dump((string) $msg);
+
+        $this->assertSame('', '');
     }
 
     public function testADT_A47_Change_Patient_Identifier_List()
@@ -240,5 +244,6 @@ class NabidhTest extends TestCase
 
 
         var_dump((string) $msg);
+        $this->assertSame('','');
     }
 }

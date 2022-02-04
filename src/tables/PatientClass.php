@@ -1,7 +1,9 @@
 <?php
 namespace amin0x\nabidh;
 
-class PatientClass {
+use SplEnum;
+
+class PatientClass extends SplEnum {
     public const Obstetrics = 'B';
     public const CommercialAccount = 'C';
     public const Emergency = 'E';
@@ -11,4 +13,5 @@ class PatientClass {
     public const Preadmit = 'P';
     public const RecurringPatient = 'R';
     public const Unknown = 'U';
+
 }

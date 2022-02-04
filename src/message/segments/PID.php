@@ -69,7 +69,7 @@ class PID implements Segment {
     /**
      * @return string
      */
-    public function getPatientIdentifierList(): string
+    public function getPatientIdentifierList(): CX|string
     {
         return $this->PatientIdentifierList;
     }
@@ -88,14 +88,20 @@ class PID implements Segment {
      * @param string $facilityId
      * @param string $passportId
      */
-    public function setPatientIdentifierList(string $facilityId, string $passportId = ''): void
+    public function setPatientIdentifierList(string $Id, bool $passport = false): void
     {
-        if (!empty($facilityId)){
-            $this->PatientIdentifierList = $facilityId.'^^^FACILITYCODE^MRN';
-            if (!empty($passportId)){
-                $this->PatientIdentifierList .= "~".$passportId."^^^GOVERNMENT^PPN";
-            }
+        if ($passport) {
+            $this->PatientIdentifierList = new CX($Id, 'GOVERNMENT', 'PPN');
+        } else {
+            $this->PatientIdentifierList = new CX($Id, 'FACILITYCODE', 'MRN');
         }
+//
+//        if (!empty($facilityId)){
+//            $this->PatientIdentifierList = $facilityId.'^^^FACILITYCODE^MRN';
+//            if (!empty($passportId)){
+//                $this->PatientIdentifierList .= "~".$passportId."^^^GOVERNMENT^PPN";
+//            }
+//        }
     }
 
 
@@ -137,7 +143,8 @@ class PID implements Segment {
      */
     public function setMotherMaidenName(string $lastName, string $firstName, string $middleName): void
     {
-        $this->MotherMaidenName = "$lastName^$firstName^$middleName^^^^D";
+        //$this->MotherMaidenName = "$lastName^$firstName^$middleName^^^^D";
+        $this->MotherMaidenName = new XPN($lastName, $firstName, $middleName);
     }
 
     /**
@@ -216,7 +223,7 @@ class PID implements Segment {
      */
     public function setRace(string $Race): void
     {
-        $this->Race = $Race;
+        $this->Race = " 2028-9^$Race^NAB004";
     }
 
     /**
@@ -279,7 +286,7 @@ class PID implements Segment {
     /**
      * @return string
      */
-    public function getPhoneNumberBusiness(): string
+    public function getPhoneNumberBusiness(): XTN|string
     {
         return $this->PhoneNumberBusiness;
     }
@@ -289,13 +296,13 @@ class PID implements Segment {
      */
     public function setPhoneNumberBusiness(string $PhoneNumberBusiness): void
     {
-        $this->PhoneNumberBusiness = "$PhoneNumberBusiness^WPN^PH";
+        $this->PhoneNumberBusiness = new XTN($PhoneNumberBusiness, 'WPN', 'PH');
     }
 
     /**
      * @return string
      */
-    public function getPrimaryLanguage(): string
+    public function getPrimaryLanguage(): CE|string
     {
         return $this->PrimaryLanguage;
     }
@@ -303,15 +310,16 @@ class PID implements Segment {
     /**
      * @param string $PrimaryLanguage
      */
-    public function setPrimaryLanguage(string $PrimaryLanguage): void
+    public function setPrimaryLanguage(string $PrimaryLanguage = 'UNK', string $Text = 'UNKNOWN'): void
     {
-        $this->PrimaryLanguage = $PrimaryLanguage;
+        //$this->PrimaryLanguage = $PrimaryLanguage.'^'.$Text.'^NAB024';
+        $this->PrimaryLanguage = new CE($PrimaryLanguage, $Text, 'NAB024');
     }
 
     /**
      * @return string
      */
-    public function getMaritalStatus(): string
+    public function getMaritalStatus(): CE|string
     {
         return $this->MaritalStatus;
     }
@@ -321,7 +329,8 @@ class PID implements Segment {
      */
     public function setMaritalStatus(string $MaritalStatus): void
     {
-        $this->MaritalStatus = $MaritalStatus;
+        $this->MaritalStatus = getMaritalStatusTable($MaritalStatus);
+
     }
 
     /**
@@ -337,7 +346,7 @@ class PID implements Segment {
      */
     public function setReligion(string $Religion): void
     {
-        $this->Religion = $Religion;
+        $this->Religion = getReligionTable($Religion);
     }
 
     /**

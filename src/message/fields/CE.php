@@ -6,16 +6,22 @@ namespace amin0x\nabidh;
 
 final class CE extends Element
 {
-    private  $Identifier;
-    private  $Text;
-    private  $NameofCodingSystem;
+    /**
+     * CE constructor.
+     */
+    public function __construct($identifier, $text, $nameOfCodingSystem)
+    {
+        $this->setIdentifier($identifier);
+        $this->setText($text);
+        $this->setNameOfCodingSystem($nameOfCodingSystem);
+    }
 
     /**
      * @return mixed
      */
     public function getIdentifier()
     {
-        return $this->Identifier;
+        return $this->getElementValue(1);
     }
 
     /**
@@ -23,7 +29,7 @@ final class CE extends Element
      */
     public function setIdentifier($Identifier): void
     {
-        $this->Identifier = $Identifier;
+        $this->setElementValue(1, $Identifier);
     }
 
     /**
@@ -31,7 +37,7 @@ final class CE extends Element
      */
     public function getText()
     {
-        return $this->Text;
+        return $this->getElementValue(2);
     }
 
     /**
@@ -39,32 +45,28 @@ final class CE extends Element
      */
     public function setText($Text): void
     {
-        $this->Text = $Text;
+        $this->setElementValue(2, $Text);
     }
 
     /**
      * @return mixed
      */
-    public function getNameofCodingSystem()
+    public function getNameOfCodingSystem()
     {
-        return $this->NameofCodingSystem;
+        return $this->getElementValue(3);
     }
 
     /**
      * @param mixed $NameofCodingSystem
      */
-    public function setNameofCodingSystem($NameofCodingSystem): void
+    public function setNameOfCodingSystem($NameOfCodingSystem): void
     {
-        $this->NameofCodingSystem = $NameofCodingSystem;
+        $this->setElementValue(3, $NameOfCodingSystem);
     }
 
     public function __toString()
     {
-        $str = $this->Identifier . '^';
-        $str .= $this->Text . '^';
-        $str .= $this->NameofCodingSystem;
-
-        return rtrim($str, '^');
+        return parent::__toString();
     }
 
 

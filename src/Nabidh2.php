@@ -38,7 +38,7 @@ class Nabidh2
     public function createRegisterPatientMessage(array $reg)
     {
         $msg = $this->createMessage('ADT^A04');
-        $msg->addSegment(self::createEVN($reg));
+        $msg->addSegment(self::createEVN($reg['event_type'], $reg['event_facility'], $reg['event_recorded_at']));
         $msg->addSegment(self::createPID($reg));
         $msg->addSegment(self::createPV1($reg));
         return $msg;

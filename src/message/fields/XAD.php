@@ -6,17 +6,17 @@ namespace amin0x\nabidh;
 
 final class XAD extends Element
 {
-    private $City = '';
-    private $State = '';
-    private $Zip = '';
-    private $Country = '';
-    private $AddressTypeCode = '';
 
     /**
      * PatientAddress constructor.
      */
-    public function __construct()
+    public function __construct($City = '',$State = '',$Zip = '',$Country = '',$AddressTypeCode = '')
     {
+        $this->setElementValue(1, $City);
+        $this->setElementValue(2, $State);
+        $this->setElementValue(3, $Country);
+        $this->setElementValue(4, $Zip);
+        $this->setElementValue(5, $AddressTypeCode);
     }
 
     /**
@@ -24,7 +24,7 @@ final class XAD extends Element
      */
     public function getCity()
     {
-        return $this->City;
+        return $this->getElementValue(1);
     }
 
     /**
@@ -32,7 +32,7 @@ final class XAD extends Element
      */
     public function setCity($City): void
     {
-        $this->City = $City;
+        $this->setElementValue(1, $City);
     }
 
     /**
@@ -40,7 +40,7 @@ final class XAD extends Element
      */
     public function getState()
     {
-        return $this->State;
+        return $this->getElementValue(2);
     }
 
     /**
@@ -48,7 +48,7 @@ final class XAD extends Element
      */
     public function setState($State): void
     {
-        $this->State = $State;
+        $this->setElementValue(2, $State);
     }
 
     /**
@@ -56,7 +56,7 @@ final class XAD extends Element
      */
     public function getZip()
     {
-        return $this->Zip;
+        return $this->getElementValue(4);
     }
 
     /**
@@ -64,7 +64,7 @@ final class XAD extends Element
      */
     public function setZip($Zip): void
     {
-        $this->Zip = $Zip;
+        $this->setElementValue(4, $Zip);
     }
 
     /**
@@ -72,7 +72,8 @@ final class XAD extends Element
      */
     public function getCountry()
     {
-        return $this->Country;
+        return $this->getElementValue(3);
+
     }
 
     /**
@@ -80,7 +81,7 @@ final class XAD extends Element
      */
     public function setCountry($Country): void
     {
-        $this->Country = $Country;
+        $this->setElementValue(3, $Country);
     }
 
     /**
@@ -88,7 +89,7 @@ final class XAD extends Element
      */
     public function getAddressTypeCode()
     {
-        return $this->AddressTypeCode;
+        return $this->getElementValue(5);
     }
 
     /**
@@ -96,12 +97,12 @@ final class XAD extends Element
      */
     public function setAddressTypeCode($AddressTypeCode): void
     {
-        $this->AddressTypeCode = $AddressTypeCode;
+        $this->setElementValue(5, $AddressTypeCode);
     }
 
     public function __toString()
     {
-        return "^^$this->City^$this->State^$this->Zip^$this->Country^$this->AddressTypeCode";
+        return parent::__toString();
     }
 
 

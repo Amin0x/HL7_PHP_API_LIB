@@ -43,13 +43,9 @@ class EVN implements Segment {
     /**
      * @return string
      */
-    public function getEventFacility(): string
+    public function getEventFacility(): HD|string
     {
-        $arr = explode('^', $this->EventFacility);
-        if(!empty($arr) && !empty($arr[1])){
-            return $arr[1];
-        }
-        return '';
+        return $this->EventFacility;
     }
 
     /**
@@ -57,7 +53,11 @@ class EVN implements Segment {
      */
     public function setEventFacility(string $EventFacility): void
     {
-        $this->EventFacility = "SHERYAN^$EventFacility";
+        if (!empty($EventFacility)) {
+            $this->EventFacility = new HD('SHERYAN', $EventFacility);
+        } else {
+            $this->EventFacility = '';
+        }
     }
 
     public function __toString()

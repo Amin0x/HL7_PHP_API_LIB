@@ -37,7 +37,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): XPN|string
     {
         return $this->Name;
     }
@@ -45,7 +45,7 @@ class NK1 implements Segment {
     /**
      * @param string $Name
      */
-    public function setName(string $Name): void
+    public function setName(XPN $Name): void
     {
         $this->Name = $Name;
     }
@@ -53,7 +53,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getRelationship(): string
+    public function getRelationship(): CE
     {
         return $this->Relationship;
     }
@@ -61,7 +61,7 @@ class NK1 implements Segment {
     /**
      * @param string $Relationship
      */
-    public function setRelationship(string $Relationship): void
+    public function setRelationship(CE $Relationship): void
     {
         $this->Relationship = $Relationship;
     }
@@ -69,7 +69,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress(): XAD
     {
         return $this->Address;
     }
@@ -77,7 +77,7 @@ class NK1 implements Segment {
     /**
      * @param string $Address
      */
-    public function setAddress(string $Address): void
+    public function setAddress(XAD $Address): void
     {
         $this->Address = $Address;
     }
@@ -85,7 +85,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getPhoneNumber(): string
+    public function getPhoneNumber(): XTN
     {
         return $this->PhoneNumber;
     }
@@ -93,7 +93,7 @@ class NK1 implements Segment {
     /**
      * @param string $PhoneNumber
      */
-    public function setPhoneNumber(string $PhoneNumber): void
+    public function setPhoneNumber(XTN $PhoneNumber): void
     {
         $this->PhoneNumber = $PhoneNumber;
     }
@@ -101,7 +101,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getBusinessPhoneNumber(): string
+    public function getBusinessPhoneNumber(): XTN
     {
         return $this->BusinessPhoneNumber;
     }
@@ -109,7 +109,7 @@ class NK1 implements Segment {
     /**
      * @param string $BusinessPhoneNumber
      */
-    public function setBusinessPhoneNumber(string $BusinessPhoneNumber): void
+    public function setBusinessPhoneNumber(XTN $BusinessPhoneNumber): void
     {
         $this->BusinessPhoneNumber = $BusinessPhoneNumber;
     }
@@ -117,7 +117,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getContactRole(): string
+    public function getContactRole(): CE|string
     {
         return $this->ContactRole;
     }
@@ -125,7 +125,7 @@ class NK1 implements Segment {
     /**
      * @param string $ContactRole
      */
-    public function setContactRole(string $ContactRole): void
+    public function setContactRole(CE $ContactRole): void
     {
         $this->ContactRole = $ContactRole;
     }
@@ -165,7 +165,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getOrganizationNameNK1(): string
+    public function getOrganizationNameNK1(): XON
     {
         return $this->OrganizationName_NK1;
     }
@@ -173,7 +173,7 @@ class NK1 implements Segment {
     /**
      * @param string $OrganizationName_NK1
      */
-    public function setOrganizationNameNK1(string $OrganizationName_NK1): void
+    public function setOrganizationNameNK1(XON $OrganizationName_NK1): void
     {
         $this->OrganizationName_NK1 = $OrganizationName_NK1;
     }
@@ -181,7 +181,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getContactPersonName(): string
+    public function getContactPersonName(): XPN
     {
         return $this->ContactPersonName;
     }
@@ -189,7 +189,7 @@ class NK1 implements Segment {
     /**
      * @param string $ContactPersonName
      */
-    public function setContactPersonName(string $ContactPersonName): void
+    public function setContactPersonName(XPN $ContactPersonName): void
     {
         $this->ContactPersonName = $ContactPersonName;
     }
@@ -197,7 +197,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getContactPersonTelephoneNumber(): string
+    public function getContactPersonTelephoneNumber(): XTN
     {
         return $this->ContactPersonTelephoneNumber;
     }
@@ -205,7 +205,7 @@ class NK1 implements Segment {
     /**
      * @param string $ContactPersonTelephoneNumber
      */
-    public function setContactPersonTelephoneNumber(string $ContactPersonTelephoneNumber): void
+    public function setContactPersonTelephoneNumber(XTN $ContactPersonTelephoneNumber): void
     {
         $this->ContactPersonTelephoneNumber = $ContactPersonTelephoneNumber;
     }
@@ -213,7 +213,7 @@ class NK1 implements Segment {
     /**
      * @return string
      */
-    public function getContactPersonAddress(): string
+    public function getContactPersonAddress(): XAD
     {
         return $this->ContactPersonAddress;
     }
@@ -221,7 +221,7 @@ class NK1 implements Segment {
     /**
      * @param string $ContactPersonAddress
      */
-    public function setContactPersonAddress(string $ContactPersonAddress): void
+    public function setContactPersonAddress(XAD $ContactPersonAddress): void
     {
         $this->ContactPersonAddress = $ContactPersonAddress;
     }

@@ -6,23 +6,26 @@ namespace amin0x\nabidh;
 
 final class CX extends Element
 {
-    private $IdNumber = '';
-    private $CheckDigit = '';
-    private $CheckDigitScheme = '';
-    private $AssigningAuthority = '';
-    private $IdentifierTypeCode = '';
-    private $AssigningFacility = '';
-    private $EffectiveDate = '';
-    private $ExpirationDate = '';
-    private $AssigningJurisdiction = '';
-    private $AssigningAgencyOrDepartment = '';
+
+    /**
+     * CX constructor.
+     * @param string $IdNumber
+     * @param string $AssigningAuthority
+     * @param string $IdentifierTypeCode
+     */
+    public function __construct(string $IdNumber, string $AssigningAuthority, string $IdentifierTypeCode)
+    {
+        $this->setIdNumber($IdNumber);
+        $this->setAssigningAuthority($AssigningAuthority);
+        $this->setIdentifierTypeCode($IdentifierTypeCode);
+    }
 
     /**
      * @return string
      */
     public function getIdNumber(): string
     {
-        return $this->IdNumber;
+        return $this->getElementValue(1);
     }
 
     /**
@@ -30,7 +33,7 @@ final class CX extends Element
      */
     public function setIdNumber(string $IdNumber): void
     {
-        $this->IdNumber = $IdNumber;
+        $this->setElementValue(1, $IdNumber);
     }
 
     /**
@@ -38,7 +41,7 @@ final class CX extends Element
      */
     public function getCheckDigit(): string
     {
-        return $this->CheckDigit;
+        return $this->getElementValue(2);
     }
 
     /**
@@ -46,7 +49,7 @@ final class CX extends Element
      */
     public function setCheckDigit(string $CheckDigit): void
     {
-        $this->CheckDigit = $CheckDigit;
+        $this->setElementValue(2, $CheckDigit);
     }
 
     /**
@@ -54,7 +57,7 @@ final class CX extends Element
      */
     public function getCheckDigitScheme(): string
     {
-        return $this->CheckDigitScheme;
+        return $this->getElementValue(3);
     }
 
     /**
@@ -62,7 +65,7 @@ final class CX extends Element
      */
     public function setCheckDigitScheme(string $CheckDigitScheme): void
     {
-        $this->CheckDigitScheme = $CheckDigitScheme;
+        $this->setElementValue(3, $CheckDigitScheme);
     }
 
     /**
@@ -70,7 +73,7 @@ final class CX extends Element
      */
     public function getAssigningAuthority(): string
     {
-        return $this->AssigningAuthority;
+        return $this->getElementValue(4);
     }
 
     /**
@@ -78,7 +81,7 @@ final class CX extends Element
      */
     public function setAssigningAuthority(string $AssigningAuthority): void
     {
-        $this->AssigningAuthority = $AssigningAuthority;
+        $this->setElementValue(4, $AssigningAuthority);
     }
 
     /**
@@ -86,7 +89,7 @@ final class CX extends Element
      */
     public function getIdentifierTypeCode(): string
     {
-        return $this->IdentifierTypeCode;
+        return $this->getElementValue(5);
     }
 
     /**
@@ -94,7 +97,7 @@ final class CX extends Element
      */
     public function setIdentifierTypeCode(string $IdentifierTypeCode): void
     {
-        $this->IdentifierTypeCode = $IdentifierTypeCode;
+        $this->setElementValue(5, $IdentifierTypeCode);
     }
 
     /**
@@ -102,7 +105,7 @@ final class CX extends Element
      */
     public function getAssigningFacility(): string
     {
-        return $this->AssigningFacility;
+        return $this->getElementValue(6);
     }
 
     /**
@@ -110,7 +113,7 @@ final class CX extends Element
      */
     public function setAssigningFacility(string $AssigningFacility): void
     {
-        $this->AssigningFacility = $AssigningFacility;
+        $this->setElementValue(6, $AssigningFacility);
     }
 
     /**
@@ -118,7 +121,7 @@ final class CX extends Element
      */
     public function getEffectiveDate(): string
     {
-        return $this->EffectiveDate;
+        return $this->getElementValue(7);
     }
 
     /**
@@ -126,7 +129,7 @@ final class CX extends Element
      */
     public function setEffectiveDate(string $EffectiveDate): void
     {
-        $this->EffectiveDate = $EffectiveDate;
+        $this->setElementValue(7, $EffectiveDate);
     }
 
     /**
@@ -134,7 +137,7 @@ final class CX extends Element
      */
     public function getExpirationDate(): string
     {
-        return $this->ExpirationDate;
+        return $this->getElementValue(8);
     }
 
     /**
@@ -142,7 +145,7 @@ final class CX extends Element
      */
     public function setExpirationDate(string $ExpirationDate): void
     {
-        $this->ExpirationDate = $ExpirationDate;
+        $this->setElementValue(8, $ExpirationDate);
     }
 
     /**
@@ -150,7 +153,7 @@ final class CX extends Element
      */
     public function getAssigningJurisdiction(): string
     {
-        return $this->AssigningJurisdiction;
+        return $this->getElementValue(9);
     }
 
     /**
@@ -158,7 +161,7 @@ final class CX extends Element
      */
     public function setAssigningJurisdiction(string $AssigningJurisdiction): void
     {
-        $this->AssigningJurisdiction = $AssigningJurisdiction;
+        $this->setElementValue(9, $AssigningJurisdiction);
     }
 
     /**
@@ -166,7 +169,7 @@ final class CX extends Element
      */
     public function getAssigningAgencyOrDepartment(): string
     {
-        return $this->AssigningAgencyOrDepartment;
+        return $this->getElementValue(10);
     }
 
     /**
@@ -174,8 +177,12 @@ final class CX extends Element
      */
     public function setAssigningAgencyOrDepartment(string $AssigningAgencyOrDepartment): void
     {
-        $this->AssigningAgencyOrDepartment = $AssigningAgencyOrDepartment;
+        $this->setElementValue(10, $AssigningAgencyOrDepartment);
     }
 
 
+    public function __toString()
+    {
+        return parent::__toString(); // TODO: Change the autogenerated stub
+    }
 }

@@ -40,7 +40,32 @@ class Nabidh2Test extends TestCase
         $evn = new EVN();
         $pv1 = new PV1();
 
-        $msg = $nab->createRegisterPatientMessage();
+        $msg = $nab->createRegisterPatientMessage([
+            'event_type' => '',
+            'event_facility' => '',
+            'event_recorded_at' => '',
+            'nationality' => '',
+            'last_update_date_time' => '',
+            'date_time_of_birth' => '',
+            'first_name' => '',
+            'mid_name' => '',
+            'last_name' => '',
+            'name_prefix' => '',
+            'id' => '',
+            'passport_number' => '',
+            'administrative_sex' => '',
+            'city' => '',
+            'state' => '',
+            'country' => '',
+            'zip' => '',
+            'admit_date_time' => '',
+            'visit_number' => '',
+            'hospital_service' => '',
+            'patient_class' => '',
+            'assigned_patient_location' => new PL(),
+            'admission_type' => '',
+            'attend_doctor' => '',
+        ]);
 
         $msg->getHeader()->setSendingFacility('TESTHOS20');
         //$pid->setSSNNumberPatient('');

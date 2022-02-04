@@ -11,6 +11,19 @@ final class XTN extends Element
     private $Type = '';
 
     /**
+     * XTN constructor.
+     * @param string $Number
+     * @param string $Code
+     * @param string $Type
+     */
+    public function __construct(string $Number, string $Code, string $Type)
+    {
+        $this->Number = $Number;
+        $this->Code = $Code;
+        $this->Type = $Type;
+    }
+
+    /**
      * @return string
      */
     public function getNumber(): string
