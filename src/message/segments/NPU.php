@@ -20,7 +20,7 @@ class NPU implements Segment {
     /**
      * @return string
      */
-    public function getBedLocation(): string
+    public function getBedLocation(): PL|string
     {
         return $this->BedLocation;
     }
@@ -28,7 +28,7 @@ class NPU implements Segment {
     /**
      * @param string $BedLocation
      */
-    public function setBedLocation(string $BedLocation): void
+    public function setBedLocation(PL $BedLocation): void
     {
         $this->BedLocation = $BedLocation;
     }
@@ -49,9 +49,8 @@ class NPU implements Segment {
         $this->BedStatus = $BedStatus;
     }
 
-
     public function __toString()
     {
-        return $this->BedLocation . '|' . $this->BedStatus . '\r';
+        return 'NPU|'.$this->BedLocation . '|' . $this->BedStatus . '\r';
     }
 }

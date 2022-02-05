@@ -305,4 +305,106 @@ function getAllergenTable(string $val)
 
 }
 
+function getRelationshipTable(string $val): Ce|string
+{
+    $result = '';
+
+    switch ($val){
+        case 'ASC': $result = new CE('ASC', 'Associate','NAB041'); break;
+        case 'BRO': $result = new CE('BRO', 'Brother','NAB041'); break;
+        case 'CGV': $result = new CE('CGV', 'Care giver','NAB041'); break;
+        case 'CHD': $result = new CE('CHD', 'Child','NAB041'); break;
+        case 'DEP': $result = new CE('DEP', 'Handicapped dependent','NAB041'); break;
+        case 'DOM': $result = new CE('DOM', 'Life partner','NAB041'); break;
+        case 'EMC': $result = new CE('EMC', 'Emergency contact','NAB041'); break;
+        case 'EME': $result = new CE('EME', 'Employee','NAB041'); break;
+        case 'EMR': $result = new CE('EMR', 'Employer','NAB041'); break;
+        case 'EXF': $result = new CE('EXF', 'Extended family','NAB041'); break;
+        case 'FCH': $result = new CE('FCH', 'Foster child','NAB041'); break;
+        case 'FND': $result = new CE('FND', 'Friend','NAB041'); break;
+        case 'FTH': $result = new CE('FTH', 'Father','NAB041'); break;
+        case 'GCH': $result = new CE('GCH', 'Grandchild','NAB041'); break;
+        case 'GRD': $result = new CE('GRD', 'Guardian','NAB041'); break;
+        case 'GRP': $result = new CE('GRP', 'Grandparent','NAB041'); break;
+        case 'MGR': $result = new CE('MGR', 'Manager','NAB041'); break;
+        case 'MTH': $result = new CE('MTH', 'Mother','NAB041'); break;
+        case 'NCH': $result = new CE('NCH', 'Natural child','NAB041'); break;
+        case 'NON': $result = new CE('NON', 'None','NAB041'); break;
+        case 'OAD': $result = new CE('OAD', 'Other adult','NAB041'); break;
+        case 'OTH': $result = new CE('OTH', 'Other','NAB041'); break;
+        case 'OWN': $result = new CE('OWN', 'Owner','NAB041'); break;
+        case 'PAR': $result = new CE('PAR', 'Parent','NAB041'); break;
+        case 'SCH': $result = new CE('SCH', 'Stepchild','NAB041'); break;
+        case 'SEL': $result = new CE('SEL', 'Self','NAB041'); break;
+        case 'SIB': $result = new CE('SIB', 'Sibling','NAB041'); break;
+        case 'SIS': $result = new CE('SIS', 'Sister','NAB041'); break;
+        case 'SPO': $result = new CE('SPO', 'Spouse','NAB041'); break;
+        case 'TRA': $result = new CE('TRA', 'Trainer','NAB041'); break;
+        case 'UNK': $result = new CE('UNK', 'Unknown','NAB041'); break;
+        case 'WRD': $result = new CE('WRD', 'Ward of court','NAB041'); break;
+    }
+
+    return $result;
+}
+//Table NAB030: Order Control
+function getOrderControlTable(string $val)
+{
+    $result = '';
+    switch ($val){
+        case 'AF': $result = new CE('AF', 'Order/service refill request approval', 'NAB030'); break;
+        case 'CA': $result = new CE('CA', 'Cancel order/service request', 'NAB030'); break;
+        case 'CH': $result = new CE('CH', 'Child order/service', 'NAB030'); break;
+        case 'CN': $result = new CE('CN', 'Combined result', 'NAB030'); break;
+        case 'CR': $result = new CE('CR', 'Canceled as requested', 'NAB030'); break;
+        case 'DC': $result = new CE('DC', 'Discontinue order/service request', 'NAB030'); break;
+        case 'DE': $result = new CE('DE', 'Data errors', 'NAB030'); break;
+        case 'DF': $result = new CE('DF', 'Order/service refill request denied', 'NAB030'); break;
+        case 'DR': $result = new CE('DR', 'Discontinued as requested', 'NAB030'); break;
+        case 'FU': $result = new CE('FU', 'Order/service refilled, unsolicited', 'NAB030'); break;
+        case 'HD': $result = new CE('HD', 'Hold order request', 'NAB030'); break;
+        case 'HR': $result = new CE('HR', 'On hold as requested', 'NAB030'); break;
+        case 'LI': $result = new CE('LI', 'Link order/service to patient care problem or g', 'NAB030'); break;
+        case 'NA': $result = new CE('NA', 'Number assigned', 'NAB030'); break;
+        case 'NW': $result = new CE('NW', 'New order/service', 'NAB030'); break;
+        case 'OC': $result = new CE('OC', 'Order/service canceled', 'NAB030'); break;
+        case 'OD': $result = new CE('OD', 'Order/service discontinued', 'NAB030'); break;
+        case 'OE': $result = new CE('OE', 'Order/service released', 'NAB030'); break;
+        case 'OF': $result = new CE('OF', 'Order/service refilled as requested', 'NAB030'); break;
+        case 'OH': $result = new CE('OH', 'Order/service held', 'NAB030'); break;
+        case 'OK': $result = new CE('OK', 'Order/service accepted & OK', 'NAB030'); break;
+        case 'OP': $result = new CE('OP', 'Notification of order for outside dispense', 'NAB030'); break;
+        case 'OR': $result = new CE('OR', 'Released as requested', 'NAB030'); break;
+        case 'PA': $result = new CE('PA', 'Parent order/service', 'NAB030'); break;
+        case 'PR': $result = new CE('PR', 'Previous Results with new order/service', 'NAB030'); break;
+        case 'PY': $result = new CE('PY', 'Notification of replacement order', 'NAB030'); break;
+        case 'RE': $result = new CE('RE', 'Observations/Performed Service to', 'NAB030'); break;
+        case 'RF': $result = new CE('RF', 'Refill order/service request', 'NAB030'); break;
+        case 'RL': $result = new CE('RL', 'Release previous hold', 'NAB030'); break;
+        case 'RO': $result = new CE('RO', 'Replacement order', 'NAB030'); break;
+        case 'RP': $result = new CE('RP', 'Order/service replace request', 'NAB030'); break;
+        case 'RQ': $result = new CE('RQ', 'Replaced as requested', 'NAB030'); break;
+        case 'RR': $result = new CE('RR', 'Request received', 'NAB030'); break;
+        case 'RU': $result = new CE('RU', 'Replaced unsolicited', 'NAB030'); break;
+        case 'SC': $result = new CE('SC', 'Status changed', 'NAB030'); break;
+        case 'SN': $result = new CE('SN', 'Send order/service number', 'NAB030'); break;
+        case 'SR': $result = new CE('SR', 'Response to send order/service sta', 'NAB030'); break;
+        case 'SS': $result = new CE('SS', 'Send order/service status request', 'NAB030'); break;
+        case 'UA': $result = new CE('UA', 'Unable to accept order/service', 'NAB030'); break;
+        case 'UC': $result = new CE('UC', 'Unable to cancel', 'NAB030'); break;
+        case 'UD': $result = new CE('UD', 'Unable to discontinue', 'NAB030'); break;
+        case 'UF': $result = new CE('UF', 'Unable to refill', 'NAB030'); break;
+        case 'UH': $result = new CE('UH', 'Unable to put on hold', 'NAB030'); break;
+        case 'UM': $result = new CE('UM', 'Unable to replace', 'NAB030'); break;
+        case 'UN': $result = new CE('UN', 'Unlink order/service from patient', 'NAB030'); break;
+        case 'UR': $result = new CE('UR', 'Unable to release', 'NAB030'); break;
+        case 'UX': $result = new CE('UX', 'Unable to change', 'NAB030'); break;
+        case 'XO': $result = new CE('XO', 'Change order/service request', 'NAB030'); break;
+        case 'XR': $result = new CE('XR', 'Changed as requested', 'NAB030'); break;
+        case 'XX': $result = new CE('XX', 'Order/service changed, unsol.', 'NAB030'); break;
+    }
+    return $result;
+}
 //HL7128 table
+//HL7072 table
+
+

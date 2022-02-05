@@ -12,7 +12,8 @@ class GT1 {
     private $GuarantorDateTimeOfBirth = '';
     private $GuarantorAdministrativeSex = '';
     private $GuarantorType = '';
-    private $GuarantorRelationshipGuarantorSSN = '';
+    private $GuarantorRelationship = '';
+    private $GuarantorSSN = '';
     private $GuarantorDateBegin = '';
     private $GuarantorDateEnd = '';
     private $GuarantorEmployerName = '';
@@ -34,6 +35,7 @@ class GT1 {
     public function __construct(string $SetID_GT1)
     {
         $this->SetID_GT1 = $SetID_GT1;
+        $this->GuarantorAdministrativeSex = 'U';
     }
 
     /**
@@ -55,7 +57,7 @@ class GT1 {
     /**
      * @return string
      */
-    public function getGuarantorNumber(): string
+    public function getGuarantorNumber(): CX|string
     {
         return $this->GuarantorNumber;
     }
@@ -65,13 +67,18 @@ class GT1 {
      */
     public function setGuarantorNumber(string $GuarantorNumber): void
     {
-        $this->GuarantorNumber = $GuarantorNumber;
+        if (!empty($GuarantorNumber)) {
+            $this->GuarantorNumber = new CX($GuarantorNumber, 'FACILITYCODE', 'MRN');
+            return;
+        }
+
+        $this->GuarantorNumber = '';
     }
 
     /**
      * @return string
      */
-    public function getGuarantorName(): string
+    public function getGuarantorName(): XPN|string
     {
         return $this->GuarantorName;
     }
@@ -79,7 +86,7 @@ class GT1 {
     /**
      * @param string $GuarantorName
      */
-    public function setGuarantorName(string $GuarantorName): void
+    public function setGuarantorName(XPN $GuarantorName): void
     {
         $this->GuarantorName = $GuarantorName;
     }
@@ -87,7 +94,7 @@ class GT1 {
     /**
      * @return string
      */
-    public function getGuarantorAddress(): string
+    public function getGuarantorAddress(): XAD|string
     {
         return $this->GuarantorAddress;
     }
@@ -95,7 +102,7 @@ class GT1 {
     /**
      * @param string $GuarantorAddress
      */
-    public function setGuarantorAddress(string $GuarantorAddress): void
+    public function setGuarantorAddress(XAD $GuarantorAddress): void
     {
         $this->GuarantorAddress = $GuarantorAddress;
     }
@@ -103,7 +110,7 @@ class GT1 {
     /**
      * @return string
      */
-    public function getGuarantorPhNumHome(): string
+    public function getGuarantorPhNumHome(): XTN|string
     {
         return $this->GuarantorPhNumHome;
     }
@@ -111,7 +118,7 @@ class GT1 {
     /**
      * @param string $GuarantorPhNumHome
      */
-    public function setGuarantorPhNumHome(string $GuarantorPhNumHome): void
+    public function setGuarantorPhNumHome(XTN $GuarantorPhNumHome): void
     {
         $this->GuarantorPhNumHome = $GuarantorPhNumHome;
     }
@@ -119,7 +126,7 @@ class GT1 {
     /**
      * @return string
      */
-    public function getGuarantorPhNumBusiness(): string
+    public function getGuarantorPhNumBusiness(): XTN|string
     {
         return $this->GuarantorPhNumBusiness;
     }
@@ -127,7 +134,7 @@ class GT1 {
     /**
      * @param string $GuarantorPhNumBusiness
      */
-    public function setGuarantorPhNumBusiness(string $GuarantorPhNumBusiness): void
+    public function setGuarantorPhNumBusiness(XTN $GuarantorPhNumBusiness): void
     {
         $this->GuarantorPhNumBusiness = $GuarantorPhNumBusiness;
     }
@@ -161,7 +168,12 @@ class GT1 {
      */
     public function setGuarantorAdministrativeSex(string $GuarantorAdministrativeSex): void
     {
-        $this->GuarantorAdministrativeSex = $GuarantorAdministrativeSex;
+        if (in_array($GuarantorAdministrativeSex, [ 'F', 'M', 'U'])){
+            $this->GuarantorAdministrativeSex = $GuarantorAdministrativeSex;
+            return;
+        }
+
+        $this->GuarantorAdministrativeSex = 'U';
     }
 
     /**
@@ -183,17 +195,33 @@ class GT1 {
     /**
      * @return string
      */
-    public function getGuarantorRelationshipGuarantorSSN(): string
+    public function getGuarantorRelationship(): string
     {
-        return $this->GuarantorRelationshipGuarantorSSN;
+        return $this->GuarantorRelationship;
     }
 
     /**
-     * @param string $GuarantorRelationshipGuarantorSSN
+     * @param string $GuarantorRelationship
      */
-    public function setGuarantorRelationshipGuarantorSSN(string $GuarantorRelationshipGuarantorSSN): void
+    public function setGuarantorRelationship(string $GuarantorRelationship): void
     {
-        $this->GuarantorRelationshipGuarantorSSN = $GuarantorRelationshipGuarantorSSN;
+        $this->GuarantorRelationship = getRelationshipTable($GuarantorRelationship);
+    }
+
+    /**
+     * @return string
+     */
+    public function getGuarantorSSN(): string
+    {
+        return $this->GuarantorSSN;
+    }
+
+    /**
+     * @param string $GuarantorSSN
+     */
+    public function setGuarantorSSN(string $GuarantorSSN): void
+    {
+        $this->GuarantorSSN = $GuarantorSSN;
     }
 
     /**
@@ -231,7 +259,7 @@ class GT1 {
     /**
      * @return string
      */
-    public function getGuarantorEmployerName(): string
+    public function getGuarantorEmployerName(): XPN|string
     {
         return $this->GuarantorEmployerName;
     }
@@ -239,7 +267,7 @@ class GT1 {
     /**
      * @param string $GuarantorEmployerName
      */
-    public function setGuarantorEmployerName(string $GuarantorEmployerName): void
+    public function setGuarantorEmployerName(XPN $GuarantorEmployerName): void
     {
         $this->GuarantorEmployerName = $GuarantorEmployerName;
     }
@@ -247,7 +275,7 @@ class GT1 {
     /**
      * @return string
      */
-    public function getGuarantorEmployerAddress(): string
+    public function getGuarantorEmployerAddress(): XAD|string
     {
         return $this->GuarantorEmployerAddress;
     }
@@ -255,7 +283,7 @@ class GT1 {
     /**
      * @param string $GuarantorEmployerAddress
      */
-    public function setGuarantorEmployerAddress(string $GuarantorEmployerAddress): void
+    public function setGuarantorEmployerAddress(XAD $GuarantorEmployerAddress): void
     {
         $this->GuarantorEmployerAddress = $GuarantorEmployerAddress;
     }
@@ -263,7 +291,7 @@ class GT1 {
     /**
      * @return string
      */
-    public function getGuarantorEmployerPhoneNumber(): string
+    public function getGuarantorEmployerPhoneNumber(): XTN|string
     {
         return $this->GuarantorEmployerPhoneNumber;
     }
@@ -271,7 +299,7 @@ class GT1 {
     /**
      * @param string $GuarantorEmployerPhoneNumber
      */
-    public function setGuarantorEmployerPhoneNumber(string $GuarantorEmployerPhoneNumber): void
+    public function setGuarantorEmployerPhoneNumber(XTN $GuarantorEmployerPhoneNumber): void
     {
         $this->GuarantorEmployerPhoneNumber = $GuarantorEmployerPhoneNumber;
     }
@@ -375,7 +403,7 @@ class GT1 {
     /**
      * @return string
      */
-    public function getGuarantorEmployerOrganizationName(): string
+    public function getGuarantorEmployerOrganizationName(): XON|string
     {
         return $this->GuarantorEmployerOrganizationName;
     }
@@ -383,7 +411,7 @@ class GT1 {
     /**
      * @param string $GuarantorEmployerOrganizationName
      */
-    public function setGuarantorEmployerOrganizationName(string $GuarantorEmployerOrganizationName): void
+    public function setGuarantorEmployerOrganizationName(XON $GuarantorEmployerOrganizationName): void
     {
         $this->GuarantorEmployerOrganizationName = $GuarantorEmployerOrganizationName;
     }
@@ -402,7 +430,7 @@ class GT1 {
         $str[] = $this->GuarantorDateTimeOfBirth;
         $str[] = $this->GuarantorAdministrativeSex;
         $str[] = $this->GuarantorType;
-        $str[] = $this->GuarantorRelationshipGuarantorSSN;
+        $str[] = $this->GuarantorRelationship;
         $str[] = $this->GuarantorDateBegin;
         $str[] = $this->GuarantorDateEnd;
         $str[] = '';
@@ -451,6 +479,8 @@ class GT1 {
 
         return implode('|', $str).'\r';
     }
+
+
 
 
 }

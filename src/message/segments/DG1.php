@@ -9,10 +9,8 @@ class DG1 {
     private $DiagnosisDescription = '';
     private $DiagnosisDateTime = '';
     private $DiagnosisType = '';
-
     private $DiagnosisPriority = '';
     private $DiagnosingClinician = '';
-
     private $DiagnosisActionCode = '';
 
     /**
@@ -44,7 +42,7 @@ class DG1 {
      */
     public function setDiagnosisCodingMethod(string $DiagnosisCodingMethod): void
     {
-        $this->DiagnosisCodingMethod = $DiagnosisCodingMethod;
+        $this->DiagnosisCodingMethod = new CE('', $DiagnosisCodingMethod, '');
     }
 
     /**
@@ -130,7 +128,7 @@ class DG1 {
     /**
      * @return string
      */
-    public function getDiagnosingClinician(): string
+    public function getDiagnosingClinician(): XCN|string
     {
         return $this->DiagnosingClinician;
     }
@@ -138,7 +136,7 @@ class DG1 {
     /**
      * @param string $DiagnosingClinician
      */
-    public function setDiagnosingClinician(string $DiagnosingClinician): void
+    public function setDiagnosingClinician(XCN $DiagnosingClinician): void
     {
         $this->DiagnosingClinician = $DiagnosingClinician;
     }

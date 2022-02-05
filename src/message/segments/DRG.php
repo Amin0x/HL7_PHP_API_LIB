@@ -18,7 +18,7 @@ class DRG {
     /**
      * @return string
      */
-    public function getDiagnosticRelatedGroup(): string
+    public function getDiagnosticRelatedGroup(): CE|string
     {
         return $this->DiagnosticRelatedGroup;
     }
@@ -26,7 +26,7 @@ class DRG {
     /**
      * @param string $DiagnosticRelatedGroup
      */
-    public function setDiagnosticRelatedGroup(string $DiagnosticRelatedGroup): void
+    public function setDiagnosticRelatedGroup(CE $DiagnosticRelatedGroup): void
     {
         $this->DiagnosticRelatedGroup = $DiagnosticRelatedGroup;
     }

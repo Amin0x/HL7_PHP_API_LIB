@@ -3,7 +3,6 @@ namespace amin0x\nabidh;
 
 class OBR implements Segment {
 
-
     private $SetID_OBR = '';
     private $PlacerOrderNumber = '';
     private $FillerOrderNumber = '';
@@ -56,7 +55,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getPlacerOrderNumber(): string
+    public function getPlacerOrderNumber(): EI|string
     {
         return $this->PlacerOrderNumber;
     }
@@ -64,7 +63,7 @@ class OBR implements Segment {
     /**
      * @param string $PlacerOrderNumber
      */
-    public function setPlacerOrderNumber(string $PlacerOrderNumber): void
+    public function setPlacerOrderNumber(EI $PlacerOrderNumber): void
     {
         $this->PlacerOrderNumber = $PlacerOrderNumber;
     }
@@ -72,7 +71,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getFillerOrderNumber(): string
+    public function getFillerOrderNumber(): EI|string
     {
         return $this->FillerOrderNumber;
     }
@@ -80,7 +79,7 @@ class OBR implements Segment {
     /**
      * @param string $FillerOrderNumber
      */
-    public function setFillerOrderNumber(string $FillerOrderNumber): void
+    public function setFillerOrderNumber(EI $FillerOrderNumber): void
     {
         $this->FillerOrderNumber = $FillerOrderNumber;
     }
@@ -88,7 +87,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getUniversalServiceIdentifier(): string
+    public function getUniversalServiceIdentifier(): CE|string
     {
         return $this->UniversalServiceIdentifier;
     }
@@ -96,7 +95,7 @@ class OBR implements Segment {
     /**
      * @param string $UniversalServiceIdentifier
      */
-    public function setUniversalServiceIdentifier(string $UniversalServiceIdentifier): void
+    public function setUniversalServiceIdentifier(CE $UniversalServiceIdentifier): void
     {
         $this->UniversalServiceIdentifier = $UniversalServiceIdentifier;
     }
@@ -216,7 +215,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getOrderingProvider(): string
+    public function getOrderingProvider(): XCN|string
     {
         return $this->OrderingProvider;
     }
@@ -224,7 +223,7 @@ class OBR implements Segment {
     /**
      * @param string $OrderingProvider
      */
-    public function setOrderingProvider(string $OrderingProvider): void
+    public function setOrderingProvider(XCN $OrderingProvider): void
     {
         $this->OrderingProvider = $OrderingProvider;
     }
@@ -232,7 +231,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getOrderCallbackPhoneNumber(): string
+    public function getOrderCallbackPhoneNumber(): XTN|string
     {
         return $this->OrderCallbackPhoneNumber;
     }
@@ -240,7 +239,7 @@ class OBR implements Segment {
     /**
      * @param string $OrderCallbackPhoneNumber
      */
-    public function setOrderCallbackPhoneNumber(string $OrderCallbackPhoneNumber): void
+    public function setOrderCallbackPhoneNumber(XTN $OrderCallbackPhoneNumber): void
     {
         $this->OrderCallbackPhoneNumber = $OrderCallbackPhoneNumber;
     }
@@ -328,7 +327,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getResultCopiesTo(): string
+    public function getResultCopiesTo(): XCN|string
     {
         return $this->ResultCopiesTo;
     }
@@ -336,7 +335,7 @@ class OBR implements Segment {
     /**
      * @param string $ResultCopiesTo
      */
-    public function setResultCopiesTo(string $ResultCopiesTo): void
+    public function setResultCopiesTo(XCN $ResultCopiesTo): void
     {
         $this->ResultCopiesTo = $ResultCopiesTo;
     }
@@ -360,7 +359,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getReasonforStudy(): string
+    public function getReasonforStudy(): CE|string
     {
         return $this->ReasonforStudy;
     }
@@ -368,7 +367,7 @@ class OBR implements Segment {
     /**
      * @param string $ReasonforStudy
      */
-    public function setReasonforStudy(string $ReasonforStudy): void
+    public function setReasonforStudy(CE $ReasonforStudy): void
     {
         $this->ReasonforStudy = $ReasonforStudy;
     }
@@ -376,7 +375,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getPrincipalResultInterpreter(): string
+    public function getPrincipalResultInterpreter(): XCN|string
     {
         return $this->PrincipalResultInterpreter;
     }
@@ -384,7 +383,7 @@ class OBR implements Segment {
     /**
      * @param string $PrincipalResultInterpreter
      */
-    public function setPrincipalResultInterpreter(string $PrincipalResultInterpreter): void
+    public function setPrincipalResultInterpreter(XCN $PrincipalResultInterpreter): void
     {
         $this->PrincipalResultInterpreter = $PrincipalResultInterpreter;
     }

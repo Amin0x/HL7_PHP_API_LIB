@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class Element
+abstract class Element
 {
     private $components = [];
 

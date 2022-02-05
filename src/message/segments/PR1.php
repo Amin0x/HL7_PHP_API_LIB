@@ -3,8 +3,6 @@ namespace amin0x\nabidh;
 
 class PR1 implements Segment {
 
-    
-
     private $SetID_PR1 = '';
     private $ProcedureCode = '';
     private $ProcedureDescription = '';
@@ -42,7 +40,7 @@ class PR1 implements Segment {
     /**
      * @return string
      */
-    public function getProcedureCode(): string
+    public function getProcedureCode(): CE|string
     {
         return $this->ProcedureCode;
     }
@@ -50,7 +48,7 @@ class PR1 implements Segment {
     /**
      * @param string $ProcedureCode
      */
-    public function setProcedureCode(string $ProcedureCode): void
+    public function setProcedureCode(CE $ProcedureCode): void
     {
         $this->ProcedureCode = $ProcedureCode;
     }
@@ -90,7 +88,7 @@ class PR1 implements Segment {
     /**
      * @return string
      */
-    public function getSurgeon(): string
+    public function getSurgeon(): XCN|string
     {
         return $this->Surgeon;
     }
@@ -98,7 +96,7 @@ class PR1 implements Segment {
     /**
      * @param string $Surgeon
      */
-    public function setSurgeon(string $Surgeon): void
+    public function setSurgeon(XCN $Surgeon): void
     {
         $this->Surgeon = $Surgeon;
     }

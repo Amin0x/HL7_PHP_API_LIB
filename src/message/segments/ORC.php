@@ -4,7 +4,6 @@ namespace amin0x\nabidh;
 use BadMethodCallException;
 
 class ORC implements Segment {
-    
 
     private $OrderControl = '';
     private $PlacerOrderNumber = '';
@@ -45,13 +44,18 @@ class ORC implements Segment {
      */
     public function setOrderControl(string $OrderControl): void
     {
+        if (!empty($OrderControl)) {
+            $this->OrderControl = getOrderControlTable($OrderControl)->getIdentifier() ;
+            return;
+        }
+
         $this->OrderControl = $OrderControl;
     }
 
     /**
      * @return string
      */
-    public function getPlacerOrderNumber(): string
+    public function getPlacerOrderNumber(): EI|string
     {
         return $this->PlacerOrderNumber;
     }
@@ -59,7 +63,7 @@ class ORC implements Segment {
     /**
      * @param string $PlacerOrderNumber
      */
-    public function setPlacerOrderNumber(string $PlacerOrderNumber): void
+    public function setPlacerOrderNumber(EI $PlacerOrderNumber): void
     {
         $this->PlacerOrderNumber = $PlacerOrderNumber;
     }
@@ -67,7 +71,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getFillerOrderNumber(): string
+    public function getFillerOrderNumber(): EI|string
     {
         return $this->FillerOrderNumber;
     }
@@ -75,7 +79,7 @@ class ORC implements Segment {
     /**
      * @param string $FillerOrderNumber
      */
-    public function setFillerOrderNumber(string $FillerOrderNumber): void
+    public function setFillerOrderNumber(EI $FillerOrderNumber): void
     {
         $this->FillerOrderNumber = $FillerOrderNumber;
     }
@@ -131,7 +135,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getEnteredBy(): string
+    public function getEnteredBy(): XCN|string
     {
         return $this->EnteredBy;
     }
@@ -139,7 +143,7 @@ class ORC implements Segment {
     /**
      * @param string $EnteredBy
      */
-    public function setEnteredBy(string $EnteredBy): void
+    public function setEnteredBy(XCN $EnteredBy): void
     {
         $this->EnteredBy = $EnteredBy;
     }
@@ -147,7 +151,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getVerifiedBy(): string
+    public function getVerifiedBy(): XCN|string
     {
         return $this->VerifiedBy;
     }
@@ -155,7 +159,7 @@ class ORC implements Segment {
     /**
      * @param string $VerifiedBy
      */
-    public function setVerifiedBy(string $VerifiedBy): void
+    public function setVerifiedBy(XCN $VerifiedBy): void
     {
         $this->VerifiedBy = $VerifiedBy;
     }
@@ -163,7 +167,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getOrderingProvider(): string
+    public function getOrderingProvider(): XCN|string
     {
         return $this->OrderingProvider;
     }
@@ -171,7 +175,7 @@ class ORC implements Segment {
     /**
      * @param string $OrderingProvider
      */
-    public function setOrderingProvider(string $OrderingProvider): void
+    public function setOrderingProvider(XCN $OrderingProvider): void
     {
         $this->OrderingProvider = $OrderingProvider;
     }
@@ -211,7 +215,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getOrderingFacilityName(): string
+    public function getOrderingFacilityName(): XON|string
     {
         return $this->OrderingFacilityName;
     }
@@ -219,7 +223,7 @@ class ORC implements Segment {
     /**
      * @param string $OrderingFacilityName
      */
-    public function setOrderingFacilityName(string $OrderingFacilityName): void
+    public function setOrderingFacilityName(XON $OrderingFacilityName): void
     {
         $this->OrderingFacilityName = $OrderingFacilityName;
     }
@@ -227,7 +231,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getOrderingFacilityAddress(): string
+    public function getOrderingFacilityAddress(): XAD|string
     {
         return $this->OrderingFacilityAddress;
     }
@@ -235,7 +239,7 @@ class ORC implements Segment {
     /**
      * @param string $OrderingFacilityAddress
      */
-    public function setOrderingFacilityAddress(string $OrderingFacilityAddress): void
+    public function setOrderingFacilityAddress(XAD $OrderingFacilityAddress): void
     {
         $this->OrderingFacilityAddress = $OrderingFacilityAddress;
     }
@@ -243,7 +247,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getOrderingFacilityPhoneNumber(): string
+    public function getOrderingFacilityPhoneNumber(): XTN|string
     {
         return $this->OrderingFacilityPhoneNumber;
     }
@@ -251,7 +255,7 @@ class ORC implements Segment {
     /**
      * @param string $OrderingFacilityPhoneNumber
      */
-    public function setOrderingFacilityPhoneNumber(string $OrderingFacilityPhoneNumber): void
+    public function setOrderingFacilityPhoneNumber(XTN $OrderingFacilityPhoneNumber): void
     {
         $this->OrderingFacilityPhoneNumber = $OrderingFacilityPhoneNumber;
     }
@@ -259,7 +263,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getConfidentialityCode(): string
+    public function getConfidentialityCode(): CE|string
     {
         return $this->ConfidentialityCode;
     }
@@ -267,7 +271,7 @@ class ORC implements Segment {
     /**
      * @param string $ConfidentialityCode
      */
-    public function setConfidentialityCode(string $ConfidentialityCode): void
+    public function setConfidentialityCode(CE $ConfidentialityCode): void
     {
         $this->ConfidentialityCode = $ConfidentialityCode;
     }
@@ -275,7 +279,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getOrderType(): string
+    public function getOrderType(): CE|string
     {
         return $this->OrderType;
     }
@@ -283,7 +287,7 @@ class ORC implements Segment {
     /**
      * @param string $OrderType
      */
-    public function setOrderType(string $OrderType): void
+    public function setOrderType(CE $OrderType): void
     {
         $this->OrderType = $OrderType;
     }

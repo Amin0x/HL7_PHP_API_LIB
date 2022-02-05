@@ -185,11 +185,14 @@ class NabidhTest extends TestCase
         $vr->getPid()->setAdministrativeSex('M');
         $vr->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $vr->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
-
         $vr->addGt1(new GT1(1));
-        $vr->getGt1(0)->setGuarantorEmployerName('test data');
+        $empName = new XPN();
+        $empName->setFirstName('omer');
+        $empName->setLastName('amin');
+        $empName->setMidName('o');
+        $vr->getGt1(0)->setGuarantorEmployerName($empName);
         $vr->addGt1(new GT1(2));
-        $vr->getGt1(1)->setGuarantorEmployerName('xyz');
+        $vr->getGt1(1)->setGuarantorEmployerName($empName);
         $vr->getGt1(1)->setEmploymentStopDate(date('Ymd'));
         $vr->addIn1(new IN1(1));
         $vr->addIn1(new IN1(2));
@@ -224,7 +227,8 @@ class NabidhTest extends TestCase
         $msg->getTxa()->setDocumentCompletionStatus('we3434');
         $msg->setMDMORCGROUP( new MDM_ORC_GROUP(new ORC(), new OBR(1)));
         $msg->getMDMORCGROUP(0)->getOBR()->setDiagnosticServiceSectionID('323');
-        $msg->getMDMORCGROUP(0)->getOBR()->setFillerOrderNumber('3233333344');
+        $filter = new EI();
+        $msg->getMDMORCGROUP(0)->getOBR()->setFillerOrderNumber($filter);
         $msg->getMDMORCGROUP(0)->getOBR()->setParent('5-0232332');
         var_dump((string) $msg);
 

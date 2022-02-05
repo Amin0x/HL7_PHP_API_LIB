@@ -4,31 +4,25 @@
 namespace amin0x\nabidh;
 
 
+use Exception;
+
 final class XCN extends Element
 {
-    private $IdNumber = '';
-    private $FirstName = '';
-    private $LastName = '';
-    private $MiddleName = '';
-    private $prefex = '';
-    private $AssigningAuthority = '';
-    private $NameTypeCode = '';
-
 
     /**
      * @return string
      */
-    public function getSheryanID(): string
+    public function getIdNumber(): string
     {
-        return $this->SheryanID;
+        return $this->getElementValue(1);
     }
 
     /**
-     * @param string $SheryanID
+     * @param string $IdNumber
      */
-    public function setSheryanID(string $SheryanID): void
+    public function setIdNumber(string $IdNumber): void
     {
-        $this->SheryanID = $SheryanID;
+        $this->setElementValue(1, $IdNumber);
     }
 
     /**
@@ -36,7 +30,7 @@ final class XCN extends Element
      */
     public function getFirstName(): string
     {
-        return $this->FirstName;
+        return $this->getElementValue(2);
     }
 
     /**
@@ -44,7 +38,7 @@ final class XCN extends Element
      */
     public function setFirstName(string $FirstName): void
     {
-        $this->FirstName = $FirstName;
+        $this->setElementValue(2,  $FirstName);
     }
 
     /**
@@ -52,7 +46,7 @@ final class XCN extends Element
      */
     public function getLastName(): string
     {
-        return $this->LastName;
+        return $this->getElementValue(3);
     }
 
     /**
@@ -60,7 +54,7 @@ final class XCN extends Element
      */
     public function setLastName(string $LastName): void
     {
-        $this->LastName = $LastName;
+        $this->setElementValue(3, $LastName);
     }
 
     /**
@@ -68,7 +62,7 @@ final class XCN extends Element
      */
     public function getMiddleName(): string
     {
-        return $this->MiddleName;
+        return $this->getElementValue(4);
     }
 
     /**
@@ -76,7 +70,7 @@ final class XCN extends Element
      */
     public function setMiddleName(string $MiddleName): void
     {
-        $this->MiddleName = $MiddleName;
+        $this->setElementValue(4, $MiddleName);
     }
 
     /**
@@ -84,7 +78,7 @@ final class XCN extends Element
      */
     public function getPrefex(): string
     {
-        return $this->prefex;
+        return $this->getElementValue(6);
     }
 
     /**
@@ -92,36 +86,45 @@ final class XCN extends Element
      */
     public function setPrefex(string $prefex): void
     {
-        $this->prefex = $prefex;
+        $this->setElementValue(6, $prefex);
     }
 
     /**
      * @return string
      */
-    public function getType(): string
+    public function getAssigningAuthority(): string
     {
-        return $this->type;
+        return $this->getElementValue(9);
     }
 
     /**
      * @param string $type
      */
-    public function setType(string $type = 'SHERYAN'): void
+    public function setAssigningAuthority(string $type = 'SHERYAN'): void
     {
-        $type = 'SHERYAN';
-        $this->type = $type;
+        $this->setElementValue(9, $type);
     }
 
-    public function __toString(){
-
-        $str = $this->SheryanID."^".$this->FirstName.'^'.$this->LastName.'^'
-            .$this->MiddleName.'^^'.$this->prefex.'^^^'.$this->type;
-
-        if (str_replace('^', '',$str) == ''){
-            return '';
-        }
-
-        return $str;
+    /**
+     * @return string
+     */
+    public function getNameTypeCode(): string
+    {
+        throw  new Exception();
+        //return $this->getElementValue();
     }
 
+    /**
+     * @param string $NameTypeCode
+     */
+    public function setNameTypeCode(string $NameTypeCode): void
+    {
+        throw new Exception();
+        //$this->setElementValue( null, $NameTypeCode);
+    }
+
+    public function __toString()
+    {
+        return parent::__toString();
+    }
 }

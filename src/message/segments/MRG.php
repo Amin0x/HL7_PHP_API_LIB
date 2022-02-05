@@ -10,7 +10,7 @@ class MRG implements Segment {
     /**
      * @return string
      */
-    public function getPriorPatientIdentifierList(): string
+    public function getPriorPatientIdentifierList(): CX|string
     {
         return $this->PriorPatientIdentifierList;
     }
@@ -20,7 +20,7 @@ class MRG implements Segment {
      */
     public function setPriorPatientIdentifierList(string $PriorPatientIdentifierList): void
     {
-        $this->PriorPatientIdentifierList = $PriorPatientIdentifierList;
+        $this->PriorPatientIdentifierList = new CX($PriorPatientIdentifierList, 'FACILITYCODE', 'MRN');
     }
 
     /**

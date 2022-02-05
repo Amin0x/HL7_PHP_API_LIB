@@ -50,7 +50,7 @@ class IN1 implements Segment {
     /**
      * @return string
      */
-    public function getHealthPlanID(): string
+    public function getHealthPlanID(): CE|string
     {
         return $this->HealthPlanID;
     }
@@ -58,7 +58,7 @@ class IN1 implements Segment {
     /**
      * @param string $HealthPlanID
      */
-    public function setHealthPlanID(string $HealthPlanID): void
+    public function setHealthPlanID(CE $HealthPlanID): void
     {
         $this->HealthPlanID = $HealthPlanID;
     }
@@ -66,7 +66,7 @@ class IN1 implements Segment {
     /**
      * @return string
      */
-    public function getInsuranceCompanyID(): string
+    public function getInsuranceCompanyID(): CX|string
     {
         return $this->InsuranceCompanyID;
     }
@@ -74,7 +74,7 @@ class IN1 implements Segment {
     /**
      * @param string $InsuranceCompanyID
      */
-    public function setInsuranceCompanyID(string $InsuranceCompanyID): void
+    public function setInsuranceCompanyID(CX $InsuranceCompanyID): void
     {
         $this->InsuranceCompanyID = $InsuranceCompanyID;
     }
@@ -82,7 +82,7 @@ class IN1 implements Segment {
     /**
      * @return string
      */
-    public function getInsuranceCompanyName(): string
+    public function getInsuranceCompanyName(): XON|string
     {
         return $this->InsuranceCompanyName;
     }
@@ -90,7 +90,7 @@ class IN1 implements Segment {
     /**
      * @param string $InsuranceCompanyName
      */
-    public function setInsuranceCompanyName(string $InsuranceCompanyName): void
+    public function setInsuranceCompanyName(XON $InsuranceCompanyName): void
     {
         $this->InsuranceCompanyName = $InsuranceCompanyName;
     }
@@ -98,7 +98,7 @@ class IN1 implements Segment {
     /**
      * @return string
      */
-    public function getInsuranceCompanyAddress(): string
+    public function getInsuranceCompanyAddress(): XAD|string
     {
         return $this->InsuranceCompanyAddress;
     }
@@ -106,7 +106,7 @@ class IN1 implements Segment {
     /**
      * @param string $InsuranceCompanyAddress
      */
-    public function setInsuranceCompanyAddress(string $InsuranceCompanyAddress): void
+    public function setInsuranceCompanyAddress(XAD $InsuranceCompanyAddress): void
     {
         $this->InsuranceCompanyAddress = $InsuranceCompanyAddress;
     }
@@ -114,7 +114,7 @@ class IN1 implements Segment {
     /**
      * @return string
      */
-    public function getInsuranceCoContactPerson(): string
+    public function getInsuranceCoContactPerson(): XPN|string
     {
         return $this->InsuranceCoContactPerson;
     }
@@ -122,7 +122,7 @@ class IN1 implements Segment {
     /**
      * @param string $InsuranceCoContactPerson
      */
-    public function setInsuranceCoContactPerson(string $InsuranceCoContactPerson): void
+    public function setInsuranceCoContactPerson(XPN $InsuranceCoContactPerson): void
     {
         $this->InsuranceCoContactPerson = $InsuranceCoContactPerson;
     }
@@ -130,7 +130,7 @@ class IN1 implements Segment {
     /**
      * @return string
      */
-    public function getInsuranceCoPhoneNumber(): string
+    public function getInsuranceCoPhoneNumber(): XTN|string
     {
         return $this->InsuranceCoPhoneNumber;
     }
@@ -138,7 +138,7 @@ class IN1 implements Segment {
     /**
      * @param string $InsuranceCoPhoneNumber
      */
-    public function setInsuranceCoPhoneNumber(string $InsuranceCoPhoneNumber): void
+    public function setInsuranceCoPhoneNumber(XTN $InsuranceCoPhoneNumber): void
     {
         $this->InsuranceCoPhoneNumber = $InsuranceCoPhoneNumber;
     }
@@ -226,7 +226,7 @@ class IN1 implements Segment {
     /**
      * @return string
      */
-    public function getNameOfInsured(): string
+    public function getNameOfInsured(): XPN|string
     {
         return $this->NameOfInsured;
     }
@@ -234,7 +234,7 @@ class IN1 implements Segment {
     /**
      * @param string $NameOfInsured
      */
-    public function setNameOfInsured(string $NameOfInsured): void
+    public function setNameOfInsured(XPN $NameOfInsured): void
     {
         $this->NameOfInsured = $NameOfInsured;
     }
@@ -242,7 +242,7 @@ class IN1 implements Segment {
     /**
      * @return string
      */
-    public function getInsuredRelationshipToPatient(): string
+    public function getInsuredRelationshipToPatient(): CE|string
     {
         return $this->InsuredRelationshipToPatient;
     }
@@ -252,13 +252,13 @@ class IN1 implements Segment {
      */
     public function setInsuredRelationshipToPatient(string $InsuredRelationshipToPatient): void
     {
-        $this->InsuredRelationshipToPatient = $InsuredRelationshipToPatient;
+        $this->InsuredRelationshipToPatient = getRelationshipTable($InsuredRelationshipToPatient);
     }
 
     /**
      * @return string
      */
-    public function getInsuredAddress(): string
+    public function getInsuredAddress(): XAD|string
     {
         return $this->InsuredAddress;
     }
@@ -266,7 +266,7 @@ class IN1 implements Segment {
     /**
      * @param string $InsuredAddress
      */
-    public function setInsuredAddress(string $InsuredAddress): void
+    public function setInsuredAddress(XAD $InsuredAddress): void
     {
         $this->InsuredAddress = $InsuredAddress;
     }
