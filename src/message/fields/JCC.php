@@ -6,12 +6,12 @@ namespace amin0x\nabidh;
 
 final class JCC extends Element
 {
-    private $JobCode;
-    private $JobClass;
-    private $JobDescriptionText;
 
-    public function __construct()
+    public function __construct($JobCode = '', $JobClass = '', $JobDescriptionText = '')
     {
+        $this->setJobCode($JobCode);
+        $this->setJobClass($JobClass);
+        $this->setJobDescriptionText($JobDescriptionText);
     }
 
     /**
@@ -19,7 +19,7 @@ final class JCC extends Element
      */
     public function getJobCode()
     {
-        return $this->JobCode;
+        return $this->getElementValue(1);
     }
 
     /**
@@ -27,7 +27,7 @@ final class JCC extends Element
      */
     public function setJobCode($JobCode): void
     {
-        $this->JobCode = $JobCode;
+        $this->setElementValue(1, $JobCode);
     }
 
     /**
@@ -35,7 +35,7 @@ final class JCC extends Element
      */
     public function getJobClass()
     {
-        return $this->JobClass;
+        return $this->getElementValue(2);
     }
 
     /**
@@ -43,7 +43,7 @@ final class JCC extends Element
      */
     public function setJobClass($JobClass): void
     {
-        $this->JobClass = $JobClass;
+        $this->setElementValue(2 , $JobClass);
     }
 
     /**
@@ -51,7 +51,7 @@ final class JCC extends Element
      */
     public function getJobDescriptionText()
     {
-        return $this->JobDescriptionText;
+        return $this->getElementValue(3);
     }
 
     /**
@@ -59,7 +59,7 @@ final class JCC extends Element
      */
     public function setJobDescriptionText($JobDescriptionText): void
     {
-        $this->JobDescriptionText = $JobDescriptionText;
+        $this->setElementValue(3, $JobDescriptionText);
     }
 
     public function __toString()
