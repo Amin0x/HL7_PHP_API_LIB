@@ -431,6 +431,7 @@ class GT1 {
         $str[] = $this->GuarantorAdministrativeSex;
         $str[] = $this->GuarantorType;
         $str[] = $this->GuarantorRelationship;
+        $str[] = $this->GuarantorSSN;
         $str[] = $this->GuarantorDateBegin;
         $str[] = $this->GuarantorDateEnd;
         $str[] = '';

@@ -6,9 +6,6 @@ namespace amin0x\nabidh;
 
 final class XTN extends Element
 {
-    private $Number = '';
-    private $Code = '';
-    private $Type = '';
 
     /**
      * XTN constructor.
@@ -16,68 +13,81 @@ final class XTN extends Element
      * @param string $Code
      * @param string $Type
      */
-    public function __construct(string $Number, string $Code, string $Type)
+    public function __construct(string $Number = '', string $Code = '', string $Type = '', string $EmailAddress = '')
     {
-        $this->Number = $Number;
-        $this->Code = $Code;
-        $this->Type = $Type;
+        $this->setTelephoneNumber($Number);
+        $this->setTelecommunicationUseCode($Code);
+        $this->setTelecommunicationEquipmentType($Type);
+        $this->setEmailAddress($EmailAddress);
     }
 
     /**
      * @return string
      */
-    public function getNumber(): string
+    public function getTelephoneNumber(): string
     {
-        return $this->Number;
+        return $this->getElementValue(1);
     }
 
     /**
-     * @param string $Number
+     * @param string $TelephoneNumber
      */
-    public function setNumber(string $Number): void
+    public function setTelephoneNumber(string $TelephoneNumber): void
     {
-        $this->Number = $Number;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode(): string
-    {
-        return $this->Code;
-    }
-
-    /**
-     * @param string $Code
-     */
-    public function setCode(string $Code): void
-    {
-        $this->Code = $Code;
+        $this->setElementValue(1, $TelephoneNumber);
     }
 
     /**
      * @return string
      */
-    public function getType(): string
+    public function getTelecommunicationUseCode(): string
     {
-        return $this->Type;
+        return $this->getElementValue(2);
     }
 
     /**
-     * @param string $Type
+     * @param string $TelecommunicationUseCode
      */
-    public function setType(string $Type): void
+    public function setTelecommunicationUseCode(string $TelecommunicationUseCode): void
     {
-        $this->Type = $Type;
+        $this->setElementValue(2, $TelecommunicationUseCode);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTelecommunicationEquipmentType(): string
+    {
+        return $this->getElementValue(3);
+    }
+
+    /**
+     * @param string $TelecommunicationEquipmentType
+     */
+    public function setTelecommunicationEquipmentType(string $TelecommunicationEquipmentType): void
+    {
+        $this->setElementValue(3, $TelecommunicationEquipmentType);
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmailAddress(): string
+    {
+        return $this->getElementValue(4);
+    }
+
+    /**
+     * @param string $EmailAddress
+     */
+    public function setEmailAddress(string $EmailAddress): void
+    {
+        $this->setElementValue(4, $EmailAddress);
     }
 
     public function __toString()
     {
-        $str = $this->Number . '^';
-        $str = $this->Code . '^';
-        $str = $this->Type;
-
-        return rtrim($str, '^');
+        return parent::__toString();
     }
 
 
