@@ -9,12 +9,19 @@ final class CE extends Field
     /**
      * CE constructor.
      */
-    public function __construct($identifier, $text, $nameOfCodingSystem, $NameOfAlternateCodingSystem = '')
+    public function __construct($identifier,
+                                $text,
+                                $nameOfCodingSystem,
+                                $AlternateIdentifier = '',
+                                $AlternateText = '',
+                                $NameOfAlternateCodingSystem = '')
     {
         $this->setIdentifier($identifier);
         $this->setText($text);
         $this->setNameOfCodingSystem($nameOfCodingSystem);
         $this->setNameOfAlternateCodingSystem($NameOfAlternateCodingSystem);
+        $this->setAlternateIdentifier($AlternateIdentifier);
+        $this->setAlternateText($AlternateText);
     }
 
     /**
@@ -63,6 +70,26 @@ final class CE extends Field
     public function setNameOfCodingSystem($NameOfCodingSystem): void
     {
         $this->setElementValue(3, $NameOfCodingSystem);
+    }
+
+    public function getAlternateIdentifier()
+    {
+        return $this->getElementValue(4);
+    }
+
+    public function setAlternateIdentifier(string $AlternateIdentifier)
+    {
+        $this->setElementValue(4, $AlternateIdentifier);
+    }
+
+    public function getAlternateText()
+    {
+        return $this->getElementValue(5);
+    }
+
+    public function setAlternateText(string $AlternateText)
+    {
+        $this->setElementValue(5, $AlternateText);
     }
 
     public function getNameOfAlternateCodingSystem()

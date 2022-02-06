@@ -4,7 +4,7 @@ namespace amin0x\nabidh;
 class PID implements Segment {
 
     private $SetID = '1';
-    private $PatientIdentifierList = '';
+    private $PatientIdentifierList = [];
     //private $AlternatePatientID     = '';
     private $PatientName = '';
     private $MotherMaidenName = '';
@@ -69,9 +69,13 @@ class PID implements Segment {
     /**
      * @return string
      */
-    public function getPatientIdentifierList(): CX|string
+    public function getPatientIdentifierList(int $index): CX|string
     {
-        return $this->PatientIdentifierList;
+        if (isset($this->PatientIdentifierList[$index])) {
+            return $this->PatientIdentifierList[$index];
+        }
+
+        return '';
     }
 
     /**
@@ -85,23 +89,16 @@ class PID implements Segment {
      * Expected Format: GCC_Number^^^LOCAL^GCC
      * Example: If Patient has MRN = 123456 & Passport Number = 9998888 then PID-3 field
      * should be shared as: 123456^^^FACILITYCODE^MRN~9998888^^^GOVERNMENT^PPN
-     * @param string $facilityId
-     * @param string $passportId
+     * @param string $Id
+     * @param bool $passport
      */
     public function setPatientIdentifierList(string $Id, bool $passport = false): void
     {
         if ($passport) {
-            $this->PatientIdentifierList = new CX($Id, 'GOVERNMENT', 'PPN');
+            array_push($this->PatientIdentifierList, new CX($Id, 'GOVERNMENT', 'PPN'));
         } else {
-            $this->PatientIdentifierList = new CX($Id, 'FACILITYCODE', 'MRN');
+            array_unshift($this->PatientIdentifierList, new CX($Id, 'FACILITYCODE', 'MRN'));
         }
-//
-//        if (!empty($facilityId)){
-//            $this->PatientIdentifierList = $facilityId.'^^^FACILITYCODE^MRN';
-//            if (!empty($passportId)){
-//                $this->PatientIdentifierList .= "~".$passportId."^^^GOVERNMENT^PPN";
-//            }
-//        }
     }
 
 
