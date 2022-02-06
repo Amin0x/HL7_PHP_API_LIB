@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-final class XAD extends Element
+final class XAD extends Field
 {
 
     /**

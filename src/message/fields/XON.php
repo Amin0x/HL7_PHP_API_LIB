@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-final class XON extends Element
+final class XON extends Field
 {
     public function getOrganizationName(){
         return $this->getElementValue(1);

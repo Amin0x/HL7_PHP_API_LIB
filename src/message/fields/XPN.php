@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-final class XPN extends Element
+final class XPN extends Field
 {
 
     /**

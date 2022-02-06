@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-final class TQ extends Element
+final class TQ extends Field
 {
 
 }

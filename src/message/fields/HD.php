@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-final class HD extends Element
+final class HD extends Field
 {
     private $NamespaceId;
     private $UniversalId;

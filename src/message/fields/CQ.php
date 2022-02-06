@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-final class CQ extends Element
+final class CQ extends Field
 {
 
     /**

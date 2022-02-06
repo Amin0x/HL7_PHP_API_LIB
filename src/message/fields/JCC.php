@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-final class JCC extends Element
+final class JCC extends Field
 {
 
     public function __construct($JobCode = '', $JobClass = '', $JobDescriptionText = '')

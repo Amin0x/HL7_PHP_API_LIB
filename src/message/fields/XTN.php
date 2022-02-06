@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-final class XTN extends Element
+final class XTN extends Field
 {
 
     /**

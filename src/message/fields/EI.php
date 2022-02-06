@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-final class EI extends Element
+final class EI extends Field
 {
     public function getEntityIdentifier()
     {

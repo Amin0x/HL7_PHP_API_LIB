@@ -4,16 +4,17 @@
 namespace amin0x\nabidh;
 
 
-final class CE extends Element
+final class CE extends Field
 {
     /**
      * CE constructor.
      */
-    public function __construct($identifier, $text, $nameOfCodingSystem)
+    public function __construct($identifier, $text, $nameOfCodingSystem, $NameOfAlternateCodingSystem = '')
     {
         $this->setIdentifier($identifier);
         $this->setText($text);
         $this->setNameOfCodingSystem($nameOfCodingSystem);
+        $this->setNameOfAlternateCodingSystem($NameOfAlternateCodingSystem);
     }
 
     /**
@@ -62,6 +63,16 @@ final class CE extends Element
     public function setNameOfCodingSystem($NameOfCodingSystem): void
     {
         $this->setElementValue(3, $NameOfCodingSystem);
+    }
+
+    public function getNameOfAlternateCodingSystem()
+    {
+        return $this->getElementValue(6);
+    }
+
+    public function setNameOfAlternateCodingSystem(string $NameOfAlternateCodingSystem)
+    {
+        $this->setElementValue(6, $NameOfAlternateCodingSystem);
     }
 
     public function __toString()

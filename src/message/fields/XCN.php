@@ -6,7 +6,7 @@ namespace amin0x\nabidh;
 
 use Exception;
 
-final class XCN extends Element
+final class XCN extends Field
 {
 
     /**
