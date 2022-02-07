@@ -13,22 +13,42 @@ class NabidhTest extends TestCase
         $pt = new ADT_A02_Patient_Transfer();
         $pt->getMsh()->setSendingFacility('TESTHOS20');
         $pt->getMsh()->setDateTimeofMessage(date('YmdHis'));
-        $pt->getMsh()->setProcessingID('1002');
+        $pt->getMsh()->setProcessingID('D');
+
         $pt->getPid()->setAdministrativeSex('M');
         $pt->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $pt->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
-        $pt->getEvn()->setRecordedDateTime(date('r'));
-        $pt->getEvn()->setEventFacility('TCODE10');
-
-        $pt->getPid()->setPatientIdentifierList('123123');
-        $pt->getPid()->setPatientAddress('abc', 'abc state', '123', 'UK');
+        $pt->getPid()->setSSNNumberPatient('784123412345671');
+        $pt->getPid()->addPatientIdentifierList('123123');
+        $pt->getPid()->addPatientIdentifierList('123123', true);
+        $pt->getPid()->setPatientAddress('abc', 'Dubai', '123', '');
         $pt->getPid()->setNationality('USA');
-        $pt->getPid()->setPhoneNumberHome('0123456789');
+        $pt->getPid()->setPatientName('amin', 'o', 'mohamed');
+        $pt->getPid()->setPrimaryLanguage('ENG');
+        $pt->getPid()->setLastUpdateDateTime(time());
+
+        $pt->getEvn()->setRecordedDateTime(date('r'));
+        $pt->getEvn()->setEventFacility('1111111');
+        $pt->getEvn()->setEventTypeCode('A02');
+
+
 
         $apl = new PL();
+        $apl->setPointOfCare('TCODE10');
         $apl->setFacility('TCODE10');
         $apl->setLocationDescription('Test Hospital 20');
         $pt->getPv1()->setAssignedPatientLocation($apl);
+        $pt->getPv1()->setSetIDPV1(1);
+
+        $AttendingDoctor = new XCN();
+        $AttendingDoctor->setIdNumber('445566');
+        $AttendingDoctor->setLastName('Ahmed');
+        $AttendingDoctor->setFirstName('omer');
+        $AttendingDoctor->setMiddleName('mohamed');
+        $AttendingDoctor->setAssigningAuthority('SHERYAN');
+        $AttendingDoctor->setPrefex('Dr.');
+        $pt->getPv1()->setAttendingDoctor($AttendingDoctor);
+        $pt->getPv1()->setAdmissionType($AttendingDoctor);
 
 
         $this->assertStringStartsWith('MSH',(string)$pt);
@@ -41,14 +61,14 @@ class NabidhTest extends TestCase
         $pt = new ADT_A23_Delete_Patient_Record();
         $pt->getMsh()->setSendingFacility('TESTHOS20');
         $pt->getMsh()->setDateTimeofMessage(date('YmdHis'));
-        $pt->getMsh()->setProcessingID('1002');
+        $pt->getMsh()->setProcessingID('D');
         $pt->getPid()->setAdministrativeSex('M');
         $pt->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $pt->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
         $pt->getEvn()->setRecordedDateTime(date('r'));
         $pt->getEvn()->setEventFacility('TCODE10');
 
-        $pt->getPid()->setPatientIdentifierList('123123', 'PP1122334455');
+        $pt->getPid()->addPatientIdentifierList('123123', 'PP1122334455');
         $pt->getPid()->setPatientAddress('abc', 'abc state', '123', 'UK');
         $pt->getPid()->setNationality('USA');
         $pt->getPid()->setPhoneNumberHome('0123456789');
@@ -67,14 +87,14 @@ class NabidhTest extends TestCase
         $pt = new ADT_A01_Admit_Patient();
         $pt->getMsh()->setSendingFacility('TESTHOS20');
         $pt->getMsh()->setDateTimeofMessage(date('YmdHis'));
-        $pt->getMsh()->setProcessingID('1002');
+        $pt->getMsh()->setProcessingID('D');
         $pt->getPid()->setAdministrativeSex('M');
         $pt->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $pt->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
         $pt->getEvn()->setRecordedDateTime(date('r'));
         $pt->getEvn()->setEventFacility('TCODE10');
 
-        $pt->getPid()->setPatientIdentifierList('123123', 'PP1122334455');
+        $pt->getPid()->addPatientIdentifierList('123123', 'PP1122334455');
         $pt->getPid()->setPatientAddress('abc', 'abc state', '123', 'UK');
         $pt->getPid()->setNationality('USA');
         $pt->getPid()->setPhoneNumberHome('0123456789');
@@ -125,14 +145,14 @@ class NabidhTest extends TestCase
 
         $msg->getMsh()->setSendingFacility('TESTHOS20');
         $msg->getMsh()->setDateTimeofMessage(date('YmdHis'));
-        $msg->getMsh()->setProcessingID('1002');
+        $msg->getMsh()->setProcessingID('D');
         $msg->getPid()->setAdministrativeSex('M');
         $msg->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $msg->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
         $msg->getEvn()->setRecordedDateTime(date('r'));
         $msg->getEvn()->setEventFacility('TCODE10');
 
-        $msg->getPid()->setPatientIdentifierList('123123', 'PP1122334455');
+        $msg->getPid()->addPatientIdentifierList('123123', 'PP1122334455');
         $msg->getPid()->setPatientAddress('abc', 'abc state', '123', 'UK');
         $msg->getPid()->setNationality('USA');
         $msg->getPid()->setPhoneNumberHome('0123456789');
@@ -181,7 +201,7 @@ class NabidhTest extends TestCase
         $vr = new VXU_V04_Vaccination_Record_Message();
         $vr->getMsh()->setSendingFacility('TESTHOS20');
         $vr->getMsh()->setDateTimeofMessage(date('YmdHis'));
-        $vr->getMsh()->setProcessingID('1002');
+        $vr->getMsh()->setProcessingID('D');
         $vr->getPid()->setAdministrativeSex('M');
         $vr->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $vr->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
@@ -217,7 +237,7 @@ class NabidhTest extends TestCase
         $msg = new MDM_T02_Original_Document_Notification();
         $msg->getMsh()->setSendingFacility('TESTHOS20');
         $msg->getMsh()->setDateTimeofMessage(date('YmdHis'));
-        $msg->getMsh()->setProcessingID('1002');
+        $msg->getMsh()->setProcessingID('D');
         $msg->getPid()->setAdministrativeSex('M');
         $msg->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $msg->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');
@@ -240,7 +260,7 @@ class NabidhTest extends TestCase
         $msg = new ADT_A47_Change_Patient_Identifier_List();
         $msg->getMsh()->setSendingFacility('TESTHOS20');
         $msg->getMsh()->setDateTimeofMessage(date('YmdHis'));
-        $msg->getMsh()->setProcessingID('1002');
+        $msg->getMsh()->setProcessingID('D');
         $msg->getPid()->setAdministrativeSex('M');
         $msg->getPid()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $msg->getPid()->setPhoneNumberHome('0123456789', 'abc@example.com');

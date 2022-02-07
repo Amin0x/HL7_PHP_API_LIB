@@ -16,7 +16,6 @@ class PV1 implements Segment {
     private $HospitalService = '';
     private $AdmitSource = '';
     private $AdmittingDoctor = '';
-    private $PatientType = '';
     private $VisitNumber = '';
     private $DischargeDisposition = '';
     private $DischargedtoLocation = '';
@@ -29,7 +28,7 @@ class PV1 implements Segment {
      */
     public function __construct()
     {
-
+        $this->setSetIDPV1(1);
     }
 
     /**
@@ -61,7 +60,12 @@ class PV1 implements Segment {
      */
     public function setPatientClass(string $PatientClass): void
     {
-        $this->PatientClass = $PatientClass;
+        if (in_array($PatientClass, ['I', 'O', 'E'])){
+            $this->PatientClass = $PatientClass;
+            return;
+        }
+
+        $this->PatientClass = '';
     }
 
     /**
@@ -101,7 +105,12 @@ class PV1 implements Segment {
      */
     public function setAdmissionType(string $AdmissionType): void
     {
-        $this->AdmissionType = $AdmissionType;
+        if (in_array($AdmissionType, ['A', 'C', 'E', 'L', 'N', 'R', 'U', 'O'])){
+            $this->AdmissionType = $AdmissionType;
+            return;
+        }
+
+        $this->AdmissionType = '';
     }
 
     /**
@@ -137,18 +146,18 @@ class PV1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
-    public function getAttendingDoctor(): string
+    public function getAttendingDoctor(): XCN|string
     {
         return $this->AttendingDoctor;
     }
 
     /**
      * For Example, 8 Digits SheryanID^Family/LastName^First/GivenName^MiddleName^^ Dr.^^^SHERYAN
-     * @param string $AttendingDoctor
+     * @param XCN $AttendingDoctor
      */
-    public function setAttendingDoctor(string $AttendingDoctor): void
+    public function setAttendingDoctor(XCN $AttendingDoctor): void
     {
         $this->AttendingDoctor = $AttendingDoctor;
     }
@@ -156,7 +165,7 @@ class PV1 implements Segment {
     /**
      * @return string
      */
-    public function getReferringDoctor(): string
+    public function getReferringDoctor(): XCN|string
     {
         return $this->ReferringDoctor;
     }
@@ -164,7 +173,7 @@ class PV1 implements Segment {
     /**
      * @param string $ReferringDoctor
      */
-    public function setReferringDoctor(string $ReferringDoctor): void
+    public function setReferringDoctor(XCN $ReferringDoctor): void
     {
         $this->ReferringDoctor = $ReferringDoctor;
     }
@@ -172,7 +181,7 @@ class PV1 implements Segment {
     /**
      * @return string
      */
-    public function getConsultingDoctor(): string
+    public function getConsultingDoctor(): XCN|string
     {
         return $this->ConsultingDoctor;
     }
@@ -180,7 +189,7 @@ class PV1 implements Segment {
     /**
      * @param string $ConsultingDoctor
      */
-    public function setConsultingDoctor(string $ConsultingDoctor): void
+    public function setConsultingDoctor(XCN $ConsultingDoctor): void
     {
         $this->ConsultingDoctor = $ConsultingDoctor;
     }
@@ -228,7 +237,7 @@ class PV1 implements Segment {
     /**
      * @return string
      */
-    public function getAdmittingDoctor(): string
+    public function getAdmittingDoctor(): XCN|string
     {
         return $this->AdmittingDoctor;
     }
@@ -236,25 +245,9 @@ class PV1 implements Segment {
     /**
      * @param string $AdmittingDoctor
      */
-    public function setAdmittingDoctor(string $AdmittingDoctor): void
+    public function setAdmittingDoctor(XCN $AdmittingDoctor): void
     {
         $this->AdmittingDoctor = $AdmittingDoctor;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPatientType(): string
-    {
-        return $this->PatientType;
-    }
-
-    /**
-     * @param string $PatientType
-     */
-    public function setPatientType(string $PatientType): void
-    {
-        $this->PatientType = $PatientType;
     }
 
     /**
@@ -322,6 +315,7 @@ class PV1 implements Segment {
      */
     public function setAdmitDateTime(string $AdmitDateTime): void
     {
+        $AdmitDateTime = date('YmdHisO', strtotime($AdmitDateTime));
         $this->AdmitDateTime = $AdmitDateTime;
     }
 
@@ -362,7 +356,7 @@ class PV1 implements Segment {
         $out[] = '';
         $out[] = '';
         $out[] = $this->AdmittingDoctor;
-        $out[] = $this->PatientType;
+        $out[] = '';
         $out[] = $this->VisitNumber;
         $out[] = '';
         $out[] = '';

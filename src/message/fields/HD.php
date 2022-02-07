@@ -6,8 +6,7 @@ namespace amin0x\nabidh;
 
 final class HD extends Field
 {
-    private $NamespaceId;
-    private $UniversalId;
+
 
     /**
      * HD constructor.
@@ -16,8 +15,8 @@ final class HD extends Field
      */
     public function __construct($NamespaceId = '', $UniversalId = '')
     {
-        $this->NamespaceId = $NamespaceId;
-        $this->UniversalId = $UniversalId;
+        $this->setNamespaceId($NamespaceId);
+        $this->setUniversalId($UniversalId);
     }
 
 
@@ -26,7 +25,7 @@ final class HD extends Field
      */
     public function getNamespaceId()
     {
-        return $this->NamespaceId;
+        return $this->getElementValue(1);
     }
 
     /**
@@ -34,7 +33,7 @@ final class HD extends Field
      */
     public function setNamespaceId($NamespaceId): void
     {
-        $this->NamespaceId = $NamespaceId;
+        $this->setElementValue(1, $NamespaceId);
     }
 
     /**
@@ -42,7 +41,7 @@ final class HD extends Field
      */
     public function getUniversalId()
     {
-        return $this->UniversalId;
+        return $this->getElementValue(2);
     }
 
     /**
@@ -50,12 +49,12 @@ final class HD extends Field
      */
     public function setUniversalId($UniversalId): void
     {
-        $this->UniversalId = $UniversalId;
+        $this->setElementValue(2, $UniversalId);
     }
 
     public function __toString()
     {
-        return $this->NamespaceId . '^' .$this->UniversalId;
+        return parent::__toString();
 
     }
 

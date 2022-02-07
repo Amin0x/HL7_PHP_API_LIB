@@ -92,7 +92,7 @@ class PID implements Segment {
      * @param string $Id
      * @param bool $passport
      */
-    public function setPatientIdentifierList(string $Id, bool $passport = false): void
+    public function addPatientIdentifierList(string $Id, bool $passport = false): void
     {
         if ($passport) {
             array_push($this->PatientIdentifierList, new CX($Id, 'GOVERNMENT', 'PPN'));
@@ -226,7 +226,7 @@ class PID implements Segment {
     /**
      * @return string
      */
-    public function getPatientAddress(): string
+    public function getPatientAddress(): XAD|string
     {
         return $this->PatientAddress;
     }
@@ -249,10 +249,10 @@ class PID implements Segment {
     public function setPatientAddress($city, $state, $zip, $country, $addressType = 'BA'): void
     {
         if (!empty($city) && !empty($state) && !empty($country) && !empty($zip)){
-            $this->PatientAddress = "^^$city^$state^^$zip^H";
+            $this->PatientAddress = new XAD($city, $state,$zip,'','H');
             return;
         }
-        $this->PatientAddress = "^^Dubai^Dubai^^784^H";
+        $this->PatientAddress = new XAD('Dubai', 'Dubai','784','','H');
     }
 
 
@@ -581,7 +581,7 @@ class PID implements Segment {
         $str[] = 'PID';
         $str[] = $this->SetID;
         $str[] = '';
-        $str[] = $this->PatientIdentifierList;
+        $str[] = implode('~', $this->PatientIdentifierList);
         $str[] = '';
         $str[] = $this->PatientName;
         $str[] = $this->MotherMaidenName;

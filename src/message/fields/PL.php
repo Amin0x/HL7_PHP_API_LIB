@@ -6,18 +6,34 @@ namespace amin0x\nabidh;
 
 final class PL extends Field
 {
-    private $pointOfCare = '';
-    private $room = '';
-    private $bed = '';
-    private $facility = '';
-    private $locationDescription = '';
+
+    /**
+     * PL constructor.
+     * @param string $pointOfCare
+     * @param string $room
+     * @param string $bed
+     * @param string $facility
+     * @param string $locationDescription
+     */
+    public function __construct(string $pointOfCare = '',
+                                string $room = '',
+                                string $bed = '',
+                                string $facility = '',
+                                string $locationDescription = '')
+    {
+        $this->setPointOfCare($pointOfCare);
+        $this->setRoom($room);
+        $this->setBed($bed);
+        $this->setFacility($facility);
+        $this->setLocationDescription($locationDescription);
+    }
 
     /**
      * @return string
      */
     public function getPointOfCare(): string
     {
-        return $this->pointOfCare;
+        return $this->getElementValue(1);
     }
 
     /**
@@ -25,7 +41,7 @@ final class PL extends Field
      */
     public function setPointOfCare(string $pointOfCare): void
     {
-        $this->pointOfCare = $pointOfCare;
+        $this->setElementValue(1, $pointOfCare);
     }
 
     /**
@@ -33,7 +49,7 @@ final class PL extends Field
      */
     public function getRoom(): string
     {
-        return $this->room;
+        return $this->getElementValue(2);
     }
 
     /**
@@ -41,7 +57,7 @@ final class PL extends Field
      */
     public function setRoom(string $room): void
     {
-        $this->room = $room;
+        $this->setElementValue(2, $room);
     }
 
     /**
@@ -49,7 +65,7 @@ final class PL extends Field
      */
     public function getBed(): string
     {
-        return $this->bed;
+        return $this->getElementValue(3);
     }
 
     /**
@@ -57,7 +73,7 @@ final class PL extends Field
      */
     public function setBed(string $bed): void
     {
-        $this->bed = $bed;
+        $this->setElementValue(3, $bed);
     }
 
     /**
@@ -65,7 +81,7 @@ final class PL extends Field
      */
     public function getFacility(): string
     {
-        return $this->facility;
+        return $this->getElementValue(4);
     }
 
     /**
@@ -73,7 +89,7 @@ final class PL extends Field
      */
     public function setFacility(string $facility): void
     {
-        $this->facility = $facility;
+        $this->setElementValue(4, $facility);
     }
 
     /**
@@ -81,7 +97,7 @@ final class PL extends Field
      */
     public function getLocationDescription(): string
     {
-        return $this->locationDescription;
+        return $this->getElementValue(9);
     }
 
     /**
@@ -89,20 +105,12 @@ final class PL extends Field
      */
     public function setLocationDescription(string $locationDescription): void
     {
-        $this->locationDescription = $locationDescription;
+        $this->setElementValue(9, $locationDescription);
     }
 
     public function __toString()
     {
-        $str = '';
-        $str = $this->pointOfCare . '^';
-        $str .= $this->room . '^';
-        $str .= $this->bed . '^';
-        $str .= $this->facility . '^';
-        $str .= '^^^^';
-        $str .= $this->locationDescription . '^';
-
-        return $str;
+        return parent::__toString();
     }
 
 

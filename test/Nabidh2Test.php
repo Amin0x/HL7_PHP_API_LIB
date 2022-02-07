@@ -70,7 +70,7 @@ class Nabidh2Test extends TestCase
         $msg->getHeader()->setSendingFacility('TESTHOS20');
         //$pid->setSSNNumberPatient('');
         $pid->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
-        $pid->setPatientIdentifierList(454445);
+        $pid->addPatientIdentifierList(454445);
 
         $apl = new PL();
         $apl->setFacility('TCODE10');
@@ -106,7 +106,7 @@ class Nabidh2Test extends TestCase
         $msg->getHeader()->setSendingFacility('TESTHOS20');
         //$pid->setSSNNumberPatient('');
         $pid->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
-        $pid->setPatientIdentifierList(454445);
+        $pid->addPatientIdentifierList(454445);
 
         $apl = new PL();
         $apl->setFacility('TCODE10');

@@ -127,7 +127,68 @@ function getAdmissionTypeTable(string $val): CE|string
 
     return $result;
 }
+//Table NAB008: Hospital Service
+function getHospitalServiceTable(string $val)
+{
+    $result = '';
 
+    switch ($val) {
+        case 'ALG': $result = 'ALG'; break;  //Allergy
+        case 'IMM': $result = 'IMM'; break;  //Immunology
+        case 'ANE': $result = 'ANE'; break;  //Anesthesiology
+        case 'CAR': $result = 'CAR'; break;  //Cardiology
+        case 'DER': $result = 'DER'; break;  //Dermatology
+        case 'END': $result = 'END'; break;  //Endocrinology
+        case 'DIA': $result = 'DIA'; break;  //Diabetes
+        case 'MET': $result = 'MET'; break;  //Metabolism
+        case 'EMM': $result = 'EMM'; break;  //Emergency Medicine
+        case 'FAP': $result = 'FAP'; break;  //Family Practice
+        case 'GEP': $result = 'GEP'; break;  //General Practice
+        case 'GER': $result = 'GER'; break;  //Geriatrics
+        case 'INM': $result = 'INM'; break;  //Internal Medicine
+        case 'MGE': $result = 'MGE'; break;  //Medical Genetics
+        case 'NEU': $result = 'NEU'; break;  //Neurology
+        case 'GYN': $result = 'GYN'; break;  //Gynaecology
+        case 'OBS': $result = 'OBS'; break;  //Obstetrics
+        case 'ONC': $result = 'ONC'; break;  //Oncology (Cancer)
+        case 'OPH': $result = 'OPH'; break;  //Ophthalmology
+        case 'ORT': $result = 'ORT'; break;  //Orthopedics
+        case 'OTO': $result = 'OTO'; break;  //Otolaryngology
+        case 'PAT': $result = 'PAT'; break;  //Pathology
+        case 'PED': $result = 'PED'; break;  //Pediatrics
+        case 'PMR': $result = 'PMR'; break;  //Physical Medicine & Rehab
+        case 'PLS': $result = 'PLS'; break;  //Plastic Surgery
+        case 'PRM': $result = 'PRM'; break;  //Preventive Medicine
+        case 'PSY': $result = 'PSY'; break;  //Psychiatry
+        case 'RAD': $result = 'RAD'; break;  //Radiology
+        case 'SUR': $result = 'SUR'; break;  //Surgery
+        case 'URO': $result = 'URO'; break;  //Urology
+        case 'DEN': $result = 'DEN'; break;  //Dental
+        case 'OTH': $result = 'OTH'; break;  //Other Medical
+        case 'UZB': $result = 'UZB'; break;  //Uzbeks
+        case 'ALB': $result = 'ALB'; break;  //Albanians
+        case 'ARA': $result = 'ARA'; break;  //Arabs
+        case 'SIN': $result = 'SIN'; break;  //Sindhis
+        case 'HMO': $result = 'HMO'; break;  //Hmong people
+        case 'KAZ': $result = 'KAZ'; break;  //Kazakhs
+        case 'DRA': $result = 'DRA'; break;  //Dravidian peoples
+        case 'TIB': $result = 'TIB'; break;  //Tibetan people
+        case 'AMS': $result = 'AMS'; break;  //Amis people
+        case 'LEZ': $result = 'LEZ'; break;  //Lezgins
+        case 'FIJ': $result = 'FIJ'; break;  //Fijians
+        case 'TAT': $result = 'TAT'; break;  //Tatars
+        case 'BUR': $result = 'BUR'; break;  //Buryats
+        case 'YAZ': $result = 'YAZ'; break;  //Yazidis
+        case 'MES': $result = 'MES'; break;  //Mestizo
+        case 'LEB': $result = 'LEB'; break;  //Lebanese people
+        case 'TAJ': $result = 'TAJ'; break;  //Tajiks
+        case 'YAO': $result = 'YAO'; break;  //Yao people
+        case 'ROM': $result = 'ROM'; break;  //Romanians
+        default: $result = 'UNK'; break;  //Unknown
+    }
+
+    return $result;
+}
 //Table NAB042: Allergy Type Code
 function getAllergyTypeCodeTable(string $val): CE|string
 {
@@ -346,6 +407,7 @@ function getRelationshipTable(string $val): Ce|string
 
     return $result;
 }
+
 //Table NAB030: Order Control
 function getOrderControlTable(string $val)
 {

@@ -37,7 +37,7 @@ class EVN implements Segment {
      */
     public function setRecordedDateTime(string $RecordedDateTime): void
     {
-        $this->RecordedDateTime = $RecordedDateTime;
+        $this->RecordedDateTime = date('YmdHisO', strtotime($RecordedDateTime));
     }
 
     /**

@@ -12,11 +12,31 @@ final class XAD extends Field
      */
     public function __construct($City = '',$State = '',$Zip = '',$Country = '',$AddressTypeCode = '')
     {
-        $this->setElementValue(1, $City);
-        $this->setElementValue(2, $State);
-        $this->setElementValue(3, $Country);
-        $this->setElementValue(4, $Zip);
-        $this->setElementValue(5, $AddressTypeCode);
+        $this->setCity($City);
+        $this->setState($State);
+        $this->setCountry($Country);
+        $this->setZip($Zip);
+        $this->setAddressTypeCode($AddressTypeCode);
+    }
+
+    public function getStreetAddress()
+    {
+        return $this->getElementValue(1);
+    }
+
+    public function setStreetAddress($StreetAddress)
+    {
+        $this->setElementValue(1, $StreetAddress);
+    }
+
+    public function getOtherDesignation()
+    {
+        return $this->getElementValue(2);
+    }
+
+    public function setOtherDesignation($OtherDesignation)
+    {
+        $this->setElementValue(2, $OtherDesignation);
     }
 
     /**
@@ -24,7 +44,7 @@ final class XAD extends Field
      */
     public function getCity()
     {
-        return $this->getElementValue(1);
+        return $this->getElementValue(3);
     }
 
     /**
@@ -32,7 +52,7 @@ final class XAD extends Field
      */
     public function setCity($City): void
     {
-        $this->setElementValue(1, $City);
+        $this->setElementValue(3, $City);
     }
 
     /**
@@ -40,7 +60,7 @@ final class XAD extends Field
      */
     public function getState()
     {
-        return $this->getElementValue(2);
+        return $this->getElementValue(4);
     }
 
     /**
@@ -48,7 +68,7 @@ final class XAD extends Field
      */
     public function setState($State): void
     {
-        $this->setElementValue(2, $State);
+        $this->setElementValue(4, $State);
     }
 
     /**
@@ -56,7 +76,7 @@ final class XAD extends Field
      */
     public function getZip()
     {
-        return $this->getElementValue(4);
+        return $this->getElementValue(5);
     }
 
     /**
@@ -64,7 +84,7 @@ final class XAD extends Field
      */
     public function setZip($Zip): void
     {
-        $this->setElementValue(4, $Zip);
+        $this->setElementValue(5, $Zip);
     }
 
     /**
@@ -72,7 +92,7 @@ final class XAD extends Field
      */
     public function getCountry()
     {
-        return $this->getElementValue(3);
+        return $this->getElementValue(6);
 
     }
 
@@ -81,7 +101,7 @@ final class XAD extends Field
      */
     public function setCountry($Country): void
     {
-        $this->setElementValue(3, $Country);
+        $this->setElementValue(6, $Country);
     }
 
     /**
@@ -89,7 +109,7 @@ final class XAD extends Field
      */
     public function getAddressTypeCode()
     {
-        return $this->getElementValue(5);
+        return $this->getElementValue(7);
     }
 
     /**
@@ -97,7 +117,7 @@ final class XAD extends Field
      */
     public function setAddressTypeCode($AddressTypeCode): void
     {
-        $this->setElementValue(5, $AddressTypeCode);
+        $this->setElementValue(7, $AddressTypeCode);
     }
 
     public function __toString()
