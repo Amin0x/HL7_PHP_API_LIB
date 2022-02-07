@@ -22,7 +22,7 @@ class PD1 implements Segment {
     /**
      * @return string
      */
-    public function getPatientPrimaryCareProviderNameIDNo(): string
+    public function getPatientPrimaryCareProviderNameIDNo(): XCN|string
     {
         return $this->PatientPrimaryCareProviderNameIDNo;
     }
@@ -30,7 +30,7 @@ class PD1 implements Segment {
     /**
      * @param string $PatientPrimaryCareProviderNameIDNo
      */
-    public function setPatientPrimaryCareProviderNameIDNo(string $PatientPrimaryCareProviderNameIDNo): void
+    public function setPatientPrimaryCareProviderNameIDNo(XCN $PatientPrimaryCareProviderNameIDNo): void
     {
         $this->PatientPrimaryCareProviderNameIDNo = $PatientPrimaryCareProviderNameIDNo;
     }
@@ -38,7 +38,7 @@ class PD1 implements Segment {
     /**
      * @return string
      */
-    public function getPublicityCode(): string
+    public function getPublicityCode(): CE|string
     {
         return $this->PublicityCode;
     }
@@ -46,7 +46,7 @@ class PD1 implements Segment {
     /**
      * @param string $PublicityCode
      */
-    public function setPublicityCode(string $PublicityCode): void
+    public function setPublicityCode(CE $PublicityCode): void
     {
         $this->PublicityCode = $PublicityCode;
     }
@@ -112,6 +112,7 @@ class PD1 implements Segment {
      */
     public function setPublicityCodeEffectiveDate(string $PublicityCodeEffectiveDate): void
     {
+
         $this->PublicityCodeEffectiveDate = $PublicityCodeEffectiveDate;
     }
 
@@ -128,7 +129,12 @@ class PD1 implements Segment {
      */
     public function setImmunizationRegistryStatus(string $ImmunizationRegistryStatus): void
     {
-        $this->ImmunizationRegistryStatus = $ImmunizationRegistryStatus;
+        if (in_array($ImmunizationRegistryStatus, ['I', 'A'])){
+            $this->ImmunizationRegistryStatus = $ImmunizationRegistryStatus;
+            return;
+        }
+
+        $this->ImmunizationRegistryStatus = '';
     }
 
 

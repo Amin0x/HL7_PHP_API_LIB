@@ -11,16 +11,12 @@ class OBX implements Segment {
     private $Units = '';
     private $ReferencesRange = '';
     private $AbnormalFlags = '';
-
     private $ObservationResultStatus = '';
-
     private $DateTimeoftheObservation = '';
     private $ProducerReference = '';
     private $ResponsibleObserver = '';
     private $ObservationMethod = '';
-
     private $DateTimeoftheAnalysis = '';
-
     private $PerformingOrganizationName = '';
     private $PerformingOrganizationAddress = '';
     private $PerformingOrganizationMedicalDirector = '';
@@ -69,7 +65,7 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getObservationIdentifier(): string
+    public function getObservationIdentifier(): CE|string
     {
         return $this->ObservationIdentifier;
     }
@@ -77,7 +73,7 @@ class OBX implements Segment {
     /**
      * @param string $ObservationIdentifier
      */
-    public function setObservationIdentifier(string $ObservationIdentifier): void
+    public function setObservationIdentifier(CE $ObservationIdentifier): void
     {
         $this->ObservationIdentifier = $ObservationIdentifier;
     }
@@ -117,7 +113,7 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getUnits(): string
+    public function getUnits(): CE|string
     {
         return $this->Units;
     }
@@ -125,7 +121,7 @@ class OBX implements Segment {
     /**
      * @param string $Units
      */
-    public function setUnits(string $Units): void
+    public function setUnits(CE $Units): void
     {
         $this->Units = $Units;
     }
@@ -197,7 +193,7 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getProducerReference(): string
+    public function getProducerReference(): CE|string
     {
         return $this->ProducerReference;
     }
@@ -205,7 +201,7 @@ class OBX implements Segment {
     /**
      * @param string $ProducerReference
      */
-    public function setProducerReference(string $ProducerReference): void
+    public function setProducerReference(CE $ProducerReference): void
     {
         $this->ProducerReference = $ProducerReference;
     }
@@ -213,7 +209,7 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getResponsibleObserver(): string
+    public function getResponsibleObserver(): XCN|string
     {
         return $this->ResponsibleObserver;
     }
@@ -221,7 +217,7 @@ class OBX implements Segment {
     /**
      * @param string $ResponsibleObserver
      */
-    public function setResponsibleObserver(string $ResponsibleObserver): void
+    public function setResponsibleObserver(XCN $ResponsibleObserver): void
     {
         $this->ResponsibleObserver = $ResponsibleObserver;
     }
@@ -229,7 +225,7 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getObservationMethod(): string
+    public function getObservationMethod(): CE|string
     {
         return $this->ObservationMethod;
     }
@@ -237,7 +233,7 @@ class OBX implements Segment {
     /**
      * @param string $ObservationMethod
      */
-    public function setObservationMethod(string $ObservationMethod): void
+    public function setObservationMethod(CE $ObservationMethod): void
     {
         $this->ObservationMethod = $ObservationMethod;
     }
@@ -261,7 +257,7 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getPerformingOrganizationName(): string
+    public function getPerformingOrganizationName(): XON|string
     {
         return $this->PerformingOrganizationName;
     }
@@ -269,7 +265,7 @@ class OBX implements Segment {
     /**
      * @param string $PerformingOrganizationName
      */
-    public function setPerformingOrganizationName(string $PerformingOrganizationName): void
+    public function setPerformingOrganizationName(XON $PerformingOrganizationName): void
     {
         $this->PerformingOrganizationName = $PerformingOrganizationName;
     }
@@ -277,7 +273,7 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getPerformingOrganizationAddress(): string
+    public function getPerformingOrganizationAddress(): XAD|string
     {
         return $this->PerformingOrganizationAddress;
     }
@@ -285,7 +281,7 @@ class OBX implements Segment {
     /**
      * @param string $PerformingOrganizationAddress
      */
-    public function setPerformingOrganizationAddress(string $PerformingOrganizationAddress): void
+    public function setPerformingOrganizationAddress(XAD $PerformingOrganizationAddress): void
     {
         $this->PerformingOrganizationAddress = $PerformingOrganizationAddress;
     }
@@ -293,7 +289,7 @@ class OBX implements Segment {
     /**
      * @return string
      */
-    public function getPerformingOrganizationMedicalDirector(): string
+    public function getPerformingOrganizationMedicalDirector(): XCN|string
     {
         return $this->PerformingOrganizationMedicalDirector;
     }
@@ -301,7 +297,7 @@ class OBX implements Segment {
     /**
      * @param string $PerformingOrganizationMedicalDirector
      */
-    public function setPerformingOrganizationMedicalDirector(string $PerformingOrganizationMedicalDirector): void
+    public function setPerformingOrganizationMedicalDirector(XCN $PerformingOrganizationMedicalDirector): void
     {
         $this->PerformingOrganizationMedicalDirector = $PerformingOrganizationMedicalDirector;
     }

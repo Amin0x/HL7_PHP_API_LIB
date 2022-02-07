@@ -19,7 +19,7 @@ class PV2 implements Segment {
     /**
      * @return string
      */
-    public function getAdmitReason(): string
+    public function getAdmitReason(): CE|string
     {
         return $this->AdmitReason;
     }
@@ -27,7 +27,7 @@ class PV2 implements Segment {
     /**
      * @param string $AdmitReason
      */
-    public function setAdmitReason(string $AdmitReason): void
+    public function setAdmitReason(CE $AdmitReason): void
     {
         $this->AdmitReason = $AdmitReason;
     }

@@ -13,7 +13,10 @@
                 "src/tables"
             ]
 
-        }
+        },
+        "files": [
+            "src/tables/Tables.php"
+        ]
     },
     "authors": [
         {

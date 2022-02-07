@@ -5,6 +5,8 @@ class EVN implements Segment {
 
     private $EventTypeCode = '';
     private $RecordedDateTime = '';
+    private $OperatorID = '';
+    private $EventOccurred = '';
     private $EventFacility = '';
 
 
@@ -60,6 +62,38 @@ class EVN implements Segment {
         }
     }
 
+    /**
+     * @return string
+     */
+    public function getEventOccurred(): string
+    {
+        return $this->EventOccurred;
+    }
+
+    /**
+     * @param string $EventOccurred
+     */
+    public function setEventOccurred(string $EventOccurred): void
+    {
+        $this->EventOccurred = date('YmdHisO', strtotime($EventOccurred));
+    }
+
+    /**
+     * @return XCN|string
+     */
+    public function getOperatorID(): XCN|string
+    {
+        return $this->OperatorID;
+    }
+
+    /**
+     * @param XCN $OperatorID
+     */
+    public function setOperatorID(XCN $OperatorID): void
+    {
+        $this->OperatorID = $OperatorID;
+    }
+
     public function __toString()
     {
         $str = 'EVN' . '|' //0
@@ -67,8 +101,8 @@ class EVN implements Segment {
             .$this->RecordedDateTime . '|' //2
             .'|'    //3
             .'|'    //4
-            .'|'    //5
-            .'|'    //6
+            .$this->OperatorID   //5
+            .$this->EventOccurred    //6
             .$this->EventFacility; //7
 
         if (rtrim($str, '|') == 'EVN')

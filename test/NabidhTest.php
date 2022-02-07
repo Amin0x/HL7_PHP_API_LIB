@@ -21,11 +21,12 @@ class NabidhTest extends TestCase
         $pt->getPid()->setSSNNumberPatient('784123412345671');
         $pt->getPid()->addPatientIdentifierList('123123');
         $pt->getPid()->addPatientIdentifierList('123123', true);
-        $pt->getPid()->setPatientAddress('abc', 'Dubai', '123', '');
+        $pt->getPid()->setPatientAddress('abc', 'Dubai', '123', 'UAE');
         $pt->getPid()->setNationality('USA');
         $pt->getPid()->setPatientName('amin', 'o', 'mohamed');
         $pt->getPid()->setPrimaryLanguage('ENG');
         $pt->getPid()->setLastUpdateDateTime(time());
+        $pt->getPid()->setMaritalStatus('M');
 
         $pt->getEvn()->setRecordedDateTime(date('r'));
         $pt->getEvn()->setEventFacility('1111111');
@@ -49,6 +50,7 @@ class NabidhTest extends TestCase
         $AttendingDoctor->setPrefex('Dr.');
         $pt->getPv1()->setAttendingDoctor($AttendingDoctor);
         $pt->getPv1()->setAdmissionType($AttendingDoctor);
+        $pt->getPv1()->setAdmitDateTime('22/02/2020 13:04');
 
 
         $this->assertStringStartsWith('MSH',(string)$pt);
@@ -224,7 +226,7 @@ class NabidhTest extends TestCase
         $pl->setLocationDescription('moo hospital');
         $pl->setPointOfCare('drt');
         $pvg->getPv1()->setAssignedPatientLocation($pl);
-        $pvg->getPv1()->setPatientType('4578');
+        $pvg->getPv1()->setPatientClass('4578');
         $vr->setADTPV1GROUP($pvg);
 
         var_dump((string)$vr);

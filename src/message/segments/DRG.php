@@ -82,7 +82,7 @@ class DRG {
     /**
      * @return string
      */
-    public function getOutlierType(): string
+    public function getOutlierType(): CE|string
     {
         return $this->OutlierType;
     }
@@ -90,7 +90,7 @@ class DRG {
     /**
      * @param string $OutlierType
      */
-    public function setOutlierType(string $OutlierType): void
+    public function setOutlierType(CE $OutlierType): void
     {
         $this->OutlierType = $OutlierType;
     }

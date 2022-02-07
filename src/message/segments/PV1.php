@@ -132,7 +132,7 @@ class PV1 implements Segment {
     /**
      * @return string
      */
-    public function getPriorPatientLocation(): string
+    public function getPriorPatientLocation(): PL|string
     {
         return $this->PriorPatientLocation;
     }
@@ -140,7 +140,7 @@ class PV1 implements Segment {
     /**
      * @param string $PriorPatientLocation
      */
-    public function setPriorPatientLocation(string $PriorPatientLocation): void
+    public function setPriorPatientLocation(PL $PriorPatientLocation): void
     {
         $this->PriorPatientLocation = $PriorPatientLocation;
     }

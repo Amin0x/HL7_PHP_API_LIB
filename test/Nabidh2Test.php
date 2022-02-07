@@ -64,7 +64,7 @@ class Nabidh2Test extends TestCase
             'patient_class' => '',
             'assigned_patient_location' => new PL(),
             'admission_type' => '',
-            'attend_doctor' => '',
+            'attend_doctor' => new XCN(),
         ]);
 
         $msg->getHeader()->setSendingFacility('TESTHOS20');

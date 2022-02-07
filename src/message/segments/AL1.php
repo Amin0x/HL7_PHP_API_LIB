@@ -30,7 +30,7 @@ class AL1 implements Segment {
     /**
      * @return string
      */
-    public function getAllergenTypeCode(): string
+    public function getAllergenTypeCode(): CE|string
     {
         return $this->AllergenTypeCode;
     }
@@ -38,7 +38,7 @@ class AL1 implements Segment {
     /**
      * @param string $AllergenTypeCode
      */
-    public function setAllergenTypeCode(string $AllergenTypeCode): void
+    public function setAllergenTypeCode(CE $AllergenTypeCode): void
     {
         $this->AllergenTypeCode = getAllergyTypeCodeTable($AllergenTypeCode);
     }
@@ -46,7 +46,7 @@ class AL1 implements Segment {
     /**
      * @return string
      */
-    public function getAllergenCodeMnemonicDescription(): string
+    public function getAllergenCodeMnemonicDescription(): CE|string
     {
         return $this->AllergenCodeMnemonicDescription;
     }
@@ -54,7 +54,7 @@ class AL1 implements Segment {
     /**
      * @param string $AllergenCodeMnemonicDescription
      */
-    public function setAllergenCodeMnemonicDescription(string $AllergenCodeMnemonicDescription): void
+    public function setAllergenCodeMnemonicDescription(CE $AllergenCodeMnemonicDescription): void
     {
         $this->AllergenCodeMnemonicDescription = getAllergenTable($AllergenCodeMnemonicDescription);
     }
@@ -62,7 +62,7 @@ class AL1 implements Segment {
     /**
      * @return string
      */
-    public function getAllergySeverityCode(): string
+    public function getAllergySeverityCode(): CE|string
     {
         return $this->AllergySeverityCode;
     }
@@ -70,7 +70,7 @@ class AL1 implements Segment {
     /**
      * @param string $AllergySeverityCode
      */
-    public function setAllergySeverityCode(string $AllergySeverityCode): void
+    public function setAllergySeverityCode(CE $AllergySeverityCode): void
     {
         $this->AllergySeverityCode = $AllergySeverityCode;
     }

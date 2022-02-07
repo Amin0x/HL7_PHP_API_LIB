@@ -48,7 +48,7 @@ class DG1 {
     /**
      * @return string
      */
-    public function getDiagnosisCodeDG1(): string
+    public function getDiagnosisCodeDG1(): CE|string
     {
         return $this->DiagnosisCodeDG1;
     }
@@ -56,7 +56,7 @@ class DG1 {
     /**
      * @param string $DiagnosisCodeDG1
      */
-    public function setDiagnosisCodeDG1(string $DiagnosisCodeDG1): void
+    public function setDiagnosisCodeDG1(CE $DiagnosisCodeDG1): void
     {
         $this->DiagnosisCodeDG1 = $DiagnosisCodeDG1;
     }
