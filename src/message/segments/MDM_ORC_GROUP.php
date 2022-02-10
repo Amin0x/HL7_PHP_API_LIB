@@ -4,12 +4,12 @@
 namespace amin0x\nabidh;
 
 
-class MDM_ORC_GROUP
+class MDM_ORC_GROUP extends Group
 {
     private ORC $ORC;
-    private ?TQ1_GROUP $TQ1_GROUP = null;
+    private ?TQ1_GROUP $TQ1_GROUP;
     private OBR $OBR;
-    private array $NTE = [];
+    private array $NTE;
 
     /**
      * MDM_ORC_GROUP constructor.
@@ -90,5 +90,13 @@ class MDM_ORC_GROUP
         $this->NTE = $NTE;
     }
 
+    public function __toString(): string
+    {
+        return '';
+    }
 
+    public function getArray(): array
+    {
+        return [];
+    }
 }

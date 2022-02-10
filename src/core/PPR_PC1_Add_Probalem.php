@@ -18,6 +18,7 @@ class PPR_PC1_Add_Probalem implements IMessage
     {
         $this->MessageHeader = new MSH();
         $this->PatientIdentification = new PID();
+        $this->getMessageHeader()->setMessageType('PPR^PC1');
     }
 
     public function __toString(): string

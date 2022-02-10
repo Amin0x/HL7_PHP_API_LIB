@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class TQ1_GROUP
+class TQ1_GROUP extends Group
 {
     private TQ1 $TQ1;
     private array $TQ2;
@@ -52,5 +52,14 @@ class TQ1_GROUP
         $this->TQ2 = $TQ2;
     }
 
+    public function __toString(): string
+    {
+        return '';
+    }
+
+    public function getArray(): array
+    {
+        return [];
+    }
 
 }

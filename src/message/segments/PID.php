@@ -4,7 +4,7 @@ namespace amin0x\nabidh;
 
 class PID implements Segment {
 
-    private $SetID = '1';
+    private $ID = '1';
     private $PatientIdentifierList = [];
     private $PatientName = '';
     private $MotherMaidenName = '';
@@ -37,25 +37,25 @@ class PID implements Segment {
     /**
      * MessagePID constructor.
      */
-    public function __construct()
+    public function __construct($ID = '1')
     {
-
+        $this->ID = $ID;
     }
 
     /**
      * @return string
      */
-    public function getSetID(): string
+    public function getID(): string
     {
-        return $this->SetID;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID
+     * @param string $ID
      */
-    public function setSetID(string $SetID): void
+    public function setID(string $ID): void
     {
-        $this->SetID = '1';
+        $this->ID = '1';
     }
 
     /**
@@ -81,15 +81,15 @@ class PID implements Segment {
      * Expected Format: GCC_Number^^^LOCAL^GCC
      * Example: If Patient has MRN = 123456 & Passport Number = 9998888 then PID-3 field
      * should be shared as: 123456^^^FACILITYCODE^MRN~9998888^^^GOVERNMENT^PPN
-     * @param string $Id
+     * @param string $idNumber
      * @param bool $passport
      */
-    public function addPatientIdentifierList(string $Id, bool $passport = false): void
+    public function addPatientIdentifierList(string $idNumber, string $AssigningAuthority, string $IdentifierTypeCode, bool $passport = false): void
     {
         if ($passport) {
-            array_push($this->PatientIdentifierList, new CX($Id, 'GOVERNMENT', 'PPN'));
+            array_push($this->PatientIdentifierList, new CX($idNumber, $AssigningAuthority, $IdentifierTypeCode));
         } else {
-            array_unshift($this->PatientIdentifierList, new CX($Id, 'FACILITYCODE', 'MRN'));
+            array_unshift($this->PatientIdentifierList, new CX($idNumber, $AssigningAuthority, $IdentifierTypeCode));
         }
     }
 
@@ -571,7 +571,7 @@ class PID implements Segment {
     {
         $srt = [];
         $str[] = 'PID';
-        $str[] = $this->SetID;
+        $str[] = $this->ID;
         $str[] = '';
         $str[] = implode('~', $this->PatientIdentifierList);
         $str[] = '';
@@ -605,11 +605,7 @@ class PID implements Segment {
         $str[] = '';
         $str[] = $this->LastUpdateDateTime;
         $str[] = $this->LastUpdateFacility;
-        $str[] = '';
-        $str[] = '';
-        $str[] = '';
-        $str[] = '';
-        $str[] = '';
+
 
         return implode('|', $str) . '\r';
 

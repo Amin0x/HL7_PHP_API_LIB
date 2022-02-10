@@ -2,7 +2,7 @@
 namespace amin0x\nabidh;
 class ZFH implements Segment {
     
-    private $SetID_ZFH = '';
+    private $ID = '';
     private $FamilyMember = '';
     private $Diagnosis = '';
     private $NoteText = '';
@@ -12,25 +12,34 @@ class ZFH implements Segment {
     private $EnteredBy = '';
 
     /**
-     * @return string
+     * ZFH constructor.
+     * @param string $ID
      */
-    public function getSetIDZFH(): string
+    public function __construct(string $ID)
     {
-        return $this->SetID_ZFH;
-    }
-
-    /**
-     * @param string $SetID_ZFH
-     */
-    public function setSetIDZFH(string $SetID_ZFH): void
-    {
-        $this->SetID_ZFH = $SetID_ZFH;
+        $this->ID = $ID;
     }
 
     /**
      * @return string
      */
-    public function getFamilyMember(): string
+    public function getID(): string
+    {
+        return $this->ID;
+    }
+
+    /**
+     * @param string $ID
+     */
+    public function setID(string $ID): void
+    {
+        $this->ID = $ID;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFamilyMember(): CE|string
     {
         return $this->FamilyMember;
     }
@@ -38,7 +47,7 @@ class ZFH implements Segment {
     /**
      * @param string $FamilyMember
      */
-    public function setFamilyMember(string $FamilyMember): void
+    public function setFamilyMember(CE $FamilyMember): void
     {
         $this->FamilyMember = $FamilyMember;
     }
@@ -46,7 +55,7 @@ class ZFH implements Segment {
     /**
      * @return string
      */
-    public function getDiagnosis(): string
+    public function getDiagnosis(): CE|string
     {
         return $this->Diagnosis;
     }
@@ -54,7 +63,7 @@ class ZFH implements Segment {
     /**
      * @param string $Diagnosis
      */
-    public function setDiagnosis(string $Diagnosis): void
+    public function setDiagnosis(CE $Diagnosis): void
     {
         $this->Diagnosis = $Diagnosis;
     }
@@ -124,24 +133,24 @@ class ZFH implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
-    public function getEnteredBy(): string
+    public function getEnteredBy(): CE|string
     {
         return $this->EnteredBy;
     }
 
     /**
-     * @param string $EnteredBy
+     * @param CE $EnteredBy
      */
-    public function setEnteredBy(string $EnteredBy): void
+    public function setEnteredBy(CE $EnteredBy): void
     {
         $this->EnteredBy = $EnteredBy;
     }
 
     public function __toString()
     {
-        $str = $this->SetID_ZFH . '|';
+        $str = $this->ID . '|';
         $str .= $this->FamilyMember . '|';
         $str .= $this->Diagnosis . '|';
         $str .= $this->NoteText . '|';

@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 
 class DG1 {
 
-    private $SetID_DG1 = '';
+    private $ID = '';
     private $DiagnosisCodingMethod = '';
     private $DiagnosisCodeDG1 = '';
     private $DiagnosisDescription = '';
@@ -14,19 +14,28 @@ class DG1 {
     private $DiagnosisActionCode = '';
 
     /**
-     * @return string
+     * DG1 constructor.
+     * @param string $ID
      */
-    public function getSetIDDG1(): string
+    public function __construct(string $ID)
     {
-        return $this->SetID_DG1;
+        $this->ID = $ID;
     }
 
     /**
-     * @param string $SetID_DG1
+     * @return string
      */
-    public function setSetIDDG1(string $SetID_DG1): void
+    public function getID(): string
     {
-        $this->SetID_DG1 = $SetID_DG1;
+        return $this->ID;
+    }
+
+    /**
+     * @param string $ID
+     */
+    public function setID(string $ID): void
+    {
+        $this->ID = $ID;
     }
 
     /**
@@ -161,7 +170,7 @@ class DG1 {
     {
         $str = [];
         $str[] = 'DG1';
-        $str[] = $this->SetID_DG1;
+        $str[] = $this->ID;
         $str[] = $this->DiagnosisCodingMethod;
         $str[] = $this->DiagnosisCodeDG1;
         $str[] = $this->DiagnosisDescription;

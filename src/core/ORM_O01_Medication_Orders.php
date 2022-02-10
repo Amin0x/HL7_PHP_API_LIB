@@ -16,6 +16,7 @@ class ORM_O01_Medication_Orders implements IMessage
     public function __construct()
     {
         $this->msh = new MSH();
+        $this->getMsh()->setMessageType('ORM^O01');
     }
 
     /**

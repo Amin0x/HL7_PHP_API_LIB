@@ -4,14 +4,14 @@
 namespace amin0x\nabidh;
 
 
-class MDMT02Base
+abstract class MDMT02
 {
-    private MSH $msh;
-    private PID $pid;
-    private ?EVN $evn;
-    private PV1 $pv1;
+    private MSH $MSH;
+    private PID $PID;
+    private ?EVN $EVN;
+    private PV1 $PV1;
     private array $MDM_ORC_GROUP = [];
-    private TXA $txa;
+    private TXA $TXA;
     private array $OBX_group = [];
 
     /**
@@ -19,91 +19,91 @@ class MDMT02Base
      */
     public function __construct()
     {
-        $this->msh = new MSH();
-        $this->pid = new PID();
-        $this->pv1 = new PV1();
-        $this->txa = new TXA();
-        $this->evn = null;
+        $this->MSH = new MSH();
+        $this->PID = new PID();
+        $this->PV1 = new PV1();
+        $this->TXA = new TXA(1);
+        $this->EVN = null;
     }
 
     /**
      * @return MSH
      */
-    public function getMsh(): MSH
+    public function getMSH(): MSH
     {
-        return $this->msh;
+        return $this->MSH;
     }
 
     /**
-     * @param MSH $msh
+     * @param MSH $MSH
      */
-    public function setMsh(MSH $msh): void
+    public function setMSH(MSH $MSH): void
     {
-        $this->msh = $msh;
+        $this->MSH = $MSH;
     }
 
     /**
      * @return PID
      */
-    public function getPid(): PID
+    public function getPID(): PID
     {
-        return $this->pid;
+        return $this->PID;
     }
 
     /**
-     * @param PID $pid
+     * @param PID $PID
      */
-    public function setPid(PID $pid): void
+    public function setPID(PID $PID): void
     {
-        $this->pid = $pid;
+        $this->PID = $PID;
     }
 
     /**
      * @return EVN
      */
-    public function getEvn(): ?EVN
+    public function getEVN(): ?EVN
     {
-        return $this->evn;
+        return $this->EVN;
     }
 
     /**
-     * @param EVN $evn
+     * @param EVN $EVN
      */
-    public function setEvn(EVN $evn): void
+    public function setEVN(EVN $EVN): void
     {
-        $this->evn = $evn;
+        $this->EVN = $EVN;
     }
 
     /**
      * @return PV1
      */
-    public function getPv1(): PV1
+    public function getPV1(): PV1
     {
-        return $this->pv1;
+        return $this->PV1;
     }
 
     /**
-     * @param PV1 $pv1
+     * @param PV1 $PV1
      */
-    public function setPv1(PV1 $pv1): void
+    public function setPV1(PV1 $PV1): void
     {
-        $this->pv1 = $pv1;
+        $this->PV1 = $PV1;
     }
 
     /**
      * @return TXA
      */
-    public function getTxa(): TXA
+    public function getTXA(): TXA
     {
-        return $this->txa;
+        return $this->TXA;
     }
 
     /**
-     * @param TXA $txa
+     * @param TXA $TXA
      */
-    public function setTxa(TXA $txa): void
+    public function setTXA(TXA $TXA): void
     {
-        $this->txa = $txa;
+        $this->TXA = $TXA;
     }
 
     /**

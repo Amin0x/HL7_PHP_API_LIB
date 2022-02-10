@@ -20,6 +20,7 @@ class MSH implements Segment
 
     /**
      * MSH constructor.
+     * @param HD $HD
      */
     public function __construct()
     {
@@ -35,6 +36,7 @@ class MSH implements Segment
         $this->ProcessingID = 'D'; //‘P’: Production, ‘T’: Testing, ‘D’: Development
         $this->VersionID = '2.5';
         $this->CharacterSet = 'UTF-8';
+
     }
 
 
@@ -103,7 +105,7 @@ class MSH implements Segment
     }
 
     /**
-     * @return string
+     * @return HD|string
      */
     public function getMessageType(): string
     {
@@ -111,7 +113,7 @@ class MSH implements Segment
     }
 
     /**
-     * @param string $MessageType
+     * @param HD $MessageType
      */
     public function setMessageType(string $MessageType): void
     {

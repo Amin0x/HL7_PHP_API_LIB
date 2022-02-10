@@ -6,85 +6,86 @@ namespace amin0x\nabidh;
 
 class VXU_V04_Vaccination_Record_Message implements IMessage
 {
-    private MSH $msh;
-    private PID $pid;
-    private PD1|null $pd1 = null;
-    private array $nk1 = [];
+    private MSH $MSH;
+    private PID $PID;
+    private PD1|null $PD1 = null;
+    private array $NK1 = [];
     private PV1_GROUP|null $PV1_GROUP = null;
-    private array $gt1 = [];
-    private array $in1 = [];
+    private array $GT1 = [];
+    private array $IN1 = [];
 
     /**
      * VXU_V04_Vaccination_Record_Message constructor.
      */
     public function __construct()
     {
-        $this->msh = new MSH();
-        $this->pid = new PID();
+        $this->MSH = new MSH();
+        $this->PID = new PID();
+        $this->getMSH()->setMessageType('VXU^V04');
     }
 
     /**
      * @return MSH
      */
-    public function getMsh(): MSH
+    public function getMSH(): MSH
     {
-        return $this->msh;
+        return $this->MSH;
     }
 
     /**
-     * @param MSH $msh
+     * @param MSH $MSH
      */
-    public function setMsh(MSH $msh): void
+    public function setMSH(MSH $MSH): void
     {
-        $this->msh = $msh;
+        $this->MSH = $MSH;
     }
 
     /**
      * @return PID
      */
-    public function getPid(): PID
+    public function getPID(): PID
     {
-        return $this->pid;
+        return $this->PID;
     }
 
     /**
-     * @param PID $pid
+     * @param PID $PID
      */
-    public function setPid(PID $pid): void
+    public function setPID(PID $PID): void
     {
-        $this->pid = $pid;
+        $this->PID = $PID;
     }
 
     /**
      * @return PD1|null
      */
-    public function getPd1(): ?PD1
+    public function getPD1(): ?PD1
     {
-        return $this->pd1;
+        return $this->PD1;
     }
 
     /**
-     * @param PD1|null $pd1
+     * @param PD1|null $PD1
      */
-    public function setPd1(?PD1 $pd1): void
+    public function setPD1(?PD1 $PD1): void
     {
-        $this->pd1 = $pd1;
+        $this->PD1 = $PD1;
     }
 
     /**
      * @return array
      */
-    public function getNk1(int $index)
+    public function getNK1(int $index)
     {
-        return $this->nk1[$index];
+        return $this->NK1[$index];
     }
 
     /**
-     * @param array $nk1
+     * @param array $NK1
      */
-    public function setNk1(NK1 $nk1): void
+    public function setNK1(NK1 $NK1): void
     {
-        array_push($this->nk1 , $nk1);
+        array_push($this->NK1 , $NK1);
     }
 
     /**
@@ -106,45 +107,45 @@ class VXU_V04_Vaccination_Record_Message implements IMessage
     /**
      * @return array
      */
-    public function getGt1(int $index): ?GT1
+    public function getGT1(int $index): ?GT1
     {
-        return $this->gt1[$index];
+        return $this->GT1[$index];
     }
 
     /**
-     * @param array $gt1
+     * @param GT1 $gt1
      */
-    public function addGt1(GT1 $gt1): void
+    public function addGT1(GT1 $gt1): void
     {
-        array_push($this->gt1 , $gt1);
+        array_push($this->GT1 , $gt1);
     }
 
     /**
      * @return array
      */
-    public function getIn1($index)
+    public function getIN1($index)
     {
-        return $this->in1[$index];
+        return $this->IN1[$index];
     }
 
     /**
-     * @param array $in1
+     * @param IN1 $in1
      */
-    public function addIn1(IN1 $in1): void
+    public function addIN1(IN1 $in1): void
     {
-        array_push($this->in1 , $in1);
+        array_push($this->IN1 , $in1);
     }
 
 
     public function __toString(): string
     {
-        $str = $this->msh;
-        $str .= $this->pid;
+        $str = $this->MSH;
+        $str .= $this->PID;
 
-        if ($this->pd1 != null)
-            $str .= $this->pd1;
+        if ($this->PD1 != null)
+            $str .= $this->PD1;
 
-        foreach ($this->nk1 as $item) {
+        foreach ($this->NK1 as $item) {
             $str .= $item;
         }
 
@@ -155,11 +156,11 @@ class VXU_V04_Vaccination_Record_Message implements IMessage
             }
         }
 
-        foreach ($this->gt1 as $item) {
+        foreach ($this->GT1 as $item) {
             $str .= $item;
         }
 
-        foreach ($this->nk1 as $item) {
+        foreach ($this->NK1 as $item) {
             $str .= $item ;
         }
 

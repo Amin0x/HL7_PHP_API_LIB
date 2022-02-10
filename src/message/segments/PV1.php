@@ -4,7 +4,7 @@ namespace amin0x\nabidh;
 class PV1 implements Segment {
     
 
-    private $SetID_PV1 = '';
+    private $ID = '';
     private $PatientClass = '';
     private $AssignedPatientLocation = null;
     private $AdmissionType = '';
@@ -26,25 +26,25 @@ class PV1 implements Segment {
     /**
      * PV1 constructor.
      */
-    public function __construct()
+    public function __construct($ID = 1)
     {
-        $this->setSetIDPV1(1);
+        $this->setID($ID);
     }
 
     /**
      * @return string
      */
-    public function getSetIDPV1(): string
+    public function getID(): string
     {
-        return $this->SetID_PV1;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_PV1
+     * @param string $ID
      */
-    public function setSetIDPV1(string $SetID_PV1): void
+    public function setID(string $ID): void
     {
-        $this->SetID_PV1 = $SetID_PV1;
+        $this->ID = $ID;
     }
 
     /**
@@ -339,7 +339,7 @@ class PV1 implements Segment {
     {
         $out = [];
         $out[] = 'PV1';
-        $out[] = $this->SetID_PV1;
+        $out[] = $this->ID;
         $out[] = $this->PatientClass;
         $out[] = $this->AssignedPatientLocation;
         $out[] = $this->AdmissionType;

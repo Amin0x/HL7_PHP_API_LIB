@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class PROBLEM_GROUP
+class PROBLEM_GROUP extends Group
 {
     private PRB $PRB;
     private array $NTE;
@@ -52,5 +52,14 @@ class PROBLEM_GROUP
         $this->NTE = $NTE;
     }
 
+    public function __toString(): string
+    {
+        return '';
+    }
+
+    public function getArray(): array
+    {
+        return [];
+    }
 
 }

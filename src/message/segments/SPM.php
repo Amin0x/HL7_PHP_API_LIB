@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 
 class SPM implements Segment {
 
-    private $SetID_SPM = '';
+    private $ID;
     private $SpecimenID = '';
     private $SpecimenType = '';
     private $SpecimenTypeModifier = '';
@@ -23,32 +23,26 @@ class SPM implements Segment {
 
     /**
      * SPM constructor.
-     * @param string $SetID_SPM
-     * @param string $SpecimenID
-     * @param string $SpecimenParentIDs
-     * @param string $SpecimenType
-     * @param string $SpecimenTypeModifier
-     * @param string $SpecimenAdditives
      */
-    public function __construct()
+    public function __construct($ID)
     {
-
+        $this->ID = $ID;
     }
 
     /**
      * @return string
      */
-    public function getSetIDSPM(): string
+    public function getID(): string
     {
-        return $this->SetID_SPM;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_SPM
+     * @param string $ID
      */
-    public function setSetIDSPM(string $SetID_SPM): void
+    public function setID(string $ID): void
     {
-        $this->SetID_SPM = $SetID_SPM;
+        $this->ID = $ID;
     }
 
     /**
@@ -118,7 +112,7 @@ class SPM implements Segment {
     /**
      * @return string
      */
-    public function getSpecimenCollectionMethod(): string
+    public function getSpecimenCollectionMethod(): CE|string
     {
         return $this->SpecimenCollectionMethod;
     }
@@ -126,7 +120,7 @@ class SPM implements Segment {
     /**
      * @param string $SpecimenCollectionMethod
      */
-    public function setSpecimenCollectionMethod(string $SpecimenCollectionMethod): void
+    public function setSpecimenCollectionMethod(CE $SpecimenCollectionMethod): void
     {
         $this->SpecimenCollectionMethod = $SpecimenCollectionMethod;
     }
@@ -295,7 +289,7 @@ class SPM implements Segment {
     {
         $fields = [];
         $fields[] = 'SPM';
-        $fields[] = $this->SetID_SPM;
+        $fields[] = $this->ID;
         $fields[] = $this->SpecimenID;
         $fields[] = '';
         $fields[] = $this->SpecimenType;

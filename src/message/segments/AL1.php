@@ -3,28 +3,37 @@ namespace amin0x\nabidh;
 
 class AL1 implements Segment {
 
-    private $SetID_AL1 = '';
+    private $ID = '';
     private $AllergenTypeCode = '';
     private $AllergenCodeMnemonicDescription = '';
     private $AllergySeverityCode = '';
     private $AllergyReactionCode = '';
     private $IdentificationDate = '';
 
+    /**
+     * AL1 constructor.
+     * @param string $ID
+     */
+    public function __construct(string $ID)
+    {
+        $this->ID = $ID;
+    }
+
 
     /**
      * @return string
      */
-    public function getSetIDAL1(): string
+    public function getID(): string
     {
-        return $this->SetID_AL1;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_AL1
+     * @param string $ID
      */
-    public function setSetIDAL1(string $SetID_AL1): void
+    public function setID(string $ID): void
     {
-        $this->SetID_AL1 = $SetID_AL1;
+        $this->ID = $ID;
     }
 
     /**
@@ -110,7 +119,7 @@ class AL1 implements Segment {
     public function __toString(){
         $str = [];
         $str[] = 'AL1';
-        $str[] = $this->SetID_AL1;
+        $str[] = $this->ID;
         $str[] = $this->AllergenTypeCode;
         $str[] = $this->AllergenCodeMnemonicDescription;
         $str[] = $this->AllergySeverityCode;

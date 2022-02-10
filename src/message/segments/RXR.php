@@ -11,7 +11,7 @@ class RXR implements Segment
     /**
      * @return string
      */
-    public function getRoute(): string
+    public function getRoute(): CE|string
     {
         return $this->Route;
     }
@@ -19,7 +19,7 @@ class RXR implements Segment
     /**
      * @param string $Route
      */
-    public function setRoute(string $Route): void
+    public function setRoute(CE $Route): void
     {
         $this->Route = $Route;
     }
@@ -27,7 +27,7 @@ class RXR implements Segment
     /**
      * @return string
      */
-    public function getAdministrationSite(): string
+    public function getAdministrationSite(): CE|string
     {
         return $this->AdministrationSite;
     }
@@ -35,14 +35,14 @@ class RXR implements Segment
     /**
      * @param string $AdministrationSite
      */
-    public function setAdministrationSite(string $AdministrationSite): void
+    public function setAdministrationSite(CE $AdministrationSite): void
     {
         $this->AdministrationSite = $AdministrationSite;
     }
 
     public function __toString()
     {
-        return 'RXR' . $this->Route . '|' . $this->AdministrationSite . '||||\r';
+        return 'RXR|' . $this->Route . '|' . $this->AdministrationSite . '||||\r';
     }
 
 }

@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class MRG_GROUP
+class MRG_GROUP extends Group
 {
     private MRG $MRG;
     private PV1 $PV1;
@@ -53,4 +53,13 @@ class MRG_GROUP
     }
 
 
+    public function __toString(): string
+    {
+        return '';
+    }
+
+    public function getArray(): array
+    {
+        return [];
+    }
 }

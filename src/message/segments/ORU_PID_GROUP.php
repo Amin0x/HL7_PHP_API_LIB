@@ -101,7 +101,7 @@ class ORU_PID_GROUP extends Group
         $this->PV1_group = $PV1_group;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = $this->pid;
         $str .= $this->pd1;
@@ -116,4 +116,9 @@ class ORU_PID_GROUP extends Group
         return $str;
     }
 
+
+    public function getArray(): array
+    {
+        return [];
+    }
 }

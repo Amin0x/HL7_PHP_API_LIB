@@ -219,7 +219,7 @@ class Nabidh {
     {
 
         try {
-            $endPoint = $msg->getMsh()->getMessageType();
+            $endPoint = $msg->getMSH()->getMessageType();
             $str = $msg->__toString();
             $headers = [];
             $ch = curl_init('https://example.com/' . $endPoint);

@@ -32,7 +32,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getRequestedGiveCode()
+    public function getRequestedGiveCode(): CE|string
     {
         return $this->RequestedGiveCode;
     }
@@ -40,7 +40,7 @@ class RXO implements Segment
     /**
      * @param mixed $RequestedGiveCode
      */
-    public function setRequestedGiveCode($RequestedGiveCode): void
+    public function setRequestedGiveCode(CE $RequestedGiveCode): void
     {
         $this->RequestedGiveCode = $RequestedGiveCode;
     }
@@ -80,7 +80,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getRequestedGiveUnits()
+    public function getRequestedGiveUnits(): CE|string
     {
         return $this->RequestedGiveUnits;
     }
@@ -88,7 +88,7 @@ class RXO implements Segment
     /**
      * @param mixed $RequestedGiveUnits
      */
-    public function setRequestedGiveUnits($RequestedGiveUnits): void
+    public function setRequestedGiveUnits(CE $RequestedGiveUnits): void
     {
         $this->RequestedGiveUnits = $RequestedGiveUnits;
     }
@@ -96,7 +96,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getRequestedDosageForm()
+    public function getRequestedDosageForm(): CE|string
     {
         return $this->RequestedDosageForm;
     }
@@ -104,7 +104,7 @@ class RXO implements Segment
     /**
      * @param mixed $RequestedDosageForm
      */
-    public function setRequestedDosageForm($RequestedDosageForm): void
+    public function setRequestedDosageForm(CE $RequestedDosageForm): void
     {
         $this->RequestedDosageForm = $RequestedDosageForm;
     }
@@ -112,7 +112,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getProviderTreatmentInstructions()
+    public function getProviderTreatmentInstructions(): CE|string
     {
         return $this->ProviderTreatmentInstructions;
     }
@@ -120,7 +120,7 @@ class RXO implements Segment
     /**
      * @param mixed $ProviderTreatmentInstructions
      */
-    public function setProviderTreatmentInstructions($ProviderTreatmentInstructions): void
+    public function setProviderTreatmentInstructions(CE $ProviderTreatmentInstructions): void
     {
         $this->ProviderTreatmentInstructions = $ProviderTreatmentInstructions;
     }
@@ -128,7 +128,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getProviderAdministrationInstructions()
+    public function getProviderAdministrationInstructions(): CE|string
     {
         return $this->ProviderAdministrationInstructions;
     }
@@ -136,7 +136,7 @@ class RXO implements Segment
     /**
      * @param mixed $ProviderAdministrationInstructions
      */
-    public function setProviderAdministrationInstructions($ProviderAdministrationInstructions): void
+    public function setProviderAdministrationInstructions(CE $ProviderAdministrationInstructions): void
     {
         $this->ProviderAdministrationInstructions = $ProviderAdministrationInstructions;
     }
@@ -160,7 +160,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getOrderingProviderNumber()
+    public function getOrderingProviderNumber(): XCN|string
     {
         return $this->OrderingProviderNumber;
     }
@@ -168,7 +168,7 @@ class RXO implements Segment
     /**
      * @param mixed $OrderingProviderNumber
      */
-    public function setOrderingProviderNumber($OrderingProviderNumber): void
+    public function setOrderingProviderNumber(XCN $OrderingProviderNumber): void
     {
         $this->OrderingProviderNumber = $OrderingProviderNumber;
     }
@@ -224,7 +224,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getIndication()
+    public function getIndication(): CE|string
     {
         return $this->Indication;
     }
@@ -232,7 +232,7 @@ class RXO implements Segment
     /**
      * @param mixed $Indication
      */
-    public function setIndication($Indication): void
+    public function setIndication(CE $Indication): void
     {
         $this->Indication = $Indication;
     }
@@ -256,7 +256,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getRequestedGiveRateUnits()
+    public function getRequestedGiveRateUnits():CE|string
     {
         return $this->RequestedGiveRateUnits;
     }
@@ -264,7 +264,7 @@ class RXO implements Segment
     /**
      * @param mixed $RequestedGiveRateUnits
      */
-    public function setRequestedGiveRateUnits($RequestedGiveRateUnits): void
+    public function setRequestedGiveRateUnits(CE $RequestedGiveRateUnits): void
     {
         $this->RequestedGiveRateUnits = $RequestedGiveRateUnits;
     }
@@ -272,7 +272,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getRequestedDrugStrengthVolume()
+    public function getRequestedDrugStrengthVolume(): string
     {
         return $this->RequestedDrugStrengthVolume;
     }
@@ -280,7 +280,7 @@ class RXO implements Segment
     /**
      * @param mixed $RequestedDrugStrengthVolume
      */
-    public function setRequestedDrugStrengthVolume($RequestedDrugStrengthVolume): void
+    public function setRequestedDrugStrengthVolume(string $RequestedDrugStrengthVolume): void
     {
         $this->RequestedDrugStrengthVolume = $RequestedDrugStrengthVolume;
     }
@@ -288,7 +288,7 @@ class RXO implements Segment
     /**
      * @return mixed
      */
-    public function getRequestedDrugStrengthVolumeUnits()
+    public function getRequestedDrugStrengthVolumeUnits(): string
     {
         return $this->RequestedDrugStrengthVolumeUnits;
     }
@@ -296,7 +296,7 @@ class RXO implements Segment
     /**
      * @param mixed $RequestedDrugStrengthVolumeUnits
      */
-    public function setRequestedDrugStrengthVolumeUnits($RequestedDrugStrengthVolumeUnits): void
+    public function setRequestedDrugStrengthVolumeUnits(string $RequestedDrugStrengthVolumeUnits): void
     {
         $this->RequestedDrugStrengthVolumeUnits = $RequestedDrugStrengthVolumeUnits;
     }

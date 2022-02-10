@@ -3,34 +3,34 @@ namespace amin0x\nabidh;
 
 class NTE implements Segment {
 
-    private $SetID_NTE = '';
+    private $ID = '';
     private $Comment = '';
 
     /**
      * NTE constructor.
-     * @param string $SetID_NTE
+     * @param string $ID
      * @param string $Comment
      */
-    public function __construct(string $SetID_NTE,  string $Comment)
+    public function __construct(string $ID, string $Comment = '')
     {
-        $this->SetID_NTE = $SetID_NTE;
+        $this->ID = $ID;
         $this->Comment = $Comment;
     }
 
     /**
      * @return string
      */
-    public function getSetIDNTE(): string
+    public function getID(): string
     {
-        return $this->SetID_NTE;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_NTE
+     * @param string $ID
      */
-    public function setSetIDNTE(string $SetID_NTE): void
+    public function setID(string $ID): void
     {
-        $this->SetID_NTE = $SetID_NTE;
+        $this->ID = $ID;
     }
 
     /**
@@ -51,7 +51,7 @@ class NTE implements Segment {
 
     public function __toString()
     {
-        return $this->SetID_NTE . '||' . $this->Comment . '|\r';
+        return $this->ID . '||' . $this->Comment . '|\r';
     }
 
 

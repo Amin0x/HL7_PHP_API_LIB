@@ -4,18 +4,19 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A01_Admit_Patient extends ADTBase implements IMessage
+class ADT_A01_Admit_Patient extends ADTA01 implements IMessage
 {
-    private $pd1 = null;
-    private $nk1 = [];
-    private $pv2 = null;
-    private $obx = [];
-    private $al1 = [];
-    private $dg1 = [];
-    private $drg = null;
-    private $pr1 = [];
-    private $gt1 = [];
-    private $in1 = [];
+    private $PD1 = null;
+    private $NK1 = [];
+    private $PV2 = null;
+    private $OBX = [];
+    private $AL1 = [];
+    private $DG1 = [];
+    private $DRG = null;
+    private $PR1 = [];
+    private $GT1 = [];
+    private $IN1 = [];
+
 
     /**
      * ADT_A01_Admit_Patient constructor.
@@ -24,34 +25,34 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
     {
         parent::__construct();
 
-        $this->getMsh()->setMessageType('ADT^A01');
-        $this->getEvn()->setEventTypeCode($this->getMsh()->getMessageType());
+        $this->getMessageHeader()->setMessageType('ADT^A01');
+        $this->getEventType()->setEventTypeCode('A01');
     }
 
     /**
      * @return null
      */
-    public function getPd1()
+    public function getPD1()
     {
-        return $this->pd1;
+        return $this->PD1;
     }
 
     /**
-     * @param null $pd1
+     * @param null $PD1
      */
-    public function setPd1($pd1): void
+    public function setPD1($PD1): void
     {
-        $this->pd1 = $pd1;
+        $this->PD1 = $PD1;
     }
 
     /**
      * @param int $index
      * @return NK1|null
      */
-    public function getNk1(int $index): ?NK1
+    public function getNK1(int $index): ?NK1
     {
-        if(isset($this->nk1[$index])){
-            return $this->nk1[$index];
+        if(isset($this->NK1[$index])){
+            return $this->NK1[$index];
         }
 
         return null;
@@ -60,35 +61,35 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
     /**
      * @param NK1 $nk1
      */
-    public function addNk1(NK1 $nk1): void
+    public function addNK1(NK1 $nk1): void
     {
-        array_push($this->nk1, $nk1);
+        array_push($this->NK1, $nk1);
     }
 
     /**
      * @return null
      */
-    public function getPv2()
+    public function getPV2()
     {
-        return $this->pv2;
+        return $this->PV2;
     }
 
     /**
-     * @param null $pv2
+     * @param null $PV2
      */
-    public function setPv2($pv2): void
+    public function setPV2($PV2): void
     {
-        $this->pv2 = $pv2;
+        $this->PV2 = $PV2;
     }
 
     /**
      * @param int $index
      * @return OBX|null
      */
-    public function getObx(int $index): ?OBX
+    public function getOBX(int $index): ?OBX
     {
-        if(isset($this->nk1[$index])){
-            return $this->obx[$index];
+        if(isset($this->NK1[$index])){
+            return $this->OBX[$index];
         }
 
         return null;
@@ -97,40 +98,40 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
     /**
      * @param OBX $obx
      */
-    public function addObx(OBX $obx): void
+    public function addOBX(OBX $obx): void
     {
-        array_push($this->obx, $obx);
+        array_push($this->OBX, $obx);
     }
 
     /**
      * @param int $index
      * @return AL1|null
      */
-    public function getAl1(int $index): ?AL1
+    public function getAL1(int $index): ?AL1
     {
-        if(isset($this->al1[$index])){
-            return $this->al1[$index];
+        if(isset($this->AL1[$index])){
+            return $this->AL1[$index];
         }
 
         return null;
     }
 
     /**
-     * @param array $al1
+     * @param AL1 $al1
      */
-    public function addAl1(AL1 $al1): void
+    public function addAL1(AL1 $al1): void
     {
-        array_push($this->al1, $al1);
+        array_push($this->AL1, $al1);
     }
 
     /**
      * @param int $index
      * @return DG1|null
      */
-    public function getDg1(int $index): ?DG1
+    public function getDG1(int $index): ?DG1
     {
-        if(isset($this->dg1[$index])){
-            return $this->dg1[$index];
+        if(isset($this->DG1[$index])){
+            return $this->DG1[$index];
         }
 
         return null;
@@ -139,35 +140,35 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
     /**
      * @param DG1 $dg1
      */
-    public function addDg1(DG1 $dg1): void
+    public function addDG1(DG1 $dg1): void
     {
-        array_push($this->dg1, $dg1);
+        array_push($this->DG1, $dg1);
     }
 
     /**
-     * @return null
+     * @return DRG
      */
-    public function getDrg()
+    public function getDRG(): DRG
     {
-        return $this->drg;
+        return $this->DRG;
     }
 
     /**
-     * @param null $drg
+     * @param DRG $DRG
      */
-    public function setDrg($drg): void
+    public function setDRG(DRG $DRG): void
     {
-        $this->drg = $drg;
+        $this->DRG = $DRG;
     }
 
     /**
      * @param int $index
      * @return PR1|null
      */
-    public function getPr1(int $index): ?PR1
+    public function getPR1(int $index): ?PR1
     {
-        if(isset($this->pr1[$index])){
-            return $this->pr1[$index];
+        if(isset($this->PR1[$index])){
+            return $this->PR1[$index];
         }
 
         return null;
@@ -176,19 +177,19 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
     /**
      * @param PR1 $pr1
      */
-    public function addPr1(PR1 $pr1): void
+    public function addPR1(PR1 $pr1): void
     {
-        array_push($this->pr1, $pr1);
+        array_push($this->PR1, $pr1);
     }
 
     /**
      * @param int $index
      * @return GT1|null
      */
-    public function getGt1(int $index): ?GT1
+    public function getGT1(int $index): ?GT1
     {
-        if(isset($this->gt1[$index])){
-            return $this->gt1[$index];
+        if(isset($this->GT1[$index])){
+            return $this->GT1[$index];
         }
 
         return null;
@@ -197,19 +198,19 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
     /**
      * @param GT1 $gt1
      */
-    public function addGt1(GT1 $gt1): void
+    public function addGT1(GT1 $gt1): void
     {
-        array_push($this->gt1, $gt1);
+        array_push($this->GT1, $gt1);
     }
 
     /**
      * @param int $index
      * @return IN1|null
      */
-    public function getIn1(int $index): ?IN1
+    public function getIN1(int $index): ?IN1
     {
-        if($index >= 0 && $index < count($this->in1)){
-            return $this->in1[$index];
+        if($index >= 0 && $index < count($this->IN1)){
+            return $this->IN1[$index];
         }
 
         return null;
@@ -218,45 +219,54 @@ class ADT_A01_Admit_Patient extends ADTBase implements IMessage
     /**
      * @param IN1 $in1
      */
-    public function addIn1(IN1 $in1): void
+    public function addIN1(IN1 $in1): void
     {
-        array_push($this->in1, $in1);
+        array_push($this->IN1, $in1);
     }
 
     public function __toString(): string
     {
 
-        $str = (string) $this->getMsh();
-        $str .= $this->getPid();
-        $str .= $this->getEvn();
-        $str .= $this->getPv1();
-        $str .= $this->pd1 != null? $this->pd1 : '';
+        $str = (string) $this->getMessageHeader();
+        $str .= $this->getPatientIdentification();
+        $str .= $this->getEventType();
+        $str .= $this->getPatientVisit();
+        $str .= $this->PD1 != null? $this->PD1 : '';
 
-        foreach ($this->nk1 as $item) {
+        foreach ($this->NK1 as $item) {
             $str .= $item .'\r';
         }
-        $str .= $this->pv2 != null ? $this->pv2 : '';
-        foreach ($this->obx as $item) {
+        $str .= $this->PV2 != null ? $this->PV2 : '';
+        foreach ($this->OBX as $item) {
             $str .= $item ;
         }
-        foreach ($this->al1 as $item) {
+
+        foreach ($this->AL1 as $item) {
             $str .= $item ;
         }
-        foreach ($this->dg1 as $item) {
+        foreach ($this->DG1 as $item) {
             $str .= $item;
         }
 
-        $str .= $this->drg != null ? $this->drg : '';
-        foreach ($this->pr1 as $item) {
+        $str .= $this->DRG != null ? $this->DRG : '';
+        foreach ($this->PR1 as $item) {
             $str .= $item;
         }
-        foreach ($this->gt1 as $item) {
+        foreach ($this->GT1 as $item) {
             $str .= $item;
         }
-        foreach ($this->in1 as $item) {
+        foreach ($this->IN1 as $item) {
             $str .= $item;
         }
 
+        $str .= $this->getZSC() != null? $this->getZSC() : '';
+
+        foreach ($this->getZSH() as $item) {
+            $str .= $item;
+        }
+        foreach ($this->getZFH() as $item) {
+            $str .= $item;
+        }
         return $str;
     }
 

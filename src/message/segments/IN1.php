@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 
 class IN1 implements Segment {
 
-    private $SetID_IN1 = '';
+    private $ID = '';
     private $HealthPlanID = '';
     private $InsuranceCompanyID = '';
     private $InsuranceCompanyName = '';
@@ -24,27 +24,27 @@ class IN1 implements Segment {
 
     /**
      * IN1 constructor.
-     * @param string $SetID_IN1
+     * @param string $ID
      */
-    public function __construct(string $SetID_IN1)
+    public function __construct(string $ID)
     {
-        $this->SetID_IN1 = $SetID_IN1;
+        $this->ID = $ID;
     }
 
     /**
      * @return string
      */
-    public function getSetIDIN1(): string
+    public function getID(): string
     {
-        return $this->SetID_IN1;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_IN1
+     * @param string $ID
      */
-    public function setSetIDIN1(string $SetID_IN1): void
+    public function setID(string $ID): void
     {
-        $this->SetID_IN1 = $SetID_IN1;
+        $this->ID = $ID;
     }
 
     /**
@@ -306,7 +306,7 @@ class IN1 implements Segment {
     public function __toString()
     {
         $str[] = 'IN1';
-        $str[] = $this->SetID_IN1 ;
+        $str[] = $this->ID ;
         $str[] = $this->HealthPlanID ;
         $str[] = $this->InsuranceCompanyID ;
         $str[] = $this->InsuranceCompanyName ;

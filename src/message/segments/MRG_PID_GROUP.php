@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class MRG_PID_GROUP
+class MRG_PID_GROUP extends Group
 {
     public PID $PID;
     public ?PD1 $PD1 = null;
@@ -84,5 +84,15 @@ class MRG_PID_GROUP
     public function setPV1(?PV1 $PV1): void
     {
         $this->PV1 = $PV1;
+    }
+
+    public function __toString(): string
+    {
+        return '';
+    }
+
+    public function getArray(): array
+    {
+        return [];
     }
 }

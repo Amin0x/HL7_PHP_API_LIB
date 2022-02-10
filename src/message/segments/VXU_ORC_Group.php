@@ -110,7 +110,7 @@ class VXU_ORC_Group
     }
 
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = (string) $this->orc;
         foreach ($this->tq1 as $item) {
@@ -124,5 +124,11 @@ class VXU_ORC_Group
         }
 
         return $str;
+    }
+
+
+    public function getArray(): array
+    {
+        return [];
     }
 }

@@ -2,7 +2,7 @@
 namespace amin0x\nabidh;
 class TXA implements Segment {
     
-    private $SetID_TXA = '';
+    private $ID = '';
     private $DocumentType = '';
     private $ActivityDateTime = '';
     private $PrimaryActivityProviderCodeName = '';
@@ -14,21 +14,30 @@ class TXA implements Segment {
     private $DocumentAvailabilityStatus = '';
     private $AuthenticationPersonTimeStamp = '';
 
+    /**
+     * TXA constructor.
+     * @param string $ID
+     */
+    public function __construct(string $ID)
+    {
+        $this->ID = $ID;
+    }
+
 
     /**
      * @return string
      */
-    public function getSetIDTXA(): string
+    public function getID(): string
     {
-        return $this->SetID_TXA;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_TXA
+     * @param string $ID
      */
-    public function setSetIDTXA(string $SetID_TXA): void
+    public function setID(string $ID): void
     {
-        $this->SetID_TXA = $SetID_TXA;
+        $this->ID = $ID;
     }
 
     /**
@@ -66,7 +75,7 @@ class TXA implements Segment {
     /**
      * @return string
      */
-    public function getPrimaryActivityProviderCodeName(): string
+    public function getPrimaryActivityProviderCodeName(): XCN|string
     {
         return $this->PrimaryActivityProviderCodeName;
     }
@@ -74,7 +83,7 @@ class TXA implements Segment {
     /**
      * @param string $PrimaryActivityProviderCodeName
      */
-    public function setPrimaryActivityProviderCodeName(string $PrimaryActivityProviderCodeName): void
+    public function setPrimaryActivityProviderCodeName(XCN $PrimaryActivityProviderCodeName): void
     {
         $this->PrimaryActivityProviderCodeName = $PrimaryActivityProviderCodeName;
     }
@@ -98,7 +107,7 @@ class TXA implements Segment {
     /**
      * @return string
      */
-    public function getOriginatorCodeName(): string
+    public function getOriginatorCodeName(): XCN|string
     {
         return $this->OriginatorCodeName;
     }
@@ -106,7 +115,7 @@ class TXA implements Segment {
     /**
      * @param string $OriginatorCodeName
      */
-    public function setOriginatorCodeName(string $OriginatorCodeName): void
+    public function setOriginatorCodeName(XCN $OriginatorCodeName): void
     {
         $this->OriginatorCodeName = $OriginatorCodeName;
     }
@@ -176,17 +185,17 @@ class TXA implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
-    public function getAuthenticationPersonTimeStamp(): string
+    public function getAuthenticationPersonTimeStamp(): XCN|string
     {
         return $this->AuthenticationPersonTimeStamp;
     }
 
     /**
-     * @param string $AuthenticationPersonTimeStamp
+     * @param XCN $AuthenticationPersonTimeStamp
      */
-    public function setAuthenticationPersonTimeStamp(string $AuthenticationPersonTimeStamp): void
+    public function setAuthenticationPersonTimeStamp(XCN $AuthenticationPersonTimeStamp): void
     {
         $this->AuthenticationPersonTimeStamp = $AuthenticationPersonTimeStamp;
     }
@@ -195,7 +204,7 @@ class TXA implements Segment {
     {
         $fields = [];
         $fields[] = 'TXA';
-        $fields[] = $this->SetID_TXA;
+        $fields[] = $this->ID;
         $fields[] = $this->DocumentType;
         $fields[] = '';
         $fields[] = $this->ActivityDateTime;

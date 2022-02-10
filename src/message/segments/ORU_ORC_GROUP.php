@@ -122,9 +122,20 @@ class ORU_ORC_GROUP extends Group
         array_push($this->spm, $spm);
     }
 
-    public function __toString()
+    public function getArray(): array
     {
-        $str = $this->orc? $this->orc :'';
+        $arr = [];
+        if ($this->orc){
+            $arr[] = $this->orc;
+        }
+
+        $arr[] = $this->obr;
+        return array_merge($arr, $this->nte, $this->tq1, $this->oru_obx_group->getArray(), $this->spm);
+    }
+
+    public function __toString(): string
+    {
+        $str = $this->orc != null ? $this->orc :'';
         $str .= $this->obr ;
         foreach ($this->nte as $item) {
             $str .= $item ;

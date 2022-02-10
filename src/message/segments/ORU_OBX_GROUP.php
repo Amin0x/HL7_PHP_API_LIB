@@ -46,8 +46,12 @@ class ORU_OBX_GROUP extends Group
         array_push($this->nte, $nte);
     }
 
+    public function getArray(): array
+    {
+        return array_merge([$this->obx], $this->nte);
+    }
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = $this->obx . '\r';
         foreach ($this->nte as $item) {
@@ -56,4 +60,6 @@ class ORU_OBX_GROUP extends Group
 
         return $str;
     }
+
+
 }

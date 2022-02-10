@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 class ZSH implements Segment
 {
     
-    private $SetID_ZSH = '';
+    private $ID;
     private $SocialHabit = '';
     private $SocialHabitQty = '';
     private $SocialHabitCategory = '';
@@ -14,25 +14,34 @@ class ZSH implements Segment
     private $EnteredBy = '';
 
     /**
-     * @return string
+     * ZSH constructor.
+     * @param string $ID
      */
-    public function getSetIDZSH(): string
+    public function __construct(string $ID)
     {
-        return $this->SetID_ZSH;
-    }
-
-    /**
-     * @param string $SetID_ZSH
-     */
-    public function setSetIDZSH(string $SetID_ZSH): void
-    {
-        $this->SetID_ZSH = $SetID_ZSH;
+        $this->ID = $ID;
     }
 
     /**
      * @return string
      */
-    public function getSocialHabit(): string
+    public function getIDZSH(): string
+    {
+        return $this->ID;
+    }
+
+    /**
+     * @param string $ID
+     */
+    public function setIDZSH(string $ID): void
+    {
+        $this->ID = $ID;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSocialHabit(): CE|string
     {
         return $this->SocialHabit;
     }
@@ -40,7 +49,7 @@ class ZSH implements Segment
     /**
      * @param string $SocialHabit
      */
-    public function setSocialHabit(string $SocialHabit): void
+    public function setSocialHabit(CE $SocialHabit): void
     {
         $this->SocialHabit = $SocialHabit;
     }
@@ -48,7 +57,7 @@ class ZSH implements Segment
     /**
      * @return string
      */
-    public function getSocialHabitQty(): string
+    public function getSocialHabitQty(): CE|string
     {
         return $this->SocialHabitQty;
     }
@@ -56,7 +65,7 @@ class ZSH implements Segment
     /**
      * @param string $SocialHabitQty
      */
-    public function setSocialHabitQty(string $SocialHabitQty): void
+    public function setSocialHabitQty(CE $SocialHabitQty): void
     {
         $this->SocialHabitQty = $SocialHabitQty;
     }
@@ -64,7 +73,7 @@ class ZSH implements Segment
     /**
      * @return string
      */
-    public function getSocialHabitCategory(): string
+    public function getSocialHabitCategory(): CE|string
     {
         return $this->SocialHabitCategory;
     }
@@ -72,7 +81,7 @@ class ZSH implements Segment
     /**
      * @param string $SocialHabitCategory
      */
-    public function setSocialHabitCategory(string $SocialHabitCategory): void
+    public function setSocialHabitCategory(CE $SocialHabitCategory): void
     {
         $this->SocialHabitCategory = $SocialHabitCategory;
     }
@@ -144,7 +153,7 @@ class ZSH implements Segment
     /**
      * @return string
      */
-    public function getEnteredBy(): string
+    public function getEnteredBy(): CE|string
     {
         return $this->EnteredBy;
     }
@@ -152,7 +161,7 @@ class ZSH implements Segment
     /**
      * @param string $EnteredBy
      */
-    public function setEnteredBy(string $EnteredBy): void
+    public function setEnteredBy(CE $EnteredBy): void
     {
         $this->EnteredBy = $EnteredBy;
     }
@@ -160,7 +169,8 @@ class ZSH implements Segment
 
     public function __toString()
     {
-        $str = $this->SetID_ZSH . '|';
+        $str = 'ZSH|';
+        $str .= $this->ID . '|';
         $str .= $this->SocialHabit . '|';
         $str .= $this->SocialHabitQty . '|';
         $str .= $this->SocialHabitCategory . '|';

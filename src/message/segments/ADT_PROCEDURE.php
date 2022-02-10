@@ -19,7 +19,7 @@ class ADT_PROCEDURE extends Group
     {
         self::$index += 1;
         $this->pr1 = $pr1;
-        $this->pr1->setSetIDPR1(self::$index);
+        $this->pr1->setID(self::$index);
     }
 
     /**
@@ -36,7 +36,7 @@ class ADT_PROCEDURE extends Group
     public function setPr1(PR1 $pr1): void
     {
         $this->pr1 = $pr1;
-        $this->pr1->setSetIDPR1(self::$index);
+        $this->pr1->setID(self::$index);
     }
 
     /**

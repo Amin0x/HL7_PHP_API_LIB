@@ -114,7 +114,7 @@ class DRG {
     /**
      * @return string
      */
-    public function getOutlierCost(): string
+    public function getOutlierCost(): CP|string
     {
         return $this->OutlierCost;
     }
@@ -122,7 +122,7 @@ class DRG {
     /**
      * @param string $OutlierCost
      */
-    public function setOutlierCost(string $OutlierCost): void
+    public function setOutlierCost(CP $OutlierCost): void
     {
         $this->OutlierCost = $OutlierCost;
     }
@@ -146,7 +146,7 @@ class DRG {
     /**
      * @return string
      */
-    public function getOutlierReimbursement(): string
+    public function getOutlierReimbursement(): CP|string
     {
         return $this->OutlierReimbursement;
     }
@@ -154,7 +154,7 @@ class DRG {
     /**
      * @param string $OutlierReimbursement
      */
-    public function setOutlierReimbursement(string $OutlierReimbursement): void
+    public function setOutlierReimbursement(CP $OutlierReimbursement): void
     {
         $this->OutlierReimbursement = $OutlierReimbursement;
     }

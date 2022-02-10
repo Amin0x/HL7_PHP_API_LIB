@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 
 class OBR implements Segment {
 
-    private $SetID_OBR = '';
+    private $ID = '';
     private $PlacerOrderNumber = '';
     private $FillerOrderNumber = '';
     private $UniversalServiceIdentifier = '';
@@ -13,10 +13,10 @@ class OBR implements Segment {
     private $SpecimenActionCode = '';
     private $RelevantClinicalInformation = '';
     private $SpecimenReceivedDateTime = '';
-    private $SpecimenSourceNameorCode = '';
+    private $SpecimenSource = '';
     private $OrderingProvider = '';
     private $OrderCallbackPhoneNumber = '';
-    private $ResultsRptStatusChngDateTime = '';
+    private $ResultsStatusCahngeDateTime = '';
     private $DiagnosticServiceSectionID = '';
     private $ResultStatus = '';
     private $ParentResult = '';
@@ -29,27 +29,27 @@ class OBR implements Segment {
 
     /**
      * OBR constructor.
-     * @param string $SetID_OBR
+     * @param string $ID
      */
-    public function __construct(string $SetID_OBR)
+    public function __construct(string $ID)
     {
-        $this->SetID_OBR = $SetID_OBR;
+        $this->ID = $ID;
     }
 
     /**
      * @return string
      */
-    public function getSetIDOBR(): string
+    public function getID(): string
     {
-        return $this->SetID_OBR;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_OBR
+     * @param string $ID
      */
-    public function setSetIDOBR(string $SetID_OBR): void
+    public function setID(string $ID): void
     {
-        $this->SetID_OBR = $SetID_OBR;
+        $this->ID = $ID;
     }
 
     /**
@@ -199,17 +199,17 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getSpecimenSourceNameorCode(): string
+    public function getSpecimenSource(): string
     {
-        return $this->SpecimenSourceNameorCode;
+        return $this->SpecimenSource;
     }
 
     /**
-     * @param string $SpecimenSourceNameorCode
+     * @param string $SpecimenSource
      */
-    public function setSpecimenSourceNameorCode(string $SpecimenSourceNameorCode): void
+    public function setSpecimenSource(string $SpecimenSource): void
     {
-        $this->SpecimenSourceNameorCode = $SpecimenSourceNameorCode;
+        $this->SpecimenSource = $SpecimenSource;
     }
 
     /**
@@ -247,17 +247,17 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getResultsRptStatusChngDateTime(): string
+    public function getResultsStatusCahngeDateTime(): string
     {
-        return $this->ResultsRptStatusChngDateTime;
+        return $this->ResultsStatusCahngeDateTime;
     }
 
     /**
-     * @param string $ResultsRptStatusChngDateTime
+     * @param string $ResultsStatusCahngeDateTime
      */
-    public function setResultsRptStatusChngDateTime(string $ResultsRptStatusChngDateTime): void
+    public function setResultsStatusCahngeDateTime(string $ResultsStatusCahngeDateTime): void
     {
-        $this->ResultsRptStatusChngDateTime = $ResultsRptStatusChngDateTime;
+        $this->ResultsStatusCahngeDateTime = $ResultsStatusCahngeDateTime;
     }
 
     /**
@@ -295,7 +295,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getParentResult(): string
+    public function getParentResult(): PRL|string
     {
         return $this->ParentResult;
     }
@@ -303,7 +303,7 @@ class OBR implements Segment {
     /**
      * @param string $ParentResult
      */
-    public function setParentResult(string $ParentResult): void
+    public function setParentResult(PRL $ParentResult): void
     {
         $this->ParentResult = $ParentResult;
     }
@@ -311,7 +311,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getQuantityTiming(): string
+    public function getQuantityTiming(): TQ|string
     {
         return $this->QuantityTiming;
     }
@@ -319,7 +319,7 @@ class OBR implements Segment {
     /**
      * @param string $QuantityTiming
      */
-    public function setQuantityTiming(string $QuantityTiming): void
+    public function setQuantityTiming(TQ $QuantityTiming): void
     {
         $this->QuantityTiming = $QuantityTiming;
     }
@@ -343,7 +343,7 @@ class OBR implements Segment {
     /**
      * @return string
      */
-    public function getParent(): string
+    public function getParent(): EIP|string
     {
         return $this->Parent;
     }
@@ -351,7 +351,7 @@ class OBR implements Segment {
     /**
      * @param string $Parent
      */
-    public function setParent(string $Parent): void
+    public function setParent(EIP $Parent): void
     {
         $this->Parent = $Parent;
     }
@@ -392,7 +392,7 @@ class OBR implements Segment {
     {
         $fields = [];
         $fields[] = 'OBR';
-        $fields[] = $this->SetID_OBR;
+        $fields[] = $this->ID;
         $fields[] = $this->PlacerOrderNumber;
         $fields[] = $this->FillerOrderNumber;
         $fields[] = $this->UniversalServiceIdentifier;
@@ -402,10 +402,10 @@ class OBR implements Segment {
         $fields[] = $this->SpecimenActionCode;
         $fields[] = $this->RelevantClinicalInformation;
         $fields[] = $this->SpecimenReceivedDateTime;
-        $fields[] = $this->SpecimenSourceNameorCode;
+        $fields[] = $this->SpecimenSource;
         $fields[] = $this->OrderingProvider;
         $fields[] = $this->OrderCallbackPhoneNumber;
-        $fields[] = $this->ResultsRptStatusChngDateTime;
+        $fields[] = $this->ResultsStatusCahngeDateTime;
         $fields[] = $this->DiagnosticServiceSectionID;
         $fields[] = $this->ResultStatus;
         $fields[] = $this->ParentResult;

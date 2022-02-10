@@ -4,12 +4,12 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A23_Delete_Patient_Record extends ADTBase implements IMessage
+class ADT_A23_Delete_Patient_Record extends ADTA01 implements IMessage
 {
-    private ?PD1 $pd1 = null;
-    private ?PV2 $pv2 = null;
-    private array $db1 = [];
-    private array $obx = [];
+    private ?PD1 $PD1 = null;
+    private ?PV2 $PV2 = null;
+    private array $DB1 = [];
+    private array $OBX = [];
 
     /**
      * ADT_A23_Delete_Patient_record constructor.
@@ -17,77 +17,79 @@ class ADT_A23_Delete_Patient_Record extends ADTBase implements IMessage
     public function __construct()
     {
         parent::__construct();
+        $this->getMessageHeader()->setMessageType('ADT^A23');
+        $this->getEventType()->setEventTypeCode('A23');
     }
 
     /**
      * @return PD1|null
      */
-    public function getPd1(): ?PD1
+    public function getPD1(): ?PD1
     {
-        return $this->pd1;
+        return $this->PD1;
     }
 
     /**
-     * @param PD1|null $pd1
+     * @param PD1|null $PD1
      */
-    public function setPd1(?PD1 $pd1): void
+    public function setPD1(?PD1 $PD1): void
     {
-        $this->pd1 = $pd1;
+        $this->PD1 = $PD1;
     }
 
     /**
      * @return PV2|null
      */
-    public function getPv2(): ?PV2
+    public function getPV2(): ?PV2
     {
-        return $this->pv2;
+        return $this->PV2;
     }
 
     /**
-     * @param PV2|null $pv2
+     * @param PV2|null $PV2
      */
-    public function setPv2(?PV2 $pv2): void
+    public function setPV2(?PV2 $PV2): void
     {
-        $this->pv2 = $pv2;
+        $this->PV2 = $PV2;
     }
 
 
-    public function getDb1(int $index)
+    public function getDB1(int $index)
     {
-        return $this->db1[$index];
+        return $this->DB1[$index];
     }
 
 
-    public function setDb1($db1): void
+    public function setDB1($DB1): void
     {
-        array_push($this->db1, $db1);
+        array_push($this->DB1, $DB1);
     }
 
-    public function getObx(int $index)
+    public function getOBX(int $index)
     {
-        return $this->obx[$index];
+        return $this->OBX[$index];
     }
 
 
-    public function setObx($obx): void
+    public function setOBX($OBX): void
     {
-        array_push($this->db1, $obx);
+        array_push($this->DB1, $OBX);
     }
 
     public function __toString(): string
     {
-        $str = $this->getMsh();
-        $str .= $this->getEvn();
-        $str .= $this->getPid();
-        $str .= $this->pd1 == null ?  '' : $this->pd1;
-        $str .= $this->getPv1();
-        $str .= $this->pv2 == null ? '' : $this->pv2;
+        $str = $this->getMessageHeader();
+        $str .= $this->getEventType();
+        $str .= $this->getPatientIdentification();
+        $str .= $this->PD1 == null ?  '' : $this->PD1;
+        $str .= $this->getPatientVisit();
+        $str .= $this->PV2 == null ? '' : $this->PV2;
 
-        foreach ($this->db1 as $item) {
+        foreach ($this->DB1 as $item) {
             $str .= $item;
         }
 
-        foreach ($this->obx as $item) {
+        foreach ($this->OBX as $item) {
             $str .= $item;
         }
 

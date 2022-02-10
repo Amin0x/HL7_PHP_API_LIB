@@ -13,7 +13,8 @@ class  ADT_A47_Change_Patient_Identifier_List  extends ADT_A30_Merge_Patient_Inf
     public function __construct()
     {
         parent::__construct();
-        $this->getMsh()->setMessageType('ADT_A47');
+        $this->getMSH()->setMessageType('ADT^A47');
+        $this->getEVN()->setEventTypeCode('A47');
     }
 
     public function __toString(): string

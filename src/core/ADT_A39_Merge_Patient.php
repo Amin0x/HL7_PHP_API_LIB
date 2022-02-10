@@ -8,13 +8,16 @@ class ADT_A39_Merge_Patient implements IMessage
 {
     private MSH $MSH;
     private EVN $EVN;
-    private array $pid_group;
+    private array $PID_group;
 
     /**
      * ADT_A39_Merge_Patient constructor.
      */
     public function __construct()
     {
+        $this->PID_group = [];
+        $this->getMSH()->setMessageType('ADT^A39');
+        $this->getEVN()->setEventTypeCode('A39');
     }
 
     /**
@@ -52,22 +55,26 @@ class ADT_A39_Merge_Patient implements IMessage
     /**
      * @return array
      */
-    public function getPidGroup(): array
+    public function getPIDGroup(): array
     {
-        return $this->pid_group;
+        return $this->PID_group;
     }
 
     /**
-     * @param array $pid_group
+     * @param array $PID_group
      */
-    public function setPidGroup(array $pid_group): void
+    public function setPIDGroup(array $PID_group): void
     {
-        $this->pid_group = $pid_group;
+        $this->PID_group = $PID_group;
     }
 
 
     public function __toString(): string
     {
+        $str = $this->MSH . $this->EVN;
+        foreach ($this->PID_group as $item) {
+            $str .= $item;
+        }
         return '';
     }
 }

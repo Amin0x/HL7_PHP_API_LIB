@@ -189,7 +189,7 @@ class Nabidh2
             $pid->setPatientName($patient['first_name'], $patient['mid_name'], $patient['last_name']);
         }
 
-        $pid->addPatientIdentifierList($patient['id'] ?? '', $patient['passport_number'] ?? '');
+        //$pid->addPatientIdentifierList($patient['id'] ?? '', $patient['passport_number'] ?? '');
 
         if (isset($patient['administrative_sex'])) {
             $pid->setAdministrativeSex($patient['administrative_sex']);

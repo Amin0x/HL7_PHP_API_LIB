@@ -4,15 +4,26 @@
 namespace amin0x\nabidh;
 
 
+use phpDocumentor\Reflection\Types\This;
+
 class ORU_PID_SUPER_GROUP extends Group
 {
-    private ORU_PID_GROUP $oru_pid_group;
-    private ORU_ORC_GROUP $oru_orc_group;
+    private ORU_PID_GROUP|null $oru_pid_group;
+    private array $oru_orc_group;
+
+    /**
+     * ORU_PID_SUPER_GROUP constructor.
+     */
+    public function __construct()
+    {
+        $this->oru_pid_group = null;
+        $this->oru_orc_group = [];
+    }
 
     /**
      * @return ORU_PID_GROUP
      */
-    public function getOruPidGroup(): ORU_PID_GROUP
+    public function getOruPidGroup(): ORU_PID_GROUP|null
     {
         return $this->oru_pid_group;
     }
@@ -26,9 +37,18 @@ class ORU_PID_SUPER_GROUP extends Group
     }
 
     /**
-     * @return ORU_ORC_GROUP
+     * @param $index
+     * @return ORU_ORC_GROUP|null
      */
-    public function getOruOrcGroup(): ORU_ORC_GROUP
+    public function getOruOrcGroup($index): ORU_ORC_GROUP|null
+    {
+        if(isset($this->oru_orc_group[$index]))
+            return $this->oru_orc_group[$index];
+
+        return null;
+    }
+
+    public function getOruOrcGroupArray(): array
     {
         return $this->oru_orc_group;
     }
@@ -36,18 +56,30 @@ class ORU_PID_SUPER_GROUP extends Group
     /**
      * @param ORU_ORC_GROUP $oru_orc_group
      */
-    public function setOruOrcGroup(ORU_ORC_GROUP $oru_orc_group): void
+    public function addOruOrcGroup(ORU_ORC_GROUP $oru_orc_group): void
     {
-        $this->oru_orc_group = $oru_orc_group;
+        array_push($this->oru_orc_group, $oru_orc_group);
     }
 
-    public function __toString()
+    public function getArray(): array
     {
+        $arr = [];
 
-        $str = (string) $this->oru_pid_group;
-        $str .= $this->oru_orc_group;
+        if ($this->oru_pid_group){
+            $arr = [$this->oru_pid_group];
+        }
 
-        return $str;
+        foreach ($this->oru_orc_group as $oruorc){
+            array_merge($arr, $oruorc->getArray());
+        }
+
+        return $arr;
     }
+
+    public function __toString(): string
+    {
+        return '';
+    }
+
 
 }

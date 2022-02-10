@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 
 class PR1 implements Segment {
 
-    private $SetID_PR1 = '';
+    private $ID = '';
     private $ProcedureCode = '';
     private $ProcedureDescription = '';
     private $ProcedureDateTime = '';
@@ -15,25 +15,25 @@ class PR1 implements Segment {
     /**
      * PR1 constructor.
      */
-    public function __construct()
+    public function __construct($ID)
     {
-
+        $this->ID = $ID;
     }
 
     /**
      * @return string
      */
-    public function getSetIDPR1(): string
+    public function getID(): string
     {
-        return $this->SetID_PR1;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_PR1
+     * @param string $ID
      */
-    public function setSetIDPR1(string $SetID_PR1): void
+    public function setID(string $ID): void
     {
-        $this->SetID_PR1 = $SetID_PR1;
+        $this->ID = $ID;
     }
 
 
@@ -153,7 +153,7 @@ class PR1 implements Segment {
     {
         $fields = [];
         $fields[] = 'PR1';
-        $fields[] = $this->SetID_PR1;
+        $fields[] = $this->ID;
         $fields[] = '';
         $fields[] = $this->ProcedureCode;
         $fields[] = $this->ProcedureDescription;

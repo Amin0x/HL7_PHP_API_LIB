@@ -4,48 +4,70 @@
 namespace amin0x\nabidh;
 
 
+use phpDocumentor\Reflection\Types\This;
+
 class ORU_R01_Observation_Results implements IMessage
 {
-    private MSH $msh;
-    private ORU_PID_SUPER_GROUP $oru_pid_group;
+    private MSH $MSH;
+    private array $ORU_PID_SUPER_GROUP;
 
     /**
-     * @param MSH $msh
+     * ORU_R01_Observation_Results constructor.
      */
-    public function setMsh(MSH $msh): void
+    public function __construct()
     {
-        $this->msh = $msh;
+        $this->MSH = new MSH();
+        $this->ORU_PID_SUPER_GROUP = [];
+        $this->MSH->setMessageType('ORU^R01');
+    }
+
+    /**
+     * @param MSH $MSH
+     */
+    public function setMSH(MSH $MSH): void
+    {
+        $this->MSH = $MSH;
     }
 
     /**
      * @return MSH
      */
-    public function getMsh(): MSH
+    public function getMSH(): MSH
     {
-        return $this->msh;
+        return $this->MSH;
     }
 
     /**
-     * @param ORU_PID_SUPER_GROUP $oru_pid_group
+     * @param ORU_PID_SUPER_GROUP $ORU_PID_SUPER_GROUP
      */
-    public function setOruPidGroup(ORU_PID_SUPER_GROUP $oru_pid_group): void
+    public function addORUPIDSUPERGROUP(ORU_PID_SUPER_GROUP $ORU_PID_SUPER_GROUP): void
     {
-        $this->oru_pid_group = $oru_pid_group;
+        array_push($this->ORU_PID_SUPER_GROUP, $ORU_PID_SUPER_GROUP);
     }
 
     /**
-     * @return ORU_PID_SUPER_GROUP
+     * @param $index
+     * @return ORU_PID_SUPER_GROUP|null
      */
-    public function getOruPidGroup(): ORU_PID_SUPER_GROUP
+    public function getORUPIDSUPERGROUP($index): ORU_PID_SUPER_GROUP|null
     {
-        return $this->oru_pid_group;
+        if (isset($this->ORU_PID_SUPER_GROUP[$index])){
+            return $this->ORU_PID_SUPER_GROUP[$index];
+        }
+        return null;
     }
 
     public function __toString(): string
     {
 
-        $str = $this->msh .'\r';
-        $str .= $this->oru_pid_group;
+        $str = (string) $this->MSH;
+        foreach ($this->ORU_PID_SUPER_GROUP as $i=>$item) {
+
+            foreach ($this->getORUPIDSUPERGROUP($i)->getArray() as $y=>$yitem){
+                $str .= $yitem;
+            }
+        }
+
 
         return $str;
     }

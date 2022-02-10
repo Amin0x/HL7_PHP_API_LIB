@@ -103,7 +103,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getQualityTiming(): string
+    public function getQualityTiming(): TQ|string
     {
         return $this->QualityTiming;
     }
@@ -111,7 +111,7 @@ class ORC implements Segment {
     /**
      * @param string $QualityTiming
      */
-    public function setQualityTiming(string $QualityTiming): void
+    public function setQualityTiming(TQ $QualityTiming): void
     {
         $this->QualityTiming = $QualityTiming;
     }
@@ -199,7 +199,7 @@ class ORC implements Segment {
     /**
      * @return string
      */
-    public function getCallBackPhoneNumber(): string
+    public function getCallBackPhoneNumber(): XTN|string
     {
         return $this->CallBackPhoneNumber;
     }
@@ -207,7 +207,7 @@ class ORC implements Segment {
     /**
      * @param string $CallBackPhoneNumber
      */
-    public function setCallBackPhoneNumber(string $CallBackPhoneNumber): void
+    public function setCallBackPhoneNumber(XTN $CallBackPhoneNumber): void
     {
         $this->CallBackPhoneNumber = $CallBackPhoneNumber;
     }

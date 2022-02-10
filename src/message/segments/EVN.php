@@ -101,8 +101,8 @@ class EVN implements Segment {
             .$this->RecordedDateTime . '|' //2
             .'|'    //3
             .'|'    //4
-            .$this->OperatorID   //5
-            .$this->EventOccurred    //6
+            .$this->OperatorID. '|'   //5
+            .$this->EventOccurred . '|'   //6
             .$this->EventFacility; //7
 
         if (rtrim($str, '|') == 'EVN')

@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 
 class OBX implements Segment {
 
-    private $SetID_OBX = '';
+    private $ID = '';
     private $ValueType = '';
     private $ObservationIdentifier = '';
     private $ObservationSubID = '';
@@ -23,27 +23,27 @@ class OBX implements Segment {
 
     /**
      * OBX constructor.
-     * @param string $SetID_OBX
+     * @param string $ID
      */
-    public function __construct(string $SetID_OBX)
+    public function __construct(string $ID)
     {
-        $this->SetID_OBX = $SetID_OBX;
+        $this->ID = $ID;
     }
 
     /**
      * @return string
      */
-    public function getSetIDOBX(): string
+    public function getID(): string
     {
-        return $this->SetID_OBX;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_OBX
+     * @param string $ID
      */
-    public function setSetIDOBX(string $SetID_OBX): void
+    public function setID(string $ID): void
     {
-        $this->SetID_OBX = $SetID_OBX;
+        $this->ID = $ID;
     }
 
     /**
@@ -306,7 +306,7 @@ class OBX implements Segment {
     {
         $fields = [];
         $fields[] = 'OBX|';
-        $fields[] = $this->SetID_OBX;
+        $fields[] = $this->ID;
         $fields[] = $this->ValueType;
         $fields[] = $this->ObservationIdentifier;
         $fields[] = $this->ObservationSubID;

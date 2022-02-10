@@ -63,7 +63,7 @@ class PV1_GROUP extends Group
         return $this->pv2;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = $this->pv1;
         foreach ($this->pv2 as $item) {
@@ -72,4 +72,8 @@ class PV1_GROUP extends Group
         return $str;
     }
 
+    public function getArray(): array
+    {
+        return [];
+    }
 }

@@ -4,7 +4,7 @@ use BadMethodCallException;
 
 class TQ1 implements Segment {
 
-    private $SetID_TQ1 = '';
+    private $ID = '';
     private $Quantity = '';
     private $RepeatPattern = '';
     private $ServiceDuration = '';
@@ -17,37 +17,26 @@ class TQ1 implements Segment {
 
     /**
      * TQ1 constructor.
-     * @param string $SetID_TQ1
-     * @param string $Quantity
-     * @param string $RepeatPattern
-     * @param string $ExplicitTime
-     * @param string $RelativeTimeandUnits
-     * @param string $ServiceDuration
      */
-    public function __construct(string $SetID_TQ1, string $Quantity, string $RepeatPattern, string $ExplicitTime, string $RelativeTimeandUnits, string $ServiceDuration)
+    public function __construct($ID)
     {
-        $this->SetID_TQ1 = $SetID_TQ1;
-        $this->Quantity = $Quantity;
-        $this->RepeatPattern = $RepeatPattern;
-        $this->ExplicitTime = $ExplicitTime;
-        $this->RelativeTimeandUnits = $RelativeTimeandUnits;
-        $this->ServiceDuration = $ServiceDuration;
+        $this->ID = $ID;
     }
 
     /**
      * @return string
      */
-    public function getSetIDTQ1(): string
+    public function getID(): string
     {
-        return $this->SetID_TQ1;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_TQ1
+     * @param string $ID
      */
-    public function setSetIDTQ1(string $SetID_TQ1): void
+    public function setID(string $ID): void
     {
-        $this->SetID_TQ1 = $SetID_TQ1;
+        $this->ID = $ID;
     }
 
     /**
@@ -80,38 +69,6 @@ class TQ1 implements Segment {
     public function setRepeatPattern(string $RepeatPattern): void
     {
         $this->RepeatPattern = $RepeatPattern;
-    }
-
-    /**
-     * @return string
-     */
-    public function getExplicitTime(): string
-    {
-        return $this->ExplicitTime;
-    }
-
-    /**
-     * @param string $ExplicitTime
-     */
-    public function setExplicitTime(string $ExplicitTime): void
-    {
-        $this->ExplicitTime = $ExplicitTime;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRelativeTimeandUnits(): string
-    {
-        return $this->RelativeTimeandUnits;
-    }
-
-    /**
-     * @param string $RelativeTimeandUnits
-     */
-    public function setRelativeTimeandUnits(string $RelativeTimeandUnits): void
-    {
-        $this->RelativeTimeandUnits = $RelativeTimeandUnits;
     }
 
     /**
@@ -210,59 +167,11 @@ class TQ1 implements Segment {
         $this->TextInstruction = $TextInstruction;
     }
 
-    /**
-     * @return string
-     */
-    public function getConjunction(): string
-    {
-        return $this->Conjunction;
-    }
-
-    /**
-     * @param string $Conjunction
-     */
-    public function setConjunction(string $Conjunction): void
-    {
-        $this->Conjunction = $Conjunction;
-    }
-
-    /**
-     * @return string
-     */
-    public function getOccurrenceDuration(): string
-    {
-        return $this->OccurrenceDuration;
-    }
-
-    /**
-     * @param string $OccurrenceDuration
-     */
-    public function setOccurrenceDuration(string $OccurrenceDuration): void
-    {
-        $this->OccurrenceDuration = $OccurrenceDuration;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTotalOccurrences(): string
-    {
-        return $this->TotalOccurrences;
-    }
-
-    /**
-     * @param string $TotalOccurrences
-     */
-    public function setTotalOccurrences(string $TotalOccurrences): void
-    {
-        $this->TotalOccurrences = $TotalOccurrences;
-    }
-
     public function __toString()
     {
         $fields = [];
         $fields[] = 'TQ1';
-        $fields[] = $this->SetID_TQ1;
+        $fields[] = $this->ID;
         $fields[] = $this->Quantity;
         $fields[] = $this->RepeatPattern;
         $fields[] = '';

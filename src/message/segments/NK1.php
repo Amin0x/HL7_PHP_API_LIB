@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 
 class NK1 implements Segment {
     
-    private $SetID_NK1 = '';
+    private $ID = '';
     private $Name = '';
     private $Relationship = '';
     private $Address = '';
@@ -17,21 +17,30 @@ class NK1 implements Segment {
     private $ContactPersonTelephoneNumber = '';
     private $ContactPersonAddress = '';
 
+    /**
+     * NK1 constructor.
+     * @param string $ID
+     */
+    public function __construct(string $ID)
+    {
+        $this->ID = $ID;
+    }
+
 
     /**
      * @return string
      */
-    public function getSetIDNK1(): string
+    public function getID(): string
     {
-        return $this->SetID_NK1;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_NK1
+     * @param string $ID
      */
-    public function setSetIDNK1(string $SetID_NK1): void
+    public function setID(string $ID): void
     {
-        $this->SetID_NK1 = $SetID_NK1;
+        $this->ID = $ID;
     }
 
     /**
@@ -231,7 +240,7 @@ class NK1 implements Segment {
     {
         $fields = [];
         $fields = 'NK1';
-        $fields[] = $this->SetID_NK1;
+        $fields[] = $this->ID;
         $fields[] = $this->Name;
         $fields[] = $this->Relationship;
         $fields[] = $this->Address;

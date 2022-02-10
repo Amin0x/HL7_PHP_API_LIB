@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 
 class GT1 {
 
-    private $SetID_GT1 = '';
+    private $ID = '';
     private $GuarantorNumber = '';
     private $GuarantorName = '';
     private $GuarantorAddress = '';
@@ -30,28 +30,28 @@ class GT1 {
 
     /**
      * GT1 constructor.
-     * @param string $SetID_GT1
+     * @param string $ID
      */
-    public function __construct(string $SetID_GT1)
+    public function __construct(string $ID)
     {
-        $this->SetID_GT1 = $SetID_GT1;
+        $this->ID = $ID;
         $this->GuarantorAdministrativeSex = 'U';
     }
 
     /**
      * @return string
      */
-    public function getSetIDGT1(): string
+    public function getID(): string
     {
-        return $this->SetID_GT1;
+        return $this->ID;
     }
 
     /**
-     * @param string $SetID_GT1
+     * @param string $ID
      */
-    public function setSetIDGT1(string $SetID_GT1): void
+    public function setID(string $ID): void
     {
-        $this->SetID_GT1 = $SetID_GT1;
+        $this->ID = $ID;
     }
 
     /**
@@ -420,7 +420,7 @@ class GT1 {
     {
         $str = [];
         $str[] = 'GT1';
-        $str[] = $this->SetID_GT1;
+        $str[] = $this->ID;
         $str[] = $this->GuarantorNumber;
         $str[] = $this->GuarantorName;
         $str[] = '';

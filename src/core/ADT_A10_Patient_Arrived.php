@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class ADT_A10_Patient_Arrived extends ADTBase implements IMessage
+class ADT_A10_Patient_Arrived extends ADTA01 implements IMessage
 {
 
     /**
@@ -13,6 +13,8 @@ class ADT_A10_Patient_Arrived extends ADTBase implements IMessage
     public function __construct()
     {
         parent::__construct();
+        $this->getMessageHeader()->setMessageType('ADT^A10');
+        $this->getEventType()->setEventTypeCode('A10');
     }
 
     public function __toString(): string

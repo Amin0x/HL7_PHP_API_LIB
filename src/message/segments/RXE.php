@@ -27,7 +27,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getQuantityTiming()
+    public function getQuantityTiming(): TQ|string
     {
         return $this->QuantityTiming;
     }
@@ -35,7 +35,7 @@ class RXE implements Segment {
     /**
      * @param mixed $QuantityTiming
      */
-    public function setQuantityTiming($QuantityTiming): void
+    public function setQuantityTiming(TQ $QuantityTiming): void
     {
         $this->QuantityTiming = $QuantityTiming;
     }
@@ -43,7 +43,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getGiveCode()
+    public function getGiveCode(): CE|string
     {
         return $this->GiveCode;
     }
@@ -51,7 +51,7 @@ class RXE implements Segment {
     /**
      * @param mixed $GiveCode
      */
-    public function setGiveCode($GiveCode): void
+    public function setGiveCode(CE $GiveCode): void
     {
         $this->GiveCode = $GiveCode;
     }
@@ -91,7 +91,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getGiveUnits()
+    public function getGiveUnits(): CE|string
     {
         return $this->GiveUnits;
     }
@@ -99,7 +99,7 @@ class RXE implements Segment {
     /**
      * @param mixed $GiveUnits
      */
-    public function setGiveUnits($GiveUnits): void
+    public function setGiveUnits(CE $GiveUnits): void
     {
         $this->GiveUnits = $GiveUnits;
     }
@@ -107,7 +107,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getGiveDosageForm()
+    public function getGiveDosageForm(): CE|string
     {
         return $this->GiveDosageForm;
     }
@@ -115,7 +115,7 @@ class RXE implements Segment {
     /**
      * @param mixed $GiveDosageForm
      */
-    public function setGiveDosageForm($GiveDosageForm): void
+    public function setGiveDosageForm(CE $GiveDosageForm): void
     {
         $this->GiveDosageForm = $GiveDosageForm;
     }
@@ -123,7 +123,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getProviderAdministrationInstructions()
+    public function getProviderAdministrationInstructions(): CE|string
     {
         return $this->ProviderAdministrationInstructions;
     }
@@ -131,7 +131,7 @@ class RXE implements Segment {
     /**
      * @param mixed $ProviderAdministrationInstructions
      */
-    public function setProviderAdministrationInstructions($ProviderAdministrationInstructions): void
+    public function setProviderAdministrationInstructions(CE $ProviderAdministrationInstructions): void
     {
         $this->ProviderAdministrationInstructions = $ProviderAdministrationInstructions;
     }
@@ -155,7 +155,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getOrderingProviderNumber()
+    public function getOrderingProviderNumber(): XCN|string
     {
         return $this->OrderingProviderNumber;
     }
@@ -163,7 +163,7 @@ class RXE implements Segment {
     /**
      * @param mixed $OrderingProviderNumber
      */
-    public function setOrderingProviderNumber($OrderingProviderNumber): void
+    public function setOrderingProviderNumber(XCN $OrderingProviderNumber): void
     {
         $this->OrderingProviderNumber = $OrderingProviderNumber;
     }
@@ -219,7 +219,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getGiveRateUnits()
+    public function getGiveRateUnits(): CE|string
     {
         return $this->GiveRateUnits;
     }
@@ -227,7 +227,7 @@ class RXE implements Segment {
     /**
      * @param mixed $GiveRateUnits
      */
-    public function setGiveRateUnits($GiveRateUnits): void
+    public function setGiveRateUnits(CE $GiveRateUnits): void
     {
         $this->GiveRateUnits = $GiveRateUnits;
     }
@@ -251,7 +251,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getGiveStrengthUnits()
+    public function getGiveStrengthUnits(): CE|string
     {
         return $this->GiveStrengthUnits;
     }
@@ -259,7 +259,7 @@ class RXE implements Segment {
     /**
      * @param mixed $GiveStrengthUnits
      */
-    public function setGiveStrengthUnits($GiveStrengthUnits): void
+    public function setGiveStrengthUnits(CE $GiveStrengthUnits): void
     {
         $this->GiveStrengthUnits = $GiveStrengthUnits;
     }
@@ -267,7 +267,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getGiveIndication()
+    public function getGiveIndication(): CE|string
     {
         return $this->GiveIndication;
     }
@@ -275,7 +275,7 @@ class RXE implements Segment {
     /**
      * @param mixed $GiveIndication
      */
-    public function setGiveIndication($GiveIndication): void
+    public function setGiveIndication(CE $GiveIndication): void
     {
         $this->GiveIndication = $GiveIndication;
     }
@@ -299,7 +299,7 @@ class RXE implements Segment {
     /**
      * @return mixed
      */
-    public function getGiveDrugStrengthUnits()
+    public function getGiveDrugStrengthUnits(): CE|string
     {
         return $this->GiveDrugStrengthUnits;
     }
@@ -307,7 +307,7 @@ class RXE implements Segment {
     /**
      * @param mixed $GiveDrugStrengthUnits
      */
-    public function setGiveDrugStrengthUnits($GiveDrugStrengthUnits): void
+    public function setGiveDrugStrengthUnits(CE $GiveDrugStrengthUnits): void
     {
         $this->GiveDrugStrengthUnits = $GiveDrugStrengthUnits;
     }

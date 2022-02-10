@@ -96,7 +96,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getAdministeredCode()
+    public function getAdministeredCode(): CE|string
     {
         return $this->AdministeredCode;
     }
@@ -104,7 +104,7 @@ class RXC implements Segment {
     /**
      * @param mixed $AdministeredCode
      */
-    public function setAdministeredCode($AdministeredCode): void
+    public function setAdministeredCode(CE $AdministeredCode): void
     {
         $this->AdministeredCode = $AdministeredCode;
     }
@@ -112,7 +112,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getAdministeredAmount()
+    public function getAdministeredAmount(): string
     {
         return $this->AdministeredAmount;
     }
@@ -120,7 +120,7 @@ class RXC implements Segment {
     /**
      * @param mixed $AdministeredAmount
      */
-    public function setAdministeredAmount($AdministeredAmount): void
+    public function setAdministeredAmount(string $AdministeredAmount): void
     {
         $this->AdministeredAmount = $AdministeredAmount;
     }
@@ -128,7 +128,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getAdministeredUnits()
+    public function getAdministeredUnits(): CE|string
     {
         return $this->AdministeredUnits;
     }
@@ -136,7 +136,7 @@ class RXC implements Segment {
     /**
      * @param mixed $AdministeredUnits
      */
-    public function setAdministeredUnits($AdministeredUnits): void
+    public function setAdministeredUnits(CE $AdministeredUnits): void
     {
         $this->AdministeredUnits = $AdministeredUnits;
     }
@@ -144,7 +144,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getAdministeredDosageForm()
+    public function getAdministeredDosageForm(): CE|string
     {
         return $this->AdministeredDosageForm;
     }
@@ -152,7 +152,7 @@ class RXC implements Segment {
     /**
      * @param mixed $AdministeredDosageForm
      */
-    public function setAdministeredDosageForm($AdministeredDosageForm): void
+    public function setAdministeredDosageForm(CE $AdministeredDosageForm): void
     {
         $this->AdministeredDosageForm = $AdministeredDosageForm;
     }
@@ -160,7 +160,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getAdministrationNotes()
+    public function getAdministrationNotes(): CE|string
     {
         return $this->AdministrationNotes;
     }
@@ -168,7 +168,7 @@ class RXC implements Segment {
     /**
      * @param mixed $AdministrationNotes
      */
-    public function setAdministrationNotes($AdministrationNotes): void
+    public function setAdministrationNotes(CE $AdministrationNotes): void
     {
         $this->AdministrationNotes = $AdministrationNotes;
     }
@@ -176,7 +176,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getAdministrationProvider()
+    public function getAdministrationProvider(): XCN|string
     {
         return $this->AdministrationProvider;
     }
@@ -184,7 +184,7 @@ class RXC implements Segment {
     /**
      * @param mixed $AdministrationProvider
      */
-    public function setAdministrationProvider($AdministrationProvider): void
+    public function setAdministrationProvider(XCN $AdministrationProvider): void
     {
         $this->AdministrationProvider = $AdministrationProvider;
     }
@@ -240,7 +240,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getAdministeredStrengthUnits()
+    public function getAdministeredStrengthUnits(): CE|string
     {
         return $this->AdministeredStrengthUnits;
     }
@@ -248,7 +248,7 @@ class RXC implements Segment {
     /**
      * @param mixed $AdministeredStrengthUnits
      */
-    public function setAdministeredStrengthUnits($AdministeredStrengthUnits): void
+    public function setAdministeredStrengthUnits(CE $AdministeredStrengthUnits): void
     {
         $this->AdministeredStrengthUnits = $AdministeredStrengthUnits;
     }
@@ -288,7 +288,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getSubstanceManufacturerName()
+    public function getSubstanceManufacturerName(): CE|string
     {
         return $this->SubstanceManufacturerName;
     }
@@ -296,7 +296,7 @@ class RXC implements Segment {
     /**
      * @param mixed $SubstanceManufacturerName
      */
-    public function setSubstanceManufacturerName($SubstanceManufacturerName): void
+    public function setSubstanceManufacturerName(CE $SubstanceManufacturerName): void
     {
         $this->SubstanceManufacturerName = $SubstanceManufacturerName;
     }
@@ -304,7 +304,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getSubstanceRefusalReason()
+    public function getSubstanceRefusalReason(): CE|string
     {
         return $this->SubstanceRefusalReason;
     }
@@ -312,7 +312,7 @@ class RXC implements Segment {
     /**
      * @param mixed $SubstanceRefusalReason
      */
-    public function setSubstanceRefusalReason($SubstanceRefusalReason): void
+    public function setSubstanceRefusalReason(CE $SubstanceRefusalReason): void
     {
         $this->SubstanceRefusalReason = $SubstanceRefusalReason;
     }
@@ -320,7 +320,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getIndication()
+    public function getIndication(): CE|string
     {
         return $this->Indication;
     }
@@ -328,7 +328,7 @@ class RXC implements Segment {
     /**
      * @param mixed $Indication
      */
-    public function setIndication($Indication): void
+    public function setIndication(CE $Indication): void
     {
         $this->Indication = $Indication;
     }
@@ -384,7 +384,7 @@ class RXC implements Segment {
     /**
      * @return mixed
      */
-    public function getAdministeredDrugStrengthVolumeUnits()
+    public function getAdministeredDrugStrengthVolumeUnits(): CE|string
     {
         return $this->AdministeredDrugStrengthVolumeUnits;
     }
@@ -392,7 +392,7 @@ class RXC implements Segment {
     /**
      * @param mixed $AdministeredDrugStrengthVolumeUnits
      */
-    public function setAdministeredDrugStrengthVolumeUnits($AdministeredDrugStrengthVolumeUnits): void
+    public function setAdministeredDrugStrengthVolumeUnits(CE $AdministeredDrugStrengthVolumeUnits): void
     {
         $this->AdministeredDrugStrengthVolumeUnits = $AdministeredDrugStrengthVolumeUnits;
     }

@@ -32,7 +32,8 @@ abstract class Field
         return '';
     }
 
-    public function __toString(){
+    public function __toString(): string
+    {
         if (empty($this->components)){
             return '';
         }
