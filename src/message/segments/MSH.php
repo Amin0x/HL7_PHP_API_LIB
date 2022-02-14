@@ -20,7 +20,6 @@ class MSH implements Segment
 
     /**
      * MSH constructor.
-     * @param HD $HD
      */
     public function __construct()
     {
@@ -107,7 +106,7 @@ class MSH implements Segment
     /**
      * @return HD|string
      */
-    public function getMessageType(): string
+    public function getMessageType(): HD|string
     {
         return $this->MessageType;
     }
@@ -117,7 +116,8 @@ class MSH implements Segment
      */
     public function setMessageType(string $MessageType): void
     {
-        $this->MessageType = $MessageType;
+        $arr = explode('^', $MessageType);
+        $this->MessageType = new HD($arr[0], $arr[1]);
     }
 
     /**
@@ -254,11 +254,10 @@ class MSH implements Segment
         $fields[] = '';
         $fields[] = '';
         $fields[] = $this->CharacterSet;
-        $fields[] = '';
-        $fields[] = '';
-        $fields[] = '';
 
-        return implode('|', $fields) . '\r';
+        $fields = implode('|', $fields);
+
+        return rtrim($fields, '|') . '\r';
     }
 
 }

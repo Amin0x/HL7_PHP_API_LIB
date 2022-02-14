@@ -135,7 +135,10 @@ class ORU_ORC_GROUP extends Group
 
     public function __toString(): string
     {
-        $str = $this->orc != null ? $this->orc :'';
+        if ($this->orc != null) {
+            $str = $this->orc;
+        }
+
         $str .= $this->obr ;
         foreach ($this->nte as $item) {
             $str .= $item ;
@@ -149,7 +152,6 @@ class ORU_ORC_GROUP extends Group
         foreach ($this->spm as $value){
             $str .= $value;
         }
-
 
         return $str;
     }

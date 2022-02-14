@@ -231,12 +231,12 @@ class ADT_A01_Admit_Patient extends ADTA01 implements IMessage
         $str .= $this->getPatientIdentification();
         $str .= $this->getEventType();
         $str .= $this->getPatientVisit();
-        $str .= $this->PD1 != null? $this->PD1 : '';
+        $str .= empty($this->PD1) ? '' : $this->PD1;
 
         foreach ($this->NK1 as $item) {
-            $str .= $item .'\r';
+            $str .= $item;
         }
-        $str .= $this->PV2 != null ? $this->PV2 : '';
+        $str .= empty($this->PV2) ? '' : $this->PV2;
         foreach ($this->OBX as $item) {
             $str .= $item ;
         }
@@ -248,7 +248,7 @@ class ADT_A01_Admit_Patient extends ADTA01 implements IMessage
             $str .= $item;
         }
 
-        $str .= $this->DRG != null ? $this->DRG : '';
+        $str .= empty($this->DRG) ? '' : $this->DRG;
         foreach ($this->PR1 as $item) {
             $str .= $item;
         }
@@ -259,7 +259,7 @@ class ADT_A01_Admit_Patient extends ADTA01 implements IMessage
             $str .= $item;
         }
 
-        $str .= $this->getZSC() != null? $this->getZSC() : '';
+        $str .= empty($this->getZSC()) ? '' : $this->getZSC();
 
         foreach ($this->getZSH() as $item) {
             $str .= $item;

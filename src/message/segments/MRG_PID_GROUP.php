@@ -88,7 +88,16 @@ class MRG_PID_GROUP extends Group
 
     public function __toString(): string
     {
-        return '';
+        $str = (string) $this->PID;
+        if (!empty($this->PD1)) {
+            $str .= $this->PD1;
+        }
+        $str .= $this->MRG;
+        if (!empty($this->PV1)) {
+            $str .= $this->PV1;
+        }
+
+        return $str;
     }
 
     public function getArray(): array

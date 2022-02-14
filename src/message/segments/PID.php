@@ -12,7 +12,7 @@ class PID implements Segment {
     private $AdministrativeSex = '';
     private $PatientAlias = '';
     private $Race = '';
-    private $PatientAddress = '^^Dubai^Dubai^^784^H'; //default value
+    private $PatientAddress; //default value
     private $PhoneNumberHome = '';
     private $PhoneNumberBusiness = '';
     private $PrimaryLanguage = '';
@@ -40,6 +40,8 @@ class PID implements Segment {
     public function __construct($ID = '1')
     {
         $this->ID = $ID;
+        $this->AdministrativeSex = 'U';
+        $this->PatientAddress = new XAD('Dubai', 'Dubai','','784','H');
     }
 
     /**
@@ -212,7 +214,7 @@ class PID implements Segment {
      */
     public function setRace(string $Race): void
     {
-        $this->Race = " 2028-9^$Race^NAB004";
+        $this->Race = getRaceTable($Race);
     }
 
     /**
@@ -240,11 +242,11 @@ class PID implements Segment {
      */
     public function setPatientAddress($city, $state, $zip, $country, $addressType = 'BA'): void
     {
-        if (!empty($city) && !empty($state) && !empty($country) && !empty($zip)){
-            $this->PatientAddress = new XAD($city, $state,$zip,'','H');
+        if (!empty($city) && !empty($state) && !empty($country)){
+            $this->PatientAddress = new XAD($city, $state,$zip,$country,'H');
             return;
         }
-        $this->PatientAddress = new XAD('Dubai', 'Dubai','784','','H');
+        $this->PatientAddress = new XAD('Dubai', 'Dubai','','784','H');
     }
 
 
@@ -481,7 +483,7 @@ class PID implements Segment {
      */
     public function setNationality(string $Nationality): void
     {
-        $this->Nationality = $Nationality;
+        $this->Nationality = new CE($Nationality, '', 'NAB038');
     }
 
     /**

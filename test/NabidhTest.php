@@ -19,18 +19,21 @@ class NabidhTest extends TestCase
         $pt->getPatientIdentification()->setDateTimeofBirth(date('Ymd', strtotime('19990507')));
         $pt->getPatientIdentification()->setPhoneNumberHome('0123456789', 'abc@example.com');
         $pt->getPatientIdentification()->setSSNNumberPatient('784123412345671');
-        $pt->getPatientIdentification()->addPatientIdentifierList('123123','TESTHOS20', 'PPN');
-        $pt->getPatientIdentification()->addPatientIdentifierList('123123','TESTHOS20', 'MRN', true);
-        $pt->getPatientIdentification()->setPatientAddress('abc', 'Dubai', '123', 'UAE');
+        $pt->getPatientIdentification()->addPatientIdentifierList('123123','TESTHOS20', 'MRN');
+        //$pt->getPatientIdentification()->addPatientIdentifierList('123123','TESTHOS20', 'PPN');
+        $pt->getPatientIdentification()->setPatientAddress('Dubai', 'Dubai', '', '784');
         $pt->getPatientIdentification()->setNationality('USA');
         $pt->getPatientIdentification()->setPatientName('amin', 'o', 'mohamed');
         $pt->getPatientIdentification()->setPrimaryLanguage('ENG');
         $pt->getPatientIdentification()->setLastUpdateDateTime(time());
         $pt->getPatientIdentification()->setMaritalStatus('M');
+        $pt->getPatientIdentification()->setReligion('MOS');
+        $pt->getPatientIdentification()->setSSNNumberPatient('784123412345671');
 
-        $pt->getEventType()->setRecordedDateTime(date('r'));
+        $pt->getEventType()->setRecordedDateTime(date('YmdHis'));
         $pt->getEventType()->setEventFacility('1111111');
         $pt->getEventType()->setEventTypeCode('A02');
+        $pt->getEventType()->setEventOccurred(date('YmdHis'));
 
 
 
@@ -49,8 +52,9 @@ class NabidhTest extends TestCase
         $AttendingDoctor->setAssigningAuthority('SHERYAN');
         $AttendingDoctor->setPrefex('Dr.');
         $pt->getPatientVisit()->setAttendingDoctor($AttendingDoctor);
-        $pt->getPatientVisit()->setAdmissionType($AttendingDoctor);
-        $pt->getPatientVisit()->setAdmitDateTime('22/02/2020 13:04');
+        $pt->getPatientVisit()->setAdmissionType('O');
+        $pt->getPatientVisit()->setAdmitDateTime(date('YmdHis'));
+        $pt->getPatientVisit()->setHospitalService('O');
 
 
         $this->assertStringStartsWith('MSH',(string)$pt);

@@ -78,7 +78,14 @@ class ORU_PID_SUPER_GROUP extends Group
 
     public function __toString(): string
     {
-        return '';
+        $str = '';
+        if (!empty($this->oru_pid_group)) {
+            $str .= $this->oru_pid_group;
+        }
+        foreach ($this->oru_orc_group as $item) {
+            $str .= $item;
+        }
+        return $str;
     }
 
 

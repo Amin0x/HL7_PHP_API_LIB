@@ -118,7 +118,10 @@ class VXU_ORC_Group
         }
 
         $str .= $this->rxa;
-        $str .= $this->rxr ? $this->rxr : '';
+        if (!empty($this->rxr)) {
+            $str .= $this->rxr;
+        }
+
         foreach ($this->OBX_GROUP as $item) {
             $str .= $item;
         }

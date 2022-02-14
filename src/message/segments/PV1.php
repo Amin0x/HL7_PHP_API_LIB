@@ -28,7 +28,12 @@ class PV1 implements Segment {
      */
     public function __construct($ID = 1)
     {
-        $this->setID($ID);
+        $this->ID = $ID;
+        $this->PatientClass = 'I';
+        $this->AdmissionType = 'O';
+        $this->AdmitSource = 9;
+        $this->HospitalService = 'UNK';
+        //$this->AdmitDateTime =
     }
 
     /**
@@ -56,6 +61,7 @@ class PV1 implements Segment {
     }
 
     /**
+     * Allowed values are I, O, E. Please refer to table NAB006
      * @param string $PatientClass
      */
     public function setPatientClass(string $PatientClass): void
@@ -65,7 +71,7 @@ class PV1 implements Segment {
             return;
         }
 
-        $this->PatientClass = '';
+
     }
 
     /**
@@ -208,7 +214,7 @@ class PV1 implements Segment {
      */
     public function setHospitalService(string $HospitalService): void
     {
-        $this->HospitalService = $HospitalService;
+        $this->HospitalService = new CE($HospitalService, '', 'NAB008');
     }
 
 
@@ -384,15 +390,10 @@ class PV1 implements Segment {
         $out[] = '';
         $out[] = $this->AdmitDateTime;
         $out[] = $this->DischargeDateTime;
-        $out[] = '';
-        $out[] = '';
-        $out[] = '';
-        $out[] = '';
-        $out[] = '';
-        $out[] = '';
-        $out[] = '';
 
-        return implode('|', $out).'\r';
+        $out = implode('|', $out);
+
+        return rtrim($out, '|').'\r';
     }
 
 

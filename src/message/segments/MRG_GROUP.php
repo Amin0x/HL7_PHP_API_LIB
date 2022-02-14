@@ -55,7 +55,7 @@ class MRG_GROUP extends Group
 
     public function __toString(): string
     {
-        return '';
+        return $this->MRG . $this->PV1;
     }
 
     public function getArray(): array

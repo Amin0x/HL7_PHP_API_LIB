@@ -92,5 +92,17 @@ class PRB implements Segment
         $this->ProblemManagementDiscipline = $ProblemManagementDiscipline;
     }
 
+    public function __toString(): string
+    {
+        $fields = [];
+        $fields[] = $this->ActionCode;
+        $fields[] = $this->ActionDateTime;
+        $fields[] = $this->ProblemID;
+        $fields[] = $this->ProblemInstanceID;
+        $fields[] = $this->ProblemManagementDiscipline;
+
+        $fields = implode('|', $fields);
+        return rtrim($fields, '|');
+    }
 
 }

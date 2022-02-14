@@ -53,9 +53,9 @@ class ORU_OBX_GROUP extends Group
 
     public function __toString(): string
     {
-        $str = $this->obx . '\r';
+        $str = (string) $this->obx;
         foreach ($this->nte as $item) {
-            $str .= $item . '\r';
+            $str .= $item;
         }
 
         return $str;

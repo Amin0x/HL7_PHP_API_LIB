@@ -8,17 +8,38 @@ namespace amin0x\nabidh;
 
 class Nabidh2
 {
+    public function createMessage(string $msgType)
+    {
+        if(empty($msgType)){
+            return false;
+        }
+
+        $config = include 'config/config.php';
+        $message = new Message();
+        $msh = new MSH();
+        $msh->setSendingApplication($config['sending_application']);
+        $msh->setSendingFacility($config['sending_facility']);
+        $msh->setVersionID($config['version_id']);
+        $msh->setProcessingID($config['processing_id']);
+        $msh->setReceivingApplication($config['receiving_application']);
+        $msh->setReceivingFacility($config['receiving_facility']);
+        $msh->setMessageType($msgType);
+        $message->addSegment($msh);
+
+        return $message;
+    }
+
     /**
      * ADT^A01 Base Structure - A01
      *
      * Admit patient notification (This event is sent as a result of a patient undergoing the admission process)
      *
      * @param array $patient
+     * @return Message|false
      */
-    public function sendAdmitPatientNotification(array $patient)
+    public function createAdmitPatientNotification(array $patient)
     {
-        $msg = new Message();
-        $msg->setHeader(self::creatMessageHeader('ADT^A01'));
+        $msg = $this->createMessage('ADT^A01');
 
         $pid = self::createPID($patient);
         $msg->addSegment($pid);
@@ -32,13 +53,13 @@ class Nabidh2
         $pv1 = self::createPV1($patient);
         $msg->addSegment($pv1);
 
-        $this->send($msg);
+        return $msg;
     }
 
     public function createRegisterPatientMessage(array $reg)
     {
         $msg = $this->createMessage('ADT^A04');
-        $msg->addSegment(self::createEVN($reg['event_type'], $reg['event_facility'], $reg['event_recorded_at']));
+        $msg->addSegment(self::createEVN('A04', $reg['event_facility'], $reg['event_recorded_at']));
         $msg->addSegment(self::createPID($reg));
         $msg->addSegment(self::createPV1($reg));
         return $msg;
@@ -85,26 +106,7 @@ class Nabidh2
         return $this->createMessage('ORU^R01');
     }
 
-    public function createMessage(string $msgType)
-    {
-        if(empty($msgType)){
-            return false;
-        }
 
-        $config = include 'config/config.php';
-        $message = new Message();
-        $msh = new MSH();
-        $msh->setSendingApplication($config['sending_application']);
-        $msh->setSendingFacility($config['sending_facility']);
-        $msh->setVersionID($config['version_id']);
-        $msh->setProcessingID($config['processing_id']);
-        $msh->setReceivingApplication($config['receiving_application']);
-        $msh->setReceivingFacility($config['receiving_facility']);
-        $msh->setMessageType($msgType);
-        $message->addSegment($msh);
-
-        return $message;
-    }
 
 
     public function addSegment(Message $message, Segment $segment)
@@ -230,6 +232,33 @@ class Nabidh2
             $pv1->setAttendingDoctor($patientVisit['attend_doctor']);
 
         return $pv1;
+    }
+
+    public function sendMessage(Message $msg, string $endPoint)
+    {
+
+        try {
+            //$endPoint = $msg->getMSH()->getMessageType();
+            $str = $msg->toString();
+            $headers = [];
+            $ch = curl_init('https://example.com/' . $endPoint);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $str);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+            $res = curl_exec($ch);
+        } catch (\Exception $e) {
+            return false;
+        }
+
+        if($res === false){
+            return false;
+        }
+
+        $msa = new ACK_Response($str);
+
+        return $msa;
     }
 
 }

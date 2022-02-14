@@ -103,15 +103,19 @@ class ORU_PID_GROUP extends Group
 
     public function __toString(): string
     {
-        $str = $this->pid;
-        $str .= $this->pd1;
+        $str = (string) $this->pid;
+        if (!empty($this->pd1)) {
+            $str .= $this->pd1;
+        }
         foreach ($this->nte as $item) {
             $str .= $item;
         }
         foreach ($this->nk1 as $item) {
             $str .= $item;
         }
-        $str .= $this->PV1_group;
+        if (!empty($this->PV1_group)) {
+            $str .= $this->PV1_group;
+        }
 
         return $str;
     }

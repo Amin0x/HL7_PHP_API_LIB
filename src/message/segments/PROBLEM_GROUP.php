@@ -54,7 +54,12 @@ class PROBLEM_GROUP extends Group
 
     public function __toString(): string
     {
-        return '';
+        $str = (string) $this->PRB;
+        foreach ($this->NTE as $item) {
+            $str .= $item;
+        }
+
+        return $str;
     }
 
     public function getArray(): array

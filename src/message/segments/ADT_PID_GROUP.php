@@ -121,12 +121,12 @@ class ADT_PID_GROUP extends Group
         array_push($this->al1, $al1);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         $str = '';
         $str .= $this->pid->__toString();
         foreach ($this->pd1 as $item) {
-            $str .= $this->pid->__toString();
+            $str .= $item;
         }
 
         if($this->PV1_group) {
@@ -149,4 +149,8 @@ class ADT_PID_GROUP extends Group
     }
 
 
+    public function getArray(): array
+    {
+        return [];
+    }
 }

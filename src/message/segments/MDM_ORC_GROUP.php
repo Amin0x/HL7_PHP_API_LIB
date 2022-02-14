@@ -4,6 +4,8 @@
 namespace amin0x\nabidh;
 
 
+use phpDocumentor\Reflection\Types\This;
+
 class MDM_ORC_GROUP extends Group
 {
     private ORC $ORC;
@@ -92,7 +94,15 @@ class MDM_ORC_GROUP extends Group
 
     public function __toString(): string
     {
-        return '';
+        $str = (string) $this->ORC;
+        if ($this->TQ1_GROUP != null){
+            $str .= $this->TQ1_GROUP;
+        }
+        $str .= $this->OBR;
+        foreach ($this->NTE as $item) {
+            $str .= $item;
+        }
+        return $str;
     }
 
     public function getArray(): array

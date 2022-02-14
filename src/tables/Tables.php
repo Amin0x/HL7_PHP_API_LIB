@@ -34,16 +34,16 @@ namespace amin0x\nabidh {
         $result = '';
 
         switch ($val) {
-            case 'BMA': $result = new CE('BMA', 'Buddhist: Mahayana', 'NAB004'); break;
-            case 'BTH': $result = new CE('BTH', 'Buddhist: Theravada', 'NAB004');  break;
-            case 'BUD': $result = new CE('BUD', 'Buddhist', 'NAB004'); break;
-            case 'CAT': $result = new CE('CAT', 'Christian: Roman Catholic', 'NAB004'); break;
-            case 'CHR': $result = new CE('CHR', 'Christian', 'NAB004'); break;
-            case 'ERL': $result = new CE('ERL', 'Ethnic Religionist', 'NAB004'); break;
-            case 'HIN': $result = new CE('HIN', 'Hindu', 'NAB004'); break;
-            case 'HOT': $result = new CE('HOT', 'Hindu: Other', 'NAB004'); break;
-            case 'MOS': $result = new CE('MOS', 'Muslim', 'NAB004'); break;
-            case 'MOT': $result = new CE('MOT', 'Muslim: Other', 'NAB004'); break;
+            case 'BMA': $result = new CE('BMA', 'Buddhist: Mahayana', 'NAB003'); break;
+            case 'BTH': $result = new CE('BTH', 'Buddhist: Theravada', 'NAB003');  break;
+            case 'BUD': $result = new CE('BUD', 'Buddhist', 'NAB003'); break;
+            case 'CAT': $result = new CE('CAT', 'Christian: Roman Catholic', 'NAB003'); break;
+            case 'CHR': $result = new CE('CHR', 'Christian', 'NAB003'); break;
+            case 'ERL': $result = new CE('ERL', 'Ethnic Religionist', 'NAB003'); break;
+            case 'HIN': $result = new CE('HIN', 'Hindu', 'NAB003'); break;
+            case 'HOT': $result = new CE('HOT', 'Hindu: Other', 'NAB003'); break;
+            case 'MOS': $result = new CE('MOS', 'Muslim', 'NAB003'); break;
+            case 'MOT': $result = new CE('MOT', 'Muslim: Other', 'NAB003'); break;
             case 'MSH': $result = new CE('MSH', 'Muslim: Shiite', 'NAB003'); break;
             case 'MSU': $result = new CE('MSU', 'Muslim: Sunni', 'NAB003'); break;
             case 'OTH': $result = new CE('OTH', 'Other', 'NAB003'); break;
@@ -88,7 +88,7 @@ namespace amin0x\nabidh {
         return $result;
     }
 
-//Table NAB006: Patient Class
+    //Table NAB006: Patient Class
     function getPatientClassTable(string $val): CE|string
     {
         $result = '';

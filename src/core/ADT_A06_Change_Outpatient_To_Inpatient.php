@@ -211,6 +211,43 @@ class ADT_A06_Change_Outpatient_To_Inpatient extends ADTA03 implements IMessage
 
     public function __toString(): string
     {
-        return '';
+        $str = '';
+        if (!empty($this->PD1)) {
+            $str .= $this->PD1;
+        }
+
+        foreach ($this->NK1 as $item) {
+            $str .= $item;
+        }
+
+        if (!empty($this->PV2)) {
+            $str .= $this->PV2;
+        }
+
+        foreach ($this->AL1 as $item) {
+            $str .= $item;
+        }
+        foreach ($this->DG1 as $item) {
+            $str .= $item;
+        }
+
+        if (!empty($this->DRG)) {
+            $str .= $this->DRG;
+        }
+
+        foreach ($this->PR1 as $item) {
+            $str .= $item;
+        }
+        foreach ($this->OBX as $item) {
+            $str .= $item;
+        }
+        foreach ($this->GT1 as $item) {
+            $str .= $item;
+        }
+        foreach ($this->IN1 as $item) {
+            $str .= $item;
+        }
+
+        return $str;
     }
 }

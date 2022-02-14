@@ -65,7 +65,7 @@ class PV1_GROUP extends Group
 
     public function __toString(): string
     {
-        $str = $this->pv1;
+        $str = (string) $this->pv1;
         foreach ($this->pv2 as $item) {
             $str .= $item;
         }

@@ -61,11 +61,8 @@ class ORU_R01_Observation_Results implements IMessage
     {
 
         $str = (string) $this->MSH;
-        foreach ($this->ORU_PID_SUPER_GROUP as $i=>$item) {
-
-            foreach ($this->getORUPIDSUPERGROUP($i)->getArray() as $y=>$yitem){
-                $str .= $yitem;
-            }
+        foreach ($this->ORU_PID_SUPER_GROUP as $item) {
+            $str .= $item;
         }
 
 

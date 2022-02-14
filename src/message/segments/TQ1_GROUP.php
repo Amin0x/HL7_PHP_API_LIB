@@ -54,7 +54,11 @@ class TQ1_GROUP extends Group
 
     public function __toString(): string
     {
-        return '';
+        $str = (string) $this->TQ1;
+        foreach ($this->TQ2 as $item) {
+            $str .= $item;
+        }
+        return $str;
     }
 
     public function getArray(): array

@@ -62,19 +62,15 @@ class ORM_O01_Medication_Orders implements IMessage
     public function __toString(): string
     {
         $str = (string) $this->msh;
+
         if ($this->pid_group){
             $str .= $this->pid_group;
         }
 
-
         foreach ($this->orc_group as $item) {
-            $str .= $item->getOrc();
-            $str .= $item->getRxo();
-
-            foreach ($item->getNteArray() as $value) {
-                $str .= $value;
-            }
+            $str .= $item;
         }
+
         return $str;
     }
 }

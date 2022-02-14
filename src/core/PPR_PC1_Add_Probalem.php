@@ -21,20 +21,6 @@ class PPR_PC1_Add_Probalem implements IMessage
         $this->getMessageHeader()->setMessageType('PPR^PC1');
     }
 
-    public function __toString(): string
-    {
-        $str = '';
-        $str .= $this->MessageHeader;
-        $str .= $this->PatientIdentification;
-        $str .= $this->PatientIdentification;
-
-        foreach ($this->PatientIdentification as $item) {
-            $str .= $item;
-        }
-
-        return '';
-    }
-
     /**
      * @return MSH
      */
@@ -99,5 +85,21 @@ class PPR_PC1_Add_Probalem implements IMessage
         $this->PROBLEM = $PROBLEM;
     }
 
+
+    public function __toString(): string
+    {
+        $str = '';
+        $str .= $this->MessageHeader;
+        $str .= $this->PatientIdentification;
+        if (!empty($this->PATIENT_VISIT)) {
+            $str .= $this->PATIENT_VISIT;
+        }
+
+        foreach ($this->PROBLEM as $item) {
+            $str .= $item;
+        }
+
+        return $str;
+    }
 
 }
