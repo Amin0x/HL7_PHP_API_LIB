@@ -113,7 +113,7 @@ class NabidhTest extends TestCase
 
         var_dump((string) $pt);
     }
-
+/*
     public function testDischargeEvent()
     {
         $this->assertSame('','');
@@ -142,7 +142,7 @@ class NabidhTest extends TestCase
     public function testAddPatientInformation()
     {
         $this->assertSame('','');
-    }
+    }*/
 
     public function testRegisterPatient()
     {
@@ -176,7 +176,7 @@ class NabidhTest extends TestCase
         $this->assertSame('','');
     }
 
-    public function testUpdatePatientInformation2()
+/*    public function testUpdatePatientInformation2()
     {
         $this->assertSame('','');
     }
@@ -199,7 +199,7 @@ class NabidhTest extends TestCase
     public function testMergePatientInformation()
     {
         $this->assertSame('','');
-    }
+    }*/
 
     public function testVaccinationRecordMessage()
     {
@@ -277,4 +277,5 @@ class NabidhTest extends TestCase
         var_dump((string) $msg);
         $this->assertSame('','');
     }
+
 }
