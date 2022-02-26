@@ -68,13 +68,12 @@ class ADT_A39_Merge_Patient implements IMessage
         $this->PID_group = $PID_group;
     }
 
-
     public function __toString(): string
     {
         $str = $this->MSH . $this->EVN;
         foreach ($this->PID_group as $item) {
             $str .= $item;
         }
-        return '';
+        return $str;
     }
 }

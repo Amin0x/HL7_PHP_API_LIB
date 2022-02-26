@@ -81,9 +81,13 @@ class ADT_A23_Delete_Patient_Record extends ADTA01 implements IMessage
         $str = $this->getMessageHeader();
         $str .= $this->getEventType();
         $str .= $this->getPatientIdentification();
-        $str .= $this->PD1 == null ?  '' : $this->PD1;
+        if (!empty($this->PD1)) {
+            $str .= $this->PD1;
+        }
         $str .= $this->getPatientVisit();
-        $str .= $this->PV2 == null ? '' : $this->PV2;
+        if ($this->PV2 != null ) {
+            $str .= $this->PV2;
+        }
 
         foreach ($this->DB1 as $item) {
             $str .= $item;

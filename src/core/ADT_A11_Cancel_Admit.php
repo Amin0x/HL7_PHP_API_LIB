@@ -113,7 +113,28 @@ class ADT_A11_Cancel_Admit extends ADTA01 implements IMessage
 
     public function __toString(): string
     {
-        return '';
+        $str = '';
+        $str .= $this->getMessageHeader();
+        $str .= $this->getEventType();
+        $str .= $this->getPatientIdentification();
+        if (!empty($this->PD1)) {
+            $str .= $this->PD1;
+        }
+        $str = $this->getPatientVisit();
+        if (!empty($this->PV2)) {
+            $str .= $this->PV2;
+        }
+        foreach ($this->DB1 as $item) {
+            $str .= $item;
+        }
+        foreach ($this->OBX as $OBX) {
+            $str .= $OBX;
+        }
+        foreach ($this->DG1 as $DG1) {
+            $str = $DG1;
+        }
+
+        return $str;
     }
 
 }

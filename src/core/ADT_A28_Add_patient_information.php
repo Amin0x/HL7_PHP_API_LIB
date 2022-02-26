@@ -211,6 +211,53 @@ class ADT_A28_Add_patient_information extends ADTA01 implements IMessage
 
     public function __toString(): string
     {
-        return '';
+        $str = (string) $this->getMessageHeader();
+        $str .= $this->getEventType();
+        $str .= $this->getPatientIdentification();
+        $str .= empty($this->PD1) ? '' : $this->PD1;
+
+        foreach ($this->NK1 as $item) {
+            $str .= $item;
+        }
+
+        $str .= $this->getPatientVisit();
+
+        $str .= empty($this->PV2) ? '' : $this->PV2;
+
+        foreach ($this->OBX as $item) {
+            $str .= $item ;
+        }
+
+        foreach ($this->AL1 as $item) {
+            $str .= $item ;
+        }
+
+        foreach ($this->DG1 as $item) {
+            $str .= $item;
+        }
+
+        $str .= empty($this->DRG) ? '' : $this->DRG;
+
+        foreach ($this->PR1 as $item) {
+            $str .= $item;
+        }
+
+        foreach ($this->GT1 as $item) {
+            $str .= $item;
+        }
+
+        foreach ($this->IN1 as $item) {
+            $str .= $item;
+        }
+
+        $str .= empty($this->getZSC()) ? '' : $this->getZSC();
+
+        foreach ($this->getZSH() as $item) {
+            $str .= $item;
+        }
+        foreach ($this->getZFH() as $item) {
+            $str .= $item;
+        }
+        return $str;
     }
 }

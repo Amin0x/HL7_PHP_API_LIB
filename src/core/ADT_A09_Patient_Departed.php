@@ -8,6 +8,7 @@ class ADT_A09_Patient_Departed extends ADTA03 implements IMessage
 {
     private PD1|null $PD1;
     private PV2|null $PV2;
+    private array $DB1;
     private array $OBX;
     private array $DG1;
 
@@ -17,6 +18,7 @@ class ADT_A09_Patient_Departed extends ADTA03 implements IMessage
 
         $this->PD1 = null;
         $this->PV2 = null;
+        $this->DB1 = [];
         $this->OBX = [];
         $this->DG1 = [];
 
@@ -97,8 +99,45 @@ class ADT_A09_Patient_Departed extends ADTA03 implements IMessage
         $this->DG1[$index] = $DG1;
     }
 
+    /**
+     * @return array
+     */
+    public function getDB1(int $index): array
+    {
+        return $this->DB1[$index];
+    }
+
+    /**
+     * @param array $DB1
+     */
+    public function setDB1($DB1): void
+    {
+        $this->DB1[] = $DB1;
+    }
+
     public function __toString(): string
     {
-        return '';
+        $str = '';
+        $str .= $this->getMSH();
+        $str .= $this->getEVN();
+        $str .= $this->getPID();
+        if (!empty($this->PD1)) {
+            $str .= $this->PD1;
+        }
+        $str = $this->getPV1();
+        if (!empty($this->PV2)) {
+            $str .= $this->PV2;
+        }
+        foreach ($this->DB1 as $item) {
+            $str .= $item;
+        }
+        foreach ($this->OBX as $OBX) {
+            $str .= $OBX;
+        }
+        foreach ($this->DG1 as $DG1) {
+            $str = $DG1;
+        }
+
+        return $str;
     }
 }
