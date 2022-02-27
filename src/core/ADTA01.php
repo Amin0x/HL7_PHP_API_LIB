@@ -6,81 +6,81 @@ namespace amin0x\nabidh;
 
 abstract class ADTA01 extends ZSegment
 {
-    private MSH $MessageHeader;
-    private PID $PatientIdentification;
-    private EVN $EventType;
-    private PV1 $PatientVisit;
+    private MSH $MSH;
+    private PID $PID;
+    private EVN $EVN;
+    private PV1 $PV1;
 
     public function __construct()
     {
-        $this->MessageHeader = new MSH();
-        $this->PatientIdentification = new PID();
-        $this->EventType = new EVN();
-        $this->PatientVisit = new PV1();
+        $this->MSH = new MSH();
+        $this->PID = new PID();
+        $this->EVN = new EVN();
+        $this->PV1 = new PV1();
     }
 
     /**
      * @return MSH
      */
-    public function getMessageHeader(): MSH
+    public function getMSH(): MSH
     {
-        return $this->MessageHeader;
+        return $this->MSH;
     }
 
     /**
-     * @param MSH $MessageHeader
+     * @param MSH $MSH
      */
-    public function setMessageHeader(MSH $MessageHeader): void
+    public function setMSH(MSH $MSH): void
     {
-        $this->MessageHeader = $MessageHeader;
+        $this->MSH = $MSH;
     }
 
     /**
      * @return PID
      */
-    public function getPatientIdentification(): PID
+    public function getPID(): PID
     {
-        return $this->PatientIdentification;
+        return $this->PID;
     }
 
     /**
-     * @param PID $PatientIdentification
+     * @param PID $PID
      */
-    public function setPatientIdentification(PID $PatientIdentification): void
+    public function setPID(PID $PID): void
     {
-        $this->PatientIdentification = $PatientIdentification;
+        $this->PID = $PID;
     }
 
     /**
      * @return EVN
      */
-    public function getEventType(): EVN
+    public function getEVN(): EVN
     {
-        return $this->EventType;
+        return $this->EVN;
     }
 
     /**
-     * @param EVN $EventType
+     * @param EVN $EVN
      */
-    public function setEventType(EVN $EventType): void
+    public function setEVN(EVN $EVN): void
     {
-        $this->EventType = $EventType;
+        $this->EVN = $EVN;
     }
 
     /**
      * @return PV1
      */
-    public function getPatientVisit(): PV1
+    public function getPV1(): PV1
     {
-        return $this->PatientVisit;
+        return $this->PV1;
     }
 
     /**
-     * @param PV1 $PatientVisit
+     * @param PV1 $PV1
      */
-    public function setPatientVisit(PV1 $PatientVisit): void
+    public function setPV1(PV1 $PV1): void
     {
-        $this->PatientVisit = $PatientVisit;
+        $this->PV1 = $PV1;
     }
 
 

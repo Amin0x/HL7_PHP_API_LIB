@@ -16,8 +16,8 @@ class MDM_T11_Document_Cancel_Notification extends ADTA01 implements IMessage
     {
         parent::__construct();
 
-        $this->getMessageHeader()->setMessageType('MDM^T11');
-        $this->getEventType()->setEventTypeCode('T11');
+        $this->getMSH()->setMessageType('MDM^T11');
+        $this->getEVN()->setEventTypeCode('T11');
     }
 
     /**

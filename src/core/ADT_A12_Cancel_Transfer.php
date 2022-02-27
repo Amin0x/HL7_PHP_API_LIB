@@ -14,8 +14,8 @@ class ADT_A12_Cancel_Transfer extends ADTA01 implements IMessage
     public function __construct()
     {
         parent::__construct();
-        $this->getMessageHeader()->setMessageType('ADT^A12');
-        $this->getEventType()->setEventTypeCode('A12');
+        $this->getMSH()->setMessageType('ADT^A12');
+        $this->getEVN()->setEventTypeCode('A12');
     }
 
     /**
@@ -97,13 +97,13 @@ class ADT_A12_Cancel_Transfer extends ADTA01 implements IMessage
     public function __toString(): string
     {
         $str = '';
-        $str .= $this->getMessageHeader();
-        $str .= $this->getEventType();
-        $str .= $this->getPatientIdentification();
+        $str .= $this->getMSH();
+        $str .= $this->getEVN();
+        $str .= $this->getPID();
         if (!empty($this->PD1)) {
             $str .= $this->PD1;
         }
-        $str = $this->getPatientVisit();
+        $str = $this->getPV1();
         if (!empty($this->PV2)) {
             $str .= $this->PV2;
         }

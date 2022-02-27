@@ -321,7 +321,7 @@ class PV1 implements Segment {
      */
     public function setAdmitDateTime(string $AdmitDateTime): void
     {
-        $AdmitDateTime = date('YmdHisO', strtotime($AdmitDateTime));
+        $AdmitDateTime = date('YmdHis', strtotime($AdmitDateTime));
         $this->AdmitDateTime = $AdmitDateTime;
     }
 

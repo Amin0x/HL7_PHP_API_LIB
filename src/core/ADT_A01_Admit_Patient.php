@@ -25,8 +25,8 @@ class ADT_A01_Admit_Patient extends ADTA01 implements IMessage
     {
         parent::__construct();
 
-        $this->getMessageHeader()->setMessageType('ADT^A01');
-        $this->getEventType()->setEventTypeCode('A01');
+        $this->getMSH()->setMessageType('ADT^A01');
+        $this->getEVN()->setEventTypeCode('A01');
     }
 
     /**
@@ -227,10 +227,10 @@ class ADT_A01_Admit_Patient extends ADTA01 implements IMessage
     public function __toString(): string
     {
 
-        $str = (string) $this->getMessageHeader();
-        $str .= $this->getPatientIdentification();
-        $str .= $this->getEventType();
-        $str .= $this->getPatientVisit();
+        $str = (string) $this->getMSH();
+        $str .= $this->getPID();
+        $str .= $this->getEVN();
+        $str .= $this->getPV1();
         $str .= empty($this->PD1) ? '' : $this->PD1;
 
         foreach ($this->NK1 as $item) {

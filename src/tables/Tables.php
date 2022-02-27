@@ -467,7 +467,7 @@ namespace amin0x\nabidh {
         return $result;
     }
 }
-//HL7128 table
+//HL7028 table
 //HL7072 table
 
 

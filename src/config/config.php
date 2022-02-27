@@ -13,7 +13,7 @@ return [
     'sending_application' => '',
     'sending_facility' => '',
     'version_id' => '2.5',
-    'processing_id' => '',
+    'processing_id' => 'D',
     'receiving_application' => 'NABIDH',
     'receiving_facility' => 'DHA'
 ];

@@ -209,9 +209,9 @@ class ADT_A31_Update_patient_information extends ADTA01 implements IMessage
     public function __toString(): string
     {
         $str = '';
-        $str .= $this->getMessageHeader();
-        $str .= $this->getPatientIdentification();
-        $str .= $this->getEventType();
+        $str .= $this->getMSH();
+        $str .= $this->getPID();
+        $str .= $this->getEVN();
         if (!empty($this->PD1)) {
             $str .= $this->PD1;
         }

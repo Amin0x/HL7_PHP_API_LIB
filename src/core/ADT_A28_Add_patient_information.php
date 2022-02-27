@@ -211,16 +211,16 @@ class ADT_A28_Add_patient_information extends ADTA01 implements IMessage
 
     public function __toString(): string
     {
-        $str = (string) $this->getMessageHeader();
-        $str .= $this->getEventType();
-        $str .= $this->getPatientIdentification();
+        $str = (string) $this->getMSH();
+        $str .= $this->getEVN();
+        $str .= $this->getPID();
         $str .= empty($this->PD1) ? '' : $this->PD1;
 
         foreach ($this->NK1 as $item) {
             $str .= $item;
         }
 
-        $str .= $this->getPatientVisit();
+        $str .= $this->getPV1();
 
         $str .= empty($this->PV2) ? '' : $this->PV2;
 

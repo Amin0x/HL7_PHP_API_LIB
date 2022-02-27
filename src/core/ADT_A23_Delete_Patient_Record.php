@@ -17,8 +17,8 @@ class ADT_A23_Delete_Patient_Record extends ADTA01 implements IMessage
     public function __construct()
     {
         parent::__construct();
-        $this->getMessageHeader()->setMessageType('ADT^A23');
-        $this->getEventType()->setEventTypeCode('A23');
+        $this->getMSH()->setMessageType('ADT^A23');
+        $this->getEVN()->setEventTypeCode('A23');
     }
 
     /**
@@ -78,13 +78,13 @@ class ADT_A23_Delete_Patient_Record extends ADTA01 implements IMessage
 
     public function __toString(): string
     {
-        $str = $this->getMessageHeader();
-        $str .= $this->getEventType();
-        $str .= $this->getPatientIdentification();
+        $str = $this->getMSH();
+        $str .= $this->getEVN();
+        $str .= $this->getPID();
         if (!empty($this->PD1)) {
             $str .= $this->PD1;
         }
-        $str .= $this->getPatientVisit();
+        $str .= $this->getPV1();
         if ($this->PV2 != null ) {
             $str .= $this->PV2;
         }

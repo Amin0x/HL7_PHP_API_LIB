@@ -18,8 +18,8 @@ class ADT_A10_Patient_Arrived extends ADTA01 implements IMessage
     public function __construct()
     {
         parent::__construct();
-        $this->getMessageHeader()->setMessageType('ADT^A10');
-        $this->getEventType()->setEventTypeCode('A10');
+        $this->getMSH()->setMessageType('ADT^A10');
+        $this->getEVN()->setEventTypeCode('A10');
     }
 
     /**
@@ -116,13 +116,13 @@ class ADT_A10_Patient_Arrived extends ADTA01 implements IMessage
     public function __toString(): string
     {
         $str = '';
-        $str .= $this->getMessageHeader();
-        $str .= $this->getEventType();
-        $str .= $this->getPatientIdentification();
+        $str .= $this->getMSH();
+        $str .= $this->getEVN();
+        $str .= $this->getPID();
         if (!empty($this->PD1)) {
             $str .= $this->PD1;
         }
-        $str = $this->getPatientVisit();
+        $str = $this->getPV1();
         if (!empty($this->PV2)) {
             $str .= $this->PV2;
         }
