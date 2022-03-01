@@ -35,12 +35,17 @@ class NabidhTest extends TestCase
         $pt->getEVN()->setEventTypeCode('A02');
         $pt->getEVN()->setEventOccurred(date('YmdHis'));
 
+        $pt->getPV1()->setID(1);
+        $pt->getPV1()->setAdmissionType('O');
+        $pt->getPV1()->setAdmitDateTime(date('YmdHis'));
+        $pt->getPV1()->setHospitalService(HospitalService::Unknown);
+        $pt->getPV1()->setVisitNumber('99999');
+
         $apl = new PL();
         $apl->setPointOfCare('');
         $apl->setFacility('TCODE10');
         $apl->setLocationDescription('Test Hospital 20');
         $pt->getPV1()->setAssignedPatientLocation($apl);
-        $pt->getPV1()->setID(1);
 
         $AttendingDoctor = new XCN();
         $AttendingDoctor->setIdNumber('445566');
@@ -50,10 +55,7 @@ class NabidhTest extends TestCase
         $AttendingDoctor->setAssigningAuthority('SHERYAN');
         $AttendingDoctor->setPrefex('Dr.');
         $pt->getPV1()->setAttendingDoctor($AttendingDoctor);
-        $pt->getPV1()->setAdmissionType('O');
-        $pt->getPV1()->setAdmitDateTime(date('YmdHis'));
-        $pt->getPV1()->setHospitalService(HospitalService::Unknown);
-        $pt->getPV1()->setVisitNumber('99999');
+
 
 
         $this->assertStringStartsWith('MSH',(string)$pt);

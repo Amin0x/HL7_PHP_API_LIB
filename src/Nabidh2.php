@@ -8,7 +8,7 @@ namespace amin0x\nabidh;
 
 class Nabidh2
 {
-    public function createMessage(string $msgType)
+    public function createMessage(string $msgType): bool|Message
     {
         if(empty($msgType)){
             return false;
@@ -37,7 +37,7 @@ class Nabidh2
      * @param array $patient
      * @return Message|false
      */
-    public function createAdmitPatientNotification(array $patient)
+    public function createAdmitPatientNotificationMessage(array $patient)
     {
         $msg = $this->createMessage('ADT^A01');
 
@@ -105,9 +105,6 @@ class Nabidh2
     {
         return $this->createMessage('ORU^R01');
     }
-
-
-
 
     public function addSegment(Message $message, Segment $segment)
     {
@@ -220,8 +217,10 @@ class Nabidh2
 
         if(isset($patientVisit['hospital_service']))
             $pv1->setHospitalService($patientVisit['hospital_service']);
+
         if(isset($patientVisit['patient_class']))
             $pv1->setPatientClass($patientVisit['patient_class']);
+
         if(isset($patientVisit['assigned_patient_location']))
             $pv1->setAssignedPatientLocation($patientVisit['assigned_patient_location']);
 
@@ -234,14 +233,14 @@ class Nabidh2
         return $pv1;
     }
 
-    public function sendMessage(Message $msg, string $endPoint)
+    public function sendMessage(Message $msg, string $endPoint): bool|ACK_Response
     {
 
         try {
             //$endPoint = $msg->getMSH()->getMessageType();
             $str = $msg->toString();
             $headers = [];
-            $ch = curl_init('https://example.com/' . $endPoint);
+            $ch = curl_init($endPoint);
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $str);
