@@ -57,15 +57,11 @@ class NabidhTest extends TestCase
         $pt->getPV1()->setAttendingDoctor($AttendingDoctor);
 
         $res = $nabidh->sendMessage($pt, 'http://example.com/adt?app_id=&api_key=');
-        if ($res === false){
-            //err
+        if ($res !== false && $res->isSuccess()){
+            //success
         } else {
-            if ($res->isSuccess()){
-                //success
-            }
+            //error
         }
-
-
 
         $this->assertStringStartsWith('MSH',(string)$pt);
         $pt = (string) $pt;

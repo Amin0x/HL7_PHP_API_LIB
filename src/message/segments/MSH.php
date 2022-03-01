@@ -36,7 +36,7 @@ class MSH implements Segment
         $this->VersionID = '2.5';
         $this->CharacterSet = 'UTF-8';
 
-        if ($config['debug']){
+        if ($config['debugging'] == true){
             $this->ProcessingID = 'T'; //‘P’: Production, ‘T’: Testing, ‘D’: Development
         } else {
             $this->ProcessingID = 'P'; //‘P’: Production, ‘T’: Testing, ‘D’: Development

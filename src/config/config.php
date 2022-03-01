@@ -6,7 +6,7 @@ return [
     'api_key' => '',
     'nabidh_code' => '',
     'provider_name' => '',
-    'debug' => true,
+    'debugging' => true,
     'source_application' => '',
 
     //For single facility EMRs set to the Sheryan facility Unique ID. For multi facility EMRs set to the name of the EMR
