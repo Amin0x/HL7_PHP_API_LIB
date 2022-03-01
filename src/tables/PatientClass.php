@@ -3,7 +3,7 @@ namespace amin0x\nabidh;
 
 use SplEnum;
 
-class PatientClass extends SplEnum {
+class PatientClass  {
     public const Obstetrics = 'B';
     public const CommercialAccount = 'C';
     public const Emergency = 'E';
