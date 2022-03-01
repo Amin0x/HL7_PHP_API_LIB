@@ -16,7 +16,7 @@ class DRG {
     private $DRGTransferType = '';
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getDiagnosticRelatedGroup(): CE|string
     {
@@ -24,7 +24,7 @@ class DRG {
     }
 
     /**
-     * @param string $DiagnosticRelatedGroup
+     * @param CE $DiagnosticRelatedGroup
      */
     public function setDiagnosticRelatedGroup(CE $DiagnosticRelatedGroup): void
     {
@@ -80,7 +80,7 @@ class DRG {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getOutlierType(): CE|string
     {
@@ -88,7 +88,7 @@ class DRG {
     }
 
     /**
-     * @param string $OutlierType
+     * @param CE $OutlierType
      */
     public function setOutlierType(CE $OutlierType): void
     {
@@ -112,7 +112,7 @@ class DRG {
     }
 
     /**
-     * @return string
+     * @return CP|string
      */
     public function getOutlierCost(): CP|string
     {
@@ -120,7 +120,7 @@ class DRG {
     }
 
     /**
-     * @param string $OutlierCost
+     * @param CP $OutlierCost
      */
     public function setOutlierCost(CP $OutlierCost): void
     {
@@ -144,7 +144,7 @@ class DRG {
     }
 
     /**
-     * @return string
+     * @return CP|string
      */
     public function getOutlierReimbursement(): CP|string
     {
@@ -152,7 +152,7 @@ class DRG {
     }
 
     /**
-     * @param string $OutlierReimbursement
+     * @param CP $OutlierReimbursement
      */
     public function setOutlierReimbursement(CP $OutlierReimbursement): void
     {

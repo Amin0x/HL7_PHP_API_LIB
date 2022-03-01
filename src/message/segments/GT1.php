@@ -55,7 +55,7 @@ class GT1 {
     }
 
     /**
-     * @return string
+     * @return CX|string
      */
     public function getGuarantorNumber(): CX|string
     {
@@ -76,7 +76,7 @@ class GT1 {
     }
 
     /**
-     * @return string
+     * @return XPN|string
      */
     public function getGuarantorName(): XPN|string
     {
@@ -84,7 +84,7 @@ class GT1 {
     }
 
     /**
-     * @param string $GuarantorName
+     * @param XPN $GuarantorName
      */
     public function setGuarantorName(XPN $GuarantorName): void
     {
@@ -92,7 +92,7 @@ class GT1 {
     }
 
     /**
-     * @return string
+     * @return XAD|string
      */
     public function getGuarantorAddress(): XAD|string
     {
@@ -100,7 +100,7 @@ class GT1 {
     }
 
     /**
-     * @param string $GuarantorAddress
+     * @param XAD $GuarantorAddress
      */
     public function setGuarantorAddress(XAD $GuarantorAddress): void
     {
@@ -108,7 +108,7 @@ class GT1 {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
     public function getGuarantorPhNumHome(): XTN|string
     {
@@ -116,7 +116,7 @@ class GT1 {
     }
 
     /**
-     * @param string $GuarantorPhNumHome
+     * @param XTN $GuarantorPhNumHome
      */
     public function setGuarantorPhNumHome(XTN $GuarantorPhNumHome): void
     {
@@ -124,7 +124,7 @@ class GT1 {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
     public function getGuarantorPhNumBusiness(): XTN|string
     {
@@ -132,7 +132,7 @@ class GT1 {
     }
 
     /**
-     * @param string $GuarantorPhNumBusiness
+     * @param XTN $GuarantorPhNumBusiness
      */
     public function setGuarantorPhNumBusiness(XTN $GuarantorPhNumBusiness): void
     {
@@ -273,7 +273,7 @@ class GT1 {
     }
 
     /**
-     * @return string
+     * @return XAD|string
      */
     public function getGuarantorEmployerAddress(): XAD|string
     {
@@ -281,7 +281,7 @@ class GT1 {
     }
 
     /**
-     * @param string $GuarantorEmployerAddress
+     * @param XAD $GuarantorEmployerAddress
      */
     public function setGuarantorEmployerAddress(XAD $GuarantorEmployerAddress): void
     {
@@ -289,7 +289,7 @@ class GT1 {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
     public function getGuarantorEmployerPhoneNumber(): XTN|string
     {
@@ -297,7 +297,7 @@ class GT1 {
     }
 
     /**
-     * @param string $GuarantorEmployerPhoneNumber
+     * @param XTN $GuarantorEmployerPhoneNumber
      */
     public function setGuarantorEmployerPhoneNumber(XTN $GuarantorEmployerPhoneNumber): void
     {
@@ -401,7 +401,7 @@ class GT1 {
     }
 
     /**
-     * @return string
+     * @return XON|string
      */
     public function getGuarantorEmployerOrganizationName(): XON|string
     {
@@ -409,7 +409,7 @@ class GT1 {
     }
 
     /**
-     * @param string $GuarantorEmployerOrganizationName
+     * @param XON $GuarantorEmployerOrganizationName
      */
     public function setGuarantorEmployerOrganizationName(XON $GuarantorEmployerOrganizationName): void
     {

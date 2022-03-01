@@ -44,7 +44,7 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XPN|string
      */
     public function getName(): XPN|string
     {
@@ -52,7 +52,7 @@ class NK1 implements Segment {
     }
 
     /**
-     * @param string $Name
+     * @param XPN $Name
      */
     public function setName(XPN $Name): void
     {
@@ -60,15 +60,15 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
-    public function getRelationship(): CE
+    public function getRelationship(): CE|string
     {
         return $this->Relationship;
     }
 
     /**
-     * @param string $Relationship
+     * @param CE $Relationship
      */
     public function setRelationship(CE $Relationship): void
     {
@@ -76,15 +76,15 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XAD|string
      */
-    public function getAddress(): XAD
+    public function getAddress(): XAD|string
     {
         return $this->Address;
     }
 
     /**
-     * @param string $Address
+     * @param XAD $Address
      */
     public function setAddress(XAD $Address): void
     {
@@ -92,15 +92,15 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
-    public function getPhoneNumber(): XTN
+    public function getPhoneNumber(): XTN|string
     {
         return $this->PhoneNumber;
     }
 
     /**
-     * @param string $PhoneNumber
+     * @param XTN $PhoneNumber
      */
     public function setPhoneNumber(XTN $PhoneNumber): void
     {
@@ -108,15 +108,15 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
-    public function getBusinessPhoneNumber(): XTN
+    public function getBusinessPhoneNumber(): XTN|string
     {
         return $this->BusinessPhoneNumber;
     }
 
     /**
-     * @param string $BusinessPhoneNumber
+     * @param XTN $BusinessPhoneNumber
      */
     public function setBusinessPhoneNumber(XTN $BusinessPhoneNumber): void
     {
@@ -124,7 +124,7 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getContactRole(): CE|string
     {
@@ -132,7 +132,7 @@ class NK1 implements Segment {
     }
 
     /**
-     * @param string $ContactRole
+     * @param CE $ContactRole
      */
     public function setContactRole(CE $ContactRole): void
     {
@@ -172,15 +172,15 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XON|string
      */
-    public function getOrganizationNameNK1(): XON
+    public function getOrganizationNameNK1(): XON|string
     {
         return $this->OrganizationName_NK1;
     }
 
     /**
-     * @param string $OrganizationName_NK1
+     * @param XON $OrganizationName_NK1
      */
     public function setOrganizationNameNK1(XON $OrganizationName_NK1): void
     {
@@ -188,15 +188,15 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XPN|string
      */
-    public function getContactPersonName(): XPN
+    public function getContactPersonName(): XPN|string
     {
         return $this->ContactPersonName;
     }
 
     /**
-     * @param string $ContactPersonName
+     * @param XPN $ContactPersonName
      */
     public function setContactPersonName(XPN $ContactPersonName): void
     {
@@ -204,15 +204,15 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
-    public function getContactPersonTelephoneNumber(): XTN
+    public function getContactPersonTelephoneNumber(): XTN|string
     {
         return $this->ContactPersonTelephoneNumber;
     }
 
     /**
-     * @param string $ContactPersonTelephoneNumber
+     * @param XTN $ContactPersonTelephoneNumber
      */
     public function setContactPersonTelephoneNumber(XTN $ContactPersonTelephoneNumber): void
     {
@@ -220,15 +220,15 @@ class NK1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XAD|string
      */
-    public function getContactPersonAddress(): XAD
+    public function getContactPersonAddress(): XAD|string
     {
         return $this->ContactPersonAddress;
     }
 
     /**
-     * @param string $ContactPersonAddress
+     * @param XAD $ContactPersonAddress
      */
     public function setContactPersonAddress(XAD $ContactPersonAddress): void
     {

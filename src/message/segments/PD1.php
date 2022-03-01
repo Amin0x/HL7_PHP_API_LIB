@@ -20,7 +20,7 @@ class PD1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getPatientPrimaryCareProviderNameIDNo(): XCN|string
     {
@@ -28,7 +28,7 @@ class PD1 implements Segment {
     }
 
     /**
-     * @param string $PatientPrimaryCareProviderNameIDNo
+     * @param XCN $PatientPrimaryCareProviderNameIDNo
      */
     public function setPatientPrimaryCareProviderNameIDNo(XCN $PatientPrimaryCareProviderNameIDNo): void
     {
@@ -36,7 +36,7 @@ class PD1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getPublicityCode(): CE|string
     {
@@ -44,7 +44,7 @@ class PD1 implements Segment {
     }
 
     /**
-     * @param string $PublicityCode
+     * @param CE $PublicityCode
      */
     public function setPublicityCode(CE $PublicityCode): void
     {

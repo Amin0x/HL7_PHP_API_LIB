@@ -135,7 +135,7 @@ class DG1 {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getDiagnosingClinician(): XCN|string
     {
@@ -143,7 +143,7 @@ class DG1 {
     }
 
     /**
-     * @param string $DiagnosingClinician
+     * @param XCN $DiagnosingClinician
      */
     public function setDiagnosingClinician(XCN $DiagnosingClinician): void
     {

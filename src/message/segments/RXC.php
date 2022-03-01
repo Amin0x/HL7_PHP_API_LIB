@@ -382,7 +382,7 @@ class RXC implements Segment {
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getAdministeredDrugStrengthVolumeUnits(): CE|string
     {

@@ -8,7 +8,7 @@ class MRG implements Segment {
 
 
     /**
-     * @return string
+     * @return CX|string
      */
     public function getPriorPatientIdentifierList(): CX|string
     {

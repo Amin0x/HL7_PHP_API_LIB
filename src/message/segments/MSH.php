@@ -117,12 +117,21 @@ class MSH implements Segment
     }
 
     /**
-     * @param HD $MessageType
+     * @param string $MessageType
      */
     public function setMessageType(string $MessageType): void
     {
+        if ($MessageType === ''){
+            $this->MessageType = new HD();
+            return;
+        }
+
         $arr = explode('^', $MessageType);
-        $this->MessageType = new HD($arr[0], $arr[1]);
+
+        if (isset($arr[0]) && isset($arr[1])){
+            $this->MessageType = new HD($arr[0], $arr[1]);
+        }
+
     }
 
     /**

@@ -18,7 +18,7 @@ class NPU implements Segment {
     }
 
     /**
-     * @return string
+     * @return PL|string
      */
     public function getBedLocation(): PL|string
     {
@@ -26,7 +26,7 @@ class NPU implements Segment {
     }
 
     /**
-     * @param string $BedLocation
+     * @param PL $BedLocation
      */
     public function setBedLocation(PL $BedLocation): void
     {

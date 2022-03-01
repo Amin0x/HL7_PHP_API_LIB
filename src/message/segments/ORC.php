@@ -53,7 +53,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return EI|string
      */
     public function getPlacerOrderNumber(): EI|string
     {
@@ -61,7 +61,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $PlacerOrderNumber
+     * @param EI $PlacerOrderNumber
      */
     public function setPlacerOrderNumber(EI $PlacerOrderNumber): void
     {
@@ -69,7 +69,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return EI|string
      */
     public function getFillerOrderNumber(): EI|string
     {
@@ -77,7 +77,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $FillerOrderNumber
+     * @param EI $FillerOrderNumber
      */
     public function setFillerOrderNumber(EI $FillerOrderNumber): void
     {
@@ -101,7 +101,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return TQ|string
      */
     public function getQualityTiming(): TQ|string
     {
@@ -109,7 +109,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $QualityTiming
+     * @param TQ $QualityTiming
      */
     public function setQualityTiming(TQ $QualityTiming): void
     {
@@ -133,7 +133,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getEnteredBy(): XCN|string
     {
@@ -141,7 +141,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $EnteredBy
+     * @param XCN $EnteredBy
      */
     public function setEnteredBy(XCN $EnteredBy): void
     {
@@ -149,7 +149,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getVerifiedBy(): XCN|string
     {
@@ -157,7 +157,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $VerifiedBy
+     * @param XCN $VerifiedBy
      */
     public function setVerifiedBy(XCN $VerifiedBy): void
     {
@@ -165,7 +165,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getOrderingProvider(): XCN|string
     {
@@ -173,7 +173,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $OrderingProvider
+     * @param XCN $OrderingProvider
      */
     public function setOrderingProvider(XCN $OrderingProvider): void
     {
@@ -197,7 +197,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
     public function getCallBackPhoneNumber(): XTN|string
     {
@@ -205,7 +205,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $CallBackPhoneNumber
+     * @param XTN $CallBackPhoneNumber
      */
     public function setCallBackPhoneNumber(XTN $CallBackPhoneNumber): void
     {
@@ -213,7 +213,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return XON|string
      */
     public function getOrderingFacilityName(): XON|string
     {
@@ -221,7 +221,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $OrderingFacilityName
+     * @param XON $OrderingFacilityName
      */
     public function setOrderingFacilityName(XON $OrderingFacilityName): void
     {
@@ -229,7 +229,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return XAD|string
      */
     public function getOrderingFacilityAddress(): XAD|string
     {
@@ -237,7 +237,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $OrderingFacilityAddress
+     * @param XAD $OrderingFacilityAddress
      */
     public function setOrderingFacilityAddress(XAD $OrderingFacilityAddress): void
     {
@@ -245,7 +245,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
     public function getOrderingFacilityPhoneNumber(): XTN|string
     {
@@ -253,7 +253,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $OrderingFacilityPhoneNumber
+     * @param XTN $OrderingFacilityPhoneNumber
      */
     public function setOrderingFacilityPhoneNumber(XTN $OrderingFacilityPhoneNumber): void
     {
@@ -261,7 +261,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getConfidentialityCode(): CE|string
     {
@@ -269,7 +269,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $ConfidentialityCode
+     * @param CE $ConfidentialityCode
      */
     public function setConfidentialityCode(CE $ConfidentialityCode): void
     {
@@ -277,7 +277,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getOrderType(): CE|string
     {
@@ -285,7 +285,7 @@ class ORC implements Segment {
     }
 
     /**
-     * @param string $OrderType
+     * @param CE $OrderType
      */
     public function setOrderType(CE $OrderType): void
     {

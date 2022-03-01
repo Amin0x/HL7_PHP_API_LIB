@@ -15,7 +15,7 @@ class PR1 implements Segment {
     /**
      * PR1 constructor.
      */
-    public function __construct($ID)
+    public function __construct(string $ID)
     {
         $this->ID = $ID;
     }
@@ -38,7 +38,7 @@ class PR1 implements Segment {
 
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getProcedureCode(): CE|string
     {
@@ -46,7 +46,7 @@ class PR1 implements Segment {
     }
 
     /**
-     * @param string $ProcedureCode
+     * @param CE $ProcedureCode
      */
     public function setProcedureCode(CE $ProcedureCode): void
     {
@@ -86,7 +86,7 @@ class PR1 implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getSurgeon(): XCN|string
     {
@@ -94,7 +94,7 @@ class PR1 implements Segment {
     }
 
     /**
-     * @param string $Surgeon
+     * @param XCN $Surgeon
      */
     public function setSurgeon(XCN $Surgeon): void
     {

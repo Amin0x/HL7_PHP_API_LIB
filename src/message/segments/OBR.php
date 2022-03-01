@@ -53,7 +53,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return EI|string
      */
     public function getPlacerOrderNumber(): EI|string
     {
@@ -61,7 +61,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $PlacerOrderNumber
+     * @param EI $PlacerOrderNumber
      */
     public function setPlacerOrderNumber(EI $PlacerOrderNumber): void
     {
@@ -69,7 +69,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return EI|string
      */
     public function getFillerOrderNumber(): EI|string
     {
@@ -77,7 +77,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $FillerOrderNumber
+     * @param EI $FillerOrderNumber
      */
     public function setFillerOrderNumber(EI $FillerOrderNumber): void
     {
@@ -85,7 +85,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getUniversalServiceIdentifier(): CE|string
     {
@@ -93,7 +93,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $UniversalServiceIdentifier
+     * @param CE $UniversalServiceIdentifier
      */
     public function setUniversalServiceIdentifier(CE $UniversalServiceIdentifier): void
     {
@@ -213,7 +213,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getOrderingProvider(): XCN|string
     {
@@ -221,7 +221,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $OrderingProvider
+     * @param XCN $OrderingProvider
      */
     public function setOrderingProvider(XCN $OrderingProvider): void
     {
@@ -229,7 +229,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
     public function getOrderCallbackPhoneNumber(): XTN|string
     {
@@ -237,7 +237,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $OrderCallbackPhoneNumber
+     * @param XTN $OrderCallbackPhoneNumber
      */
     public function setOrderCallbackPhoneNumber(XTN $OrderCallbackPhoneNumber): void
     {
@@ -293,7 +293,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return PRL|string
      */
     public function getParentResult(): PRL|string
     {
@@ -301,7 +301,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $ParentResult
+     * @param PRL $ParentResult
      */
     public function setParentResult(PRL $ParentResult): void
     {
@@ -309,7 +309,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return TQ|string
      */
     public function getQuantityTiming(): TQ|string
     {
@@ -317,7 +317,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $QuantityTiming
+     * @param TQ $QuantityTiming
      */
     public function setQuantityTiming(TQ $QuantityTiming): void
     {
@@ -325,7 +325,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getResultCopiesTo(): XCN|string
     {
@@ -333,7 +333,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $ResultCopiesTo
+     * @param XCN $ResultCopiesTo
      */
     public function setResultCopiesTo(XCN $ResultCopiesTo): void
     {
@@ -341,7 +341,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return EIP|string
      */
     public function getParent(): EIP|string
     {
@@ -349,7 +349,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $Parent
+     * @param EIP $Parent
      */
     public function setParent(EIP $Parent): void
     {
@@ -357,7 +357,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getReasonforStudy(): CE|string
     {
@@ -365,7 +365,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $ReasonforStudy
+     * @param CE $ReasonforStudy
      */
     public function setReasonforStudy(CE $ReasonforStudy): void
     {
@@ -373,7 +373,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getPrincipalResultInterpreter(): XCN|string
     {
@@ -381,7 +381,7 @@ class OBR implements Segment {
     }
 
     /**
-     * @param string $PrincipalResultInterpreter
+     * @param XCN $PrincipalResultInterpreter
      */
     public function setPrincipalResultInterpreter(XCN $PrincipalResultInterpreter): void
     {

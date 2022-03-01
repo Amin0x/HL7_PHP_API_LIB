@@ -63,7 +63,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getObservationIdentifier(): CE|string
     {
@@ -71,7 +71,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @param string $ObservationIdentifier
+     * @param CE $ObservationIdentifier
      */
     public function setObservationIdentifier(CE $ObservationIdentifier): void
     {
@@ -111,7 +111,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getUnits(): CE|string
     {
@@ -119,7 +119,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @param string $Units
+     * @param CE $Units
      */
     public function setUnits(CE $Units): void
     {
@@ -191,7 +191,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getProducerReference(): CE|string
     {
@@ -199,7 +199,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @param string $ProducerReference
+     * @param CE $ProducerReference
      */
     public function setProducerReference(CE $ProducerReference): void
     {
@@ -207,7 +207,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getResponsibleObserver(): XCN|string
     {
@@ -215,7 +215,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @param string $ResponsibleObserver
+     * @param XCN $ResponsibleObserver
      */
     public function setResponsibleObserver(XCN $ResponsibleObserver): void
     {
@@ -223,7 +223,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getObservationMethod(): CE|string
     {
@@ -231,7 +231,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @param string $ObservationMethod
+     * @param CE $ObservationMethod
      */
     public function setObservationMethod(CE $ObservationMethod): void
     {
@@ -255,7 +255,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @return string
+     * @return XON|string
      */
     public function getPerformingOrganizationName(): XON|string
     {
@@ -263,7 +263,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @param string $PerformingOrganizationName
+     * @param XON $PerformingOrganizationName
      */
     public function setPerformingOrganizationName(XON $PerformingOrganizationName): void
     {
@@ -271,7 +271,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @return string
+     * @return XAD|string
      */
     public function getPerformingOrganizationAddress(): XAD|string
     {
@@ -279,7 +279,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @param string $PerformingOrganizationAddress
+     * @param XAD $PerformingOrganizationAddress
      */
     public function setPerformingOrganizationAddress(XAD $PerformingOrganizationAddress): void
     {
@@ -287,7 +287,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getPerformingOrganizationMedicalDirector(): XCN|string
     {
@@ -295,7 +295,7 @@ class OBX implements Segment {
     }
 
     /**
-     * @param string $PerformingOrganizationMedicalDirector
+     * @param XCN $PerformingOrganizationMedicalDirector
      */
     public function setPerformingOrganizationMedicalDirector(XCN $PerformingOrganizationMedicalDirector): void
     {

@@ -84,6 +84,8 @@ class PID implements Segment {
      * Example: If Patient has MRN = 123456 & Passport Number = 9998888 then PID-3 field
      * should be shared as: 123456^^^FACILITYCODE^MRN~9998888^^^GOVERNMENT^PPN
      * @param string $idNumber
+     * @param string $AssigningAuthority
+     * @param string $IdentifierTypeCode
      * @param bool $passport
      */
     public function addPatientIdentifierList(string $idNumber, string $AssigningAuthority, string $IdentifierTypeCode, bool $passport = false): void
@@ -275,7 +277,7 @@ class PID implements Segment {
     }
 
     /**
-     * @return string
+     * @return XTN|string
      */
     public function getPhoneNumberBusiness(): XTN|string
     {
@@ -291,7 +293,7 @@ class PID implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getPrimaryLanguage(): CE|string
     {
@@ -300,6 +302,7 @@ class PID implements Segment {
 
     /**
      * @param string $PrimaryLanguage
+     * @param string $Text
      */
     public function setPrimaryLanguage(string $PrimaryLanguage = 'UNK', string $Text = 'UNKNOWN'): void
     {
@@ -308,7 +311,7 @@ class PID implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getMaritalStatus(): CE|string
     {
