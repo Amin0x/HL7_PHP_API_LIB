@@ -267,7 +267,7 @@ class Nabidh {
         return $this->sendMessage($message, 'PPR_PC3');
     }
 
-    private function sendMessage(IMessage $msg, string $endPoint): bool|ACK_Response
+    public function sendMessage(IMessage $msg, string $endPoint): bool|ACK_Response
     {
 
         try {

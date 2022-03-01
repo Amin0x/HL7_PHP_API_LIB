@@ -14,7 +14,7 @@ class Nabidh2
             return false;
         }
 
-        $config = include 'config/config.php';
+        $config = include realpath(dirname(__FILE__).'/config/config.php');
         $message = new Message();
         $msh = new MSH();
         $msh->setSendingApplication($config['sending_application']);
