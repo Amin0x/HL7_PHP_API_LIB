@@ -6,14 +6,12 @@ return [
     'api_key' => '',
     'nabidh_code' => '',
     'provider_name' => '',
-    'source_application' => '',
     'debug' => true,
-    'character_set' => 'UTF-8',
+    'source_application' => '',
 
-    'sending_application' => '',
+    //For single facility EMRs set to the Sheryan facility Unique ID. For multi facility EMRs set to the name of the EMR
     'sending_facility' => '',
-    'version_id' => '2.5',
-    'processing_id' => 'D',
-    'receiving_application' => 'NABIDH',
-    'receiving_facility' => 'DHA'
+
+    //Must contain the encounter location Unique Sheryan Facility ID
+    'sheryan_facility_id' => '',
 ];

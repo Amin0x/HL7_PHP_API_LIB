@@ -23,19 +23,24 @@ class MSH implements Segment
      */
     public function __construct()
     {
+        $config  = include realpath(dirname(__FILE__).'/../../config/config.php');
         $this->FieldSeparator = '|';
         $this->EncodingCharacters = '^~\&';
         $this->SendingApplication = 'Amin0x HL7_PHP_API_LIB';
-        $this->SendingFacility = '';
+        $this->SendingFacility = $config['sending_facility'];
         $this->ReceivingApplication = 'NABIDH';
         $this->ReceivingFacility = 'DHA';
         $this->DateTimeOfMessage = date('YmdHis');
         $this->MessageType = '';
         $this->MessageControlID = time();
-        $this->ProcessingID = 'D'; //‘P’: Production, ‘T’: Testing, ‘D’: Development
         $this->VersionID = '2.5';
         $this->CharacterSet = 'UTF-8';
 
+        if ($config['debug']){
+            $this->ProcessingID = 'T'; //‘P’: Production, ‘T’: Testing, ‘D’: Development
+        } else {
+            $this->ProcessingID = 'P'; //‘P’: Production, ‘T’: Testing, ‘D’: Development
+        }
     }
 
 
