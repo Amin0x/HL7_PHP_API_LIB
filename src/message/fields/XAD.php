@@ -120,7 +120,7 @@ final class XAD extends Field
         $this->setElementValue(7, $AddressTypeCode);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return parent::__toString();
     }

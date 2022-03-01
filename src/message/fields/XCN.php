@@ -123,7 +123,7 @@ final class XCN extends Field
         //$this->setElementValue( null, $NameTypeCode);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return parent::__toString();
     }

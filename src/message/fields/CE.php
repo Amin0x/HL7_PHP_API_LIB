@@ -102,7 +102,7 @@ final class CE extends Field
         $this->setElementValue(6, $NameOfAlternateCodingSystem);
     }
 
-    public function __toString()
+    public function __toString() : string
     {
         return parent::__toString();
     }

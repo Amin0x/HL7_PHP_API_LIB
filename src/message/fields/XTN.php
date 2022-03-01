@@ -85,7 +85,7 @@ final class XTN extends Field
         $this->setElementValue(4, $EmailAddress);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return parent::__toString();
     }

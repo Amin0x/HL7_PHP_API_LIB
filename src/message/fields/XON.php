@@ -37,4 +37,9 @@ final class XON extends Field
     public function setOrganizationIdentifier($id){
         $this->setElementValue(10, $id);
     }
+
+    public function __toString(): string
+    {
+        return parent::__toString();
+    }
 }

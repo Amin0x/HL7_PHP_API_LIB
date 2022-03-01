@@ -6,6 +6,10 @@ namespace amin0x\nabidh;
 
 final class CP extends Field
 {
+    public function __construct()
+    {
+    }
+
     public function getPrice(){
         return $this->getElementValue(1);
     }
@@ -52,5 +56,10 @@ final class CP extends Field
 
     public function setRangeType(string $value){
         $this->setElementValue(6, $value);
+    }
+
+    public function __toString(): string
+    {
+        return parent::__toString();
     }
 }

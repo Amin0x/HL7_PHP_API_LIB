@@ -108,7 +108,7 @@ final class PL extends Field
         $this->setElementValue(9, $locationDescription);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return parent::__toString();
     }

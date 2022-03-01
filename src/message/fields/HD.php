@@ -52,7 +52,7 @@ final class HD extends Field
         $this->setElementValue(2, $UniversalId);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return parent::__toString();
 

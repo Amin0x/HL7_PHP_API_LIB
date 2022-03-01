@@ -45,7 +45,7 @@ final class XPN extends Field
         $this->setElementValue(3, $name);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return parent::__toString();
     }
