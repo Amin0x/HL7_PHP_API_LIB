@@ -13,7 +13,7 @@ class PPR_PC3_Delete_Probalem extends PPR_PC1_Add_Probalem implements IMessage
     public function __construct()
     {
         parent::__construct();
-        $this->getMessageHeader()->setMessageType('PPR^PC3');
+        $this->getMSH()->setMessageType('PPR^PC3');
     }
 
     public function __toString(): string

@@ -13,7 +13,7 @@ class PPR_PC2_Update_Probalem extends PPR_PC1_Add_Probalem implements IMessage
     public function __construct()
     {
         parent::__construct();
-        $this->getMessageHeader()->setMessageType('PPR^PC2');
+        $this->getMSH()->setMessageType('PPR^PC2');
     }
 
     public function __toString(): string

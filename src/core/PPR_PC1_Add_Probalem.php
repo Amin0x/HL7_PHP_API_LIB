@@ -6,8 +6,8 @@ namespace amin0x\nabidh;
 
 class PPR_PC1_Add_Probalem implements IMessage
 {
-    private  MSH $MessageHeader;
-    private  PID $PatientIdentification;
+    private  MSH $MSH;
+    private  PID $PID;
     private  PV1_GROUP|null $PATIENT_VISIT = null;
     private  array $PROBLEM = [];
 
@@ -16,41 +16,41 @@ class PPR_PC1_Add_Probalem implements IMessage
      */
     public function __construct()
     {
-        $this->MessageHeader = new MSH();
-        $this->PatientIdentification = new PID();
-        $this->getMessageHeader()->setMessageType('PPR^PC1');
+        $this->MSH = new MSH();
+        $this->PID = new PID();
+        $this->getMSH()->setMessageType('PPR^PC1');
     }
 
     /**
      * @return MSH
      */
-    public function getMessageHeader(): MSH
+    public function getMSH(): MSH
     {
-        return $this->MessageHeader;
+        return $this->MSH;
     }
 
     /**
-     * @param MSH $MessageHeader
+     * @param MSH $MSH
      */
-    public function setMessageHeader(MSH $MessageHeader): void
+    public function setMSH(MSH $MSH): void
     {
-        $this->MessageHeader = $MessageHeader;
+        $this->MSH = $MSH;
     }
 
     /**
      * @return PID
      */
-    public function getPatientIdentification(): PID
+    public function getPID(): PID
     {
-        return $this->PatientIdentification;
+        return $this->PID;
     }
 
     /**
-     * @param PID $PatientIdentification
+     * @param PID $PID
      */
-    public function setPatientIdentification(PID $PatientIdentification): void
+    public function setPID(PID $PID): void
     {
-        $this->PatientIdentification = $PatientIdentification;
+        $this->PID = $PID;
     }
 
     /**
@@ -89,8 +89,8 @@ class PPR_PC1_Add_Probalem implements IMessage
     public function __toString(): string
     {
         $str = '';
-        $str .= $this->MessageHeader;
-        $str .= $this->PatientIdentification;
+        $str .= $this->MSH;
+        $str .= $this->PID;
         if (!empty($this->PATIENT_VISIT)) {
             $str .= $this->PATIENT_VISIT;
         }
