@@ -30,7 +30,7 @@ class RXO implements Segment
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getRequestedGiveCode(): CE|string
     {
@@ -78,7 +78,7 @@ class RXO implements Segment
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getRequestedGiveUnits(): CE|string
     {
@@ -94,7 +94,7 @@ class RXO implements Segment
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getRequestedDosageForm(): CE|string
     {
@@ -110,7 +110,7 @@ class RXO implements Segment
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getProviderTreatmentInstructions(): CE|string
     {
@@ -126,7 +126,7 @@ class RXO implements Segment
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getProviderAdministrationInstructions(): CE|string
     {
@@ -158,7 +158,7 @@ class RXO implements Segment
     }
 
     /**
-     * @return mixed
+     * @return XCN|string
      */
     public function getOrderingProviderNumber(): XCN|string
     {
@@ -254,7 +254,7 @@ class RXO implements Segment
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getRequestedGiveRateUnits():CE|string
     {

@@ -25,7 +25,7 @@ class RXE implements Segment {
     private $GiveDrugStrengthUnits;
 
     /**
-     * @return mixed
+     * @return TQ|string
      */
     public function getQuantityTiming(): TQ|string
     {
@@ -41,7 +41,7 @@ class RXE implements Segment {
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getGiveCode(): CE|string
     {
@@ -89,7 +89,7 @@ class RXE implements Segment {
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getGiveUnits(): CE|string
     {
@@ -121,7 +121,7 @@ class RXE implements Segment {
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getProviderAdministrationInstructions(): CE|string
     {
@@ -153,7 +153,7 @@ class RXE implements Segment {
     }
 
     /**
-     * @return mixed
+     * @return XCN|string
      */
     public function getOrderingProviderNumber(): XCN|string
     {
@@ -161,7 +161,7 @@ class RXE implements Segment {
     }
 
     /**
-     * @param mixed $OrderingProviderNumber
+     * @param XCN $OrderingProviderNumber
      */
     public function setOrderingProviderNumber(XCN $OrderingProviderNumber): void
     {
@@ -217,7 +217,7 @@ class RXE implements Segment {
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getGiveRateUnits(): CE|string
     {
@@ -249,7 +249,7 @@ class RXE implements Segment {
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getGiveStrengthUnits(): CE|string
     {
@@ -265,7 +265,7 @@ class RXE implements Segment {
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getGiveIndication(): CE|string
     {
@@ -297,7 +297,7 @@ class RXE implements Segment {
     }
 
     /**
-     * @return mixed
+     * @return CE|string
      */
     public function getGiveDrugStrengthUnits(): CE|string
     {

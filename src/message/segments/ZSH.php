@@ -39,7 +39,7 @@ class ZSH implements Segment
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getSocialHabit(): CE|string
     {
@@ -47,7 +47,7 @@ class ZSH implements Segment
     }
 
     /**
-     * @param string $SocialHabit
+     * @param CE $SocialHabit
      */
     public function setSocialHabit(CE $SocialHabit): void
     {
@@ -55,7 +55,7 @@ class ZSH implements Segment
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getSocialHabitQty(): CE|string
     {
@@ -63,7 +63,7 @@ class ZSH implements Segment
     }
 
     /**
-     * @param string $SocialHabitQty
+     * @param CE $SocialHabitQty
      */
     public function setSocialHabitQty(CE $SocialHabitQty): void
     {
@@ -71,7 +71,7 @@ class ZSH implements Segment
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getSocialHabitCategory(): CE|string
     {
@@ -79,7 +79,7 @@ class ZSH implements Segment
     }
 
     /**
-     * @param string $SocialHabitCategory
+     * @param CE $SocialHabitCategory
      */
     public function setSocialHabitCategory(CE $SocialHabitCategory): void
     {
@@ -151,7 +151,7 @@ class ZSH implements Segment
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getEnteredBy(): CE|string
     {
@@ -159,7 +159,7 @@ class ZSH implements Segment
     }
 
     /**
-     * @param string $EnteredBy
+     * @param CE $EnteredBy
      */
     public function setEnteredBy(CE $EnteredBy): void
     {

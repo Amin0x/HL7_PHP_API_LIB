@@ -110,7 +110,7 @@ class SPM implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getSpecimenCollectionMethod(): CE|string
     {
@@ -118,7 +118,7 @@ class SPM implements Segment {
     }
 
     /**
-     * @param string $SpecimenCollectionMethod
+     * @param CE $SpecimenCollectionMethod
      */
     public function setSpecimenCollectionMethod(CE $SpecimenCollectionMethod): void
     {

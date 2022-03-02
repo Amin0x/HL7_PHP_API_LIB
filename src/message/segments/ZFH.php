@@ -37,7 +37,7 @@ class ZFH implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getFamilyMember(): CE|string
     {
@@ -45,7 +45,7 @@ class ZFH implements Segment {
     }
 
     /**
-     * @param string $FamilyMember
+     * @param CE $FamilyMember
      */
     public function setFamilyMember(CE $FamilyMember): void
     {
@@ -53,7 +53,7 @@ class ZFH implements Segment {
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getDiagnosis(): CE|string
     {
@@ -61,7 +61,7 @@ class ZFH implements Segment {
     }
 
     /**
-     * @param string $Diagnosis
+     * @param CE $Diagnosis
      */
     public function setDiagnosis(CE $Diagnosis): void
     {

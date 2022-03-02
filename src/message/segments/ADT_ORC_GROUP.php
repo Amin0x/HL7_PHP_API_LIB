@@ -81,4 +81,13 @@ class ADT_ORC_GROUP extends Group
         return $this->nte;
     }
 
+    public function __toString(): string
+    {
+        // TODO: Implement __toString() method.
+    }
+
+    public function getArray(): array
+    {
+        // TODO: Implement getArray() method.
+    }
 }

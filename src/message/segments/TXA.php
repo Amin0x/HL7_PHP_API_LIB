@@ -105,7 +105,7 @@ class TXA implements Segment {
     }
 
     /**
-     * @return string
+     * @return XCN|string
      */
     public function getOriginatorCodeName(): XCN|string
     {
@@ -113,7 +113,7 @@ class TXA implements Segment {
     }
 
     /**
-     * @param string $OriginatorCodeName
+     * @param XCN $OriginatorCodeName
      */
     public function setOriginatorCodeName(XCN $OriginatorCodeName): void
     {

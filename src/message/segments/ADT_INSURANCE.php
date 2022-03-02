@@ -6,7 +6,6 @@ namespace amin0x\nabidh;
 
 class ADT_INSURANCE extends Group
 {
-    private static int $index = 1;
     private  IN1 $in1;
     private array $in2 = [];
     private array $in3 = [];
@@ -100,31 +99,15 @@ class ADT_INSURANCE extends Group
     }
 
     /**
-     * @return int
+     * @return array
      */
-    public function getIndex(): int
-    {
-        return $this->index;
-    }
-
-    /**
-     * @param int $index
-     */
-    public function setIndex(int $index): void
-    {
-        $this->index = $index;
-    }
-
-    /**
-     * @return array|IN1[]
-     */
-    public function getArray(){
+    public function getArray(): array{
         return array_merge([$this->in1], $this->in2, $this->in3, $this->rol);
     }
 
-    public function toString(){
 
+    public function __toString(): string
+    {
+        // TODO: Implement __toString() method.
     }
-
-
 }

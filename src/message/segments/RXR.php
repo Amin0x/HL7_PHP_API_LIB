@@ -9,7 +9,7 @@ class RXR implements Segment
     private $AdministrationSite = '';
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getRoute(): CE|string
     {
@@ -17,7 +17,7 @@ class RXR implements Segment
     }
 
     /**
-     * @param string $Route
+     * @param CE $Route
      */
     public function setRoute(CE $Route): void
     {
@@ -25,7 +25,7 @@ class RXR implements Segment
     }
 
     /**
-     * @return string
+     * @return CE|string
      */
     public function getAdministrationSite(): CE|string
     {
@@ -33,7 +33,7 @@ class RXR implements Segment
     }
 
     /**
-     * @param string $AdministrationSite
+     * @param CE $AdministrationSite
      */
     public function setAdministrationSite(CE $AdministrationSite): void
     {
