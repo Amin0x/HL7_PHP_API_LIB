@@ -4,12 +4,16 @@
 namespace amin0x\nabidh;
 
 
-abstract class ADTA01 extends ZSegment
+abstract class ADTA01
 {
     private MSH $MSH;
     private PID $PID;
     private EVN $EVN;
     private PV1 $PV1;
+    private ZSC|null $ZSC;
+    private array $ZFH;
+    private array $ZSH;
+
 
     public function __construct()
     {
@@ -17,6 +21,9 @@ abstract class ADTA01 extends ZSegment
         $this->PID = new PID();
         $this->EVN = new EVN();
         $this->PV1 = new PV1();
+        $this->ZSC = null;
+        $this->ZFH = [];
+        $this->ZSH = [];
     }
 
     /**
@@ -83,5 +90,53 @@ abstract class ADTA01 extends ZSegment
         $this->PV1 = $PV1;
     }
 
+
+    /**
+     * @param null $ZSC
+     */
+    public function setZSC($ZSC): void
+    {
+        $this->ZSC = $ZSC;
+    }
+
+    /**
+     * @return array
+     */
+    public function getZFH(): array
+    {
+        return $this->ZFH;
+    }
+
+    /**
+     * @return null
+     */
+    public function getZSC()
+    {
+        return $this->ZSC;
+    }
+
+    /**
+     * @param array $ZSH
+     */
+    public function setZSH(array $ZSH): void
+    {
+        $this->ZSH = $ZSH;
+    }
+
+    /**
+     * @return array
+     */
+    public function getZSH(): array
+    {
+        return $this->ZSH;
+    }
+
+    /**
+     * @param array $ZFH
+     */
+    public function setZFH(array $ZFH): void
+    {
+        $this->ZFH = $ZFH;
+    }
 
 }
