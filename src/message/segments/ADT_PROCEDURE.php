@@ -13,7 +13,6 @@ class ADT_PROCEDURE extends Group
     /**
      * ADT_PROCEDURE constructor.
      * @param PR1 $pr1
-     * @param array $rol
      */
     public function __construct(PR1 $pr1)
     {
@@ -56,12 +55,14 @@ class ADT_PROCEDURE extends Group
         $this->rol[count($this->rol) - 1]->setID(self::$index);
     }
 
-    public function getArray(){
+    public function getArray(): array
+    {
         return array_merge([$this->pr1], $this->rol);
     }
 
-    public function toString(){
 
+    public function __toString(): string
+    {
+        // TODO: Implement __toString() method.
     }
-
 }

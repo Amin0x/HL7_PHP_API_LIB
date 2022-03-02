@@ -4,7 +4,7 @@
 namespace amin0x\nabidh;
 
 
-class VXU_ORC_Group
+class VXU_ORC_Group extends Group
 {
     private ORC $orc;
     private array $tq1 = [];
