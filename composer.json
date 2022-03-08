@@ -2,7 +2,7 @@
     "name": "amin0x/hl7_php_api_lib",
     "description": "project to implement Nabidh HL7",
     "type": "libarary",
-    "license": "Apache-2.0 License ",
+    "license": "Apache-2.0",
     "scripts": {
         "test": "vendor/bin/phpunit"
     },   
