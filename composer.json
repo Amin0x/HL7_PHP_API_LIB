@@ -1,6 +1,11 @@
 {
     "name": "amin0x/hl7_php_api_lib",
+    "description": "project to implement Nabidh HL7",
     "type": "libarary",
+    "license": "Apache-2.0 License ",
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },   
     "autoload": {
         "psr-4": {
             "amin0x\\nabidh\\": [
@@ -20,7 +25,7 @@
     },
     "authors": [
         {
-            "name": "amin",
+            "name": "amin omer",
             "email": "garogigi@gmail.com"
         }
     ],
@@ -28,6 +33,7 @@
         "phpunit/phpunit": "9.5"
     },
   "require": {
+    "php": ">=7.4",
     "ext-curl": "*"
   }
 }
