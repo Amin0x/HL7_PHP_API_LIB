@@ -6,4 +6,4 @@ project to implement Nabidh HL7 using PHP
 
 #### install
 
-{composer require amin0x/hl7_php_api_lib}
+composer require amin0x/hl7_php_api_lib
