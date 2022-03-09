@@ -38,6 +38,6 @@ class MDM_T11_Document_Cancel_Notification extends ADTA01 implements IMessage
 
     public function __toString(): string
     {
-        // TODO: Implement __toString() method.
+        return '';
     }
 }
