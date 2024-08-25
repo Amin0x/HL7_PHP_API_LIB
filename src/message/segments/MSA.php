@@ -10,6 +10,16 @@ class MSA implements Segment {
     private $DelayedAcknowledgmentType = '';
     private $ErrorCondition = '';
 
+public function __constructor($AcknowledgmentCode, $MessageControlID, $TextMessage, $ExpectedSequenceNumber, $DelayedAcknowledgmentType, $ErrorCondition){
+parent::__construct();
+$this->AcknowledgmentCode = $AcknowledgmentCode;
+$this->MessageControlID = $MessageControlID;
+$this->TextMessage = $TextMessage;
+$this->ExpectedSequenceNumber = $ExpectedSequenceNumber;
+$this->DelayedAcknowledgmentType = $DelayedAcknowledgmentType;
+$this->ErrorCondition = $ErrorCondition;
+
+}
     /**
      * @return string
      */
