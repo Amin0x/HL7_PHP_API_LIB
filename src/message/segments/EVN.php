@@ -9,6 +9,14 @@ class EVN implements Segment {
     private $EventOccurred = '';
     private $EventFacility = '';
 
+    public function __construct($eventTypeCode, $recordedDateTime, $operatorID, $eventOccurred, $eventFacility){
+     parent::__construct();
+     $this.EventTypeCode = $eventTypeCode;
+     $this.RecordedDateTime = $recordedDateTime;
+$this.OperatorID = $operatorID;
+$this.EventOccurred = $eventOccurred;
+$this.EventFacility = $eventFacility;
+    }
 
     /**
      * @return string
