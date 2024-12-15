@@ -5,44 +5,58 @@ use BadMethodCallException;
 
 class RXR implements Segment
 {
-    private $Route = '';
-    private $AdministrationSite = '';
+    private ?CE $route = null;
+    private ?CE $administrationSite = null;
 
     /**
-     * @return CE|string
+     * RXR constructor.
+     * 
+     * @param CE|null $route
+     * @param CE|null $administrationSite
      */
-    public function getRoute(): CE|string
+    public function __construct(?CE $route = null, ?CE $administrationSite = null)
     {
-        return $this->Route;
+        $this->route = $route;
+        $this->administrationSite = $administrationSite;
     }
 
     /**
-     * @param CE $Route
+     * @return CE|null
      */
-    public function setRoute(CE $Route): void
+    public function getRoute(): ?CE
     {
-        $this->Route = $Route;
+        return $this->route;
     }
 
     /**
-     * @return CE|string
+     * @param CE|null $route
      */
-    public function getAdministrationSite(): CE|string
+    public function setRoute(?CE $route): void
     {
-        return $this->AdministrationSite;
+        $this->route = $route;
     }
 
     /**
-     * @param CE $AdministrationSite
+     * @return CE|null
      */
-    public function setAdministrationSite(CE $AdministrationSite): void
+    public function getAdministrationSite(): ?CE
     {
-        $this->AdministrationSite = $AdministrationSite;
+        return $this->administrationSite;
     }
 
+    /**
+     * @param CE|null $administrationSite
+     */
+    public function setAdministrationSite(?CE $administrationSite): void
+    {
+        $this->administrationSite = $administrationSite;
+    }
+
+    /**
+     * String representation of the RXR object.
+     */
     public function __toString()
     {
-        return 'RXR|' . $this->Route . '|' . $this->AdministrationSite . '||||\r';
+        return 'RXR|' . ($this->route ? $this->route : '') . '|' . ($this->administrationSite ? $this->administrationSite : '') . '||||\r';
     }
-
 }
